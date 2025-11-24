@@ -36,8 +36,8 @@ export const StarBackground = () => {
             newMeteors.push({
                 id:i,
                 size : Math.random() * 2 + 0.5,
-                x : Math.random() * 90,
-                y : Math.random() * 40,
+                x : Math.random() * 95,
+                y : Math.random() * 29,
                 delay : Math.random() * 17,
                 animationDuration : Math.random() * 3 + 3,
             });
@@ -67,7 +67,7 @@ export const StarBackground = () => {
                 navigator.geolocation.getCurrentPosition(
                     async (position) => {
                         const { latitude, longitude } = position.coords;
-                        console.log('Got location:', latitude, longitude);
+                        console.log('Got location!');
                         const response = await fetch(
                             `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
                         );
@@ -77,23 +77,23 @@ export const StarBackground = () => {
                             console.log('Weather data:', data);
                             setTemperature(Math.round(data.current_weather.temperature));
                         } else {
-                            setTemperature('27°C'); 
+                            setTemperature(27); 
                             console.log("Rate limited with meteo api");
                         }
                     },
                     (error) => {
                         console.log('Geolocation error:', error.code, error.message);
-                        setTemperature('27°C'); 
+                        setTemperature(27); 
                         console.log("Location denied, so default temp");
                     }
                 );
             } else {
-                setTemperature('27°C'); 
+                setTemperature(27); 
                 console.log("Location not supported, so default temp");
             }
         } catch (error) {
             console.log("Error fetching weather data", error);
-            setTemperature('27°C');
+            setTemperature(27);
         }
     };
 
