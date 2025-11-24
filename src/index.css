@@ -71,7 +71,7 @@
 
 @layer base{
   :root {
-    --background: 195 73% 69%;
+    --background: 210 15% 96%;
     --foreground: 150 68% 79%;
     --card: 0 0% 100%;
     --primary: 62 82% 86%;
@@ -80,7 +80,7 @@
   }
 
   .dark{
-    --background:218 56% 16% ; 
+    --background: 220 40% 8%; 
     --foreground: 207 64% 26%;
     --card: 222 47% 8%;
     --primary:180 44% 41%;
@@ -150,8 +150,9 @@
 }
 
 @utility star {
-  @apply absolute rounded-full bg-white; 
-  box-shadow: 0 0 10px 2px rgba(255,255,255,0.5);
+  @apply absolute rounded-full; 
+  background-color: #fef9e7;
+  box-shadow: 0 0 8px 1px rgba(254, 249, 231, 0.4);
 }
 
 @utility meteor {
@@ -164,4 +165,8 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+}
+
+@utility moon {
+  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-110 transition-transform duration-300 flex items-center justify-center;
 }
