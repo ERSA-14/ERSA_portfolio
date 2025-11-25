@@ -26,12 +26,12 @@ export const StarBackground = () => {
     },[]);
 
     const generateStars = () => {
-        const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / 14000);
+        const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / 13500);
         const newStars = [];
         for (let i = 0; i < numberOfStars; i++) {
             newStars.push({
                 id:i,
-                size : Math.random() * 2.5  ,
+                size : Math.random() * 2.5 + 0.5 ,
                 x : Math.random() * 100,
                 y : Math.random() * 100,
                 opacity : Math.random() * 0.5 + 0.5,
@@ -47,11 +47,11 @@ export const StarBackground = () => {
         for (let i = 0; i < numberOfMeteors; i++) {
             newMeteors.push({
                 id:i,
-                size : Math.random() * 2 + 0.5,
+                size : Math.random() * 1.5 + 0.5,
                 x : Math.random() * 95,
-                y : Math.random() * 29,
+                y : Math.random() * 15,
                 delay : Math.random() * 17,
-                animationDuration : Math.random() * 3 + 3,
+                animationDuration : Math.random() * 3.5 + 2.5,
             });
         }
         setMeteors(newMeteors);
@@ -126,8 +126,8 @@ export const StarBackground = () => {
             <div key={meteor.id} className='meteor animate-meteor' style={{
                 left: meteor.x + "%",
                 top: meteor.y + "%",
-                width: meteor.size * 50 + "px",
-                height: meteor.size * 1.2 + "px",
+                width: meteor.size * 48 + "px",
+                height: meteor.size * 1.15 + "px",
                 animationDelay: meteor.delay + "s",
                 animationDuration: meteor.animationDuration + "s",
             }}>
