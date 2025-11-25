@@ -56,14 +56,14 @@
   
   @keyframes meteor {
     0% {
-      transform: rotate(215deg) translateX(0px);
+      transform: rotate(218deg) translateX(0px);
       opacity: 1;
     }
     69% {
       opacity: 1;
     }
     100% {
-      transform: rotate(215deg) translateX(-500px);
+      transform: rotate(218deg) translateX(-500px);
       opacity: 0;
     }
   }
@@ -176,5 +176,5 @@
       inset -15px -15px 30px rgba(180, 130, 70, 0.15),
       inset 10px 10px 25px rgba(255, 255, 255, 0.4),
       inset -5px -5px 15px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(254, 243, 199, 0.05);
+  border: 1.1px solid #555555;
 }

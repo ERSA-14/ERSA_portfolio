@@ -11,15 +11,27 @@ export const StarBackground = () => {
         generateMeteors();
         generateMoon();
         fetchWeather();
+
+        const handleResize = () => {
+            generateStars();
+            generateMeteors();
+            generateMoon();
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     },[]);
 
     const generateStars = () => {
-        const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / 14083);
+        const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / 14000);
         const newStars = [];
         for (let i = 0; i < numberOfStars; i++) {
             newStars.push({
                 id:i,
-                size : Math.random() * 2  ,
+                size : Math.random() * 2.5  ,
                 x : Math.random() * 100,
                 y : Math.random() * 100,
                 opacity : Math.random() * 0.5 + 0.5,
@@ -114,7 +126,7 @@ export const StarBackground = () => {
             <div key={meteor.id} className='meteor animate-meteor' style={{
                 left: meteor.x + "%",
                 top: meteor.y + "%",
-                width: meteor.size * 30 + "px",
+                width: meteor.size * 50 + "px",
                 height: meteor.size * 1.2 + "px",
                 animationDelay: meteor.delay + "s",
                 animationDuration: meteor.animationDuration + "s",
@@ -125,7 +137,7 @@ export const StarBackground = () => {
         {moon && (
             <div 
                 className='moon'
-                onClick={() => window.open('https://www.google.com/search?q=weather+today', 'weatherWindow', 'width=800,height=600,left=200,top=100')}
+                onClick={() => window.open('https://www.google.com/search?q=weather+today', 'weatherWindow', 'width=750,height=550,left=200,top=100')}
                 style={{
                     left: moon.x + "%",
                     top: moon.y + "%",
