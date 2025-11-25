@@ -49,10 +49,10 @@ export const StarBackground = () => {
         const newMoon = {
             id:0,
             size : Math.random() * 2 + 0.8,
-            x : Math.random() * 29,
-            y : Math.random() * 29,
-            delay : Math.random() * 15,
-            animationDuration : Math.random() * 3 + 3,
+            x : 3,
+            y : 4,
+            delay : 15,
+            animationDuration : 6,
         };
         setMoon(newMoon);
     };
@@ -61,13 +61,11 @@ export const StarBackground = () => {
         try {
             console.log('fetchWeather called');
             console.log('navigator.geolocation available:', !!navigator.geolocation);
-            
             if (navigator.geolocation) {
-                console.log('Requesting geolocation...');
                 navigator.geolocation.getCurrentPosition(
                     async (position) => {
                         const { latitude, longitude } = position.coords;
-                        console.log('Got location!');
+                        console.log('Got location! this is respective to network (disable VPN or wifi for better results)',latitude,longitude);
                         const response = await fetch(
                             `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
                         );
@@ -75,7 +73,7 @@ export const StarBackground = () => {
                         if (response.ok) {
                             const data = await response.json();
                             console.log('Weather data:', data);
-                            setTemperature(Math.round(data.current_weather.temperature));
+                            setTemperature(data.current_weather.temperature);
                         } else {
                             setTemperature(27); 
                             console.log("Rate limited with meteo api");
@@ -131,18 +129,8 @@ export const StarBackground = () => {
                 style={{
                     left: moon.x + "%",
                     top: moon.y + "%",
-                    width: "45px",
-                    height: "45px",
-                    background: 'radial-gradient(circle at 30% 30%, #ffffff 0%, #fefefe 20%, #fef9e7 40%, #fae17dff 70%, #fae17dff 100%)',
-                    boxShadow: `
-                        0 0 60px 20px rgba(252, 211, 77, 0.3),
-                        0 0 100px 40px rgba(254, 243, 199, 0.2),
-                        0 0 140px 60px rgba(254, 249, 231, 0.1),
-                        inset -15px -15px 30px rgba(180, 130, 70, 0.15),
-                        inset 10px 10px 25px rgba(255, 255, 255, 0.4),
-                        inset -5px -5px 15px rgba(0, 0, 0, 0.05)
-                    `,
-                    border: '1px solid rgba(254, 243, 199, 0.05)',
+                    width: "50px",
+                    height: "50px",
                     pointerEvents: 'auto',
                 }}
             >

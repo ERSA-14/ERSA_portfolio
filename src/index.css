@@ -71,7 +71,7 @@
 
 @layer base{
   :root {
-    --background: 210 15% 96%;
+    --background: 0 0% 100%;
     --foreground: 150 68% 79%;
     --card: 0 0% 100%;
     --primary: 62 82% 86%;
@@ -169,4 +169,12 @@
 
 @utility moon {
   @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-110 transition-transform duration-300 flex items-center justify-center;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fefefe 20%, #fef9e7 40%, #fae17dff 70%, #fae17dff 100%);
+  box-shadow: 0 0 60px 20px rgba(252, 211, 77, 0.3),
+      0 0 100px 40px rgba(254, 243, 199, 0.2),
+      0 0 140px 60px rgba(254, 249, 231, 0.1),
+      inset -15px -15px 30px rgba(180, 130, 70, 0.15),
+      inset 10px 10px 25px rgba(255, 255, 255, 0.4),
+      inset -5px -5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(254, 243, 199, 0.05);
 }
