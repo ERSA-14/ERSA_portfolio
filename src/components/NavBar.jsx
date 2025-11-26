@@ -46,11 +46,31 @@ export const NavBar = () => {
               {item.name}
             </a>
           ))}
+          <a 
+            href="#Contact" 
+            className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-emerald-50 dark:bg-emerald-800/30 border border-emerald-200 dark:border-emerald-700/100 hover:bg-emerald-100 dark:hover:bg-emerald-800/60 hover:border-emerald-200 dark:hover:border-emerald-700 transition-all duration-300 shadow-sm hover:shadow-md group"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-50"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-300 dark:bg-emerald-400"></span>
+            </span>
+            <span className="text-xs font-semibold text-emerald-300 dark:text-emerald-300 tracking-wide">Available to work!</span>
+          </a>
           <ThemeToggle />
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-2">
+          <a 
+            href="#Contact" 
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-800/30 border border-emerald-200 dark:border-emerald-700/100 shadow-sm"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-50"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-300 dark:bg-emerald-400"></span>
+            </span>
+            <span className="text-xs font-semibold text-emerald-300 dark:text-emerald-300">Available!</span>
+          </a>
           <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

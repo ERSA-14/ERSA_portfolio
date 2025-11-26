@@ -6,9 +6,6 @@ export const Home = () => {
     return (
         <div className="min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">
 
-            {/* Light mode and dark mode*/}
-            {/* Light mode and dark mode*/}
-
             {/* BG Effects */}
             <StarBackground />
 
