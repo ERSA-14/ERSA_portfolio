@@ -71,21 +71,25 @@
 
 @layer base{
   :root {
-    --background: 0 0% 100%;
-    --foreground: 150 68% 79%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --primary: 62 82% 86%;
-    --primary-foreground: 0 70% 91%;
-    --border: 214 32% 91% ;
+    --primary: 200 90% 40%;
+    --primary-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --accent: 35 90% 50%;
+    --muted: 215 16% 47%;
   }
 
-  .dark{
-    --background: 220 40% 8%; 
-    --foreground: 207 64% 26%;
-    --card: 222 47% 8%;
-    --primary:180 44% 41%;
-    --primary-foreground: 348 90% 39%;
-    --border: 217 33% 20%;
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 8%;
+    --primary: 190 100% 50%;
+    --primary-foreground: 224 71% 4%;
+    --border: 215 20% 15%;
+    --accent: 35 100% 60%;
+    --muted: 215 15% 65%;
   }
 
   * {
@@ -129,30 +133,31 @@
 
 @utility text-glow {
   @apply relative;
-  text-shadow: 0 0 10px rgba(167,139,250,0.5);
+  text-shadow: 0 0 20px rgba(255, 215, 100, 0.4);
 }
 
 @utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  @apply transition-all duration-500 hover:scale-[1.01] hover:shadow-xl hover:shadow-primary/10;
 }
 
 @utility gradient-border {
   @apply relative rounded-md;
-  background: linear-gradient(to right, hsl(var(--card)), hsl(var(-- card)));
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
   background-clip: padding-box;
   border: 1px solid transparent;
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
-  transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-  hover:scale-105 active:scale-95;
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium tracking-wide
+  transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,189,219,0.4)]
+  hover:scale-105 active:scale-95 border border-white/10;
 }
 
 @utility star {
   @apply absolute rounded-full; 
-  background-color: #fef9e7;
-  box-shadow: 0 0 8px 1px rgba(254, 249, 231, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8),
+              0 0 12px 2px rgba(59, 189, 219, 0.3);
 }
 
 @utility meteor {
@@ -176,5 +181,4 @@
       inset -15px -15px 30px rgba(180, 130, 70, 0.15),
       inset 10px 10px 25px rgba(255, 255, 255, 0.4),
       inset -5px -5px 15px rgba(0, 0, 0, 0.05);
-  border: 1.1px solid #555555;
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+
 export const StarBackground = () => {
     const [stars,setStars] = useState([]);
     const [meteors,setMeteors] = useState([]);
@@ -31,7 +32,7 @@ export const StarBackground = () => {
         for (let i = 0; i < numberOfStars; i++) {
             newStars.push({
                 id:i,
-                size : Math.random() * 2.5 + 0.5 ,
+                size : Math.random() * 1.0 + 0.5 ,
                 x : Math.random() * 100,
                 y : Math.random() * 100,
                 opacity : Math.random() * 0.5 + 0.5,
@@ -61,8 +62,8 @@ export const StarBackground = () => {
         const newMoon = {
             id:0,
             size : Math.random() * 2 + 0.8,
-            x : 3,
-            y : 4,
+            x : 2,
+            y : 8,
             delay : 15,
             animationDuration : 6,
         };
@@ -137,7 +138,7 @@ export const StarBackground = () => {
         {moon && (
             <div 
                 className='moon'
-                onClick={() => window.open('https://www.google.com/search?q=weather+today', 'weatherWindow', 'width=750,height=550,left=200,top=100')}
+                onClick={() => window.open('https://www.google.com/search?q=weather+today', 'Weather_Window', 'width=750,height=550,left=200,top=100')}
                 style={{
                     left: moon.x + "%",
                     top: moon.y + "%",
@@ -146,7 +147,7 @@ export const StarBackground = () => {
                     pointerEvents: 'auto',
                 }}
             >
-                <span className='text-xs font-bold text-black' style={{ textShadow: '0 1px 2px rgba(255,255,255,0.8)' }}>
+                <span className='text-sm font-bold text-black' style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.87)' }}>
                     {temperature !== null ? (typeof temperature === 'number' ? `${temperature}°C` : temperature) : '27°C'}
                 </span>
 

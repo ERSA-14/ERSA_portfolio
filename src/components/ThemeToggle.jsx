@@ -29,7 +29,7 @@ export const ThemeToggle = () => {
     return (
         <button 
             onClick={toggleTheme}
-            className={cn("fixed top-6 right-6 z-50 p-4 rounded-full bg-card/60 backdrop-blur-sm border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95")}
+            className={cn("fixed top-3 right-6 z-50 p-4 rounded-full bg-card/60 backdrop-blur-sm border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95")}
         >
             {isDarkMode ? (
                 <Sun className='w-6 h-6 text-yellow-400'/> 
