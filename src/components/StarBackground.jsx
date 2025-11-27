@@ -62,8 +62,8 @@ export const StarBackground = () => {
         const newMoon = {
             id:0,
             size : Math.random() * 2 + 0.8,
-            x : 2,
-            y : 8,
+            x : 1,
+            y : 10,
             delay : 15,
             animationDuration : 6,
         };
@@ -142,12 +142,12 @@ export const StarBackground = () => {
                 style={{
                     left: moon.x + "%",
                     top: moon.y + "%",
-                    width: "50px",
-                    height: "50px",
+                    width: "46px",
+                    height: "46px",
                     pointerEvents: 'auto',
                 }}
             >
-                <span className='text-sm font-bold text-black' style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.87)' }}>
+                <span className='text-sm font-semibold text-black' style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.87)' }}>
                     {temperature !== null ? (typeof temperature === 'number' ? `${temperature}°C` : temperature) : '27°C'}
                 </span>
 
