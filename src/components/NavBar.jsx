@@ -50,7 +50,7 @@ export const NavBar = () => {
               {item.name}
             </a>
           ))}
-          <a href="#Contact" className="available-button">
+          <a href="#Contact" className="available-button hover:scale-105">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-50"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-300 dark:bg-emerald-400"></span>

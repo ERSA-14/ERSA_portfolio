@@ -8,14 +8,16 @@ export const HomePage = () => {
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
                         <span className="opacity-0 animate-fade-in">Hello, I am</span>
                         <span className="text-primary opacity-0 animate-fade-in-delay-1">{" "}Saksham</span>
-                        <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">{""}Gupta</span>
+                        <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">{" "}Gupta</span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
                         As an aspiring software and web architect, I engineer stellar digital solutions with the precision of orbital mechanics. I'm committed to launching efficient, high-quality applications that explore the frontiers of open-source technology.
+                        <span>{" "}</span>{" "}
+                        {" "}
                     </p>
 
                     <div className="opacity-0 animate-fade-in-delay-4">
-                        <a href="#Projects" className="cosmic-button font-bold uppercase tracking-widest text-base md:text-lg">
+                        <a href="#Projects" className="cosmic-button">
                             View my Projects
                         </a>
                     </div>
