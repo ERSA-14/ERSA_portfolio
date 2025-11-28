@@ -1,4 +1,4 @@
-import { Code } from "lucide-react";
+import { Code, User, Award } from "lucide-react";
 
 export const AboutMe = () => {
   return (
@@ -56,21 +56,75 @@ export const AboutMe = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="w-6 h-6 text-primary" />
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-primary">
+                      <Code className="w-6 h-6 " />
+                      What I Build With
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Working primarily with Python, React, Node.js/Express, and
+                      AWS to build secure, scalable applications; comfortable
+                      with AI, REST APIs (CRUD operations), Flask, MySQL, and
+                      serverless patterns on AWS for automation and data
+                      processing, with additional experience in Oracle Cloud and
+                      Oracle databases.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="w-6 h-6 text-primary" />
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="w-6 h-6 text-primary" />
+                <div className="p-3 rounded-full bg-primary/10 text-left">
+                  <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-primary">
+                    <Award className="w-6 h-6" />
+                    Certifications
+                  </h4>
+
+                  <p className="text-muted-foreground">
+                    <ul className="hollow-circle">
+                      <li>
+                        <a
+                          href="https://www.credly.com/badges/e3bf58f5-7a58-4847-a234-fa6d2814fa61/linked_in_profile"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors whitespace-nowrap"
+                        >
+                          AWS Certified Cloud Practitioner
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=7712CB35AAD0B31FDE3154077E3F7D29EDAF1DA70C7F51969EE97CACF32A0C49"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors"
+                        >
+                          Oracle OCI Certified Generative AI Professional
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=91CBB24852A192D2E793E6D8616BDF73D0BCF982B98FDFEAB8240C9DD25304E4"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors"
+                        >
+                          Oracle OCI Certified Data Science Professional
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=42B248756A96C0E862B8CA7AAB6BD7443E85CA8EF0C0CD29EC2CBBBCCA1996CD"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors"
+                        >
+                          Oracle AI Vector Search Certified Professional
+                        </a>
+                      </li>
+                    </ul>
+                  </p>
                 </div>
               </div>{" "}
             </div>

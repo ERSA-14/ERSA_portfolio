@@ -164,7 +164,7 @@ export const StarBackground = () => {
           }}
         >
           <span
-            className="text-sm font-semibold text-black"
+            className="text-xs font-bold text-black"
             style={{ textShadow: "0 1px 2px rgba(255, 255, 255, 0.87)" }}
           >
             {temperature !== null
