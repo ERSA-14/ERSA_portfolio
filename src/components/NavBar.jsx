@@ -86,17 +86,20 @@ export const NavBar = () => {
 
       {/* Mobile Menu Content */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-transparent/95 backdrop-blur-xs border-b border-border p-4 flex flex-col gap-3 shadow-lg animate-in slide-in-from-top-0">
+        <div className="md:hidden absolute top-full right-4 mt-2 w-max bg-background/95 backdrop-blur-md border border-border rounded-xl p-2 flex flex-col gap-0.5 shadow-xl animate-in slide-in-from-top-2 fade-in-20">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="text-base font-medium text-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors px-3 py-1.5 rounded-lg"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
             </a>
           ))}
+          <div className="pt-1 mt-1 border-t border-border flex justify-center">
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </nav>

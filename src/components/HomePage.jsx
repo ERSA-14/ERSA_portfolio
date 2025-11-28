@@ -20,10 +20,10 @@ export const HomePage = () => {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            As an aspiring software and web architect, I engineer stellar
-            digital solutions with the precision of orbital mechanics. I'm
-            committed to launching efficient, high-quality applications that
-            explore the frontiers of open-source technology.
+            An software and web architect, I engineer stellar digital solutions
+            with the precision of orbital mechanics. I'm committed to launching
+            efficient, high-quality applications that explore the frontiers of
+            Internet.
             <span> </span>{" "}
           </p>
 
