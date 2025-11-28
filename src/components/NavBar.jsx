@@ -33,29 +33,37 @@ export const NavBar = () => {
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <a className="text-xl font-bold text-primary flex items-center" href="#Home">
+        <a
+          className="text-xl font-bold text-primary flex items-center"
+          href="#Home"
+        >
           <span className="relative z-10">
-            <span className="text-glow text-foreground">Saksham Gupta's</span>{" "}Portfolio
+            <span className="text-glow text-foreground">Saksham Gupta's</span>{" "}
+            Portfolio
           </span>
         </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
-          {navItems.filter(item => item.name !== "Contact").map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              {item.name}
-            </a>
-          ))}
+          {navItems
+            .filter((item) => item.name !== "Contact")
+            .map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
           <a href="#Contact" className="available-button hover:scale-105">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-50"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-300 dark:bg-emerald-400"></span>
             </span>
-            <span className="text-xs font-semibold tracking-wide">Available to work!</span>
+            <span className="text-xs font-semibold tracking-wide">
+              Available to work!
+            </span>
           </a>
           <ThemeToggle />
         </div>
@@ -67,7 +75,11 @@ export const NavBar = () => {
             className="text-foreground p-1"
             aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
