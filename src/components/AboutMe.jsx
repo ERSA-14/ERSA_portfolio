@@ -4,12 +4,15 @@ export const AboutMe = () => {
   return (
     <section id="About" className="relative px-4 py-24">
       {" "}
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary">Saksham</span>
+      <div className="container mx-auto max-w-5xl p-5 gradient-border card-hover">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center ">
+          About <span className="text-primary">Myself</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div id="AboutMe" className="space-y-6">
+          <div
+            id="AboutMe"
+            className="space-y-6 p-4 gradient-border card-hover"
+          >
             <h3 className="text-2xl font-semibold">
               Reliable <span className="text-primary">Software Engineer</span>
             </h3>
@@ -23,19 +26,13 @@ export const AboutMe = () => {
             </p>
 
             <p className="text-muted-foreground">
-              Python and automation are at the center of how I think and build.
-              I like turning repetitive or fragile workflows into reliable
-              scripts and systems, and I'm constantly looking for opportunities
-              to make tasks faster, safer, and more efficient.
-            </p>
-
-            <p className="text-muted-foreground">
-              I like sharing my knowledge and helping others while constantly
-              trying to learn new skills.Long term, I aim to climb the corporate
-              ladder into roles that combine technical depth with ownership and
-              leadership. I want to contribute to teams where engineering
-              excellence, automation-driven thinking, and continuous improvement
-              directly move the business forward.
+              Python and automation are at core of how I think and build. I like
+              turning repetitive or fragile workflows into reliable scripts and
+              systems, and I'm constantly looking for opportunities to make
+              tasks faster, safer, and more efficient. I am a collaborative
+              individual who values continuous learning, excellence, and
+              precision. I aim to enhance business performance and deliver
+              high-quality results without compromising SLAs or SLOs.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
