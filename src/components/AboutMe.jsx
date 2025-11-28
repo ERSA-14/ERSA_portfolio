@@ -29,14 +29,13 @@ export const AboutMe = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                        <a href="#contact" className="cosmic-button">Connect With Me</a>
-                        <a href="src\assets\Resume3.pdf" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary/15 transition-colors duration-300 hover:scale-105 ease-in-out">View Resume</a>
+                            <a href="#contact" className="cosmic-button">Connect With Me</a>
+                            <a href="src\assets\Resume3.pdf" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary/15 transition-colors duration-300 hover:scale-105 ease-in-out">View Resume</a>
                         </div>
 
                     </div>
-
                     <div id="skills" className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                        
+                        <h1> </h1>   
                     </div>
 
                 </div>
