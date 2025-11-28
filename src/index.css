@@ -85,14 +85,14 @@
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 210 40% 98%;
-    --card: 224 71% 8%;
-    --primary: 190 100% 50%;
-    --primary-foreground: 224 71% 4%;
-    --border: 215 20% 15%;
-    --accent: 35 100% 60%;
-    --muted: 215 15% 65%;
+    --background: 224 71% 0%;
+    --foreground: 210 40% 90%;
+    --card: 224 71% 0%;
+    --primary: 190 100% 42%;
+    --primary-foreground: 224 71% 0%;
+    --border: 215 20% 7%;
+    --accent: 35 100% 52%;
+    --muted: 215 15% 57%;
   }
 
   * {
