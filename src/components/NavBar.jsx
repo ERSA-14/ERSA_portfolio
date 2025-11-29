@@ -43,7 +43,6 @@ export const NavBar = () => {
           </span>
         </a>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
           {navItems
             .filter((item) => item.name !== "Contact")
@@ -68,7 +67,6 @@ export const NavBar = () => {
           <ThemeToggle />
         </div>
 
-        {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-2">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -84,7 +82,6 @@ export const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Content */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full right-4 mt-2 w-max bg-background/95 backdrop-blur-md border border-border rounded-xl p-2 flex flex-col gap-0.5 shadow-xl animate-in slide-in-from-top-2 fade-in-20">
           {navItems.map((item) => (
