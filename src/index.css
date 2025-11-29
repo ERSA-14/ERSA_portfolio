@@ -176,10 +176,12 @@
 }
 
 /* Glow effect only for inner cards inside the About section, not the main container */
-#AboutMe.gradient-border:hover,
-#skills .gradient-border:hover {
-  box-shadow: 0 0 20px hsl(var(--primary) / 0.6),
-    0 0 40px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.2);
+/* Uniform reduced intensity for all About Me section cards */
+#About .gradient-border:hover,
+#skills .gradient-border:hover,
+#Skills .gradient-border:hover {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.3),
+    0 0 40px hsl(var(--primary) / 0.2), 0 0 60px hsl(var(--primary) / 0.1);
   border-color: hsl(var(--primary));
 }
 
@@ -189,12 +191,14 @@
   border-color: hsl(190 100% 35%);
 }
 
-.dark #AboutMe.gradient-border:hover,
-.dark #skills .gradient-border:hover {
+/* Uniform reduced intensity for all About Me section cards in dark mode */
+.dark #About .gradient-border:hover,
+.dark #skills .gradient-border:hover,
+.dark #Skills .gradient-border:hover {
   background: linear-gradient(to right, hsl(224 71% 2%), hsl(224 71% 2%));
   border-color: hsl(190 100% 35%);
-  box-shadow: 0 0 20px hsl(190 100% 30% / 0.7), 0 0 40px hsl(190 100% 30% / 0.5),
-    0 0 60px hsl(190 100% 30% / 0.3);
+  box-shadow: 0 0 20px hsl(190 100% 30% / 0.35),
+    0 0 40px hsl(190 100% 30% / 0.25), 0 0 60px hsl(190 100% 30% / 0.15);
 }
 
 .cosmic-button {

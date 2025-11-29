@@ -105,7 +105,7 @@ export const Skills = () => {
             return (
               <div
                 key={index}
-                className="bg-card rounded-lg p-4 border-2 border-foreground/20 card-hover flex flex-col items-center justify-center gap-2 text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(var(--primary),0.3),0_0_30px_rgba(var(--primary),0.15),inset_0_0_20px_rgba(var(--primary),0.1)] hover:border-primary/40 group cursor-pointer"
+                className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center transition-all duration-300 group cursor-pointer"
               >
                 {Icon && (
                   <Icon className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
