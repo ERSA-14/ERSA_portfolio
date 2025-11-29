@@ -54,10 +54,11 @@ export const AboutMe = () => {
                   What I Build With
                 </h4>
                 <p className="text-muted-foreground text-sm md:text-base">
-                  Working primarily with Python, React, Node.js/Express, and AWS
-                  to build secure and scalable applications. Comfortable with
-                  AI, REST APIs, Flask, MySQL, with additional experience in
-                  Oracle Cloud and Oracle databases.
+                  Working primarily with Python, React, Node/Express, MySQL and
+                  AWS Cloud to build secure and scalable applications.
+                  Comfortable with AI, REST APIs, Flask, Postgres, CRUD
+                  operations and additional experience in Oracle Cloud and
+                  Oracle databases.
                   <br />
                 </p>
               </div>

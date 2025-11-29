@@ -9,6 +9,7 @@ import {
   FaGithub,
   FaLinux,
   FaJava,
+  FaDatabase,
 } from "react-icons/fa";
 import {
   SiMysql,
@@ -17,6 +18,8 @@ import {
   SiJavascript,
   SiFlask,
   SiPostgresql,
+  SiBootstrap,
+  SiExpress,
 } from "react-icons/si";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { Database, Code, ArrowDown } from "lucide-react";
@@ -24,14 +27,15 @@ import { Database, Code, ArrowDown } from "lucide-react";
 const skillIcons = {
   Python: FaPython,
   Java: FaJava,
-  SQL: Database,
+  SQL: FaDatabase,
   JavaScript: SiJavascript,
   React: FaReact,
   Next: TbBrandNextjs,
   TailwindCSS: TbBrandTailwind,
+  Bootstrap: SiBootstrap,
   Flask: SiFlask,
   Node: FaNodeJs,
-  Express: Code,
+  Express: SiExpress,
   MySQL: SiMysql,
   Postgres: SiPostgresql,
   "Oracle DBMS": SiOracle,
@@ -58,6 +62,7 @@ const skills = [
   { name: "Git", category: "Dev Tools" },
   { name: "GitHub", category: "Dev Tools" },
   { name: "TailwindCSS", category: "Frontend" },
+  { name: "Bootstrap", category: "Frontend" },
   { name: "Express", category: "Backend" },
   { name: "Flask", category: "Backend" },
   { name: "Linux", category: "Dev Tools" },
