@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { cn } from "../lib/utils";
 import {
   FaNodeJs,
@@ -8,6 +8,7 @@ import {
   FaGitAlt,
   FaGithub,
   FaLinux,
+  FaJava,
 } from "react-icons/fa";
 import {
   SiMysql,
@@ -15,22 +16,25 @@ import {
   SiPostman,
   SiJavascript,
   SiFlask,
+  SiPostgresql,
 } from "react-icons/si";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { Database, Code, ArrowDown } from "lucide-react";
 
 const skillIcons = {
   Python: FaPython,
+  Java: FaJava,
   SQL: Database,
   JavaScript: SiJavascript,
-  ReactJS: FaReact,
-  "Next.js": TbBrandNextjs,
-  "Tailwind CSS": TbBrandTailwind,
+  React: FaReact,
+  Next: TbBrandNextjs,
+  TailwindCSS: TbBrandTailwind,
   Flask: SiFlask,
-  NodeJS: FaNodeJs,
-  ExpressJS: Code,
+  Node: FaNodeJs,
+  Express: Code,
   MySQL: SiMysql,
-  "Oracle DB": SiOracle,
+  Postgres: SiPostgresql,
+  "Oracle DBMS": SiOracle,
   AWS: FaAws,
   "Oracle Cloud": SiOracle,
   Git: FaGitAlt,
@@ -41,22 +45,24 @@ const skillIcons = {
 
 const skills = [
   { name: "Python", category: "Programming Language" },
-  { name: "SQL", category: "Programming Language" },
   { name: "JavaScript", category: "Programming Language" },
-  { name: "ReactJS", category: "Frontend" },
-  { name: "Next.js", category: "Frontend" },
-  { name: "Tailwind CSS", category: "Frontend" },
-  { name: "Flask", category: "Backend" },
-  { name: "NodeJS", category: "Backend" },
-  { name: "ExpressJS", category: "Backend" },
-  { name: "MySQL", category: "Database" },
-  { name: "Oracle DB", category: "Database" },
+  { name: "React", category: "Frontend" },
+  { name: "Next", category: "Frontend" },
+  { name: "Node", category: "Backend" },
   { name: "AWS", category: "Cloud" },
-  { name: "Oracle Cloud", category: "Cloud" },
+  { name: "SQL", category: "Programming Language" },
+  { name: "Java", category: "Programming Language" },
+  { name: "Postgres", category: "Database" },
+  { name: "MySQL", category: "Database" },
+  { name: "Oracle DBMS", category: "Database" },
   { name: "Git", category: "Dev Tools" },
   { name: "GitHub", category: "Dev Tools" },
-  { name: "Postman", category: "Dev Tools" },
+  { name: "TailwindCSS", category: "Frontend" },
+  { name: "Express", category: "Backend" },
+  { name: "Flask", category: "Backend" },
   { name: "Linux", category: "Dev Tools" },
+  { name: "Postman", category: "Dev Tools" },
+  { name: "Oracle Cloud", category: "Cloud" },
 ];
 
 const categories = [
@@ -71,12 +77,21 @@ const categories = [
 
 export const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [minHeight, setMinHeight] = useState("auto");
+  const containerRef = useRef(null);
+
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "All" || skill.category === activeCategory
   );
 
+  useEffect(() => {
+    if (activeCategory === "All" && containerRef.current) {
+      setMinHeight(`${containerRef.current.offsetHeight}px`);
+    }
+  }, [activeCategory, skills]);
+
   return (
-    <section id="Skills" className="relative px-4 py-24 bg-secondary/30 pb-32">
+    <section id="Skills" className="relative px-4 py-24 pb-32">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-12 text-center ">
           My <span className="text-primary">Skillset</span>
@@ -88,10 +103,10 @@ export const Skills = () => {
               key={index}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full capitalize",
+                "rounded-full capitalize transition-all duration-300 text-xs md:text-sm",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary"
+                  ? "cosmic-button px-4 py-1.5 md:px-6 md:py-2"
+                  : "px-4 py-1.5 md:px-6 md:py-2 border-2 border-border/50 bg-background/50 text-muted-foreground hover:border-primary/50 hover:text-foreground hover:bg-secondary/50"
               )}
             >
               {category}
@@ -99,7 +114,11 @@ export const Skills = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div
+          ref={containerRef}
+          style={{ minHeight: activeCategory === "All" ? "auto" : minHeight }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 content-start transition-[min-height] duration-300"
+        >
           {filteredSkills.map((skill, index) => {
             const Icon = skillIcons[skill.name];
             return (
@@ -110,7 +129,7 @@ export const Skills = () => {
                 {Icon && (
                   <Icon className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
                 )}
-                <h3 className="font-semibold text-sm">{skill.name}</h3>
+                <h3 className="font-medium text-sm">{skill.name}</h3>
               </div>
             );
           })}
