@@ -1,4 +1,3 @@
-/* Import unique, readable font with excellent character spacing */
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&display=swap");
 
 @import "tailwindcss";
@@ -175,8 +174,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Glow effect only for inner cards inside the About section, not the main container */
-/* Uniform reduced intensity for all About Me section cards */
 #About .gradient-border:hover,
 #skills .gradient-border:hover,
 #Skills .gradient-border:hover {
@@ -185,13 +182,11 @@
   border-color: hsl(var(--primary));
 }
 
-/* Dark mode hover effects - darker background and border */
 .dark .gradient-border:hover {
   background: linear-gradient(to right, hsl(224 71% 2%), hsl(224 71% 2%));
   border-color: hsl(190 100% 35%);
 }
 
-/* Uniform reduced intensity for all About Me section cards in dark mode */
 .dark #About .gradient-border:hover,
 .dark #skills .gradient-border:hover,
 .dark #Skills .gradient-border:hover {
@@ -244,15 +239,12 @@
     inset -5px -5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Custom button for "Available to work" */
 .available-button {
   @apply flex items-center gap-2 px-3.5 py-2 rounded-full bg-white text-black border transition-all ease-in-out duration-200;
   border-color: #39ff14;
-  /* neon glow */
   box-shadow: 0 0 5px #26ff00, 0 0 15px rgba(38, 255, 0, 0.5);
 }
 
-/* Hover effect for "Available to work" button - darker background (light green tint), reduced glow */
 .available-button:hover {
   @apply transition-all;
   background-color: #f0fdf4;
@@ -261,7 +253,6 @@
     inset 0 0 5px rgba(38, 255, 0, 0.05);
 }
 
-/* Dark mode base */
 .dark .available-button {
   @apply bg-black border;
   color: hsl(var(--foreground));
@@ -269,7 +260,6 @@
   box-shadow: 0 0 5px #26ff00, 0 0 15px rgba(38, 255, 0, 0.5);
 }
 
-/* Hover in dark mode - glass-like light green tint (darker/more transparent), reduced glow */
 .dark .available-button:hover {
   @apply transition-all;
   color: hsl(var(--foreground));
@@ -306,19 +296,16 @@
   transform: translateY(-50%);
 }
 
-/* Theme Toggle Button Glow Effects */
 .theme-toggle-btn {
   @apply transition-all duration-300;
 }
 
-/* Light mode (Moon icon) - Neon Blue Glow on Hover (Matches border-primary) */
 .theme-toggle-btn:hover {
   box-shadow: 0 0 6px hsl(var(--primary)), 0 0 12px hsl(var(--primary) / 0.4),
     inset 0 0 5px hsl(var(--primary) / 0.05);
   border-color: hsl(var(--primary));
 }
 
-/* Dark mode (Sun icon) - Yellow Glow on Hover (Matches border-yellow-400) */
 .dark .theme-toggle-btn:hover {
   box-shadow: 0 0 6px #facc15, 0 0 12px rgba(250, 204, 21, 0.4),
     inset 0 0 5px rgba(250, 204, 21, 0.05);

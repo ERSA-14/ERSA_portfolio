@@ -1,8 +1,8 @@
-import { Code, Award, Link2 } from "lucide-react";
+import { Code, Award, Link2, ArrowDown } from "lucide-react";
 
 export const AboutMe = () => {
   return (
-    <section id="About" className="relative px-4 py-24">
+    <section id="About" className="relative px-4 pt-24 pb-40">
       {" "}
       <div className="container mx-auto max-w-5xl p-6 gradient-border">
         <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-center ">
@@ -117,6 +117,11 @@ export const AboutMe = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce z-50">
+        <a href="#Skills" aria-label="Scroll to Skills">
+          <ArrowDown className="h-5 w-5 text-primary" />
+        </a>
       </div>
     </section>
   );
