@@ -1,23 +1,23 @@
-import { Code, User, Award, Link2 } from "lucide-react";
+import { Code, Award, Link2 } from "lucide-react";
 
 export const AboutMe = () => {
   return (
     <section id="About" className="relative px-4 py-24">
       {" "}
       <div className="container mx-auto max-w-5xl p-6 gradient-border">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center ">
+        <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-center ">
           About <span className="text-primary">Myself</span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div
             id="AboutMe"
             className="space-y-6 p-4 gradient-border card-hover"
           >
-            <h3 className="text-2xl font-semibold">
+            <h3 className="text-xl md:text-2xl font-semibold">
               Reliable <span className="text-primary">Software Engineer</span>
             </h3>
 
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm md:text-base">
               B.Tech Computer Science and Engineering graduate from{" "}
               <span className="font-bold">Vellore Institute of Technology</span>{" "}
               with a CGPA of 8.58, offering a strong foundation in core CS
@@ -25,7 +25,7 @@ export const AboutMe = () => {
               real-world problems and writing scripts to automate daily tasks.
             </p>
 
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm md:text-base">
               I am a collaborative individual who values continuous learning,
               perfection and precision. I aim to enhance business performance
               and deliver high-quality results without compromising SLAs or
@@ -33,7 +33,7 @@ export const AboutMe = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
+              <a href="#Contact" className="cosmic-button">
                 Connect With Me
               </a>
               <a
@@ -46,14 +46,14 @@ export const AboutMe = () => {
               </a>
             </div>
           </div>
-          <div id="skills" className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             <div className="gradient-border p-6 card-hover">
               <div className="text-left">
-                <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-primary">
-                  <Code className="w-6 h-6 " />
+                <h4 className="font-semibold text-base md:text-lg mb-2 flex items-center gap-2 text-primary">
+                  <Code className="w-5 h-5 md:w-6 md:h-6" />
                   What I Build With
                 </h4>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm md:text-base">
                   Working primarily with Python, React, Node.js/Express, and AWS
                   to build secure and scalable applications. Comfortable with
                   AI, REST APIs, Flask, MySQL, with additional experience in
@@ -64,12 +64,12 @@ export const AboutMe = () => {
             </div>
             <div className="gradient-border p-6 card-hover">
               <div className="text-left">
-                <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-primary">
-                  <Award className="w-6 h-6" />
+                <h4 className="font-semibold text-base md:text-lg mb-2 flex items-center gap-2 text-primary">
+                  <Award className="w-5 h-5 md:w-6 md:h-6" />
                   Certifications
                 </h4>
 
-                <p className="text-muted-foreground font-medium">
+                <div className="text-muted-foreground font-medium text-xs md:text-base">
                   <ul className="hollow-circle">
                     <li>
                       <a
@@ -79,7 +79,6 @@ export const AboutMe = () => {
                         className="hover:text-primary transition-colors inline-flex items-center gap-1"
                       >
                         AWS Certified Cloud Practitioner
-                        <Link2 className="w-4 h-4 shrink-0" />
                       </a>
                     </li>
                     <li>
@@ -89,8 +88,7 @@ export const AboutMe = () => {
                         rel="noopener noreferrer"
                         className="hover:text-primary transition-colors inline-flex items-center gap-1"
                       >
-                        Oracle OCI Certified Generative AI Professional
-                        <Link2 className="w-4 h-4 shrink-0" />
+                        Oracle Certified Generative AI Professional
                       </a>
                     </li>
                     <li>
@@ -100,8 +98,7 @@ export const AboutMe = () => {
                         rel="noopener noreferrer"
                         className="hover:text-primary transition-colors inline-flex items-center gap-1"
                       >
-                        Oracle OCI Certified Data Science Professional
-                        <Link2 className="w-4 h-4 shrink-0" />
+                        Oracle Certified Data Science Professional
                       </a>
                     </li>
                     <li>
@@ -112,11 +109,10 @@ export const AboutMe = () => {
                         className="hover:text-primary transition-colors inline-flex items-center gap-1"
                       >
                         Oracle AI Vector Search Certified Professional
-                        <Link2 className="w-4 h-4 shrink-0" />
                       </a>
                     </li>
                   </ul>
-                </p>
+                </div>
               </div>
             </div>
           </div>

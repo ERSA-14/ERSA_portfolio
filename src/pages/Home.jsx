@@ -2,6 +2,7 @@ import { StarBackground } from "../components/StarBackground";
 import { NavBar } from "../components/NavBar";
 import { HomePage } from "../components/HomePage";
 import { AboutMe } from "../components/AboutMe";
+import { Skills } from "../components/Skills";
 
 export const Home = () => {
   return (
@@ -13,6 +14,7 @@ export const Home = () => {
       <main className="flex-grow container mx-auto px-4 pt-24">
         <HomePage />
         <AboutMe />
+        <Skills />
       </main>
     </div>
   );

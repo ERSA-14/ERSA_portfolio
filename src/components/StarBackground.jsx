@@ -147,7 +147,7 @@ export const StarBackground = () => {
 
       {moon && (
         <div
-          className="moon"
+          className="moon hidden md:flex items-center justify-center"
           onClick={() =>
             window.open(
               "https://www.google.com/search?q=weather+today",

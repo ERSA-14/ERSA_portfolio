@@ -17,12 +17,12 @@ export const HomePage = () => {
     } else if (isDeleting && displayedText === "") {
       timeout = setTimeout(() => setIsDeleting(false), 500);
     } else if (isDeleting) {
-      const deleteSpeed = Math.random() * 70 + 50;
+      const deleteSpeed = Math.random() * 80 + 50;
       timeout = setTimeout(() => {
         setDisplayedText(fullText.substring(0, displayedText.length - 1));
       }, deleteSpeed);
     } else {
-      const typingSpeed = Math.random() * 120 + 80;
+      const typingSpeed = Math.random() * 130 + 80;
       timeout = setTimeout(() => {
         setDisplayedText(fullText.substring(0, displayedText.length + 1));
       }, typingSpeed);
@@ -60,7 +60,7 @@ export const HomePage = () => {
                 <span> </span>{" "}
               </p>
 
-              <div className="opacity-0 animate-fade-in-delay-4">
+              <div className="opacity-0 animate-fade-in-delay-4 hover:scale-105">
                 <a href="#Projects" className="cosmic-button">
                   View my Projects
                 </a>

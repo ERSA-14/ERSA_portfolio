@@ -223,7 +223,7 @@
 }
 
 .moon {
-  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-110 transition-transform duration-300 flex items-center justify-center;
+  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-110 transition-transform duration-300;
   background: radial-gradient(
     circle at 30% 30%,
     #ffffff 0%,
