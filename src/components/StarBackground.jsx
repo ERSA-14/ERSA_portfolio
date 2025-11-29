@@ -158,8 +158,8 @@ export const StarBackground = () => {
           style={{
             left: moon.x + "%",
             top: moon.y + "%",
-            width: "46px",
-            height: "46px",
+            width: "46.5px",
+            height: "46.5px",
             pointerEvents: "auto",
           }}
         >
