@@ -79,7 +79,7 @@ export const AboutMe = () => {
                         className="hover:text-primary transition-colors inline-flex items-center gap-1"
                       >
                         AWS Certified Cloud Practitioner
-                        <Link2 className="w-4 h-4" />
+                        <Link2 className="w-4 h-4 shrink-0" />
                       </a>
                     </li>
                     <li>
@@ -90,7 +90,7 @@ export const AboutMe = () => {
                         className="hover:text-primary transition-colors inline-flex items-center gap-1"
                       >
                         Oracle OCI Certified Generative AI Professional
-                        <Link2 className="w-4 h-4" />
+                        <Link2 className="w-4 h-4 shrink-0" />
                       </a>
                     </li>
                     <li>
@@ -101,7 +101,7 @@ export const AboutMe = () => {
                         className="hover:text-primary transition-colors inline-flex items-center gap-1"
                       >
                         Oracle OCI Certified Data Science Professional
-                        <Link2 className="w-4 h-4" />
+                        <Link2 className="w-4 h-4 shrink-0" />
                       </a>
                     </li>
                     <li>
@@ -112,7 +112,7 @@ export const AboutMe = () => {
                         className="hover:text-primary transition-colors inline-flex items-center gap-1"
                       >
                         Oracle AI Vector Search Certified Professional
-                        <Link2 className="w-4 h-4" />
+                        <Link2 className="w-4 h-4 shrink-0" />
                       </a>
                     </li>
                   </ul>

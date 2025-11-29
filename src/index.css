@@ -86,13 +86,13 @@
 
   .dark {
     --background: 224 71% 0%;
-    --foreground: 210 40% 90%;
+    --foreground: 210 40% 95%;
     --card: 224 71% 0%;
-    --primary: 190 100% 42%;
+    --primary: 190 100% 72%;
     --primary-foreground: 224 71% 0%;
-    --border: 215 20% 7%;
-    --accent: 35 100% 52%;
-    --muted: 215 15% 57%;
+    --border: 215 20% 2%;
+    --accent: 35 100% 47%;
+    --muted: 215 15% 52%;
   }
 
   * {
@@ -259,14 +259,16 @@
 
 /* Dark mode base */
 .dark .available-button {
-  @apply bg-black text-white border;
+  @apply bg-black border;
+  color: hsl(var(--foreground));
   border-color: #26ff00;
   box-shadow: 0 0 5px #26ff00, 0 0 15px rgba(38, 255, 0, 0.5);
 }
 
 /* Hover in dark mode - glass-like light green tint (darker/more transparent), reduced glow */
 .dark .available-button:hover {
-  @apply transition-all text-white;
+  @apply transition-all;
+  color: hsl(var(--foreground));
   background-color: rgba(38, 255, 0, 0.1);
   border-color: #1eb300;
   box-shadow: 0 0 4px #1eb300, 0 0 10px rgba(38, 255, 0, 0.3),
@@ -298,4 +300,23 @@
   border-radius: 50%;
   background-color: transparent;
   transform: translateY(-50%);
+}
+
+/* Theme Toggle Button Glow Effects */
+.theme-toggle-btn {
+  @apply transition-all duration-300;
+}
+
+/* Light mode (Moon icon) - Neon Blue Glow on Hover (Matches border-primary) */
+.theme-toggle-btn:hover {
+  box-shadow: 0 0 6px hsl(var(--primary)), 0 0 12px hsl(var(--primary) / 0.4),
+    inset 0 0 5px hsl(var(--primary) / 0.05);
+  border-color: hsl(var(--primary));
+}
+
+/* Dark mode (Sun icon) - Yellow Glow on Hover (Matches border-yellow-400) */
+.dark .theme-toggle-btn:hover {
+  box-shadow: 0 0 6px #facc15, 0 0 12px rgba(250, 204, 21, 0.4),
+    inset 0 0 5px rgba(250, 204, 21, 0.05);
+  border-color: #facc15;
 }

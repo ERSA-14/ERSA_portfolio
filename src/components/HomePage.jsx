@@ -9,7 +9,6 @@ export const HomePage = () => {
 
   useEffect(() => {
     let timeout;
-
     if (!isDeleting && displayedText === fullText) {
       if (!firstTypingComplete) {
         setFirstTypingComplete(true);
