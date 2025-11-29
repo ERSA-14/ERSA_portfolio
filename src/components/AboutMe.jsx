@@ -69,7 +69,7 @@ export const AboutMe = () => {
                   Certifications
                 </h4>
 
-                <div className="text-muted-foreground font-medium text-xs md:text-base">
+                <div className="text-muted-foreground font-medium text-sm md:text-base">
                   <ul className="hollow-circle">
                     <li>
                       <a
