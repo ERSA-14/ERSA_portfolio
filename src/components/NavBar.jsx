@@ -15,48 +15,16 @@ export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const [temperature, setTemperature] = useState(null);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
 
-    fetchWeather();
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const fetchWeather = async () => {
-    try {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          async (position) => {
-            const { latitude, longitude } = position.coords;
-            const response = await fetch(
-              `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
-            );
-            if (response.ok) {
-              const data = await response.json();
-              setTemperature(data.current_weather.temperature);
-            } else {
-              setTemperature(27);
-            }
-          },
-          (error) => {
-            setTemperature(27);
-          }
-        );
-      } else {
-        setTemperature(27);
-      }
-    } catch (error) {
-      setTemperature(27);
-    }
-  };
 
   return (
     <nav
@@ -101,13 +69,6 @@ export const NavBar = () => {
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          {temperature !== null && (
-            <span className="text-sm font-bold text-foreground/80 mr-1">
-              {typeof temperature === "number"
-                ? `${temperature}°C`
-                : temperature}
-            </span>
-          )}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-foreground p-1"

@@ -3,19 +3,14 @@ import { useEffect, useState } from "react";
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
-  const [moon, setMoon] = useState(null);
-  const [temperature, setTemperature] = useState(null);
 
   useEffect(() => {
     generateStars();
     generateMeteors();
-    generateMoon();
-    fetchWeather();
 
     const handleResize = () => {
       generateStars();
       generateMeteors();
-      generateMoon();
     };
 
     window.addEventListener("resize", handleResize);
@@ -59,60 +54,6 @@ export const StarBackground = () => {
     setMeteors(newMeteors);
   };
 
-  const generateMoon = () => {
-    const newMoon = {
-      id: 0,
-      size: Math.random() * 2 + 0.8,
-      x: 1,
-      y: 10,
-      delay: 15,
-      animationDuration: 6,
-    };
-    setMoon(newMoon);
-  };
-
-  const fetchWeather = async () => {
-    try {
-      console.log("fetchWeather called");
-      console.log("navigator.geolocation available:", !!navigator.geolocation);
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          async (position) => {
-            const { latitude, longitude } = position.coords;
-            console.log(
-              "Got location! this is respective to network (disable VPN or wifi for better results)",
-              latitude,
-              longitude
-            );
-            const response = await fetch(
-              `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
-            );
-            console.log("API response:", response);
-            if (response.ok) {
-              const data = await response.json();
-              console.log("Weather data:", data);
-              setTemperature(data.current_weather.temperature);
-            } else {
-              setTemperature(27);
-              console.log("Rate limited with meteo api");
-            }
-          },
-          (error) => {
-            console.log("Geolocation error:", error.code, error.message);
-            setTemperature(27);
-            console.log("Location denied, so default temp");
-          }
-        );
-      } else {
-        setTemperature(27);
-        console.log("Location not supported, so default temp");
-      }
-    } catch (error) {
-      console.log("Error fetching weather data", error);
-      setTemperature(27);
-    }
-  };
-
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {stars.map((star) => (
@@ -144,37 +85,6 @@ export const StarBackground = () => {
           }}
         ></div>
       ))}
-
-      {moon && (
-        <div
-          className="moon hidden md:flex items-center justify-center"
-          onClick={() =>
-            window.open(
-              "https://www.google.com/search?q=weather+today",
-              "Weather_Window",
-              "width=750,height=550,left=200,top=100"
-            )
-          }
-          style={{
-            left: moon.x + "%",
-            top: moon.y + "%",
-            width: "46.5px",
-            height: "46.5px",
-            pointerEvents: "auto",
-          }}
-        >
-          <span
-            className="text-xs font-bold text-black"
-            style={{ textShadow: "0 1px 2px rgba(255, 255, 255, 0.87)" }}
-          >
-            {temperature !== null
-              ? typeof temperature === "number"
-                ? `${temperature}°C`
-                : temperature
-              : "27°C"}
-          </span>
-        </div>
-      )}
     </div>
   );
 };
