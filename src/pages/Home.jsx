@@ -5,6 +5,7 @@ import { NavBar } from "../components/NavBar";
 import { HomePage } from "../components/HomePage";
 import { AboutMe } from "../components/AboutMe";
 import { Skills } from "../components/Skills";
+import { Project } from "../components/Project";
 
 export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -28,7 +29,20 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">
-      {isDarkMode ? <StarBackground /> : <SpaceBackground />}
+      <div
+        className={`transition-opacity duration-300 ${
+          isDarkMode ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
+        <SpaceBackground />
+      </div>
+      <div
+        className={`transition-opacity duration-300 ${
+          isDarkMode ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <StarBackground />
+      </div>
 
       <NavBar />
 
@@ -36,6 +50,7 @@ export const Home = () => {
         <HomePage />
         <AboutMe />
         <Skills />
+        <Project />
       </main>
     </div>
   );
