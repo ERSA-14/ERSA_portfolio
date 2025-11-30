@@ -63,11 +63,11 @@ export function SpaceBackground() {
     const circleTexture = new THREE.CanvasTexture(canvas2);
 
     const material = new THREE.PointsMaterial({
-      color: 0x009999,
-      size: 0.05,
+      color: 0x00cccc,
+      size: 0.07,
       map: circleTexture,
       transparent: true,
-      opacity: 0.7,
+      opacity: 1,
       sizeAttenuation: true,
     });
 
