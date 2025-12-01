@@ -109,7 +109,7 @@ export const Contact = () => {
       </div>
       <p className="flex items-center justify-center gap-1 text-center text-muted-foreground text-sm mt-12 pb-4 italic">
         <span>Crafted and Maintained</span>
-        <GitCommitVertical strokeWidth={1} size={20} className="primary-text" />
+        <GitCommitVertical strokeWidth={2} size={20} className="primary-text" />
         <span>
           by Saksham Gupta since <span className="font-semibold">2025</span>
         </span>
