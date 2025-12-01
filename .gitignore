@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +23,96 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# IDE and Editor files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# Dependency directories
+node_modules/
+__pycache__/
+*.egg-info/
+.eggs/
+venv/
+env/
+.venv/
+.env
+
+# Build and distribution
+build/
+dist/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+*.so
+.Python
+develop-eggs/
+downloads/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+MANIFEST
+
+# Logs and databases
+*.log
+*.sqlite3
+*.sqlite3-journal
+db.sqlite3
+
+# Credentials and sensitive files
+**/credentials.json
+**/client_secrets.json
+**/client_secret.json
+*creds*
+*.dat
+*password*
+*.httr-oauth*
+creds.js
+
+# Testing and coverage
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# OS and miscellaneous
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual environments
+venv/
+env.bak/
+venv.bak/
+
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+*$py.class
+
+# Translations
+*.mo
+*.pot

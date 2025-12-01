@@ -34,7 +34,7 @@ export const HomePage = () => {
   return (
     <section
       id="Home"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 opacity-1000"
+      className="relative min-h-screen flex flex-col items-center pt-32 px-4 opacity-1000"
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
@@ -69,7 +69,7 @@ export const HomePage = () => {
           )}
         </div>
       </div>
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex item-center animate-bounce">
+      <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 flex item-center animate-bounce">
         <a href="#About" aria-label="Scroll to About">
           <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
         </a>

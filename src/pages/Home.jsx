@@ -12,13 +12,11 @@ export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check initial theme
     const checkTheme = () => {
       setIsDarkMode(document.documentElement.classList.contains("dark"));
     };
     checkTheme();
 
-    // Observe theme changes
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,

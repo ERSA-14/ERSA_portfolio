@@ -47,9 +47,9 @@ export const StarBackground = () => {
         size: Math.random() * 1.5 + 0.5,
         x: Math.random() * 95,
         y: Math.random() * 15,
-        // Smooth, evenly distributed delays for clean visual flow
+
         delay: (i * 4) / numberOfMeteors,
-        // More consistent duration for smoother animations
+
         animationDuration: 3 + Math.random() * 1.5,
       });
     }

@@ -109,11 +109,10 @@
 
   html {
     @apply scroll-smooth;
-    /* Fluid base font size: scales from 14px at 320px to 16px at 1920px */
+
     font-size: clamp(14px, 0.875rem + 0.15vw, 16px);
   }
 
-  /* Responsive font size adjustments for different breakpoints */
   @media (max-width: 640px) {
     html {
       font-size: 14px;
@@ -156,7 +155,6 @@
     letter-spacing: -0.02em;
   }
 
-  /* Fluid heading sizes */
   h1 {
     font-size: clamp(2rem, 1.5rem + 2vw, 3.5rem);
     line-height: 1.2;
@@ -204,20 +202,17 @@
   }
 }
 
-/* Responsive section spacing utility */
 .section-spacing {
   padding-top: clamp(3rem, 5vw, 5rem);
   padding-bottom: clamp(3rem, 5vw, 5rem);
 }
 
-/* Responsive image scaling */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Prevent layout shift on mobile */
 @media (max-width: 640px) {
   * {
     -webkit-tap-highlight-color: transparent;
