@@ -6,6 +6,7 @@ import { HomePage } from "../components/HomePage";
 import { AboutMe } from "../components/AboutMe";
 import { Skills } from "../components/Skills";
 import { Project } from "../components/Project";
+import { Contact } from "../components/Contact";
 
 export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -51,6 +52,7 @@ export const Home = () => {
         <AboutMe />
         <Skills />
         <Project />
+        <Contact />
       </main>
     </div>
   );

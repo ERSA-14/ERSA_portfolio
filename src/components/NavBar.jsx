@@ -56,13 +56,19 @@ export const NavBar = () => {
                 {item.name}
               </a>
             ))}
-          <a href="#Contact" className="available-button hover:scale-105">
+          <a
+            href="#Contact"
+            className="available-button hover:scale-105 group relative"
+          >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-50"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-300 dark:bg-emerald-400"></span>
             </span>
             <span className="text-xs font-semibold tracking-wide">
               Available to work!
+            </span>
+            <span className="hidden md:block absolute top-full right-0 mt-2 px-2 py-1 bg-foreground text-background text-[10px] font-medium rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
+              Contact
             </span>
           </a>
           <ThemeToggle />
