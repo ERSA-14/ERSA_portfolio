@@ -1,16 +1,91 @@
-# React + Vite
+# 🚀 ERSA Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, immersive, and responsive personal portfolio website built with **React** and **Vite**. This project showcases my skills, projects, and professional journey with a focus on premium aesthetics and interactive user experience.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **🌌 Immersive 3D Backgrounds**: Features a dynamic Space/Star background powered by `Three.js` for a unique visual experience.
+- **🎨 Modern UI/UX**: Clean, glassmorphism-inspired design with smooth transitions and animations.
+- **🌓 Dark/Light Mode**: Fully supported theme toggling with persistent state.
+- **📱 Fully Responsive**: Optimized for all devices, from mobile phones to large desktop screens.
+- **⚡ High Performance**: Built with Vite for lightning-fast development and production builds.
+- **🧩 Component-Based Architecture**: Modular and maintainable code structure.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: [React](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **3D Graphics**: [Three.js](https://threejs.org/)
+- **Routing**: [React Router DOM](https://reactrouter.com/)
+- **Icons**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+- **Utilities**: `clsx`, `tailwind-merge`
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these steps to set up the project locally on your machine.
+
+### Prerequisites
+
+- Node.js (v18 or higher recommended)
+- npm or pnpm
+
+### Installation
+
+1.  **Clone the repository**
+
+    ```bash
+    git clone https://github.com/yourusername/ERSA_portfolio.git
+    cd ERSA_portfolio
+    ```
+
+2.  **Install dependencies**
+
+    ```bash
+    npm install
+    # or
+    pnpm install
+    ```
+
+3.  **Start the development server**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+## 📂 Project Structure
+
+```
+src/
+├── components/        # Reusable UI components
+│   ├── AboutMe.jsx    # About section
+│   ├── HomePage.jsx   # Hero/Intro section
+│   ├── NavBar.jsx     # Navigation bar
+│   ├── Project.jsx    # Projects showcase
+│   ├── Skills.jsx     # Skills grid
+│   ├── SpaceBackground.jsx # 3D Background
+│   ├── StarBackground.jsx  # Alternative background
+│   └── ThemeToggle.jsx     # Light/Dark mode switch
+├── pages/             # Page components
+│   ├── Home.jsx       # Main landing page
+│   └── NotFound.jsx   # 404 page
+├── assets/            # Static assets (images, icons)
+├── lib/               # Utility functions
+├── App.jsx            # Main application component
+└── main.jsx           # Entry point
+```
+
+## 📜 Scripts
+
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the app for production.
+- `npm run lint`: Runs ESLint to check for code quality issues.
+- `npm run preview`: Previews the production build locally.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Made with ❤️+🅰️ℹ️ by Saksham Gupta

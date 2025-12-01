@@ -25,13 +25,13 @@ export function SpaceBackground() {
     );
     camera.position.z = 5;
 
-    const particleCount = 185;
+    const particleCount = 200;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const velocities = [];
 
-    const minRadius = 6;
-    const maxRadius = 10;
+    const minRadius = 5;
+    const maxRadius = 9;
 
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
@@ -63,8 +63,8 @@ export function SpaceBackground() {
     const circleTexture = new THREE.CanvasTexture(canvas2);
 
     const material = new THREE.PointsMaterial({
-      color: 0x00cccc,
-      size: 0.07,
+      color: 0x0a85c2,
+      size: 0.06,
       map: circleTexture,
       transparent: true,
       opacity: 1,
@@ -98,7 +98,7 @@ export function SpaceBackground() {
 
       const t = clock.getElapsedTime();
 
-      points.rotation.z += 0.0005;
+      points.rotation.z += 0.001;
 
       camera.position.x += (mouse.x * 2 - camera.position.x) * 0.05;
       camera.position.y += (mouse.y * 2 - camera.position.y) * 0.05;

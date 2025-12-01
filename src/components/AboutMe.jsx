@@ -1,8 +1,8 @@
-import { Code, Award, Link2, ArrowDown } from "lucide-react";
+import { Code, Award, Link2, ArrowDown, FileDown } from "lucide-react";
 
 export const AboutMe = () => {
   return (
-    <section id="About" className="relative px-4 pt-24 pb-40">
+    <section id="About" className="relative px-4 pt-24 pb-42">
       {" "}
       <div className="container mx-auto max-w-5xl p-6 gradient-border">
         <h2 className="text-2xl md:text-4xl font-bold mt-4 mb-8 md:mb-12 text-center ">
@@ -18,18 +18,18 @@ export const AboutMe = () => {
             </h3>
 
             <p className="text-muted-foreground text-sm md:text-base">
-              B.Tech Computer Science and Engineering graduate from{" "}
+              I am a Computer Science and Engineering graduate from{" "}
               <span className="font-bold">Vellore Institute of Technology</span>{" "}
-              with a CGPA of 8.58, offering a strong foundation in core CS
-              fundamentals and software development. I enjoy working on
-              real-world problems and writing scripts to automate daily tasks.
+              (8.58 CGPA) with a strong foundation in core CS fundamentals and
+              software development. I am passionate about solving real-world
+              problems and automating daily tasks through scripting.
             </p>
 
             <p className="text-muted-foreground text-sm md:text-base">
-              I am a collaborative individual who values continuous learning,
-              perfection and precision. I aim to enhance business performance
-              and deliver high-quality results without compromising SLAs or
-              SLOs.
+              I am a team-oriented professional who prioritizes continuous
+              learning and precision. My goal is to drive business growth by
+              delivering high-quality results that consistently meet SLAs and
+              SLOs without compromise.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -40,9 +40,9 @@ export const AboutMe = () => {
                 href="src\assets\Resume3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary/15 transition-colors duration-300 hover:scale-105 ease-in-out"
+                className="px-6 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary/15 transition-colors duration-300 hover:scale-105 ease-in-out flex items-center gap-1 w-fit"
               >
-                View Resume
+                View Resume <FileDown size={22} />
               </a>
             </div>
           </div>
@@ -54,11 +54,10 @@ export const AboutMe = () => {
                   What I Build With
                 </h4>
                 <p className="text-muted-foreground text-sm md:text-base">
-                  Working primarily with Python, React, Node/Express, MySQL and
-                  AWS Cloud to build secure and scalable applications.
-                  Comfortable with AI, REST APIs, Flask, Postgres, CRUD
-                  operations and additional experience in Oracle Cloud and
-                  Oracle databases.
+                  I specialize in building secure and scalable applications
+                  using Python, React, Node/Express, MySQL, and AWS Cloud. My
+                  expertise extends to AI, REST APIs, Flask, and PostgreSQL,
+                  with additional proficiency in Oracle Cloud and databases.
                   <br />
                 </p>
               </div>

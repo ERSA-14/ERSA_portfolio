@@ -96,7 +96,7 @@ export const Skills = () => {
   }, [activeCategory, skills]);
 
   return (
-    <section id="Skills" className="relative px-4 py-24 pb-32">
+    <section id="Skills" className="relative px-4 py-24 pb-36">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-12 text-center ">
           My <span className="text-primary">Skillset</span>
@@ -141,7 +141,9 @@ export const Skills = () => {
         </div>
       </div>
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex item-center animate-bounce">
-        <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
+        <a href="#Projects" aria-label="Scroll to Projects">
+          <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
+        </a>
       </div>
     </section>
   );
