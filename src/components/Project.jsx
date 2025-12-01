@@ -7,7 +7,7 @@ const projects = [
     title: "Secure Authentication System",
     description:
       "Full-stack authentication system built with Node.js, Express, and PostgreSQL. Implements user registration, login with bcrypt password hashing, session management, and server-side rendering using EJS templates.",
-    image: "src/assets/ProjectSS/one.jpeg",
+    image: "/ProjectSS/one.jpeg",
     tags: ["Node", "Express", "Postgres", "Sessions", "Authentication"],
     docsUrl: "",
     githubUrl: "https://github.com/ERSA-14/Authentication_frontend",
@@ -17,7 +17,7 @@ const projects = [
     title: "Invoice Processing Automation",
     description:
       "Serverless bill receipt automation system using AWS Lambda functions written in Python. Automates invoice processing and receipt generation through event-driven cloud architecture.",
-    image: "src/assets/ProjectSS/two.jpeg",
+    image: "/ProjectSS/two.jpeg",
     tags: ["Python", "AWS", "Serverless", "Event-driven", "Automation"],
     docsUrl: "",
     githubUrl: "https://github.com/ERSA-14/AWS-lambda",
@@ -27,7 +27,7 @@ const projects = [
     title: "Indian States Geography Quiz",
     description:
       "Interactive geography quiz game built with Python using Tkinter for GUI and Turtle graphics for map visualization. Utilizes pandas for state name recognition and real-time score tracking for Indian states.",
-    image: "src/assets/ProjectSS/three.jpeg",
+    image: "/ProjectSS/three.jpeg",
     tags: ["Python", "Tkinter", "Turtle", "Pandas", "GUI"],
     docsUrl: "",
     githubUrl: "https://github.com/ERSA-14/indian_states_trivia_with_GUI",

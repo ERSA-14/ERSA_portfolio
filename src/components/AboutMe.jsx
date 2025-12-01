@@ -37,7 +37,7 @@ export const AboutMe = () => {
                 Connect With Me
               </a>
               <a
-                href="src\assets\Resume3.pdf"
+                href="/Resume3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary/15 transition-colors duration-300 hover:scale-105 ease-in-out flex items-center gap-1 w-fit"
