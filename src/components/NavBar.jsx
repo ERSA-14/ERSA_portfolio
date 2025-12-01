@@ -76,8 +76,9 @@ export const NavBar = () => {
 
         <div className="md:hidden flex items-center gap-2">
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-foreground p-1"
+            className="text-foreground p-1 cursor-pointer"
             aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
           >
             {isMobileMenuOpen ? (

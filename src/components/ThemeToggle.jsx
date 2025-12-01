@@ -16,21 +16,32 @@ export const ThemeToggle = ({ className }) => {
   }, []);
 
   const toggleTheme = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+
+    if (newMode) {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      try {
+        localStorage.setItem("theme", "dark");
+      } catch (e) {
+        console.error("Failed to save theme preference:", e);
+      }
+    } else {
+      document.documentElement.classList.remove("dark");
+      try {
+        localStorage.setItem("theme", "light");
+      } catch (e) {
+        console.error("Failed to save theme preference:", e);
+      }
     }
-    setIsDarkMode(!isDarkMode);
   };
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
       className={cn(
-        "relative p-2 rounded-full transition-all duration-300 theme-toggle-btn",
+        "relative p-2 rounded-full transition-all duration-300 theme-toggle-btn cursor-pointer z-50",
         "bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-md",
         isDarkMode
           ? "border-2 border-yellow-400 hover:border-[2px]"

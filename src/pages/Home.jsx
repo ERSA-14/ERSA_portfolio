@@ -29,15 +29,15 @@ export const Home = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">
       <div
-        className={`transition-opacity duration-300 ${
-          isDarkMode ? "opacity-0 pointer-events-none" : "opacity-100"
+        className={`transition-opacity duration-300 pointer-events-none ${
+          isDarkMode ? "opacity-0" : "opacity-100"
         }`}
       >
         <SpaceBackground />
       </div>
       <div
-        className={`transition-opacity duration-300 ${
-          isDarkMode ? "opacity-100" : "opacity-0 pointer-events-none"
+        className={`transition-opacity duration-300 pointer-events-none ${
+          isDarkMode ? "opacity-100" : "opacity-0"
         }`}
       >
         <StarBackground />
