@@ -146,7 +146,7 @@ export const Contact = () => {
               </div>
             </div>
 
-            <div>
+            <div className="pb-6">
               <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">
                 Social Channels
               </h3>
@@ -179,7 +179,7 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-card p-4 rounded-lg shadow-sm border-2 border-transparent transition-all duration-300 hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] max-w-sm mx-auto w-full">
+          <div className="bg-card p-6 rounded-lg shadow-sm border-2 border-transparent transition-all duration-300 hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] max-w-sm mx-auto w-full">
             <h4 className="font-semibold text-xl mb-4 text-center">
               Send a message
             </h4>

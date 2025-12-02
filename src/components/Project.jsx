@@ -48,7 +48,7 @@ export const Project = () => {
           the power of exploration and engineering.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
           {projects.map((project, key) => (
             <div
               key={key}
@@ -62,21 +62,21 @@ export const Project = () => {
                 />
               </div>
               <div className="p-4">
-                <h3 className="text-lg text-primary font-semibold mb-2">
+                <h3 className="text-lg text-primary font-semibold mb-2 items-center">
                   {project.title}
                 </h3>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4 items-center justify-center">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white">
+                    <span className="px-2 py-1 items-center justify-center text-xs font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <p className="text-muted-foreground text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-4 items-center">
                   {project.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-3 items-center">
                     <a
                       href={project.githubUrl}
                       target="_blank"
