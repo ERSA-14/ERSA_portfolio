@@ -32,7 +32,7 @@ export const AboutMe = () => {
               SLOs without compromise.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center py-2 px-2">
               <a href="#Contact" className="cosmic-button w-fit">
                 Connect With Me
               </a>
@@ -40,9 +40,9 @@ export const AboutMe = () => {
                 href="/Resume3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/15 transition-colors duration-300 hover:scale-105 ease-in-out flex items-center gap-1 w-fit"
+                className="px-6 py-2 rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 transition-colors duration-400 hover:scale-105 ease-in-out flex items-center gap-1 w-fit"
               >
-                View Resume <FileDown size={22} />
+                View Resume <FileDown size={20} />
               </a>
             </div>
           </div>
