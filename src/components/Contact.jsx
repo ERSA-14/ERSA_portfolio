@@ -74,7 +74,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="Contact" className="py-24 px-4 relative bg-secondary/30">
+    <section id="Contact" className="py-20 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-3xl pb-2 mt-1">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           <span className="text-primary">Connect</span> with me
@@ -252,7 +252,7 @@ export const Contact = () => {
         </div>
       </div>
 
-      <p className="absolute bottom-10 flex items-center justify-center gap-1 text-center text-muted-foreground text-sm mt-12 pb-4 italic">
+      <p className="flex items-center justify-center gap-6 text-center text-muted-foreground text-sm mt-10 pb-6 italic">
         <span>Crafted and Maintained</span>
         <GitCommitVertical strokeWidth={2} size={20} className="primary-text" />
         <span>
