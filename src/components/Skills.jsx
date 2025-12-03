@@ -96,7 +96,7 @@ export const Skills = () => {
   }, [activeCategory, skills]);
 
   return (
-    <section id="Skills" className="relative px-4 py-24 pb-34">
+    <section id="Skills" className="relative px-4 py-24 pb-35">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center ">
           My <span className="text-primary">Skillset</span>
