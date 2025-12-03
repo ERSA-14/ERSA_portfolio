@@ -75,7 +75,7 @@ export const Contact = () => {
 
   return (
     <section id="Contact" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-3xl pb-2">
+      <div className="container mx-auto max-w-3xl pb-2 mt-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           <span className="text-primary">Connect</span> with me
         </h2>

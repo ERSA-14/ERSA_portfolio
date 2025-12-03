@@ -36,7 +36,7 @@ export const HomePage = () => {
       id="Home"
       className="relative min-h-screen flex flex-col items-center pt-32 px-4 opacity-1000"
     >
-      <div className="container max-w-4xl mx-auto text-center z-10">
+      <div className="container max-w-4xl mx-auto text-center z-10 mt-6">
         <div className="space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
             <span className="opacity-0 animate-fade-in">Hello, I am</span>
