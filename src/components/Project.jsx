@@ -36,8 +36,8 @@ const projects = [
 
 export const Project = () => {
   return (
-    <section id="Projects" className="py-20 px-4 relative">
-      <div className="container mx-auto max-w-6xl pb-2">
+    <section id="Projects" className="py-20 px-4 relative mt-4">
+      <div className="container mx-auto max-w-6xl pb-4 mt-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Highlighted <span className="text-primary">Projects</span>
         </h2>
@@ -102,7 +102,7 @@ export const Project = () => {
           </a>
         </div>
       </div>
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex item-center animate-bounce">
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex item-center animate-bounce">
         <a href="#Contact" aria-label="Scroll to Contact">
           <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
         </a>
