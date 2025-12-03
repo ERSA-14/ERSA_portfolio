@@ -16,6 +16,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Responsive Design**: Fully responsive across all devices (mobile, tablet, desktop)
 - **Modern UI/UX**: Clean, professional interface with glassmorphism effects
 - **Smooth Animations**: CSS and Three.js animations for an engaging experience
+- **Custom Cursor**: Interactive diamond-shaped cursor with hover effects
 
 ### 🛠️ **Technical**
 
