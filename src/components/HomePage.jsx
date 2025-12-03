@@ -60,7 +60,7 @@ export const HomePage = () => {
                 <span> </span>{" "}
               </p>
 
-              <div className="opacity-0 animate-fade-in-delay-4 hover:scale-105">
+              <div className="mt-8 opacity-0 animate-fade-in-delay-4 hover:scale-105">
                 <a href="#Projects" className="cosmic-button">
                   View my Projects
                 </a>

@@ -48,21 +48,21 @@ export const Project = () => {
           the power of exploration and engineering.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-center">
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover border-2 border-transparent hover:border-primary transition-colors duration-300"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover justify-center items-center border-2 border-transparent hover:border-primary transition-colors duration-400"
             >
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-4">
-                <h3 className="text-lg text-primary font-semibold mb-2 items-center">
+                <h3 className="text-lg text-primary font-semibold mb-2 items-center justify-center">
                   {project.title}
                 </h3>
                 <div className="flex flex-wrap gap-2 mb-4 items-center justify-center">

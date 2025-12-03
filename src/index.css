@@ -109,19 +109,42 @@
 
   html {
     @apply scroll-smooth;
-
-    font-size: clamp(14px, 0.875rem + 0.15vw, 16px);
+    /* Base font size with fluid scaling */
+    font-size: clamp(14px, 0.875rem + 0.25vw, 16px);
   }
 
+  /* Mobile phones - smallest screens */
   @media (max-width: 640px) {
     html {
       font-size: 14px;
     }
   }
 
-  @media (min-width: 641px) and (max-width: 1024px) {
+  /* Tablets portrait and small tablets - CRITICAL for tablet support */
+  @media (min-width: 641px) and (max-width: 768px) {
+    html {
+      font-size: 14.5px;
+    }
+  }
+
+  /* Tablets landscape and medium tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
     html {
       font-size: 15px;
+    }
+  }
+
+  /* Large tablets and small desktops */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    html {
+      font-size: 15.5px;
+    }
+  }
+
+  /* Desktop and larger */
+  @media (min-width: 1281px) {
+    html {
+      font-size: 16px;
     }
   }
 
@@ -133,6 +156,8 @@
     overflow-x: hidden;
     width: 100%;
     min-height: 100vh;
+    /* Base font size for body text */
+    font-size: clamp(0.875rem, 0.8125rem + 0.3vw, 1rem);
     /* cursor: none; - Removed global cursor hiding */
   }
 
@@ -150,14 +175,33 @@
     }
   }
 
+  /* Paragraph text - scales responsively */
   p {
     font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI",
       system-ui, sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: clamp(0.875rem, 0.875rem + 0.125vw, 1rem);
+    /* Responsive paragraph sizing for all devices */
+    font-size: clamp(0.875rem, 0.8125rem + 0.3vw, 1.0625rem);
   }
 
+  /* Mobile-specific paragraph sizing */
+  @media (max-width: 640px) {
+    p {
+      font-size: clamp(0.8125rem, 0.75rem + 0.25vw, 0.9375rem);
+      line-height: 1.65;
+    }
+  }
+
+  /* Tablet-specific paragraph sizing */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    p {
+      font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1rem);
+      line-height: 1.7;
+    }
+  }
+
+  /* All headings - shared properties */
   h1,
   h2,
   h3,
@@ -168,32 +212,158 @@
       system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
+    margin-bottom: 0.5em;
   }
 
+  /* H1 - Largest heading, hero text */
   h1 {
-    font-size: clamp(2rem, 1.5rem + 2vw, 3.5rem);
-    line-height: 1.2;
+    /* Mobile: 2rem (32px), Tablet: ~2.5-2.75rem, Desktop: 3.5rem (56px) */
+    font-size: clamp(2rem, 1.25rem + 3vw, 3.5rem);
+    line-height: 1.15;
+    font-weight: 800;
   }
 
+  /* Mobile-specific H1 */
+  @media (max-width: 640px) {
+    h1 {
+      font-size: clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem);
+      line-height: 1.2;
+    }
+  }
+
+  /* Tablet-specific H1 */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    h1 {
+      font-size: clamp(2.25rem, 1.75rem + 2vw, 2.875rem);
+      line-height: 1.18;
+    }
+  }
+
+  /* H2 - Section headings */
   h2 {
-    font-size: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);
-    line-height: 1.3;
+    /* Mobile: 1.75rem (28px), Tablet: ~2rem, Desktop: 2.5rem (40px) */
+    font-size: clamp(1.75rem, 1rem + 2.5vw, 2.5rem);
+    line-height: 1.25;
+    font-weight: 700;
   }
 
+  /* Mobile-specific H2 */
+  @media (max-width: 640px) {
+    h2 {
+      font-size: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
+      line-height: 1.3;
+    }
+  }
+
+  /* Tablet-specific H2 */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    h2 {
+      font-size: clamp(1.875rem, 1.5rem + 1.5vw, 2.25rem);
+      line-height: 1.27;
+    }
+  }
+
+  /* H3 - Subsection headings */
   h3 {
-    font-size: clamp(1.5rem, 1.125rem + 1vw, 2rem);
-    line-height: 1.4;
+    /* Mobile: 1.5rem (24px), Tablet: ~1.75rem, Desktop: 2rem (32px) */
+    font-size: clamp(1.5rem, 0.875rem + 2vw, 2rem);
+    line-height: 1.35;
+    font-weight: 700;
   }
 
+  /* Mobile-specific H3 */
+  @media (max-width: 640px) {
+    h3 {
+      font-size: clamp(1.25rem, 1.125rem + 0.75vw, 1.625rem);
+      line-height: 1.4;
+    }
+  }
+
+  /* Tablet-specific H3 */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    h3 {
+      font-size: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
+      line-height: 1.37;
+    }
+  }
+
+  /* H4 - Card titles, smaller sections */
   h4 {
-    font-size: clamp(1.25rem, 1rem + 0.5vw, 1.5rem);
+    /* Mobile: 1.25rem (20px), Tablet: ~1.375rem, Desktop: 1.5rem (24px) */
+    font-size: clamp(1.25rem, 0.875rem + 1.25vw, 1.5rem);
     line-height: 1.4;
+    font-weight: 600;
+  }
+
+  /* Mobile-specific H4 */
+  @media (max-width: 640px) {
+    h4 {
+      font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+      line-height: 1.45;
+    }
+  }
+
+  /* Tablet-specific H4 */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    h4 {
+      font-size: clamp(1.25rem, 1.125rem + 0.75vw, 1.5rem);
+      line-height: 1.42;
+    }
+  }
+
+  /* H5 - Small headings */
+  h5 {
+    /* Mobile: 1.125rem (18px), Tablet: ~1.25rem, Desktop: 1.375rem (22px) */
+    font-size: clamp(1.125rem, 0.875rem + 0.875vw, 1.375rem);
+    line-height: 1.45;
+    font-weight: 600;
+  }
+
+  /* Mobile-specific H5 */
+  @media (max-width: 640px) {
+    h5 {
+      font-size: clamp(1rem, 0.9375rem + 0.375vw, 1.1875rem);
+      line-height: 1.5;
+    }
+  }
+
+  /* Tablet-specific H5 */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    h5 {
+      font-size: clamp(1.125rem, 1rem + 0.625vw, 1.3125rem);
+      line-height: 1.47;
+    }
+  }
+
+  /* H6 - Smallest headings */
+  h6 {
+    /* Mobile: 1rem (16px), Tablet: ~1.125rem, Desktop: 1.25rem (20px) */
+    font-size: clamp(1rem, 0.875rem + 0.5vw, 1.25rem);
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  /* Mobile-specific H6 */
+  @media (max-width: 640px) {
+    h6 {
+      font-size: clamp(0.9375rem, 0.875rem + 0.3125vw, 1.0625rem);
+      line-height: 1.55;
+    }
+  }
+
+  /* Tablet-specific H6 */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    h6 {
+      font-size: clamp(1rem, 0.9375rem + 0.375vw, 1.1875rem);
+      line-height: 1.52;
+    }
   }
 }
 
 @utility container {
   margin-inline: auto;
-  padding-inline: clamp(1rem, 3vw, 2rem);
+  /* Responsive horizontal padding */
+  padding-inline: clamp(1rem, 2.5vw + 0.5rem, 2.5rem);
   width: 100%;
 
   @media (width>= 640px) {
@@ -202,10 +372,12 @@
 
   @media (width>= 768px) {
     max-width: 768px;
+    padding-inline: clamp(1.5rem, 3vw + 0.25rem, 2.25rem);
   }
 
   @media (width>= 1024px) {
     max-width: 1024px;
+    padding-inline: clamp(1.75rem, 3vw, 2rem);
   }
 
   @media (width>= 1280px) {
@@ -218,8 +390,17 @@
 }
 
 .section-spacing {
-  padding-top: clamp(3rem, 5vw, 5rem);
-  padding-bottom: clamp(3rem, 5vw, 5rem);
+  /* Responsive section padding for all screen sizes */
+  padding-top: clamp(2.5rem, 4vw + 1rem, 5rem);
+  padding-bottom: clamp(2.5rem, 4vw + 1rem, 5rem);
+}
+
+/* Tablet-specific section spacing */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .section-spacing {
+    padding-top: clamp(3rem, 4.5vw + 1rem, 4.5rem);
+    padding-bottom: clamp(3rem, 4.5vw + 1rem, 4.5rem);
+  }
 }
 
 img {
@@ -258,8 +439,8 @@ img {
 #About .gradient-border:hover,
 #skills .gradient-border:hover,
 #Skills .gradient-border:hover {
-  box-shadow: 0 0 20px hsl(var(--primary) / 0.3),
-    0 0 40px hsl(var(--primary) / 0.2), 0 0 60px hsl(var(--primary) / 0.1);
+  box-shadow: 0 0 3px hsl(var(--primary) / 0.4),
+    0 0 8px hsl(var(--primary) / 0.3), 0 0 15px hsl(var(--primary) / 0.2);
   border-color: hsl(var(--primary));
 }
 
@@ -273,16 +454,65 @@ img {
 .dark #Skills .gradient-border:hover {
   background: linear-gradient(to right, hsl(224 71% 2%), hsl(224 71% 2%));
   border-color: hsl(190 100% 35%);
-  box-shadow: 0 0 20px hsl(190 100% 30% / 0.35),
-    0 0 40px hsl(190 100% 30% / 0.25), 0 0 60px hsl(190 100% 30% / 0.15);
+  box-shadow: 0 0 3px hsl(190 100% 30% / 0.45), 0 0 8px hsl(190 100% 30% / 0.35),
+    0 0 15px hsl(190 100% 30% / 0.22);
 }
 
 .cosmic-button {
   @apply rounded-full bg-primary text-primary-foreground font-medium tracking-wide
-  transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,189,219,0.4)]
-  hover:scale-105 active:scale-95 border border-white/10;
-  padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1.25rem, 2vw, 1.5rem);
-  font-size: clamp(0.875rem, 0.875rem + 0.125vw, 1rem);
+  transition-all duration-300 hover:scale-103 active:scale-95 border border-white/10;
+  /* Responsive padding and font-size - reduced vertical padding */
+  padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
+    clamp(1rem, 1.25vw + 0.5rem, 1.5rem);
+  font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1.0625rem);
+}
+
+.cosmic-button:hover {
+  box-shadow: 0 0 3px hsl(var(--primary) / 0.4),
+    0 0 8px hsl(var(--primary) / 0.3), 0 0 15px hsl(var(--primary) / 0.2);
+}
+
+/* Tablet-specific button sizing */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cosmic-button {
+    padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
+      clamp(1rem, 1.25vw + 0.5rem, 1.375rem);
+    font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1rem);
+  }
+}
+
+/* Mobile-specific button sizing */
+@media (max-width: 640px) {
+  .cosmic-button {
+    padding: clamp(0.25rem, 0.3125vw + 0.0625rem, 0.375rem)
+      clamp(0.875rem, 1vw + 0.375rem, 1.25rem);
+    font-size: clamp(0.8125rem, 0.75rem + 0.25vw, 0.9375rem);
+  }
+}
+
+/* View Resume button - Matches cosmic-button scaling exactly */
+.view-resume-button {
+  padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
+    clamp(1rem, 1.25vw + 0.5rem, 1.5rem);
+  font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1.0625rem);
+}
+
+/* Tablet-specific view resume button sizing */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .view-resume-button {
+    padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
+      clamp(1rem, 1.25vw + 0.5rem, 1.375rem);
+    font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1rem);
+  }
+}
+
+/* Mobile-specific view resume button sizing */
+@media (max-width: 640px) {
+  .view-resume-button {
+    padding: clamp(0.25rem, 0.3125vw + 0.0625rem, 0.375rem)
+      clamp(0.875rem, 1vw + 0.375rem, 1.25rem);
+    font-size: clamp(0.8125rem, 0.75rem + 0.25vw, 0.9375rem);
+  }
 }
 
 .star {
@@ -306,7 +536,7 @@ img {
 }
 
 .moon {
-  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-110 transition-transform duration-300;
+  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-105 transition-transform duration-300;
   background: radial-gradient(
     circle at 30% 30%,
     #ffffff 0%,

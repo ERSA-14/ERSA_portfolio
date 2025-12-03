@@ -1,6 +1,6 @@
 # 🚀 Saksham Gupta's Portfolio
 
-A modern, responsive portfolio website showcasing my projects, skills, and experience as a Full Stack Developer. Built with React, Vite, and Tailwind CSS, featuring stunning animations and a beautiful dark/light theme.
+A modern, responsive portfolio website showcasing my projects, skills, and experience as a Full Stack Developer. Built with React, Vite, and Tailwind CSS v4, featuring stunning animations, comprehensive responsive design, and a beautiful dark/light theme.
 
 ![Portfolio Preview](https://img.shields.io/badge/Status-Live-success)
 ![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)
@@ -13,34 +13,65 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 ### 🎨 **Design**
 
 - **Dual Theme**: Beautiful dark and light modes with smooth transitions
-- **Responsive Design**: Fully responsive across all devices (mobile, tablet, desktop)
+- **Fully Responsive**: Optimized for all devices with dedicated tablet breakpoints (768px-1024px)
+- **Fluid Typography**: All text scales perfectly using clamp() functions with strict hierarchy (H1 > H2 > H3...)
 - **Modern UI/UX**: Clean, professional interface with glassmorphism effects
-- **Smooth Animations**: CSS and Three.js animations for an engaging experience
-- **Custom Cursor**: Interactive diamond-shaped cursor with hover effects
+- **Consistent Glow Effects**: Tight, intense hover glows (3px/8px/15px) across all interactive elements
+- **Custom Cursor**: Interactive diamond-shaped cursor with hover effects (desktop only)
+- **Smooth Animations**: Optimized scale animations (max 105%, cosmic-button 103%)
 
 ### 🛠️ **Technical**
 
 - **React 19**: Latest React with hooks and modern patterns
 - **Vite**: Lightning-fast build tool and dev server
-- **Tailwind CSS v4**: Utility-first CSS with custom configuration
+- **Tailwind CSS v4**: Utility-first CSS with custom @theme and @utility directives
 - **React Router**: Client-side routing with SPA architecture
 - **Three.js**: 3D graphics for interactive backgrounds
 - **EmailJS**: Contact form integration without backend
+- **Responsive Design System**: Comprehensive breakpoint system for mobile, tablet, and desktop
 
 ### 📱 **Sections**
 
-1. **Home**: Hero section with animated typing effect
-2. **About Me**: Professional summary, certifications, and resume
-3. **Skills**: Interactive skill showcase with category filtering
+1. **Home**: Hero section with animated typing effect and responsive spacing
+2. **About Me**: Professional summary, certifications, resume with centered content layout
+3. **Skills**: Interactive skill showcase with category filtering and responsive grid
 4. **Projects**: Highlighted projects with live demos and GitHub links
 5. **Contact**: Working contact form with social media links
 
-### ⚡ **Performance**
+### ⚡ **Performance & Responsiveness**
 
 - **Optimized Bundle**: Code splitting and tree shaking
 - **Fast Loading**: Preconnect to external resources
 - **Asset Optimization**: Proper caching and compression
 - **SEO Ready**: Meta tags and semantic HTML
+- **Mobile-First**: Designed for mobile, enhanced for desktop
+- **Tablet Optimized**: Dedicated breakpoints for perfect tablet experience
+- **Fluid Scaling**: All elements scale smoothly across viewport sizes
+
+## 🎯 Responsive Design Highlights
+
+### Typography System
+
+- **H1**: 1.75rem (mobile) → 2.875rem (tablet) → 3.5rem (desktop)
+- **H2**: 1.5rem (mobile) → 2.25rem (tablet) → 2.5rem (desktop)
+- **H3**: 1.25rem (mobile) → 1.875rem (tablet) → 2rem (desktop)
+- **H4-H6**: Proportionally scaled with maintained hierarchy
+- **Paragraphs**: 0.8125rem (mobile) → 1rem (tablet) → 1.0625rem (desktop)
+
+### Breakpoint System
+
+- **Mobile**: ≤640px (14px base font)
+- **Small Tablets**: 641px-768px (14.5px base font)
+- **Medium Tablets**: 769px-1024px (15px base font)
+- **Large Tablets**: 1025px-1280px (15.5px base font)
+- **Desktop**: ≥1281px (16px base font)
+
+### Interactive Elements
+
+- **Cosmic Buttons**: Responsive padding and font-size with 103% hover scale
+- **View Resume Button**: Matches cosmic-button scaling exactly
+- **Cards**: Consistent glow effects (0.4/0.3/0.2 opacity, 3/8/15px blur)
+- **All Hover Effects**: Maximum 105% scale for smooth interactions
 
 ## 🚀 Quick Start
 
@@ -91,15 +122,16 @@ ERSA_portfolio/
 │   └── *.svg               # Icons and images
 ├── src/
 │   ├── components/         # React components
-│   │   ├── AboutMe.jsx
-│   │   ├── Contact.jsx
-│   │   ├── HomePage.jsx
-│   │   ├── NavBar.jsx
-│   │   ├── Project.jsx
-│   │   ├── Skills.jsx
-│   │   ├── StarBackground.jsx
-│   │   ├── SpaceBackground.jsx
-│   │   ├── ThemeToggle.jsx
+│   │   ├── AboutMe.jsx     # About section with centered layout
+│   │   ├── Contact.jsx     # Contact form
+│   │   ├── CustomCursor.jsx # Custom cursor component
+│   │   ├── HomePage.jsx    # Hero section
+│   │   ├── NavBar.jsx      # Navigation
+│   │   ├── Project.jsx     # Projects showcase
+│   │   ├── Skills.jsx      # Skills grid
+│   │   ├── StarBackground.jsx # Dark mode background
+│   │   ├── SpaceBackground.jsx # Light mode background
+│   │   ├── ThemeToggle.jsx # Theme switcher
 │   │   └── ui/             # Reusable UI components
 │   ├── pages/              # Page components
 │   │   ├── Home.jsx
@@ -108,13 +140,13 @@ ERSA_portfolio/
 │   ├── lib/                # Utility functions
 │   ├── App.jsx             # Main app component
 │   ├── main.jsx            # App entry point
-│   └── index.css           # Global styles
+│   └── index.css           # Global styles with responsive system
 ├── .env.example            # Environment variables template
 ├── vercel.json             # Vercel deployment config
 ├── vite.config.js          # Vite configuration
 ├── postcss.config.js       # PostCSS configuration
+├── RESPONSIVE_TYPOGRAPHY.md # Typography documentation
 └── package.json            # Dependencies and scripts
-
 ```
 
 ## 🔧 Configuration
@@ -152,7 +184,12 @@ Edit `src/index.css`:
   --background: 210 40% 98%;
   --foreground: 222 47% 11%;
   --primary: 200 90% 40%;
-  /* ... other colors */
+}
+
+.dark {
+  --background: 224 71% 0%;
+  --foreground: 210 40% 95%;
+  --primary: 190 100% 72%;
 }
 ```
 
@@ -212,7 +249,7 @@ The project can be deployed to:
 
 - **React** 19.2.0 - UI library
 - **React Router DOM** 7.9.6 - Client-side routing
-- **Tailwind CSS** 4.1.17 - Utility-first CSS
+- **Tailwind CSS** 4.1.17 - Utility-first CSS with v4 features
 - **Three.js** 0.181.2 - 3D graphics
 - **Lucide React** 0.554.0 - Icons
 - **React Icons** 5.5.0 - Additional icons
@@ -244,6 +281,7 @@ The project can be deployed to:
 
 ## 📝 Documentation
 
+- **[RESPONSIVE_TYPOGRAPHY.md](RESPONSIVE_TYPOGRAPHY.md)** - Complete responsive typography guide
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Comprehensive deployment guide
 - **[EDGE_CASES.md](EDGE_CASES.md)** - All handled edge cases
 - **[PRE_DEPLOYMENT_CHECKLIST.md](PRE_DEPLOYMENT_CHECKLIST.md)** - Pre-deployment verification
@@ -271,6 +309,11 @@ The project can be deployed to:
 - Clear cache: `npm run clean`
 - Reinstall: `rm -rf node_modules && npm install`
 
+**Responsive issues on tablet**
+
+- ✅ Fixed: Comprehensive tablet breakpoints (768px-1024px)
+- ✅ Fixed: Fluid typography with clamp() functions
+
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -289,8 +332,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - Thanks to the React team for an amazing framework
 - Vite team for the blazing-fast build tool
-- Tailwind CSS for the utility-first approach
+- Tailwind CSS for the utility-first approach and v4 innovations
 - EmailJS for the contact form service
+- Three.js community for 3D graphics capabilities
 
 ## ⭐ Show Your Support
 

@@ -4,14 +4,14 @@ export const AboutMe = () => {
   return (
     <section id="About" className="relative px-4 pt-24 pb-42">
       {" "}
-      <div className="container mx-auto max-w-5xl p-6 gradient-border">
+      <div className="container mx-auto max-w-5xl p-6">
         <h2 className="text-2xl md:text-4xl font-bold mt-4 mb-8 md:mb-12 text-center ">
           About <span className="text-primary">Myself</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
           <div
             id="AboutMe"
-            className="space-y-6 px-4 py-3 gradient-border card-hover"
+            className="flex flex-col justify-center items-center text-center space-y-6 px-4 py-3 rounded-md"
           >
             <h3 className="text-xl md:text-2xl font-semibold">
               Reliable <span className="text-primary">Software Engineer</span>
@@ -40,7 +40,7 @@ export const AboutMe = () => {
                 href="/Resume3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 transition-colors duration-400 hover:scale-105 ease-in-out flex items-center gap-1 w-fit"
+                className="view-resume-button rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 transition-all duration-300 hover:scale-103 ease-in-out flex items-center gap-1 font-medium tracking-wide"
               >
                 View Resume <FileDown size={20} />
               </a>

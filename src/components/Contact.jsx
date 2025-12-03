@@ -58,7 +58,7 @@ export const Contact = () => {
           toast({
             title: "Message Sent",
             description:
-              "Thank you for your message. I will get in touch soon.",
+              "Thank you for your interest- your Message is now in my orbit, and I will launch a reply to you very soon.",
           });
           form.current.reset();
         },
@@ -66,7 +66,8 @@ export const Contact = () => {
           toast({
             variant: "destructive",
             title: "Error",
-            description: "Something went wrong. Please try again later.",
+            description:
+              "Looks like our digital connection hit a black hole— lets switch to old-fashioned email for now. I will reach out to you soon that way.",
           });
         }
       );
@@ -255,7 +256,8 @@ export const Contact = () => {
         <span>Crafted and Maintained</span>
         <GitCommitVertical strokeWidth={2} size={20} className="primary-text" />
         <span>
-          by Saksham Gupta since <span className="font-semibold">2025</span>
+          by <span className="text-primary font-semibold">Saksham Gupta</span>{" "}
+          since <span className="font-semibold">2025</span>
         </span>
       </p>
     </section>
