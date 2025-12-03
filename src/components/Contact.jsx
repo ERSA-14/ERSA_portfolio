@@ -30,7 +30,7 @@ export const Contact = () => {
         variant: "destructive",
         title: "Configuration Error",
         description:
-          "EmailJS keys are not configured. Please check your .env file.",
+          "EmailJS keys are not configured or has reached 200 limit. Please check your .env file.",
       });
       return;
     }
@@ -75,7 +75,7 @@ export const Contact = () => {
 
   return (
     <section id="Contact" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-3xl pb-2 mt-4">
+      <div className="container mx-auto max-w-3xl pb-2 mt-1">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           <span className="text-primary">Connect</span> with me
         </h2>
@@ -252,7 +252,7 @@ export const Contact = () => {
         </div>
       </div>
 
-      <p className="flex items-center justify-center gap-1 text-center text-muted-foreground text-sm mt-12 pb-4 italic">
+      <p className="absolute bottom-10 flex items-center justify-center gap-1 text-center text-muted-foreground text-sm mt-12 pb-4 italic">
         <span>Crafted and Maintained</span>
         <GitCommitVertical strokeWidth={2} size={20} className="primary-text" />
         <span>
