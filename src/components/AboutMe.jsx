@@ -2,7 +2,7 @@ import { Code, Award, Link2, ArrowDown, FileDown } from "lucide-react";
 
 export const AboutMe = () => {
   return (
-    <section id="About" className="relative px-4 pt-24 pb-42">
+    <section id="About" className="relative px-4 pt-24 pb-36">
       {" "}
       <div className="container mx-auto max-w-5xl p-6">
         <h2 className="text-2xl md:text-4xl font-bold mt-4 mb-8 md:mb-12 text-center ">
