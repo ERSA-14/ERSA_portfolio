@@ -202,7 +202,7 @@ export const Contact = () => {
                   required
                   autoComplete="off"
                   className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary focus:outline-hidden transition-all"
-                  placeholder="Your name ..."
+                  placeholder="your Name ..."
                 />
               </div>
               <div>
@@ -236,7 +236,7 @@ export const Contact = () => {
                   rows="3"
                   autoComplete="off"
                   className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary focus:outline-hidden resize-none transition-all"
-                  placeholder="Your message here ..."
+                  placeholder="your Message here ..."
                 />
               </div>
               <button

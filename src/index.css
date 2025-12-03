@@ -133,24 +133,21 @@
     overflow-x: hidden;
     width: 100%;
     min-height: 100vh;
-    cursor: none;
+    /* cursor: none; - Removed global cursor hiding */
   }
 
-  a,
-  button,
-  [role="button"],
-  .cursor-pointer {
-    cursor: none;
-  }
-
-  input,
-  textarea,
-  select {
-    cursor: none;
-  }
-
-  * {
-    cursor: none !important;
+  @media (min-width: 1024px) {
+    body,
+    a,
+    button,
+    [role="button"],
+    .cursor-pointer,
+    input,
+    textarea,
+    select,
+    * {
+      cursor: none !important;
+    }
   }
 
   p {
@@ -400,6 +397,7 @@ img {
 }
 
 .custom-cursor {
+  display: none; /* Hidden by default on mobile/tablet */
   position: fixed;
   width: 12px;
   height: 12px;
@@ -410,6 +408,12 @@ img {
   transform: translate(-50%, -50%) rotate(45deg);
   transition: width 0.2s ease, height 0.2s ease;
   opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .custom-cursor {
+    display: block;
+  }
 }
 
 .custom-cursor.hover {
