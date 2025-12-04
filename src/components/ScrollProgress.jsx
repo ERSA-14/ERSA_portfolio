@@ -61,7 +61,13 @@ export const ScrollProgress = () => {
     <div className="fixed top-0 left-0 w-full h-1 bg-border/30 z-[9999] pointer-events-none">
       <div
         className="h-full bg-gradient-to-r from-primary via-primary/80 to-primary transition-all duration-300 ease-out shadow-[0_0_10px_rgba(59,189,219,0.5)]"
-        style={{ width: `${scrollProgress}%` }}
+        style={{
+          width: `${scrollProgress}%`,
+          clipPath:
+            scrollProgress >= 99
+              ? "none"
+              : "polygon(0 0, calc(100% - 4px) 0, 100% 100%, 0 100%)",
+        }}
       />
     </div>
   );
