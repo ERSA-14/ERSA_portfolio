@@ -108,15 +108,15 @@ export const Skills = () => {
           the development stack to the cloud-native frontier
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "rounded-full capitalize transition-all duration-300 text-xs md:text-sm",
+                "rounded-full capitalize transition-all duration-300 text-xs md:text-sm w-fit",
                 activeCategory === category
-                  ? "cosmic-button px-4 py-1.5 md:px-6 md:py-2"
+                  ? "cosmic-button"
                   : "px-4 py-1.5 md:px-6 md:py-2 border-2 border-border/50 bg-background/50 text-muted-foreground hover:border-primary/50 hover:text-foreground hover:bg-secondary/50"
               )}
             >

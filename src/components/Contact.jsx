@@ -60,6 +60,7 @@ export const Contact = () => {
             description:
               "Thank you for your interest- your Message is now in my orbit, and I will launch a reply to you very soon.",
           });
+          e.target.reset();
           form.current.reset();
         },
         (error) => {
