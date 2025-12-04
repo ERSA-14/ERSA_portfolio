@@ -12,6 +12,8 @@ export const HomePage = () => {
     if (!isDeleting && displayedText === fullText) {
       if (!firstTypingComplete) {
         setFirstTypingComplete(true);
+        // Dispatch event to show scroll progress
+        window.dispatchEvent(new Event("typingComplete"));
       }
       timeout = setTimeout(() => setIsDeleting(true), 1500);
     } else if (isDeleting && displayedText === "") {

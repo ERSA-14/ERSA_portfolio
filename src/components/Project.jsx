@@ -67,7 +67,10 @@ export const Project = () => {
                 </h3>
                 <div className="flex flex-wrap gap-2 mb-4 items-center justify-center">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 items-center justify-center text-xs font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white">
+                    <span
+                      key={tag}
+                      className="px-2 py-1 items-center justify-center text-xs font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white"
+                    >
                       {tag}
                     </span>
                   ))}

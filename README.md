@@ -12,13 +12,16 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 
 ### 🎨 **Design**
 
-- **Dual Theme**: Beautiful dark and light modes with smooth transitions
+- **Dark Mode Default**: Beautiful dark theme loads by default with smooth light mode toggle
+- **Section-Based Scroll Progress**: Gradient progress bar at the top with equal weight per section (20% each)
+- **Scroll-Triggered Animations**: Smooth fade-in and slide-up animations as you scroll through sections
 - **Fully Responsive**: Optimized for all devices with dedicated tablet breakpoints (768px-1024px)
 - **Fluid Typography**: All text scales perfectly using clamp() functions with strict hierarchy (H1 > H2 > H3...)
 - **Modern UI/UX**: Clean, professional interface with glassmorphism effects
 - **Consistent Glow Effects**: Tight, intense hover glows (3px/8px/15px) across all interactive elements
 - **Custom Cursor**: Interactive diamond-shaped cursor with hover effects (desktop only)
 - **Smooth Animations**: Optimized scale animations (max 105%, cosmic-button 103%)
+- **Optimized Spacing**: Minimal padding from screen edges for maximum content visibility
 
 ### 🛠️ **Technical**
 
@@ -29,6 +32,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Three.js**: 3D graphics for interactive backgrounds
 - **EmailJS**: Contact form integration without backend
 - **Responsive Design System**: Comprehensive breakpoint system for mobile, tablet, and desktop
+- **Intersection Observer**: Efficient scroll-triggered animations
 
 ### 📱 **Sections**
 
@@ -128,6 +132,7 @@ ERSA_portfolio/
 │   │   ├── HomePage.jsx    # Hero section
 │   │   ├── NavBar.jsx      # Navigation
 │   │   ├── Project.jsx     # Projects showcase
+│   │   ├── ScrollProgress.jsx # Section-based scroll progress bar
 │   │   ├── Skills.jsx      # Skills grid
 │   │   ├── StarBackground.jsx # Dark mode background
 │   │   ├── SpaceBackground.jsx # Light mode background

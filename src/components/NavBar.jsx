@@ -33,7 +33,7 @@ export const NavBar = () => {
         isScrolled ? "py-3 bg-background shadow-sm" : "py-5"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between px-4">
+      <div className="container mx-auto flex items-center justify-between px-0">
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#Home"
