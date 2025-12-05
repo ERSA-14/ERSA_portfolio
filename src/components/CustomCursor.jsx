@@ -7,6 +7,9 @@ export const CustomCursor = () => {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
+    // Add transition for smooth opacity change
+    cursor.style.transition = "opacity 0.5s";
+
     const moveCursor = (e) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
@@ -24,27 +27,50 @@ export const CustomCursor = () => {
       }
     };
 
-    window.addEventListener("mousemove", moveCursor);
+    // Inactivity timer
+    let inactivityTimer;
+    const resetInactivityTimer = () => {
+      if (cursor.style.opacity === "0") {
+        cursor.style.opacity = "1";
+      }
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
+        cursor.style.opacity = "0";
+      }, 3000);
+    };
+
+    const handleMouseMoveWithTimer = (e) => {
+      moveCursor(e);
+      resetInactivityTimer();
+    };
+
+    window.addEventListener("mousemove", handleMouseMoveWithTimer);
     window.addEventListener("mouseover", handleHover);
+
+    // Initialize timer
+    resetInactivityTimer();
 
     const handleMouseOut = (e) => {
       if (!e.relatedTarget && !e.toElement) {
         cursor.style.opacity = "0";
+        clearTimeout(inactivityTimer);
       }
     };
 
     const handleMouseEnter = () => {
       cursor.style.opacity = "1";
+      resetInactivityTimer();
     };
 
     document.addEventListener("mouseout", handleMouseOut);
     document.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
+      window.removeEventListener("mousemove", handleMouseMoveWithTimer);
       window.removeEventListener("mouseover", handleHover);
       document.removeEventListener("mouseout", handleMouseOut);
       document.removeEventListener("mouseenter", handleMouseEnter);
+      clearTimeout(inactivityTimer);
     };
   }, []);
 

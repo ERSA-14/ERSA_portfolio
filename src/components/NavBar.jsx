@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, CircleHelp } from "lucide-react";
 import { cn } from "../lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -14,6 +14,7 @@ const navItems = [
 export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showHints, setShowHints] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +31,10 @@ export const NavBar = () => {
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background shadow-sm" : "py-5"
+        isScrolled ? "py-4 bg-background shadow-sm" : "py-6"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between px-0">
+      <div className="container mx-auto flex items-center justify-between px-6">
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#Home"
