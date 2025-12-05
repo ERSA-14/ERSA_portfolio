@@ -8,7 +8,7 @@ export const CustomCursor = () => {
     if (!cursor) return;
 
     // Add transition for smooth opacity change
-    cursor.style.transition = "opacity 0.5s";
+    cursor.style.transition = "opacity 0.1s";
 
     const moveCursor = (e) => {
       cursor.style.left = `${e.clientX}px`;
@@ -36,7 +36,7 @@ export const CustomCursor = () => {
       clearTimeout(inactivityTimer);
       inactivityTimer = setTimeout(() => {
         cursor.style.opacity = "0";
-      }, 3000);
+      }, 2800);
     };
 
     const handleMouseMoveWithTimer = (e) => {

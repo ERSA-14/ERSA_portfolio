@@ -4,14 +4,25 @@ import { cn } from "../lib/utils";
 
 export const ThemeToggle = ({ className }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
+
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
+    try {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        setIsDarkMode(false);
+        document.documentElement.classList.remove("dark");
+      } else if (savedTheme === "dark") {
+        setIsDarkMode(true);
+        document.documentElement.classList.add("dark");
+      } else {
+        // No saved preference -> respect system preference if available
+        const prefersDark =
+          window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        setIsDarkMode(!!prefersDark);
+        document.documentElement.classList.toggle("dark", !!prefersDark);
+      }
+    } catch (e) {
+      console.warn("Theme init/read failed:", e);
     }
   }, []);
 
@@ -24,14 +35,14 @@ export const ThemeToggle = ({ className }) => {
       try {
         localStorage.setItem("theme", "dark");
       } catch (e) {
-        console.error("Failed to save theme preference:", e);
+        console.warn("Failed to save theme preference:", e);
       }
     } else {
       document.documentElement.classList.remove("dark");
       try {
         localStorage.setItem("theme", "light");
       } catch (e) {
-        console.error("Failed to save theme preference:", e);
+        console.warn("Failed to save theme preference:", e);
       }
     }
   };

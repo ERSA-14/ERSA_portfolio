@@ -71,7 +71,7 @@ export const HomePage = () => {
           )}
         </div>
       </div>
-      <div className="absolute bottom-26 left-1/2 transform -translate-x-1/2 flex item-center animate-bounce">
+      <div className="absolute bottom-26 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce">
         <a href="#About" aria-label="Scroll to About">
           <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
         </a>

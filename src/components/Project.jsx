@@ -1,5 +1,4 @@
-import { ArrowDown, MoveUpRight } from "lucide-react";
-import { Github } from "lucide-react";
+import { ArrowDown, MoveUpRight, Github } from "lucide-react";
 
 const projects = [
   {
@@ -49,9 +48,9 @@ export const Project = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-center">
-          {projects.map((project, key) => (
+          {projects.map((project) => (
             <div
-              key={key}
+              key={project.id}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover justify-center items-center border-2 border-transparent hover:border-primary transition-colors duration-400"
             >
               <div className="h-48 overflow-hidden">
@@ -105,7 +104,7 @@ export const Project = () => {
           </a>
         </div>
       </div>
-      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex item-center animate-bounce">
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce">
         <a href="#Contact" aria-label="Scroll to Contact">
           <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
         </a>
