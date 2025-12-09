@@ -14,7 +14,7 @@ export const AboutMe = () => {
             className="flex flex-col justify-center items-center text-center space-y-6 px-4 py-3 rounded-md"
           >
             <h3 className="text-xl md:text-2xl font-semibold">
-              Reliable <span className="text-primary">Software Engineer</span>
+              Software <span className="text-primary">Developer</span>
             </h3>
 
             <p className="text-muted-foreground text-sm md:text-base">
@@ -56,7 +56,7 @@ export const AboutMe = () => {
                 <p className="text-muted-foreground text-sm md:text-base">
                   I specialize in building secure and scalable applications
                   using Python, React, Node/Express, MySQL, and AWS Cloud. My
-                  expertise extends to AI, REST APIs, Flask, and PostgreSQL,
+                  expertise extends to AI, REST APIs, Django, and PostgreSQL,
                   with additional proficiency in Oracle Cloud and databases.
                   <br />
                 </p>

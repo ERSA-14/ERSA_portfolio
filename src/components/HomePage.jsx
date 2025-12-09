@@ -55,10 +55,15 @@ export const HomePage = () => {
           {firstTypingComplete && (
             <>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                A software and web architect, I engineer stellar digital
-                solutions with the precision of orbital mechanics. I'm committed
-                to launching efficient, high-quality applications that explore
-                the frontiers of Internet.
+                A
+                <span className="text-primary text-xl md:text-2xl">
+                  {" "}
+                  Developer
+                </span>
+                , I engineer stellar digital solutions with the precision of
+                orbital mechanics. I'm committed to launching efficient,
+                high-quality applications that explore the frontiers of
+                Internet.
                 <span> </span>{" "}
               </p>
 
