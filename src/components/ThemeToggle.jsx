@@ -17,12 +17,13 @@ export const ThemeToggle = ({ className }) => {
       } else {
         // No saved preference -> respect system preference if available
         const prefersDark =
-          window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
         setIsDarkMode(!!prefersDark);
         document.documentElement.classList.toggle("dark", !!prefersDark);
       }
     } catch (e) {
-      console.warn("Theme init/read failed:", e);
+      // Theme init failed
     }
   }, []);
 
@@ -35,14 +36,14 @@ export const ThemeToggle = ({ className }) => {
       try {
         localStorage.setItem("theme", "dark");
       } catch (e) {
-        console.warn("Failed to save theme preference:", e);
+        // Failed to save theme persistence
       }
     } else {
       document.documentElement.classList.remove("dark");
       try {
         localStorage.setItem("theme", "light");
       } catch (e) {
-        console.warn("Failed to save theme preference:", e);
+        // Failed to save theme persistence
       }
     }
   };

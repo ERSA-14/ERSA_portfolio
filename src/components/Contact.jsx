@@ -86,7 +86,7 @@ export const Contact = () => {
           projects and grow with dynamic teams. Whether you have a role in mind
           or simply want to discuss technology, I would love to hear from you.
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="space-y-8">
             <div className="space-y-8">
               <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">
@@ -139,7 +139,12 @@ export const Contact = () => {
                     <h4 className="font-semibold text-left text-sm">
                       Location
                     </h4>
-                    <a className="text-muted-foreground hover:text-primary transition-colors duration-300">
+                    <a
+                      href="https://www.google.com/maps/place/Bhopal,+Madhya+Pradesh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                    >
                       <span className="text-sm block">
                         Bhopal, Madhya Pradesh, India
                       </span>
@@ -159,6 +164,7 @@ export const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
+                  aria-label="LinkedIn Profile"
                 >
                   <Linkedin strokeWidth={2} size={28} />
                 </a>
@@ -167,6 +173,7 @@ export const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
+                  aria-label="LeetCode Profile"
                 >
                   <SiLeetcode strokeWidth={0.5} size={24} />
                 </a>
@@ -175,6 +182,7 @@ export const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
+                  aria-label="GitHub Profile"
                 >
                   <Github strokeWidth={2} size={28} />
                 </a>
@@ -244,7 +252,7 @@ export const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-auto mx-auto !py-1"
+                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-4 mx-auto !py-1"
               >
                 <span>Send Message</span>
                 <Send size={16} />

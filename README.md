@@ -19,7 +19,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Fluid Typography**: All text scales perfectly using clamp() functions with strict hierarchy (H1 > H2 > H3...)
 - **Modern UI/UX**: Clean, professional interface with glassmorphism effects
 - **Consistent Glow Effects**: Tight, intense hover glows (3px/8px/15px) across all interactive elements
-- **Custom Cursor**: Interactive diamond-shaped cursor with hover effects (desktop only)
+- **Advanced Custom Cursor**: Physics-based magnetic cursor with velocity stretching, reactive hover states, and smooth inertia (desktop only)
 - **Smooth Animations**: Optimized scale animations (max 105%, cosmic-button 103%)
 - **Optimized Spacing**: Minimal padding from screen edges for maximum content visibility
 
@@ -31,7 +31,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **React Router**: Client-side routing with SPA architecture
 - **Three.js**: 3D graphics for interactive backgrounds
 - **EmailJS**: Contact form integration without backend
-- **Google Gemini AI**: Real-time chat assistant powered by Gemini 2.0 Flash
+- **Google Gemini AI**: Real-time chat assistant powered by Gemini 2.5 Flash Lite
 - **Responsive Design System**: Comprehensive breakpoint system for mobile, tablet, and desktop
 - **Intersection Observer**: Efficient scroll-triggered animations
 
@@ -40,7 +40,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 1. **Home**: Hero section with animated typing effect and responsive spacing
 2. **About Me**: Professional summary, certifications, resume with centered content layout
 3. **Skills**: Interactive skill showcase with category filtering and responsive grid
-4. **Projects**: Highlighted projects with live demos and GitHub links
+4. **Projects**: Highlighted projects including Agentic AI Assistants and Full-Stack Apps
 5. **Contact**: Working contact form, real-time AI chat assistant, and social media links
 
 ### ⚡ **Performance & Responsiveness**

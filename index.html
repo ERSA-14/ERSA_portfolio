@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/letter-s-svgrepo-com.svg" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
     />
 
     <meta
@@ -47,11 +47,45 @@
       #root {
         min-height: 100vh;
       }
+      #root:empty::before {
+        content: "";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(59, 189, 219, 0.3);
+        border-top-color: #3bbddb;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      #root {
+        animation: fadeIn 0.3s ease-in;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
     </style>
+    <script>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else if (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script src="/init.js"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

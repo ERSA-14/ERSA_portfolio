@@ -23,13 +23,19 @@ const projects = [
   },
   {
     id: 3,
-    title: "Indian States Geography Quiz",
+    title: "Agentic AI Coding Assistant",
     description:
-      "Interactive geography quiz game built with Python using Tkinter for GUI and Turtle graphics for map visualization. Utilizes pandas for state name recognition and real-time score tracking for Indian states.",
-    image: "/ProjectSS/three.jpeg",
-    tags: ["Python", "Tkinter", "Turtle", "Pandas", "GUI"],
+      "A command-line autonomous AI agent powered by Google Gemini that reads, writes, and executes Python files while intelligently debugging code through multi-step reasoning and iterative function calling.",
+    image: "/ProjectSS/four.png",
+    tags: [
+      "Python",
+      "Autonomous",
+      "File-handling",
+      "Automation",
+      "Function-calling",
+    ],
     docsUrl: "",
-    githubUrl: "https://github.com/ERSA-14/indian_states_trivia_with_GUI",
+    githubUrl: "https://github.com/ERSA-14/Python-AI",
   },
 ];
 
@@ -51,12 +57,13 @@ export const Project = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover justify-center items-center border-2 border-transparent hover:border-primary transition-colors duration-400"
+              className="group bg-card rounded-lg overflow-hidden shadow-sm card-hover justify-center items-center border-2 border-transparent hover:border-primary transition-colors duration-400"
             >
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -84,6 +91,7 @@ export const Project = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-foreground hover:text-primary transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(59,189,219,0.6)]"
+                      aria-label={`View ${project.title} on GitHub`}
                     >
                       <Github strokeWidth={2} size={24} />
                     </a>

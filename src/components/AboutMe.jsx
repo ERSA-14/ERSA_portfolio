@@ -1,4 +1,4 @@
-import { Code, Award, Link2, ArrowDown, FileDown } from "lucide-react";
+import { Code, Award, ArrowDown, FileDown } from "lucide-react";
 
 export const AboutMe = () => {
   return (

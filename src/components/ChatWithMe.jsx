@@ -43,7 +43,10 @@ export const ChatWithMe = () => {
   };
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -195,7 +198,7 @@ export const ChatWithMe = () => {
   };
 
   return (
-    <div className="bg-card p-4 rounded-lg shadow-sm border-2 border-transparent transition-all duration-300 hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:scale-[1.02] max-w-sm mx-auto w-full h-full flex flex-col">
+    <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-all duration-300 hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:scale-[1.02] w-full h-full flex flex-col">
       <div
         className={`flex items-center gap-2 mb-4 pb-0 transition-all duration-200 ${
           scrollShadows.top
@@ -256,6 +259,8 @@ export const ChatWithMe = () => {
       <form onSubmit={sendMessage} className="flex gap-2">
         <input
           type="text"
+          id="chat-input"
+          name="chat-input"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask me some Questions ..."

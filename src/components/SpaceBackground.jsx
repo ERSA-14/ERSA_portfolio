@@ -14,7 +14,7 @@ export function SpaceBackground() {
       alpha: true,
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -61,6 +61,7 @@ export function SpaceBackground() {
     ctx.fillStyle = "white";
     ctx.fill();
     const circleTexture = new THREE.CanvasTexture(canvas2);
+    circleTexture.flipY = false; // Fix WebGL warning about FLIP_Y for textures
 
     const material = new THREE.PointsMaterial({
       color: 0x0a85c2,

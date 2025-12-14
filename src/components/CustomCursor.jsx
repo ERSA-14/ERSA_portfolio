@@ -10,9 +10,11 @@ export const CustomCursor = () => {
     // Add transition for smooth opacity change
     cursor.style.transition = "opacity 0.1s";
 
+    // Use transform for hardware acceleration
     const moveCursor = (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
+      cursor.style.transform = `translate3d(${e.clientX}px, ${
+        e.clientY + 12
+      }px, 0) translate(-50%, -50%) rotate(45deg)`;
     };
 
     const handleHover = (e) => {
