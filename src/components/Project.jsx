@@ -25,12 +25,12 @@ const projects = [
     id: 3,
     title: "Agentic AI Coding Assistant",
     description:
-      "A command-line autonomous AI agent powered by Google Gemini that reads, writes, and executes Python files while intelligently debugging code through multi-step reasoning and iterative function calling.",
+      "A command-line autonomous AI agent powered by  Gemini that reads, writes, and executes Python files while intelligently debugging code through multi-step reasoning and iterative function calling.",
     image: "/ProjectSS/four.png",
     tags: [
       "Python",
-      "Autonomous",
       "File-handling",
+      "Prompt",
       "Automation",
       "Function-calling",
     ],
@@ -57,14 +57,14 @@ export const Project = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-sm card-hover justify-center items-center border-2 border-transparent hover:border-primary transition-colors duration-400"
+              className="group bg-card rounded-lg overflow-hidden shadow-sm card-hover justify-center items-center border-2 border-transparent hover:border-primary transition-none"
             >
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-none group-hover:scale-105"
                 />
               </div>
               <div className="p-4">
@@ -90,7 +90,7 @@ export const Project = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground hover:text-primary transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(59,189,219,0.6)]"
+                      className="text-foreground hover:text-primary transition-none hover:drop-shadow-[0_0_8px_rgba(59,189,219,0.6)]"
                       aria-label={`View ${project.title} on GitHub`}
                     >
                       <Github strokeWidth={2} size={24} />

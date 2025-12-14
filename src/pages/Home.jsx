@@ -43,14 +43,14 @@ export const Home = () => {
       <ScrollProgress isNameLoaded={isNameLoaded} />
 
       <div
-        className={`fixed inset-0 transition-opacity duration-700 pointer-events-none ${
+        className={`fixed inset-0 pointer-events-none ${
           isDarkMode ? "opacity-0" : "opacity-100"
         }`}
       >
         <SpaceBackground />
       </div>
       <div
-        className={`fixed inset-0 transition-opacity duration-700 pointer-events-none ${
+        className={`fixed inset-0 pointer-events-none ${
           isDarkMode ? "opacity-100" : "opacity-0"
         }`}
       >

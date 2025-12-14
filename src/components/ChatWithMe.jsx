@@ -198,9 +198,9 @@ export const ChatWithMe = () => {
   };
 
   return (
-    <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-all duration-300 hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:scale-[1.02] w-full h-full flex flex-col">
+    <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-none hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:scale-[1.02] w-full h-full flex flex-col">
       <div
-        className={`flex items-center gap-2 mb-4 pb-0 transition-all duration-200 ${
+        className={`flex items-center gap-2 mb-4 pb-0 transition-none ${
           scrollShadows.top
             ? "border-b border-border"
             : "border-b border-transparent"
@@ -265,12 +265,12 @@ export const ChatWithMe = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask me some Questions ..."
           disabled={isLoading}
-          className="flex-1 px-3 py-0.5 text-sm rounded-full border border-primary bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-all disabled:opacity-50"
+          className="flex-1 px-3 py-0.5 text-sm rounded-full border border-primary bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-none disabled:opacity-50"
         />
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className={`p-1.5 rounded-full transition-all duration-200 border-3 ${
+          className={`p-1.5 rounded-full transition-none border-3 ${
             input.trim()
               ? "bg-primary text-primary-foreground border-primary shadow-[0_0_15px_rgba(var(--primary),0.5)] hover:shadow-[0_0_20px_rgba(var(--primary),0.8)] hover:scale-105"
               : "bg-background text-primary border-primary disabled:opacity-50 disabled:hover:scale-100 disabled:hover:bg-background disabled:hover:text-primary"

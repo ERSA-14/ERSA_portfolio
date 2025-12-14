@@ -114,7 +114,7 @@ export const Skills = () => {
               key={index}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "rounded-full capitalize transition-all duration-300 text-xs md:text-sm w-fit",
+                "rounded-full capitalize transition-none text-xs md:text-sm w-fit",
                 activeCategory === category
                   ? "cosmic-button"
                   : "px-4 py-1.5 md:px-6 md:py-2 border-2 border-border/50 bg-background/50 text-muted-foreground hover:border-primary/50 hover:text-foreground hover:bg-secondary/50"
@@ -128,17 +128,17 @@ export const Skills = () => {
         <div
           ref={containerRef}
           style={{ minHeight: activeCategory === "All" ? "auto" : minHeight }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 content-start transition-[min-height] duration-300"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 content-start transition-none"
         >
           {filteredSkills.map((skill, index) => {
             const Icon = skillIcons[skill.name];
             return (
               <div
                 key={index}
-                className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center transition-all duration-300 group cursor-pointer"
+                className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center transition-none group cursor-pointer"
               >
                 {Icon && (
-                  <Icon className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-105" />
+                  <Icon className="w-8 h-8 text-primary transition-none group-hover:scale-105" />
                 )}
                 <h3 className="font-medium text-sm">{skill.name}</h3>
               </div>

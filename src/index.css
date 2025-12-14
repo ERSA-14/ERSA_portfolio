@@ -13,10 +13,10 @@
   --color-card: hsl(var(--card));
 
   /* Standardized Animation Durations */
-  --duration-micro: 200ms;
-  --duration-standard: 300ms;
-  --duration-page: 500ms;
-  --duration-complex: 800ms;
+  --duration-micro: 0ms;
+  --duration-standard: 0ms;
+  --duration-page: 0ms;
+  --duration-complex: 0ms;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
@@ -95,7 +95,8 @@
     border-width: 1px !important;
     border-color: hsl(var(--primary)) !important;
     border-style: solid !important;
-    transition: all var(--duration-standard) ease-in-out;
+    border-style: solid !important;
+    transition: none;
   }
 
   .bg-card:not(.chat-message-box):hover,
@@ -171,7 +172,7 @@
   }
 
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
     width: 100%;
@@ -388,7 +389,7 @@ img {
 }
 
 .card-hover {
-  @apply transition-all duration-500 hover:scale-[1.01] hover:shadow-xl hover:shadow-primary/10;
+  @apply transition-none hover:scale-[1.01] hover:shadow-xl hover:shadow-primary/10;
   will-change: transform, box-shadow;
 }
 
@@ -397,7 +398,9 @@ img {
   background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
   background-clip: padding-box;
   border: 2px solid hsl(var(--primary));
-  transition: all 0.3s ease-in-out;
+  background-clip: padding-box;
+  border: 2px solid hsl(var(--primary));
+  transition: none;
 }
 
 #About .gradient-border:hover,
@@ -424,7 +427,7 @@ img {
 
 .cosmic-button {
   @apply rounded-full bg-primary text-primary-foreground font-medium tracking-wide
-  transition-all duration-300 hover:scale-103 active:scale-95 border border-white/10;
+  transition-none hover:scale-103 active:scale-95 border border-white/10;
   padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
     clamp(1rem, 1.25vw + 0.5rem, 1.5rem);
   font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1.0625rem);
@@ -496,7 +499,7 @@ img {
 }
 
 .moon {
-  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-105 transition-transform duration-300;
+  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-105 transition-none;
   background: radial-gradient(
     circle at 30% 30%,
     #ffffff 0%,
@@ -541,7 +544,7 @@ img {
 }
 
 .theme-toggle-btn {
-  @apply transition-all duration-300;
+  @apply transition-none;
 }
 
 .theme-toggle-btn:hover {

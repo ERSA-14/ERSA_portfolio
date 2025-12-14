@@ -40,7 +40,7 @@ export const AboutMe = () => {
                 href="/Resume4.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="view-resume-button rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 transition-all duration-300 hover:scale-103 ease-in-out flex items-center gap-1 font-medium tracking-wide"
+                className="view-resume-button rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 transition-none hover:scale-103 ease-in-out flex items-center gap-1 font-medium tracking-wide"
               >
                 View Resume <FileDown size={20} />
               </a>

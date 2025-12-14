@@ -38,7 +38,7 @@ export const NavBar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300 ease-in-out",
+        "fixed w-full z-40 transition-none",
         isScrolled
           ? "py-4 bg-background shadow-sm border-b border-border/50"
           : "py-6 bg-transparent"
@@ -61,7 +61,7 @@ export const NavBar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-none"
             >
               {item.name}
             </a>
@@ -73,7 +73,7 @@ export const NavBar = () => {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-foreground p-3 rounded-full hover:bg-secondary/50 transition-colors duration-300 cursor-pointer touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="text-foreground p-3 rounded-full hover:bg-secondary/50 transition-none cursor-pointer touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
             aria-expanded={isMobileMenuOpen}
           >
@@ -87,12 +87,12 @@ export const NavBar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full right-4 mt-2 w-max bg-background/95 backdrop-blur-md border border-primary rounded-xl p-2 flex flex-col gap-1 shadow-2xl animate-in slide-in-from-top-2 fade-in duration-200 origin-top-right will-change-transform">
+        <div className="md:hidden absolute top-full right-4 mt-2 w-max bg-background/95 backdrop-blur-md border border-primary rounded-xl p-2 flex flex-col gap-1 shadow-2xl animate-in slide-in-from-top-2 fade-in duration-0 origin-top-right will-change-transform">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-foreground hover:text-primary hover:bg-secondary/50 transition-all duration-200 px-4 py-2 rounded-lg flex items-center"
+              className="text-sm font-medium text-foreground hover:text-primary hover:bg-secondary/50 transition-none px-4 py-2 rounded-lg flex items-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
