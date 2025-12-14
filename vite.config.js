@@ -17,10 +17,28 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom", "framer-motion"],
-          three: ["three"],
-          ui: ["lucide-react", "react-icons", "clsx", "tailwind-merge"],
+        manualChunks: (id) => {
+          if (id.includes("node_modules")) {
+            if (
+              id.includes("react") ||
+              id.includes("react-dom") ||
+              id.includes("react-router-dom") ||
+              id.includes("framer-motion")
+            ) {
+              return "vendor";
+            }
+            if (id.includes("three")) {
+              return "three";
+            }
+            if (
+              id.includes("lucide-react") ||
+              id.includes("react-icons") ||
+              id.includes("clsx") ||
+              id.includes("tailwind-merge")
+            ) {
+              return "ui";
+            }
+          }
         },
       },
     },
