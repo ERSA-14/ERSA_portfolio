@@ -13,6 +13,7 @@ import { useToast } from "../hooks/use-toast";
 
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { ChatWithMe } from "./ChatWithMe";
 
 export const Contact = () => {
   const { toast } = useToast();
@@ -76,7 +77,7 @@ export const Contact = () => {
 
   return (
     <section id="Contact" className="py-20 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-3xl pb-4 mt-2">
+      <div className="container mx-auto max-w-6xl pb-4 mt-2">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           <span className="text-primary">Connect</span> with me
         </h2>
@@ -85,7 +86,7 @@ export const Contact = () => {
           projects and grow with dynamic teams. Whether you have a role in mind
           or simply want to discuss technology, I would love to hear from you.
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <div className="space-y-8">
             <div className="space-y-8">
               <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">
@@ -181,12 +182,12 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-card p-6 rounded-lg shadow-sm border-2 border-transparent transition-all duration-300 hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] max-w-sm mx-auto w-full">
-            <h4 className="font-semibold text-xl mb-4 text-center">
+          <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-all duration-300 hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:scale-[1.02] w-full h-full flex flex-col">
+            <h4 className="font-semibold text-xl mb-3 text-center">
               Send a message
             </h4>
             <form
-              className="space-y-3 text-left"
+              className="space-y-2.5 text-left flex-1 flex flex-col"
               ref={form}
               onSubmit={sendEmail}
             >
@@ -203,7 +204,7 @@ export const Contact = () => {
                   id="name"
                   required
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary focus:outline-hidden transition-all"
+                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-all"
                   placeholder="your Name ..."
                 />
               </div>
@@ -220,11 +221,11 @@ export const Contact = () => {
                   id="email"
                   required
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary focus:outline-hidden transition-all"
+                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-all"
                   placeholder="your.Email@example.com ..."
                 />
               </div>
-              <div>
+              <div className="flex-1 flex flex-col">
                 <label
                   htmlFor="message"
                   className="block text-sm font-medium mb-1 text-muted-foreground"
@@ -237,19 +238,21 @@ export const Contact = () => {
                   required
                   rows="3"
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary focus:outline-hidden resize-none transition-all"
+                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden resize-none transition-all flex-1"
                   placeholder="your Message here ..."
                 />
               </div>
               <button
                 type="submit"
-                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-2 mx-auto !py-1"
+                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-auto mx-auto !py-1"
               >
                 <span>Send Message</span>
                 <Send size={16} />
               </button>
             </form>
           </div>
+
+          <ChatWithMe />
         </div>
       </div>
 

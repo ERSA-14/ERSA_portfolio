@@ -31,6 +31,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **React Router**: Client-side routing with SPA architecture
 - **Three.js**: 3D graphics for interactive backgrounds
 - **EmailJS**: Contact form integration without backend
+- **Google Gemini AI**: Real-time chat assistant powered by Gemini 2.0 Flash
 - **Responsive Design System**: Comprehensive breakpoint system for mobile, tablet, and desktop
 - **Intersection Observer**: Efficient scroll-triggered animations
 
@@ -40,7 +41,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 2. **About Me**: Professional summary, certifications, resume with centered content layout
 3. **Skills**: Interactive skill showcase with category filtering and responsive grid
 4. **Projects**: Highlighted projects with live demos and GitHub links
-5. **Contact**: Working contact form with social media links
+5. **Contact**: Working contact form, real-time AI chat assistant, and social media links
 
 ### ⚡ **Performance & Responsiveness**
 
@@ -127,6 +128,7 @@ ERSA_portfolio/
 ├── src/
 │   ├── components/         # React components
 │   │   ├── AboutMe.jsx     # About section with centered layout
+│   │   ├── ChatWithMe.jsx  # Real-time AI chat component
 │   │   ├── Contact.jsx     # Contact form
 │   │   ├── CustomCursor.jsx # Custom cursor component
 │   │   ├── HomePage.jsx    # Hero section
@@ -161,12 +163,20 @@ ERSA_portfolio/
 Create a `.env` file in the root directory:
 
 ```env
+# EmailJS Configuration (Optional)
 VITE_SERVICE_ID=your_emailjs_service_id
 VITE_TEMPLATE_ID=your_emailjs_template_id
 VITE_PUBLIC_KEY=your_emailjs_public_key
+
+# Google Gemini AI Configuration (Optional)
+VITE_GEMINI_API_KEY=your_google_gemini_api_key
+VITE_GEMINI_SYSTEM_PROMPT=You are Saksham Gupta's AI assistant...
 ```
 
-**Note**: EmailJS variables are optional. The contact form will show an error toast if not configured.
+**Note**: 
+- EmailJS variables are optional. The contact form will show an error toast if not configured.
+- Gemini API key is optional. The chat feature will show an error message if not configured.
+- Get your Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
 
 ### Customization
 
@@ -268,6 +278,7 @@ The project can be deployed to:
 ### Services
 
 - **EmailJS** 4.4.1 - Email service for contact form
+- **Google Gemini AI** - Real-time chat assistant (Gemini 2.0 Flash)
 - **Vercel** - Hosting and deployment
 
 ## 📱 Browser Support
