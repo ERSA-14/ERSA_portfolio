@@ -157,7 +157,7 @@
   .dark textarea:focus,
   .dark input:not(:placeholder-shown),
   .dark textarea:not(:placeholder-shown) {
-    border-width: 1.5px !important;
+    border-width: 2px !important;
     border-style: solid !important;
     transform: none !important;
     transition: none !important;
