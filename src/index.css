@@ -89,14 +89,31 @@
   }
 
   .dark .bg-card:not(.chat-message-box),
-  .dark .gradient-border,
-  .dark input,
-  .dark textarea {
-    border-width: 1px !important;
-    border-color: hsl(var(--primary)) !important;
-    border-style: solid !important;
+  .dark .gradient-border {
+    border-width: 1.5px !important;
+    border-color: transparent !important;
     border-style: solid !important;
     transition: none;
+  }
+
+  .dark input,
+  .dark textarea {
+    border-width: 0px !important;
+    border-color: transparent !important;
+    border-style: none !important;
+    transition: none;
+  }
+
+  input:hover,
+  textarea:hover,
+  input:focus,
+  textarea:focus,
+  input:not(:placeholder-shown),
+  textarea:not(:placeholder-shown) {
+    border-width: 1.5px !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
   }
 
   .bg-card:not(.chat-message-box):hover,
@@ -106,13 +123,39 @@
 
   .dark .bg-card:not(.chat-message-box):hover,
   .dark .gradient-border:hover {
-    box-shadow: 0 0 25px hsl(var(--primary) / 0.9) !important;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.6) !important;
     border-width: 1.5px !important;
+    border-style: solid !important;
+    border-color: hsl(var(--primary)) !important;
+    transform: none !important;
   }
 
   .dark .chat-message-box {
     border-width: 0px !important;
     border-color: transparent !important;
+  }
+
+  .dark input,
+  .dark textarea {
+    border-color: transparent !important;
+  }
+
+  input,
+  textarea {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark input:not(:placeholder-shown),
+  .dark textarea:not(:placeholder-shown) {
+    border-width: 1.5px !important;
+    border-style: solid !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
   }
 
   * {

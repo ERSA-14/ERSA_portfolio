@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageSquareShare, Sparkles } from "lucide-react";
+import { MoveUpRight, Sparkles } from "lucide-react";
 import { SiGooglegemini } from "react-icons/si";
 import { useToast } from "../hooks/use-toast";
 
@@ -265,7 +265,7 @@ export const ChatWithMe = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask me some Questions ..."
           disabled={isLoading}
-          className="flex-1 px-3 py-0.5 text-sm rounded-full border border-primary bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-none disabled:opacity-50"
+          className="flex-1 px-3 py-0.5 text-sm rounded-full border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-none disabled:opacity-100"
         />
         <button
           type="submit"
@@ -273,10 +273,10 @@ export const ChatWithMe = () => {
           className={`flex items-center justify-center transition-none rounded-full ${
             input.trim()
               ? "cosmic-button !p-1.5 shadow-[0_0_15px_rgba(var(--primary),0.5)] hover:shadow-[0_0_20px_rgba(var(--primary),0.8)] border-[2.2px]"
-              : "view-resume-button !p-1.5 border-[2.2px] border-primary text-primary bg-transparent hover:bg-primary/20 disabled:opacity-50 disabled:hover:bg-transparent"
+              : "view-resume-button !p-1.5 border-[2.2px] border-primary text-primary bg-transparent hover:bg-primary/20 disabled:opacity-100 disabled:hover:bg-transparent"
           }`}
         >
-          <MessageSquareShare size={18} strokeWidth={3} />
+          <MoveUpRight size={18} strokeWidth={3} />
         </button>
       </form>
     </div>
