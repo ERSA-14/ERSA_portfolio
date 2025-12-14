@@ -138,7 +138,7 @@ export const Skills = () => {
                 className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center transition-none group cursor-pointer"
               >
                 {Icon && (
-                  <Icon className="w-8 h-8 text-primary transition-none group-hover:scale-105" />
+                  <Icon className="w-8 h-8 text-primary transition-none" />
                 )}
                 <h3 className="font-medium text-sm">{skill.name}</h3>
               </div>

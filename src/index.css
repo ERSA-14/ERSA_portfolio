@@ -106,7 +106,8 @@
 
   .dark .bg-card:not(.chat-message-box):hover,
   .dark .gradient-border:hover {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.6) !important;
+    box-shadow: 0 0 25px hsl(var(--primary) / 0.9) !important;
+    border-width: 1.5px !important;
   }
 
   .dark .chat-message-box {
@@ -389,7 +390,7 @@ img {
 }
 
 .card-hover {
-  @apply transition-none hover:scale-[1.01] hover:shadow-xl hover:shadow-primary/10;
+  @apply transition-none hover:shadow-xl hover:shadow-primary/10;
   will-change: transform, box-shadow;
 }
 
@@ -427,7 +428,7 @@ img {
 
 .cosmic-button {
   @apply rounded-full bg-primary text-primary-foreground font-medium tracking-wide
-  transition-none hover:scale-103 active:scale-95 border border-white/10;
+  transition-none border border-white/10 hover:scale-[1.02];
   padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
     clamp(1rem, 1.25vw + 0.5rem, 1.5rem);
   font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1.0625rem);
@@ -436,6 +437,10 @@ img {
 .cosmic-button:hover {
   box-shadow: 0 0 3px hsl(var(--primary) / 0.4),
     0 0 8px hsl(var(--primary) / 0.3), 0 0 15px hsl(var(--primary) / 0.2);
+}
+
+.dark .cosmic-button:hover {
+  border-width: 1.5px !important;
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
@@ -455,6 +460,7 @@ img {
 }
 
 .view-resume-button {
+  @apply hover:scale-[1.03];
   padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
     clamp(1rem, 1.25vw + 0.5rem, 1.5rem);
   font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1.0625rem);
@@ -499,7 +505,7 @@ img {
 }
 
 .moon {
-  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer hover:scale-105 transition-none;
+  @apply absolute rounded-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-200 animate-float cursor-pointer transition-none;
   background: radial-gradient(
     circle at 30% 30%,
     #ffffff 0%,
@@ -583,8 +589,8 @@ img {
 }
 
 .custom-cursor.hover {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   opacity: 1;
 }
 

@@ -198,7 +198,7 @@ export const ChatWithMe = () => {
   };
 
   return (
-    <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-none hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:scale-[1.02] w-full h-full flex flex-col">
+    <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-none hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] w-full h-full flex flex-col">
       <div
         className={`flex items-center gap-2 mb-4 pb-0 transition-none ${
           scrollShadows.top
@@ -270,13 +270,13 @@ export const ChatWithMe = () => {
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className={`p-1.5 rounded-full transition-none border-3 ${
+          className={`flex items-center justify-center transition-none rounded-full ${
             input.trim()
-              ? "bg-primary text-primary-foreground border-primary shadow-[0_0_15px_rgba(var(--primary),0.5)] hover:shadow-[0_0_20px_rgba(var(--primary),0.8)] hover:scale-105"
-              : "bg-background text-primary border-primary disabled:opacity-50 disabled:hover:scale-100 disabled:hover:bg-background disabled:hover:text-primary"
+              ? "cosmic-button !p-1.5 shadow-[0_0_15px_rgba(var(--primary),0.5)] hover:shadow-[0_0_20px_rgba(var(--primary),0.8)] border-[2.2px]"
+              : "view-resume-button !p-1.5 border-[2.2px] border-primary text-primary bg-transparent hover:bg-primary/20 disabled:opacity-50 disabled:hover:bg-transparent"
           }`}
         >
-          <MessageSquareShare size={18} />
+          <MessageSquareShare size={18} strokeWidth={3} />
         </button>
       </form>
     </div>

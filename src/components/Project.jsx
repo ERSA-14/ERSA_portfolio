@@ -17,7 +17,7 @@ const projects = [
     description:
       "Serverless bill receipt automation system using AWS Lambda functions written in Python. Automates invoice processing and receipt generation through event-driven cloud architecture.",
     image: "/ProjectSS/two.jpeg",
-    tags: ["Python", "AWS", "Serverless", "Event-driven", "Automation"],
+    tags: ["Python", "AWS Cloud", "Serverless", "Event-driven", "Automation"],
     docsUrl: "",
     githubUrl: "https://github.com/ERSA-14/AWS-lambda",
   },
@@ -31,7 +31,7 @@ const projects = [
       "Python",
       "File-handling",
       "Prompt",
-      "Automation",
+      "Autonomous",
       "Function-calling",
     ],
     docsUrl: "",
@@ -64,7 +64,7 @@ export const Project = () => {
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
-                  className="w-full h-full object-cover object-top transition-none group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-none"
                 />
               </div>
               <div className="p-4">

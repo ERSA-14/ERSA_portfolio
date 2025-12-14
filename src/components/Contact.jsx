@@ -140,9 +140,12 @@ export const Contact = () => {
                       href="https://www.google.com/maps/place/Bhopal,+Madhya+Pradesh"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-none"
+                      className="text-muted-foreground transition-none"
                     >
-                      <span className="text-sm block">
+                      <h4 className="font-semibold text-left text-sm">
+                        Location
+                      </h4>
+                      <span className="text-sm block hover:text-primary transition-none">
                         Bhopal, Madhya Pradesh, India
                       </span>
                     </a>
@@ -187,7 +190,7 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-none hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:scale-[1.02] w-full h-full flex flex-col">
+          <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-none hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] w-full h-full flex flex-col">
             <h4 className="font-semibold text-xl mb-3 text-center">
               Send a message
             </h4>

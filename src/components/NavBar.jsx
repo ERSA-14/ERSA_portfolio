@@ -56,7 +56,7 @@ export const NavBar = () => {
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <a
               key={item.name}
