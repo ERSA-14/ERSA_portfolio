@@ -198,7 +198,7 @@ export const ChatWithMe = () => {
   };
 
   return (
-    <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-none hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] w-full h-full flex flex-col">
+    <div className="bg-card p-5 rounded-lg shadow-sm border-[1.5px] border-transparent transition-none w-full h-full flex flex-col">
       <div
         className={`flex items-center gap-2 mb-4 pb-0 transition-none ${
           scrollShadows.top
@@ -264,8 +264,9 @@ export const ChatWithMe = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask me some Questions ..."
+          autoComplete="off"
           disabled={isLoading}
-          className="flex-1 px-3 py-0.5 text-sm rounded-full border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-none disabled:opacity-100"
+          className="flex-1 px-3 py-0.5 text-sm font-medium rounded-full border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-none disabled:opacity-100"
         />
         <button
           type="submit"

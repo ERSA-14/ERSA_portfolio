@@ -190,7 +190,7 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-transparent transition-none hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.3)] w-full h-full flex flex-col">
+          <div className="bg-card p-5 rounded-lg shadow-sm border-[1.5px] border-transparent transition-none w-full h-full flex flex-col">
             <h4 className="font-semibold text-xl mb-3 text-center">
               Send a message
             </h4>

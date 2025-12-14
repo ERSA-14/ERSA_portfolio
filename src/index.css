@@ -149,6 +149,8 @@
     transform: none !important;
     transition: none !important;
     will-change: auto !important;
+    caret-color: hsl(var(--primary));
+    caret-width: 2px;
   }
 
   .dark input:focus,
