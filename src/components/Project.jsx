@@ -114,7 +114,7 @@ export const Project = () => {
       </div>
       <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce">
         <a href="#Contact" aria-label="Scroll to Contact">
-          <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
+          <ArrowDown className="h-5 w-5 text-primary" />
         </a>
       </div>
     </section>

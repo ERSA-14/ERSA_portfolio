@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&display=swap");
 
+@import "./styles/design-tokens.css";
 @import "tailwindcss";
 
 @theme {
@@ -119,6 +120,9 @@
   .bg-card:not(.chat-message-box):hover,
   .gradient-border:hover {
     box-shadow: 0 0 15px hsl(var(--primary) / 0.25) !important;
+    border-width: 1.5px !important;
+    border-style: solid !important;
+    border-color: hsl(var(--primary)) !important;
   }
 
   .dark .bg-card:not(.chat-message-box):hover,

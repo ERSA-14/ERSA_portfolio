@@ -98,7 +98,7 @@ export const NavBar = () => {
               {item.name}
             </a>
           ))}
-          <div className="pt-2 mt-1 border-t border-border flex justify-center pb-1">
+          <div className="pt-2 mt-1 flex justify-center pb-1">
             <ThemeToggle />
           </div>
         </div>

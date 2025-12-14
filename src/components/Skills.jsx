@@ -146,9 +146,9 @@ export const Skills = () => {
           })}
         </div>
       </div>
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex item-center animate-bounce">
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce">
         <a href="#Projects" aria-label="Scroll to Projects">
-          <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
+          <ArrowDown className="h-5 w-5 text-primary" />
         </a>
       </div>
     </section>

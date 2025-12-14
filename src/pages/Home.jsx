@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { SpaceBackground } from "../components/SpaceBackground";
+import { SpaceBackgroundLazy } from "../components/SpaceBackgroundLazy";
 import { StarBackground } from "../components/StarBackground";
 import { NavBar } from "../components/NavBar";
 import { HomePage } from "../components/HomePage";
@@ -43,14 +43,14 @@ export const Home = () => {
       <ScrollProgress isNameLoaded={isNameLoaded} />
 
       <div
-        className={`fixed inset-0 pointer-events-none ${
+        className={`fixed inset-0 pointer-events-none transition-opacity duration-300 ${
           isDarkMode ? "opacity-0" : "opacity-100"
         }`}
       >
-        <SpaceBackground />
+        <SpaceBackgroundLazy />
       </div>
       <div
-        className={`fixed inset-0 pointer-events-none ${
+        className={`fixed inset-0 pointer-events-none transition-opacity duration-300 ${
           isDarkMode ? "opacity-100" : "opacity-0"
         }`}
       >
