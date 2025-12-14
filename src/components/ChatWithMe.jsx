@@ -14,7 +14,7 @@ export const ChatWithMe = () => {
       : [
           {
             role: "assistant",
-            content: "Hello! I am Saksham, in a digital nutshell",
+            content: "Hello! I am Saksham Gupta, in a digital shell",
           },
         ];
   });

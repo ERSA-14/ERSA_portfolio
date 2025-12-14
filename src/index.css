@@ -84,7 +84,7 @@
     --card: 224 71% 0%;
     --primary: 190 100% 72%;
     --primary-foreground: 224 71% 0%;
-    --border: 215 20% 2%;
+    --border: 215 20% 15%;
     --accent: 35 100% 47%;
     --muted: 215 15% 52%;
   }
@@ -97,41 +97,28 @@
     transition: none;
   }
 
-  .dark input,
-  .dark textarea {
-    border-width: 0px !important;
-    border-color: transparent !important;
-    border-style: none !important;
-    transition: none;
-  }
 
-  input:hover,
-  textarea:hover,
-  input:focus,
-  textarea:focus,
-  input:not(:placeholder-shown),
-  textarea:not(:placeholder-shown) {
-    border-width: 1.5px !important;
-    transform: none !important;
-    transition: none !important;
-    will-change: auto !important;
-  }
+
+
 
   .bg-card:not(.chat-message-box):hover,
   .gradient-border:hover {
-    box-shadow: 0 0 15px hsl(var(--primary) / 0.25) !important;
-    border-width: 1.5px !important;
-    border-style: solid !important;
-    border-color: hsl(var(--primary)) !important;
-  }
-
-  .dark .bg-card:not(.chat-message-box):hover,
-  .dark .gradient-border:hover {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.6) !important;
     border-width: 1.5px !important;
     border-style: solid !important;
     border-color: hsl(var(--primary)) !important;
     transform: none !important;
+  }
+
+  /* Light mode specific shadow */
+  html:not(.dark) .bg-card:not(.chat-message-box):hover,
+  html:not(.dark) .gradient-border:hover {
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.25) !important;
+  }
+
+  /* Dark mode specific shadow */
+  .dark .bg-card:not(.chat-message-box):hover,
+  .dark .gradient-border:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.6) !important;
   }
 
   .dark .chat-message-box {
@@ -139,10 +126,7 @@
     border-color: transparent !important;
   }
 
-  .dark input,
-  .dark textarea {
-    border-color: transparent !important;
-  }
+
 
   input,
   textarea {
@@ -153,11 +137,13 @@
     caret-width: 2px;
   }
 
-  .dark input:focus,
-  .dark textarea:focus,
-  .dark input:not(:placeholder-shown),
-  .dark textarea:not(:placeholder-shown) {
-    border-width: 2px !important;
+  input:hover,
+  textarea:hover,
+  input:focus,
+  textarea:focus,
+  input:not(:placeholder-shown),
+  textarea:not(:placeholder-shown) {
+    border-width: 1.5px !important;
     border-style: solid !important;
     transform: none !important;
     transition: none !important;
