@@ -28,3 +28,97 @@ lerna-debug.log*
 
 coverage
 *.lcov
+
+# ---- Secrets & environment ----
+.env
+.env.*        # .env.local, .env.prod, etc.
+*.key
+*.pem
+*.crt
+*.pfx
+*.p12
+*.kdbx
+*.sqlite
+*.db
+
+# Local override configs
+config.local.*
+*.local.json
+*.local.yml
+*.local.yaml
+
+# ---- Dependencies ----
+node_modules/
+jspm_packages/
+bower_components/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+ENV/
+.envrc
+
+# ---- Build / dist / cache ----
+dist/
+build/
+.cache/
+.next/
+.nuxt/
+out/
+coverage/
+*.log
+logs/
+tmp/
+temp/
+
+# JS bundlers & tools
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.vite/
+vite.config.local.*
+
+# Python tooling
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+pytestdebug.log
+
+# ---- IDE / OS junk ----
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# ---- Misc binaries & archives ----
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+*.tmp
+*.orig
+*.rej
