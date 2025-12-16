@@ -10,6 +10,7 @@
 
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-input: hsl(var(--input));
 
   --animate-pulse-subtle: pulse-subtle 4s var(--ease-in-out) infinite;
   --animate-fade-in: fade-in 0.7s var(--ease-smooth) forwards;
@@ -69,6 +70,7 @@
     --primary: 200 90% 40%;
     --primary-foreground: 0 0% 100%;
     --border: 214 32% 91%;
+    --input: 214 32% 91%;
     --accent: 35 90% 50%;
     --muted: 215 16% 47%;
   }
@@ -80,6 +82,7 @@
     --primary: 190 100% 72%;
     --primary-foreground: 224 71% 0%;
     --border: 215 20% 15%;
+    --input: 215 20% 15%;
     --accent: 35 100% 47%;
     --muted: 215 15% 52%;
   }
