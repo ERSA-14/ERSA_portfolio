@@ -82,24 +82,30 @@ export const Contact = () => {
     >
       <div className="container mx-auto max-w-6xl pb-4 mt-2">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          <span className="text-primary">Connect</span> with me
+          <span className="text-primary">Connect</span> with Me
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           I am actively seeking opportunities to contribute to innovative
           projects and grow with dynamic teams. Whether you have a role in mind
           or simply want to discuss technology, I would love to hear from you.
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="space-y-8">
             <div className="space-y-8">
-              <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">
-                Contact information
+              <h3 className="text-2xl font-semibold mb-6 text-left">
+                Contact <span className="text-primary">Information</span>
               </h3>
               <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 rounded-full bg-primary/30">
-                    <Mail className="icon-lg text-primary" />
-                  </div>
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="mailto:saksham22sg@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full border-2 border-primary text-primary flex items-center justify-center hover:bg-primary/20 transition-all duration-300"
+                    aria-label="Email"
+                  >
+                    <Mail className="icon-lg" />
+                  </a>
                   <div className="text-left">
                     <a
                       href="mailto:saksham22sg@gmail.com"
@@ -115,10 +121,14 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 rounded-full bg-primary/30">
-                    <PhoneOutgoing className="icon-lg text-primary" />
-                  </div>
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="tel:+916358798314"
+                    className="p-3 rounded-full border-2 border-primary text-primary flex items-center justify-center hover:bg-primary/20 transition-all duration-300"
+                    aria-label="Phone"
+                  >
+                    <PhoneOutgoing className="icon-lg" />
+                  </a>
                   <div className="text-left">
                     <a
                       href="tel:+916358798314"
@@ -134,10 +144,16 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 rounded-full bg-primary/30">
-                    <MapPin className="icon-lg text-primary" />
-                  </div>
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="https://www.google.com/maps/place/Bhopal,+Madhya+Pradesh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full border-2 border-primary text-primary flex items-center justify-center hover:bg-primary/20 transition-all duration-300"
+                    aria-label="Location"
+                  >
+                    <MapPin className="icon-lg" />
+                  </a>
                   <div className="text-left">
                     <a
                       href="https://www.google.com/maps/place/Bhopal,+Madhya+Pradesh"
@@ -158,15 +174,15 @@ export const Contact = () => {
             </div>
 
             <div className="pb-6">
-              <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">
-                Social Channels
+              <h3 className="text-2xl font-semibold mb-6 text-left">
+                <span className="text-primary">Social</span> Channels
               </h3>
-              <div className="flex space-x-4 justify-center lg:justify-start gap-4">
+              <div className="flex space-x-4 justify-start gap-4">
                 <a
                   href="https://www.linkedin.com/in/saksham-gupta-ersa/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary"
+                  className="p-3 rounded-full border-2 border-primary text-primary hover:bg-primary/20 transition-all duration-300 flex items-center justify-center"
                   aria-label="LinkedIn Profile"
                 >
                   <Linkedin strokeWidth={2} className="icon-lg" />
@@ -175,7 +191,7 @@ export const Contact = () => {
                   href="https://leetcode.com/u/ERSA-14/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary"
+                  className="p-3 rounded-full border-2 border-primary text-primary hover:bg-primary/20 transition-all duration-300 flex items-center justify-center"
                   aria-label="LeetCode Profile"
                 >
                   <SiLeetcode strokeWidth={0.5} className="icon-lg" />
@@ -184,7 +200,7 @@ export const Contact = () => {
                   href="https://github.com/ERSA-14"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary"
+                  className="p-3 rounded-full border-2 border-primary text-primary hover:bg-primary/20 transition-all duration-300 flex items-center justify-center"
                   aria-label="GitHub Profile"
                 >
                   <Github strokeWidth={2} className="icon-lg" />
@@ -193,12 +209,12 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-primary w-full h-full flex flex-col">
-            <h4 className="font-semibold text-xl mb-4 text-center justify-center text-foreground">
+          <div className="bg-card p-4 rounded-lg shadow-sm border-2 border-primary w-full h-full flex flex-col relative z-20">
+            <h4 className="font-semibold text-xl mb-3 text-center justify-center text-foreground">
               Send a <span className="text-primary">Message</span>
             </h4>
             <form
-              className="space-y-2.5 text-left flex-1 flex flex-col"
+              className="space-y-2 text-left flex-1 flex flex-col"
               ref={form}
               onSubmit={sendEmail}
             >
@@ -255,7 +271,7 @@ export const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-4 mx-auto"
+                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-2 mx-auto"
               >
                 <span>Send Message</span>
                 <Send className="icon-sm" />
@@ -263,7 +279,9 @@ export const Contact = () => {
             </form>
           </div>
 
-          <ChatWithMe />
+          <div className="lg:col-span-1 h-full">
+            <ChatWithMe />
+          </div>
         </div>
       </div>
 

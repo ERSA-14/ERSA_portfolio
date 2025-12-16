@@ -8,10 +8,10 @@ export const AboutMe = () => {
     >
       {" "}
       <div className="container mx-auto max-w-5xl p-6">
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 mb-8 md:mb-12 text-center ">
+        <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-8 md:mb-12 text-center ">
           About <span className="text-primary">Myself</span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           <div
             id="AboutMe"
             className="flex flex-col justify-center items-center text-center space-y-6 px-4 py-3 rounded-md"
@@ -21,7 +21,7 @@ export const AboutMe = () => {
             </h3>
 
             <p className="text-muted-foreground text-sm md:text-base">
-              I am a Computer Science and Engineering graduate from{" "}
+              I'm a Computer Science and Engineering graduate from{" "}
               <span className="font-bold">Vellore Institute of Technology</span>{" "}
               (8.58 CGPA) with a strong foundation in core CS fundamentals and
               software development. I am passionate about solving real-world
@@ -29,7 +29,7 @@ export const AboutMe = () => {
             </p>
 
             <p className="text-muted-foreground text-sm md:text-base">
-              I am a team-oriented professional who prioritizes continuous
+              I'm a team-oriented professional who prioritizes continuous
               learning and precision. My goal is to drive business growth by
               delivering high-quality results that consistently meet SLAs and
               SLOs without compromise.
@@ -49,7 +49,7 @@ export const AboutMe = () => {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
             <div className="gradient-border px-6 py-4 card-hover">
               <div className="text-left">
                 <h4 className="font-semibold text-base md:text-lg mb-2 flex items-center gap-2 text-primary">
@@ -73,7 +73,7 @@ export const AboutMe = () => {
                 </h4>
 
                 <div className="text-muted-foreground font-medium text-sm md:text-base">
-                  <ul className="hollow-circle">
+                  <ul className="hollow-circle font-semibold">
                     <li>
                       <a
                         href="https://www.credly.com/badges/e3bf58f5-7a58-4847-a234-fa6d2814fa61/linked_in_profile"

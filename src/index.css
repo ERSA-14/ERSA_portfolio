@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&family=Cause:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&family=Cause:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 @import "./styles/design-tokens.css";
 @import "tailwindcss";
@@ -91,7 +91,11 @@
   *, ::before, ::after {
     @apply border-border;
     box-sizing: border-box;
-    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-family: "Open Sans", "Roboto Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+
+  code, pre, kbd, samp {
+    font-family: "Roboto Mono", monospace;
   }
 
   /* Smooth Theme Transition for background/color only */
@@ -179,28 +183,28 @@
   /* Mobile phones - smallest screens */
   @media (max-width: 640px) {
     html {
-      font-size: var(--text-sm);
+      font-size: 0.925rem; /* ~14.8px - Reduced from 16px for better density */
     }
   }
 
   /* Tablets portrait and small tablets */
   @media (min-width: 641px) and (max-width: 768px) {
     html {
-      font-size: 14.5px; 
+      font-size: 0.95rem; /* ~15.2px */
     }
   }
 
   /* Tablets landscape and medium tablets */
   @media (min-width: 769px) and (max-width: 1024px) {
     html {
-      font-size: 15px;
+      font-size: 1rem; /* ~16px */
     }
   }
 
   /* Large tablets and small desktops */
   @media (min-width: 1025px) and (max-width: 1280px) {
     html {
-      font-size: 15.5px;
+      font-size: 1.05rem; /* ~16.8px */
     }
   }
 
@@ -408,7 +412,7 @@ img {
               background-color var(--duration-fast) var(--ease-smooth);
   
   /* Reverted padding to standard, but increased font size on mobile */
-  padding: 0.5rem 1.5rem;
+  padding: 0.45rem 1.35rem;
   
   /* Font size: Larger on mobile (shorter display), standard on desktop */
   font-size: 1.15rem; 
@@ -424,7 +428,7 @@ img {
 
 @media (min-width: 768px) {
   .cosmic-button {
-    padding: 0.6rem 2rem;
+    padding: 0.55rem 1.75rem;
     font-size: 1rem; /* Smaller on larger screens as requested */
   }
 }
@@ -449,7 +453,7 @@ img {
 .view-resume-button {
   transition: background-color var(--duration-fast) var(--ease-smooth);
   /* Matching cosmic-button metrics */
-  padding: 0.5rem 1.5rem;
+  padding: 0.45rem 1.35rem;
   font-size: 1.15rem; /* Larger on mobile */
   
   white-space: nowrap;
@@ -462,7 +466,7 @@ img {
 
 @media (min-width: 768px) {
   .view-resume-button {
-    padding: 0.6rem 2rem;
+    padding: 0.55rem 1.75rem;
     font-size: 1rem; /* Smaller on larger screens */
   }
 }
@@ -639,8 +643,20 @@ img {
 
 /* Responsive Input */
 .responsive-input {
-  @apply w-full rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden;
+  @apply w-full rounded-full border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden;
   font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
-  padding: clamp(0.35rem, 0.25rem + 0.25vw, 0.5rem) clamp(0.75rem, 0.5rem + 0.5vw, 1rem);
+  /* Reduced vertical padding, ensuring horizontal padding accommodates rounded corners */
+  padding: clamp(0.2rem, 0.15rem + 0.2vw, 0.35rem) clamp(0.85rem, 0.6rem + 0.5vw, 1rem);
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.responsive-input::placeholder {
+  font-size: 0.85em; /* Smaller placeholder text */
+  opacity: 0.8;
+}
+
+textarea.responsive-input {
+  @apply rounded-2xl;
+  /* Slightly more vertical padding for textarea to look balanced */
+  padding: clamp(0.4rem, 0.35rem + 0.25vw, 0.6rem) clamp(0.85rem, 0.6rem + 0.5vw, 1rem);
 }

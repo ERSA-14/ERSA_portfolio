@@ -56,7 +56,7 @@ export const Project = () => {
           the power of exploration and engineering.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-center">
           {projects.map((project) => (
             <div
               key={project.id}
@@ -96,7 +96,7 @@ export const Project = () => {
                       className="text-foreground hover:text-primary transition-colors duration-200 hover:drop-shadow-[0_0_8px_rgba(59,189,219,0.6)]"
                       aria-label={`View ${project.title} on GitHub`}
                     >
-                      <Github strokeWidth={2} className="icon-md" />
+                      <Github strokeWidth={2} className="icon-lg" />
                     </a>
                   </div>
                 </div>

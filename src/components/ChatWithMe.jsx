@@ -13,7 +13,7 @@ export const ChatWithMe = () => {
       : [
           {
             role: "assistant",
-            content: "Hello! I am Saksham Gupta, in a digital shell",
+            content: "Hello! I'm Saksham Gupta, in a digital shell",
           },
         ];
   });
@@ -196,18 +196,17 @@ export const ChatWithMe = () => {
   };
 
   return (
-    <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-primary w-full h-full flex flex-col">
-      <h4 className="font-semibold text-xl mb-4 text-center justify-center text-foreground">
+    <div className="bg-card px-4 pt-4 pb-4 rounded-lg shadow-sm border-2 border-primary w-full h-full min-h-[400px] flex flex-col relative z-20">
+      <h4 className="font-semibold text-xl mb-3 text-center justify-center text-foreground">
         <span className="text-foreground font-semibold">Chat with me</span>{" "}
         <span className="text-primary font-semibold">in Real time</span>
       </h4>
 
-      <div className="bg-card chat-message-box rounded-lg px-0 py-1 mb-2">
+      <div className="bg-card chat-message-box rounded-lg px-0 py-1 mb-1.5 flex-1 flex flex-col overflow-hidden min-h-0">
         <div
           ref={chatContainerRef}
           onScroll={handleScroll}
           className="flex-1 overflow-y-auto space-y-3 pr-0 custom-scrollbar"
-          style={{ maxHeight: "250px", minHeight: "250px" }}
         >
           {messages.map((message, index) => (
             <div
@@ -217,7 +216,7 @@ export const ChatWithMe = () => {
               }`}
             >
               <div
-                className={`w-fit max-w-[63%] px-2 py-1 border-2 ${
+                className={`w-fit max-w-[60%] px-3 py-1 border-2 rounded-md ${
                   message.role === "user"
                     ? "bg-secondary text-primary border-primary"
                     : "bg-secondary text-foreground border-foreground font-semibold"

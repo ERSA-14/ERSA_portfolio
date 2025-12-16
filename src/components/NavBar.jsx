@@ -100,8 +100,8 @@ export const NavBar = () => {
               {item.name}
             </a>
           ))}
-          <div className="pt-2 mt-1 flex justify-center pb-1">
-            <ThemeToggle />
+          <div className="py-3 mt-1 flex justify-center">
+            <ThemeToggle className="scale-150 !border" />
           </div>
         </div>
       )}
