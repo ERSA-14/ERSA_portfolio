@@ -111,16 +111,17 @@ export const Skills = () => {
           the development stack to the cloud-native frontier
         </p>
 
-        <div className="flex flex-nowrap overflow-x-auto justify-start md:justify-center gap-3 mb-8 w-full pb-2 px-2 scrollbar-hide">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 w-full pb-2 px-2">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "rounded-full capitalize text-xs md:text-sm w-fit shrink-0 whitespace-nowrap",
+                "rounded-full capitalize w-fit transition-colors duration-300",
+                "text-[clamp(0.95rem,1.7vw,1.15rem)]",
                 activeCategory === category
                   ? "cosmic-button"
-                  : "px-4 py-1.5 md:px-6 md:py-2 border-2 border-border/50 bg-background/50 text-muted-foreground hover:border-primary/50 hover:text-foreground hover:bg-secondary/50"
+                  : "px-3 py-1 md:px-6 md:py-2 border-2 border-border/50 bg-background/50 text-muted-foreground hover:border-primary/50 hover:text-foreground hover:bg-secondary/50"
               )}
             >
               {category}
