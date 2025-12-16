@@ -14,6 +14,7 @@ const navItems = [
 export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("Home");
 
   useEffect(() => {
     let animationFrameId;
@@ -35,12 +36,38 @@ export const NavBar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: 0,
+      }
+    );
+
+    navItems.forEach((item) => {
+      const sectionId = item.href.substring(1);
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300 ease-smooth",
         isScrolled
-          ? "py-4 bg-background shadow-sm border-b border-border/50"
+          ? "py-4 bg-background/80 backdrop-blur-md shadow-sm border-b border-border/50"
           : "py-6 bg-transparent"
       )}
     >
@@ -63,7 +90,12 @@ export const NavBar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
+              className={cn(
+                "text-sm transition-colors duration-200",
+                activeSection === item.href.substring(1)
+                  ? "text-primary font-semibold underline underline-offset-5"
+                  : "font-medium text-muted-foreground hover:text-primary"
+              )}
             >
               {item.name}
             </a>
@@ -94,7 +126,12 @@ export const NavBar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-foreground hover:text-primary hover:bg-secondary/50 transition-colors duration-200 px-4 py-2 rounded-lg flex items-center"
+              className={cn(
+                "text-sm px-4 py-2 rounded-lg flex items-center transition-colors duration-200",
+                activeSection === item.href.substring(1)
+                  ? "text-primary font-semibold bg-secondary/50"
+                  : "font-medium text-foreground hover:text-primary hover:bg-secondary/50"
+              )}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
