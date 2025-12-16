@@ -60,35 +60,11 @@ export const Home = () => {
       <NavBar />
 
       <main className="relative z-10">
-        <section id="home">
-          <div className="container mx-auto px-4 pt-24">
-            <HomePage />
-          </div>
-        </section>
-
-        <section id="about">
-          <div className="container mx-auto px-4 py-20">
-            <AboutMe />
-          </div>
-        </section>
-
-        <section id="skills">
-          <div className="container mx-auto px-4 py-20">
-            <Skills />
-          </div>
-        </section>
-
-        <section id="projects">
-          <div className="container mx-auto px-4 py-20">
-            <Project />
-          </div>
-        </section>
-
-        <section id="contact">
-          <div className="container mx-auto px-4 py-20 pb-0">
-            <Contact />
-          </div>
-        </section>
+        <HomePage />
+        <AboutMe />
+        <Skills />
+        <Project />
+        <Contact />
       </main>
     </div>
   );

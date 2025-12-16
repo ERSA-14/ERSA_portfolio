@@ -5,11 +5,11 @@ export const ScrollProgress = () => {
 
   useEffect(() => {
     const sections = [
-      { id: "home", weight: 20 },
-      { id: "about", weight: 20 },
-      { id: "skills", weight: 20 },
-      { id: "projects", weight: 20 },
-      { id: "contact", weight: 20 },
+      { id: "Home", weight: 20 },
+      { id: "About", weight: 20 },
+      { id: "Skills", weight: 20 },
+      { id: "Projects", weight: 20 },
+      { id: "Contact", weight: 20 },
     ];
 
     let animationFrameId;

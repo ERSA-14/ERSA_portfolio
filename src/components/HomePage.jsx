@@ -34,7 +34,7 @@ export const HomePage = () => {
   return (
     <section
       id="Home"
-      className="relative min-h-screen flex flex-col items-center pt-32 px-4 opacity-100"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 opacity-100"
     >
       <div className="container max-w-6xl mx-auto text-center z-10 mt-20">
         <div className="space-y-6 ">
