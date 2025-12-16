@@ -93,7 +93,7 @@ export const NavBar = () => {
               className={cn(
                 "text-sm transition-colors duration-200",
                 activeSection === item.href.substring(1)
-                  ? "text-primary font-semibold underline underline-offset-5"
+                  ? "text-primary font-bold"
                   : "font-medium text-muted-foreground hover:text-primary"
               )}
             >
