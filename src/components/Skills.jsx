@@ -31,7 +31,7 @@ const skillIcons = {
   JavaScript: SiJavascript,
   React: FaReact,
   Next: TbBrandNextjs,
-  TailwindCSS: TbBrandTailwind,
+  "Tailwind CSS": TbBrandTailwind,
   Bootstrap: SiBootstrap,
   Django: SiDjango,
   Node: FaNodeJs,
@@ -61,7 +61,7 @@ const skills = [
   { name: "Oracle DBMS", category: "Database" },
   { name: "Git", category: "Dev Tools" },
   { name: "GitHub", category: "Dev Tools" },
-  { name: "TailwindCSS", category: "Frontend" },
+  { name: "Tailwind CSS", category: "Frontend" },
   { name: "Bootstrap", category: "Frontend" },
   { name: "Express", category: "Backend" },
   { name: "Django", category: "Backend" },
@@ -142,7 +142,7 @@ export const Skills = () => {
                 className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center group cursor-pointer"
               >
                 {Icon && <Icon className="icon-xl text-primary" />}
-                <h3 className="font-medium text-sm">{skill.name}</h3>
+                <h3 className="font-medium text-[clamp(0.95rem,1.70vw,1.15rem)]">{skill.name}</h3>
               </div>
             );
           })}
