@@ -644,3 +644,11 @@ img {
   padding: clamp(0.35rem, 0.25rem + 0.25vw, 0.5rem) clamp(0.75rem, 0.5rem + 0.5vw, 1rem);
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+@media (min-width: 1024px) {
+  input::placeholder,
+  textarea::placeholder {
+    font-size: 0.85em;
+    opacity: 0.7; /* Optional: slightly mute it too if desired, but size is the request */
+  }
+}
