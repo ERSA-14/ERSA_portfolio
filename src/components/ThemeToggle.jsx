@@ -53,7 +53,7 @@ export const ThemeToggle = ({ className }) => {
       type="button"
       onClick={toggleTheme}
       className={cn(
-        "relative p-1.5 rounded-full theme-toggle-btn cursor-pointer z-50",
+        "relative p-1 rounded-full theme-toggle-btn cursor-pointer z-50",
         "bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-md",
         isDarkMode
           ? "border-2 border-yellow-600 hover:border-[2px]"

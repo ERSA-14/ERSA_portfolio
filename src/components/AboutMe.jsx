@@ -35,15 +35,15 @@ export const AboutMe = () => {
               SLOs without compromise.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center py-2 px-2">
-              <a href="#Contact" className="cosmic-button w-fit">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg mx-auto py-2 px-2">
+              <a href="#Contact" className="cosmic-button w-full">
                 Connect With Me
               </a>
               <a
                 href="/Resume4.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="view-resume-button rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 ease-in-out flex items-center gap-1 font-medium tracking-wide"
+                className="view-resume-button rounded-full w-full border-2 border-primary text-primary font-semibold hover:bg-primary/20 ease-in-out font-medium tracking-wide"
               >
                 View Resume <FileDown className="icon-sm" />
               </a>

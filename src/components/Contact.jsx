@@ -255,7 +255,7 @@ export const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-4 mx-auto !py-1"
+                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-4 mx-auto"
               >
                 <span>Send Message</span>
                 <Send className="icon-sm" />

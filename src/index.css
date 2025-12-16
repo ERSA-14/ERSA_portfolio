@@ -407,11 +407,34 @@ img {
   transition: box-shadow var(--duration-fast) var(--ease-smooth),
               background-color var(--duration-fast) var(--ease-smooth);
   
-  /* More responsive padding and font size */
-  padding: clamp(0.375rem, 0.5vw + 0.25rem, 0.625rem)
-    clamp(1.25rem, 2vw + 0.75rem, 2rem);
-  font-size: clamp(0.875rem, 1vw + 0.5rem, 1.125rem);
+  /* Reverted padding to standard, but increased font size on mobile */
+  padding: 0.5rem 1.5rem;
+  
+  /* Font size: Larger on mobile (shorter display), standard on desktop */
+  font-size: 1.15rem; 
+  
+  white-space: nowrap;
+  
   will-change: box-shadow;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .cosmic-button {
+    padding: 0.6rem 2rem;
+    font-size: 1rem; /* Smaller on larger screens as requested */
+  }
+}
+
+.cosmic-button svg,
+.cosmic-button .icon-sm,
+.cosmic-button .icon-md {
+  width: 1.2em;
+  height: 1.2em;
+  transition: transform var(--duration-fast) var(--ease-smooth);
 }
 
 .cosmic-button:hover {
@@ -423,51 +446,37 @@ img {
   border-width: 1.5px !important;
 }
 
-/* Tablet sizes */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .cosmic-button {
-    padding: clamp(0.375rem, 0.5vw + 0.25rem, 0.5rem)
-      clamp(1.125rem, 1.75vw + 0.625rem, 1.75rem);
-    font-size: clamp(0.875rem, 0.875vw + 0.5rem, 1.0625rem);
-  }
-}
-
-/* Mobile sizes */
-@media (max-width: 640px) {
-  .cosmic-button {
-    padding: clamp(0.3125rem, 1vw + 0.125rem, 0.5rem)
-      clamp(1rem, 3vw + 0.5rem, 1.5rem);
-    font-size: clamp(0.8125rem, 1.5vw + 0.5rem, 1rem);
-  }
-}
-
 .view-resume-button {
   transition: background-color var(--duration-fast) var(--ease-smooth);
-  /* More responsive padding and font size */
-  padding: clamp(0.375rem, 0.5vw + 0.25rem, 0.625rem)
-    clamp(1.25rem, 2vw + 0.75rem, 2rem);
-  font-size: clamp(0.875rem, 1vw + 0.5rem, 1.125rem);
+  /* Matching cosmic-button metrics */
+  padding: 0.5rem 1.5rem;
+  font-size: 1.15rem; /* Larger on mobile */
+  
+  white-space: nowrap;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
+
+@media (min-width: 768px) {
+  .view-resume-button {
+    padding: 0.6rem 2rem;
+    font-size: 1rem; /* Smaller on larger screens */
+  }
+}
+
+.view-resume-button svg,
+.view-resume-button .icon-sm,
+.view-resume-button .icon-md {
+  width: 1.2em;
+  height: 1.2em;
+  transition: transform var(--duration-fast) var(--ease-smooth);
+}
+
 .view-resume-button:hover {
   transform: none;
-}
-
-/* Tablet sizes */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .view-resume-button {
-    padding: clamp(0.375rem, 0.5vw + 0.25rem, 0.5rem)
-      clamp(1.125rem, 1.75vw + 0.625rem, 1.75rem);
-    font-size: clamp(0.875rem, 0.875vw + 0.5rem, 1.0625rem);
-  }
-}
-
-/* Mobile sizes */
-@media (max-width: 640px) {
-  .view-resume-button {
-    padding: clamp(0.3125rem, 1vw + 0.125rem, 0.5rem)
-      clamp(1rem, 3vw + 0.5rem, 1.5rem);
-    font-size: clamp(0.8125rem, 1.5vw + 0.5rem, 1rem);
-  }
 }
 
 .star {
