@@ -241,7 +241,7 @@ export const ChatWithMe = () => {
         </div>
       </div>
 
-      <form onSubmit={sendMessage} className="flex gap-2">
+      <form onSubmit={sendMessage} className="flex gap-2 items-center">
         <input
           type="text"
           id="chat-input"
@@ -257,7 +257,7 @@ export const ChatWithMe = () => {
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className={`flex items-center justify-center rounded-full ${
+          className={`flex items-center justify-center rounded-full aspect-square h-fit ${
             input.trim()
               ? "cosmic-button !p-1.5 shadow-[0_0_15px_rgba(var(--primary),0.5)] hover:shadow-[0_0_20px_rgba(var(--primary),0.8)] border-[2.2px]"
               : "view-resume-button !p-1.5 border-[2.2px] border-primary text-primary bg-transparent hover:bg-primary/20 disabled:opacity-100 disabled:hover:bg-transparent"
