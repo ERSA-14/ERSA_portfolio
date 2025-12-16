@@ -7,7 +7,7 @@ export const AboutMe = () => {
       className="relative min-h-screen flex flex-col justify-center items-center px-4 py-20"
     >
       {" "}
-      <div className="container mx-auto max-w-5xl p-6">
+      <div className="container mx-auto max-w-7xl p-6">
         <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-8 md:mb-12 text-center ">
           About <span className="text-primary">Myself</span>
         </h2>
@@ -17,7 +17,8 @@ export const AboutMe = () => {
             className="flex flex-col justify-center items-center text-center space-y-6 px-4 py-3 rounded-md"
           >
             <h3 className="text-xl md:text-2xl font-semibold">
-              CS Engineer <span className="text-primary">| Developer</span>
+              CS Engineer{" "}
+              <span className="text-primary">| Software Developer</span>
             </h3>
 
             <p className="text-muted-foreground text-sm md:text-base">

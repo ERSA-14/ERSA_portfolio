@@ -100,7 +100,7 @@ export const Skills = () => {
       id="Skills"
       className="relative min-h-screen flex flex-col justify-center items-center px-4 py-20"
     >
-      <div className="container mx-auto max-w-5xl mt-6">
+      <div className="container mx-auto max-w-7xl mt-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center ">
           My <span className="text-primary">Skillset</span>
         </h2>
@@ -111,13 +111,13 @@ export const Skills = () => {
           the development stack to the cloud-native frontier
         </p>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
+        <div className="flex flex-nowrap overflow-x-auto justify-start md:justify-center gap-3 mb-8 w-full pb-2 px-2 scrollbar-hide">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "rounded-full capitalize text-xs md:text-sm w-fit",
+                "rounded-full capitalize text-xs md:text-sm w-fit shrink-0 whitespace-nowrap",
                 activeCategory === category
                   ? "cosmic-button"
                   : "px-4 py-1.5 md:px-6 md:py-2 border-2 border-border/50 bg-background/50 text-muted-foreground hover:border-primary/50 hover:text-foreground hover:bg-secondary/50"
