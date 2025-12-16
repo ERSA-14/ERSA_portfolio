@@ -1,4 +1,4 @@
-import { Code, Award, ArrowDown, FileDown } from "lucide-react";
+import { Code, Award, FileDown } from "lucide-react";
 
 export const AboutMe = () => {
   return (
@@ -14,7 +14,7 @@ export const AboutMe = () => {
             className="flex flex-col justify-center items-center text-center space-y-6 px-4 py-3 rounded-md"
           >
             <h3 className="text-xl md:text-2xl font-semibold">
-              Software <span className="text-primary">Developer</span>
+              CS Engineer <span className="text-primary">| Developer</span>
             </h3>
 
             <p className="text-muted-foreground text-sm md:text-base">
@@ -40,7 +40,7 @@ export const AboutMe = () => {
                 href="/Resume4.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="view-resume-button rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 transition-none ease-in-out flex items-center gap-1 font-medium tracking-wide"
+                className="view-resume-button rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 ease-in-out flex items-center gap-1 font-medium tracking-wide"
               >
                 View Resume <FileDown size={20} />
               </a>
@@ -76,7 +76,7 @@ export const AboutMe = () => {
                         href="https://www.credly.com/badges/e3bf58f5-7a58-4847-a234-fa6d2814fa61/linked_in_profile"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-primary transition-colors inline-flex items-center gap-1"
+                        className="hover:text-primary transition-colors duration-200 inline-flex items-center gap-1"
                       >
                         AWS Certified Cloud Practitioner
                       </a>
@@ -127,11 +127,6 @@ export const AboutMe = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce z-50">
-        <a href="#Skills" aria-label="Scroll to Skills">
-          <ArrowDown className="h-5 w-5 text-primary" />
-        </a>
       </div>
     </section>
   );

@@ -5,12 +5,20 @@ export const StarBackground = () => {
   const [meteors, setMeteors] = useState([]);
 
   useEffect(() => {
-    generateStars();
-    generateMeteors();
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    const handleResize = () => {
+    if (!prefersReducedMotion) {
       generateStars();
       generateMeteors();
+    }
+
+    const handleResize = () => {
+      if (!prefersReducedMotion) {
+        generateStars();
+        generateMeteors();
+      }
     };
 
     window.addEventListener("resize", handleResize);

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MoveUpRight, Sparkles } from "lucide-react";
+import { MoveUpRight } from "lucide-react";
 import { SiGooglegemini } from "react-icons/si";
 import { useToast } from "../hooks/use-toast";
 
@@ -176,7 +176,6 @@ export const ChatWithMe = () => {
         { role: "assistant", content: aiResponse },
       ]);
     } catch (error) {
-      console.error("Chat error:", error);
       toast({
         variant: "destructive",
         title: "Error",
@@ -198,20 +197,11 @@ export const ChatWithMe = () => {
   };
 
   return (
-    <div className="bg-card p-5 rounded-lg shadow-sm border-[1.5px] border-transparent transition-none w-full h-full flex flex-col">
-      <div
-        className={`flex items-center gap-2 mb-4 pb-0 transition-none ${
-          scrollShadows.top
-            ? "border-b border-border"
-            : "border-b border-transparent"
-        }`}
-      >
-        <SiGooglegemini className="h-8 w-8 text-primary" />
-        <h4 className="text-xl font-semibold mb-0">
-          <span className="text-glow text-foreground">Chat with me</span>{" "}
-          <span className="text-primary">in Real time</span>
-        </h4>
-      </div>
+    <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-primary w-full h-full flex flex-col">
+      <h4 className="font-semibold text-xl mb-4 text-center justify-center text-foreground">
+        <span className="text-foreground font-semibold">Chat with me</span>{" "}
+        <span className="text-primary font-semibold">in Real time</span>
+      </h4>
 
       <div className="bg-card chat-message-box rounded-lg px-0 py-1 mb-2">
         <div
@@ -228,16 +218,13 @@ export const ChatWithMe = () => {
               }`}
             >
               <div
-                className={`w-fit max-w-[63%] px-2 py-1 border ${
+                className={`w-fit max-w-[63%] px-2 py-1 border-2 ${
                   message.role === "user"
                     ? "bg-secondary text-primary border-primary"
                     : "bg-secondary text-foreground border-foreground font-semibold"
                 }`}
               >
-                <p
-                  className="text-left whitespace-pre-wrap break-words font-medium"
-                  style={{ fontSize: "0.85rem", lineHeight: "1.25" }}
-                >
+                <p className="text-left whitespace-pre-wrap break-words chat-message-text">
                   {renderMessageContent(message.content)}
                 </p>
               </div>
@@ -266,12 +253,13 @@ export const ChatWithMe = () => {
           placeholder="Ask me some Questions ..."
           autoComplete="off"
           disabled={isLoading}
-          className="flex-1 px-3 py-0.5 text-sm font-medium rounded-full border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-none disabled:opacity-100"
+          aria-label="Chat Input"
+          className="flex-1 px-3 py-0.5 text-sm font-medium rounded-full border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden disabled:opacity-100"
         />
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className={`flex items-center justify-center transition-none rounded-full ${
+          className={`flex items-center justify-center rounded-full ${
             input.trim()
               ? "cosmic-button !p-1.5 shadow-[0_0_15px_rgba(var(--primary),0.5)] hover:shadow-[0_0_20px_rgba(var(--primary),0.8)] border-[2.2px]"
               : "view-resume-button !p-1.5 border-[2.2px] border-primary text-primary bg-transparent hover:bg-primary/20 disabled:opacity-100 disabled:hover:bg-transparent"

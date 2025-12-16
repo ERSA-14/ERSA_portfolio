@@ -16,6 +16,11 @@ export function SpaceBackground() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
+    // Reduced Motion Check
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       60,
@@ -95,6 +100,8 @@ export function SpaceBackground() {
     let animationId;
 
     const animate = () => {
+      if (prefersReducedMotion) return; // Stop animation loop
+
       animationId = requestAnimationFrame(animate);
 
       const t = clock.getElapsedTime();
@@ -151,7 +158,11 @@ export function SpaceBackground() {
       renderer.render(scene, camera);
     };
 
-    animate();
+    if (prefersReducedMotion) {
+      renderer.render(scene, camera); // Render once static
+    } else {
+      animate();
+    }
 
     return () => {
       cancelAnimationFrame(animationId);

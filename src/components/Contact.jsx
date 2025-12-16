@@ -69,7 +69,7 @@ export const Contact = () => {
             variant: "destructive",
             title: "Error",
             description:
-              "Looks like our digital connection hit a black hole— lets switch to old-fashioned email for now. I will reach out to you soon that way.",
+              "Looks like our digital connection hit a black hole— let's switch to old-fashioned email for now. I will reach out to you soon that way.",
           });
         }
       );
@@ -105,7 +105,7 @@ export const Contact = () => {
                       className="text-muted-foreground"
                     >
                       <h4 className="font-semibold text-left text-sm">Email</h4>
-                      <span className="hover:text-primary transition-none text-sm block">
+                      <span className="hover:text-primary text-sm block">
                         Saksham22sg@gmail.com
                       </span>
                     </a>
@@ -124,7 +124,7 @@ export const Contact = () => {
                       <h4 className="font-semibold text-left text-sm">
                         Contact Number
                       </h4>
-                      <span className="hover:text-primary transition-none text-sm block">
+                      <span className="hover:text-primary text-sm block">
                         +91 635 879 8314
                       </span>
                     </a>
@@ -140,12 +140,12 @@ export const Contact = () => {
                       href="https://www.google.com/maps/place/Bhopal,+Madhya+Pradesh"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground transition-none"
+                      className="text-muted-foreground"
                     >
                       <h4 className="font-semibold text-left text-sm">
                         Location
                       </h4>
-                      <span className="text-sm block hover:text-primary transition-none">
+                      <span className="text-sm block hover:text-primary">
                         Bhopal, Madhya Pradesh, India
                       </span>
                     </a>
@@ -163,7 +163,7 @@ export const Contact = () => {
                   href="https://www.linkedin.com/in/saksham-gupta-ersa/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-none"
+                  className="hover:text-primary"
                   aria-label="LinkedIn Profile"
                 >
                   <Linkedin strokeWidth={2} size={28} />
@@ -172,7 +172,7 @@ export const Contact = () => {
                   href="https://leetcode.com/u/ERSA-14/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-none"
+                  className="hover:text-primary"
                   aria-label="LeetCode Profile"
                 >
                   <SiLeetcode strokeWidth={0.5} size={24} />
@@ -181,7 +181,7 @@ export const Contact = () => {
                   href="https://github.com/ERSA-14"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-none"
+                  className="hover:text-primary"
                   aria-label="GitHub Profile"
                 >
                   <Github strokeWidth={2} size={28} />
@@ -190,9 +190,9 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-card p-5 rounded-lg shadow-sm border-[1.5px] border-transparent transition-none w-full h-full flex flex-col">
-            <h4 className="font-semibold text-xl mb-3 text-center">
-              Send a message
+          <div className="bg-card p-5 rounded-lg shadow-sm border-2 border-primary w-full h-full flex flex-col">
+            <h4 className="font-semibold text-xl mb-4 text-center justify-center text-foreground">
+              Send a <span className="text-primary">Message</span>
             </h4>
             <form
               className="space-y-2.5 text-left flex-1 flex flex-col"
@@ -212,7 +212,7 @@ export const Contact = () => {
                   id="name"
                   required
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-none"
+                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden"
                   placeholder="your Name ..."
                 />
               </div>
@@ -229,7 +229,7 @@ export const Contact = () => {
                   id="email"
                   required
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden transition-none"
+                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden"
                   placeholder="your.Email@example.com ..."
                 />
               </div>
@@ -246,7 +246,7 @@ export const Contact = () => {
                   required
                   rows="3"
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden resize-none transition-none flex-1"
+                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden resize-none flex-1"
                   placeholder="your Message here ..."
                 />
               </div>

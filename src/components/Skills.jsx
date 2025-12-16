@@ -22,7 +22,7 @@ import {
   SiExpress,
 } from "react-icons/si";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
-import { Database, Code, ArrowDown } from "lucide-react";
+import { Database } from "lucide-react";
 
 const skillIcons = {
   Python: FaPython,
@@ -114,7 +114,7 @@ export const Skills = () => {
               key={index}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "rounded-full capitalize transition-none text-xs md:text-sm w-fit",
+                "rounded-full capitalize text-xs md:text-sm w-fit",
                 activeCategory === category
                   ? "cosmic-button"
                   : "px-4 py-1.5 md:px-6 md:py-2 border-2 border-border/50 bg-background/50 text-muted-foreground hover:border-primary/50 hover:text-foreground hover:bg-secondary/50"
@@ -128,28 +128,21 @@ export const Skills = () => {
         <div
           ref={containerRef}
           style={{ minHeight: activeCategory === "All" ? "auto" : minHeight }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 content-start transition-none"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 content-start"
         >
           {filteredSkills.map((skill, index) => {
             const Icon = skillIcons[skill.name];
             return (
               <div
                 key={index}
-                className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center transition-none group cursor-pointer"
+                className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center group cursor-pointer"
               >
-                {Icon && (
-                  <Icon className="w-8 h-8 text-primary transition-none" />
-                )}
+                {Icon && <Icon className="w-8 h-8 text-primary" />}
                 <h3 className="font-medium text-sm">{skill.name}</h3>
               </div>
             );
           })}
         </div>
-      </div>
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce">
-        <a href="#Projects" aria-label="Scroll to Projects">
-          <ArrowDown className="h-5 w-5 text-primary" />
-        </a>
       </div>
     </section>
   );

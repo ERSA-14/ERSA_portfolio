@@ -1,4 +1,4 @@
-import { ArrowDown, MoveUpRight, Github } from "lucide-react";
+import { MoveUpRight, Github } from "lucide-react";
 
 const projects = [
   {
@@ -57,7 +57,7 @@ export const Project = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-sm card-hover justify-center items-center border-2 border-transparent hover:border-primary transition-none"
+              className="group bg-card rounded-lg overflow-hidden shadow-sm card-hover justify-center items-center border-2 border-primary hover:border-primary"
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -90,7 +90,7 @@ export const Project = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground hover:text-primary transition-none hover:drop-shadow-[0_0_8px_rgba(59,189,219,0.6)]"
+                      className="text-foreground hover:text-primary transition-colors duration-200 hover:drop-shadow-[0_0_8px_rgba(59,189,219,0.6)]"
                       aria-label={`View ${project.title} on GitHub`}
                     >
                       <Github strokeWidth={2} size={24} />
@@ -111,11 +111,6 @@ export const Project = () => {
             Explore my GitHub work <MoveUpRight size={20} />
           </a>
         </div>
-      </div>
-      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce">
-        <a href="#Contact" aria-label="Scroll to Contact">
-          <ArrowDown className="h-5 w-5 text-primary" />
-        </a>
       </div>
     </section>
   );

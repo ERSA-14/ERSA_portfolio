@@ -1,4 +1,3 @@
-import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export const HomePage = () => {
@@ -12,7 +11,6 @@ export const HomePage = () => {
     if (!isDeleting && displayedText === fullText) {
       if (!firstTypingComplete) {
         setFirstTypingComplete(true);
-        // Dispatch event to show scroll progress
         window.dispatchEvent(new Event("typingComplete"));
       }
       timeout = setTimeout(() => setIsDeleting(true), 1500);
@@ -31,22 +29,24 @@ export const HomePage = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting]);
+  }, [displayedText, isDeleting, firstTypingComplete, fullText]);
 
   return (
     <section
       id="Home"
-      className="relative min-h-screen flex flex-col items-center pt-32 px-4 opacity-1000"
+      className="relative min-h-screen flex flex-col items-center pt-32 px-4 opacity-100"
     >
-      <div className="container max-w-4xl mx-auto text-center z-10 mt-20">
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
-            <span className="opacity-0 animate-fade-in">Hello, I am</span>
-            <span className="text-primary ml-2">
+      <div className="container max-w-6xl mx-auto text-center z-10 mt-20">
+        <div className="space-y-6 ">
+          <h1 className="text-4xl md:text-6xl font-bold flex flex-wrap md:flex-nowrap justify-center gap-x-3 gap-y-2">
+            <span className="opacity-0 animate-fade-in whitespace-nowrap">
+              Hello, I'm
+            </span>
+            <span className="text-primary whitespace-nowrap">
               {displayedText}
               <span
-                className="animate-pulse"
-                style={{ fontSize: "1em", fontWeight: "50" }}
+                className="animate-pulse inline-block"
+                style={{ fontSize: "1em", fontWeight: "100" }}
               >
                 |
               </span>
@@ -58,7 +58,7 @@ export const HomePage = () => {
                 A
                 <span className="text-primary text-xl md:text-2xl">
                   {" "}
-                  Developer
+                  Software Developer
                 </span>
                 , I engineer stellar digital solutions with the precision of
                 orbital mechanics. I'm committed to launching efficient,
@@ -75,11 +75,6 @@ export const HomePage = () => {
             </>
           )}
         </div>
-      </div>
-      <div className="absolute bottom-26 left-1/2 transform -translate-x-1/2 flex items-center animate-bounce">
-        <a href="#About" aria-label="Scroll to About">
-          <ArrowDown className="h-5 w-5 text-primary" />
-        </a>
       </div>
     </section>
   );

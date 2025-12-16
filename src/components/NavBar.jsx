@@ -38,7 +38,7 @@ export const NavBar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-none",
+        "fixed w-full z-40 transition-all duration-300 ease-smooth",
         isScrolled
           ? "py-4 bg-background shadow-sm border-b border-border/50"
           : "py-6 bg-transparent"
@@ -51,7 +51,9 @@ export const NavBar = () => {
           aria-label="Home"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground">Saksham Gupta's</span>{" "}
+            <span className="text-glow text-foreground font-semibold">
+              Saksham Gupta's
+            </span>{" "}
             Portfolio
           </span>
         </a>
@@ -61,7 +63,7 @@ export const NavBar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-none"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
             >
               {item.name}
             </a>
@@ -73,7 +75,7 @@ export const NavBar = () => {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-foreground p-3 rounded-full hover:bg-secondary/50 transition-none cursor-pointer touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="text-foreground p-3 rounded-full hover:bg-secondary/50 transition-colors duration-200 cursor-pointer touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
             aria-expanded={isMobileMenuOpen}
           >
@@ -92,7 +94,7 @@ export const NavBar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-foreground hover:text-primary hover:bg-secondary/50 transition-none px-4 py-2 rounded-lg flex items-center"
+              className="text-sm font-medium text-foreground hover:text-primary hover:bg-secondary/50 transition-colors duration-200 px-4 py-2 rounded-lg flex items-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}

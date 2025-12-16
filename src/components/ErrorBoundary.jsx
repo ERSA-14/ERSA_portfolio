@@ -34,7 +34,8 @@ class ErrorBoundary extends React.Component {
             </div>
 
             <p className="text-muted-foreground">
-              We encountered an unexpected error. Please try refreshing the page.
+              We encountered an unexpected error. Please try refreshing the
+              page.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -46,7 +47,7 @@ class ErrorBoundary extends React.Component {
               </button>
               <a
                 href="/"
-                className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-none font-medium w-fit mx-auto"
+                className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-colors duration-200 font-medium w-fit mx-auto"
               >
                 Go Home
               </a>
