@@ -404,9 +404,10 @@ img {
   transition: box-shadow var(--duration-fast) var(--ease-smooth),
               background-color var(--duration-fast) var(--ease-smooth);
   
-  padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
-    clamp(1rem, 1.25vw + 0.5rem, 1.5rem);
-  font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1.0625rem);
+  /* More responsive padding and font size */
+  padding: clamp(0.375rem, 0.5vw + 0.25rem, 0.625rem)
+    clamp(1.25rem, 2vw + 0.75rem, 2rem);
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1.125rem);
   will-change: box-shadow;
 }
 
@@ -419,45 +420,50 @@ img {
   border-width: 1.5px !important;
 }
 
+/* Tablet sizes */
 @media (min-width: 641px) and (max-width: 1024px) {
   .cosmic-button {
-    padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
-      clamp(1rem, 1.25vw + 0.5rem, 1.375rem);
-    font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1rem);
+    padding: clamp(0.375rem, 0.5vw + 0.25rem, 0.5rem)
+      clamp(1.125rem, 1.75vw + 0.625rem, 1.75rem);
+    font-size: clamp(0.875rem, 0.875vw + 0.5rem, 1.0625rem);
   }
 }
 
+/* Mobile sizes */
 @media (max-width: 640px) {
   .cosmic-button {
-    padding: clamp(0.25rem, 0.3125vw + 0.0625rem, 0.375rem)
-      clamp(0.875rem, 1vw + 0.375rem, 1.25rem);
-    font-size: clamp(0.8125rem, 0.75rem + 0.25vw, 0.9375rem);
+    padding: clamp(0.3125rem, 1vw + 0.125rem, 0.5rem)
+      clamp(1rem, 3vw + 0.5rem, 1.5rem);
+    font-size: clamp(0.8125rem, 1.5vw + 0.5rem, 1rem);
   }
 }
 
 .view-resume-button {
   transition: background-color var(--duration-fast) var(--ease-smooth);
-  padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
-    clamp(1rem, 1.25vw + 0.5rem, 1.5rem);
-  font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1.0625rem);
+  /* More responsive padding and font size */
+  padding: clamp(0.375rem, 0.5vw + 0.25rem, 0.625rem)
+    clamp(1.25rem, 2vw + 0.75rem, 2rem);
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1.125rem);
 }
 .view-resume-button:hover {
   transform: none;
 }
 
+/* Tablet sizes */
 @media (min-width: 641px) and (max-width: 1024px) {
   .view-resume-button {
-    padding: clamp(0.25rem, 0.375vw + 0.0625rem, 0.4375rem)
-      clamp(1rem, 1.25vw + 0.5rem, 1.375rem);
-    font-size: clamp(0.875rem, 0.8125rem + 0.25vw, 1rem);
+    padding: clamp(0.375rem, 0.5vw + 0.25rem, 0.5rem)
+      clamp(1.125rem, 1.75vw + 0.625rem, 1.75rem);
+    font-size: clamp(0.875rem, 0.875vw + 0.5rem, 1.0625rem);
   }
 }
 
+/* Mobile sizes */
 @media (max-width: 640px) {
   .view-resume-button {
-    padding: clamp(0.25rem, 0.3125vw + 0.0625rem, 0.375rem)
-      clamp(0.875rem, 1vw + 0.375rem, 1.25rem);
-    font-size: clamp(0.8125rem, 0.75rem + 0.25vw, 0.9375rem);
+    padding: clamp(0.3125rem, 1vw + 0.125rem, 0.5rem)
+      clamp(1rem, 3vw + 0.5rem, 1.5rem);
+    font-size: clamp(0.8125rem, 1.5vw + 0.5rem, 1rem);
   }
 }
 
@@ -590,9 +596,39 @@ img {
   background: hsl(var(--primary) / 0.6);
 }
 
+
 .chat-message-text {
   font-size: 0.875rem;
   line-height: 1.4;
   font-family: 'Cause', sans-serif;
   font-weight: 600;
+}
+
+/* Responsive Icon Sizes */
+.icon-sm {
+  width: clamp(1rem, 0.875rem + 0.5vw, 1.25rem);
+  height: clamp(1rem, 0.875rem + 0.5vw, 1.25rem);
+}
+
+.icon-md {
+  width: clamp(1.25rem, 1rem + 0.75vw, 1.75rem);
+  height: clamp(1.25rem, 1rem + 0.75vw, 1.75rem);
+}
+
+.icon-lg {
+  width: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  height: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+}
+
+.icon-xl {
+  width: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  height: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+}
+
+/* Responsive Input */
+.responsive-input {
+  @apply w-full rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden;
+  font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+  padding: clamp(0.35rem, 0.25rem + 0.25vw, 0.5rem) clamp(0.75rem, 0.5rem + 0.5vw, 1rem);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }

@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { MoveUpRight } from "lucide-react";
-import { SiGooglegemini } from "react-icons/si";
 import { useToast } from "../hooks/use-toast";
 
 export const ChatWithMe = () => {
@@ -254,7 +253,7 @@ export const ChatWithMe = () => {
           autoComplete="off"
           disabled={isLoading}
           aria-label="Chat Input"
-          className="flex-1 px-3 py-0.5 text-sm font-medium rounded-full border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden disabled:opacity-100"
+          className="flex-1 responsive-input rounded-full disabled:opacity-100"
         />
         <button
           type="submit"
@@ -265,7 +264,7 @@ export const ChatWithMe = () => {
               : "view-resume-button !p-1.5 border-[2.2px] border-primary text-primary bg-transparent hover:bg-primary/20 disabled:opacity-100 disabled:hover:bg-transparent"
           }`}
         >
-          <MoveUpRight size={18} strokeWidth={3} />
+          <MoveUpRight className="icon-sm" strokeWidth={3} />
         </button>
       </form>
     </div>

@@ -80,9 +80,9 @@ export const NavBar = () => {
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="icon-lg" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="icon-lg" />
             )}
           </button>
         </div>

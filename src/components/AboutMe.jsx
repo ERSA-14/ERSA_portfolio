@@ -45,7 +45,7 @@ export const AboutMe = () => {
                 rel="noopener noreferrer"
                 className="view-resume-button rounded-full w-fit border-2 border-primary text-primary font-semibold hover:bg-primary/20 ease-in-out flex items-center gap-1 font-medium tracking-wide"
               >
-                View Resume <FileDown size={20} />
+                View Resume <FileDown className="icon-sm" />
               </a>
             </div>
           </div>
@@ -53,7 +53,7 @@ export const AboutMe = () => {
             <div className="gradient-border px-6 py-4 card-hover">
               <div className="text-left">
                 <h4 className="font-semibold text-base md:text-lg mb-2 flex items-center gap-2 text-primary">
-                  <Code className="w-5 h-5 md:w-6 md:h-6" />
+                  <Code className="icon-md" />
                   What I Build With
                 </h4>
                 <p className="text-muted-foreground text-sm md:text-base">
@@ -68,7 +68,7 @@ export const AboutMe = () => {
             <div className="gradient-border px-6 py-4 card-hover">
               <div className="text-left">
                 <h4 className="font-semibold text-base md:text-lg mb-2 flex items-center gap-2 text-primary">
-                  <Award className="w-5 h-5 md:w-6 md:h-6" />
+                  <Award className="icon-md" />
                   Certifications
                 </h4>
 

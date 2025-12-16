@@ -96,7 +96,7 @@ export const Project = () => {
                       className="text-foreground hover:text-primary transition-colors duration-200 hover:drop-shadow-[0_0_8px_rgba(59,189,219,0.6)]"
                       aria-label={`View ${project.title} on GitHub`}
                     >
-                      <Github strokeWidth={2} size={24} />
+                      <Github strokeWidth={2} className="icon-md" />
                     </a>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export const Project = () => {
             rel="noopener noreferrer"
             className="cosmic-button w-fit flex items-center mx-auto gap-1"
           >
-            Explore my GitHub work <MoveUpRight size={20} />
+            Explore my GitHub work <MoveUpRight className="icon-sm" />
           </a>
         </div>
       </div>

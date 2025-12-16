@@ -98,7 +98,7 @@ export const Contact = () => {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="p-3 rounded-full bg-primary/30">
-                    <Mail className="h-6 w-6 text-primary" />
+                    <Mail className="icon-lg text-primary" />
                   </div>
                   <div className="text-left">
                     <a
@@ -117,7 +117,7 @@ export const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <div className="p-3 rounded-full bg-primary/30">
-                    <PhoneOutgoing className="h-6 w-6 text-primary" />
+                    <PhoneOutgoing className="icon-lg text-primary" />
                   </div>
                   <div className="text-left">
                     <a
@@ -136,7 +136,7 @@ export const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <div className="p-3 rounded-full bg-primary/30">
-                    <MapPin className="h-6 w-6 text-primary" />
+                    <MapPin className="icon-lg text-primary" />
                   </div>
                   <div className="text-left">
                     <a
@@ -169,7 +169,7 @@ export const Contact = () => {
                   className="hover:text-primary"
                   aria-label="LinkedIn Profile"
                 >
-                  <Linkedin strokeWidth={2} size={28} />
+                  <Linkedin strokeWidth={2} className="icon-lg" />
                 </a>
                 <a
                   href="https://leetcode.com/u/ERSA-14/"
@@ -178,7 +178,7 @@ export const Contact = () => {
                   className="hover:text-primary"
                   aria-label="LeetCode Profile"
                 >
-                  <SiLeetcode strokeWidth={0.5} size={24} />
+                  <SiLeetcode strokeWidth={0.5} className="icon-lg" />
                 </a>
                 <a
                   href="https://github.com/ERSA-14"
@@ -187,7 +187,7 @@ export const Contact = () => {
                   className="hover:text-primary"
                   aria-label="GitHub Profile"
                 >
-                  <Github strokeWidth={2} size={28} />
+                  <Github strokeWidth={2} className="icon-lg" />
                 </a>
               </div>
             </div>
@@ -215,7 +215,7 @@ export const Contact = () => {
                   id="name"
                   required
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden"
+                  className="responsive-input"
                   placeholder="your Name ..."
                 />
               </div>
@@ -232,7 +232,7 @@ export const Contact = () => {
                   id="email"
                   required
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden"
+                  className="responsive-input"
                   placeholder="your.Email@example.com ..."
                 />
               </div>
@@ -249,7 +249,7 @@ export const Contact = () => {
                   required
                   rows="3"
                   autoComplete="off"
-                  className="w-full px-3 py-1 text-sm rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden resize-none flex-1"
+                  className="responsive-input resize-none flex-1"
                   placeholder="your Message here ..."
                 />
               </div>
@@ -258,7 +258,7 @@ export const Contact = () => {
                 className="cosmic-button w-fit flex items-center justify-center gap-2 mt-4 mx-auto !py-1"
               >
                 <span>Send Message</span>
-                <Send size={16} />
+                <Send className="icon-sm" />
               </button>
             </form>
           </div>
@@ -269,7 +269,7 @@ export const Contact = () => {
 
       <p className="flex items-center justify-center gap-3 text-center text-muted-foreground text-sm mt-10 pb-6 italic">
         <span>Crafted and Maintained</span>
-        <GitCommitVertical strokeWidth={2} size={20} className="primary-text" />
+        <GitCommitVertical strokeWidth={2} className="icon-md primary-text" />
         <span>
           by <span className="text-primary font-semibold">Saksham Gupta</span>{" "}
           since <span className="font-semibold">2025</span>

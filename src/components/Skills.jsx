@@ -131,7 +131,7 @@ export const Skills = () => {
         <div
           ref={containerRef}
           style={{ minHeight: activeCategory === "All" ? "auto" : minHeight }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 content-start"
+          className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-4 content-start"
         >
           {filteredSkills.map((skill, index) => {
             const Icon = skillIcons[skill.name];
@@ -140,7 +140,7 @@ export const Skills = () => {
                 key={index}
                 className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center group cursor-pointer"
               >
-                {Icon && <Icon className="w-8 h-8 text-primary" />}
+                {Icon && <Icon className="icon-xl text-primary" />}
                 <h3 className="font-medium text-sm">{skill.name}</h3>
               </div>
             );
