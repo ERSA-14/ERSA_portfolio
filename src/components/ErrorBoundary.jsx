@@ -29,12 +29,12 @@ class ErrorBoundary extends React.Component {
             <div className="space-y-2">
               <h1 className="text-4xl font-bold text-primary">Oops!</h1>
               <h2 className="text-2xl font-semibold text-foreground">
-                Something went wrong
+                Something is Wrong
               </h2>
             </div>
 
             <p className="text-muted-foreground">
-              We encountered an unexpected error. Please try refreshing the
+              I encountered an unexpected error. Please try refreshing the
               page.
             </p>
 
@@ -47,16 +47,16 @@ class ErrorBoundary extends React.Component {
               </button>
               <a
                 href="/"
-                className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-colors duration-200 font-medium w-fit mx-auto"
+                className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 font-medium w-fit mx-auto"
               >
                 Go Home
               </a>
             </div>
 
             {!import.meta.env.PROD && this.state.error && (
-              <details className="mt-8 text-left bg-card p-4 rounded-lg border border-border">
+              <details className="mt-8 text-left bg-card p-2 rounded-lg border border-border">
                 <summary className="cursor-pointer font-semibold text-sm mb-2">
-                  Error Details (Dev Only)
+                  Error Details (For Developers Only)
                 </summary>
                 <pre className="text-xs overflow-auto text-red-500">
                   {this.state.error.toString()}

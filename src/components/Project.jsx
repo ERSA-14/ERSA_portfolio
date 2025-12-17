@@ -153,40 +153,42 @@ export const Project = () => {
           </div>
 
           {/* Carousel Navigation - Resume Button Style */}
-          <div className="flex justify-center items-center gap-4 mt-8">
-            <button
-              onClick={handlePrev}
-              className="rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300 px-3 py-1.5"
-              aria-label="Previous projects"
-            >
-              <MoveLeft strokeWidth={3} className="icon-md" />
-            </button>
+          {totalSlides > 1 && (
+            <div className="flex justify-center items-center gap-4 mt-8">
+              <button
+                onClick={handlePrev}
+                className="rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300 px-3 py-1.5"
+                aria-label="Previous projects"
+              >
+                <MoveLeft strokeWidth={3} className="icon-md" />
+              </button>
 
-            {/* Indicator Dots */}
-            <div className="flex gap-3 items-center">
-              {Array.from({ length: totalSlides }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? "w-5 h-2 bg-primary shadow-lg"
-                      : "w-2 h-2 bg-foreground dark:bg-foreground hover:bg-foreground/60 dark:hover:bg-foreground/70"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                  aria-current={index === currentIndex}
-                />
-              ))}
+              {/* Indicator Dots */}
+              <div className="flex gap-3 items-center">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`rounded-full transition-all duration-300 ${
+                      index === currentIndex
+                        ? "w-5 h-2 bg-primary shadow-lg"
+                        : "w-2 h-2 bg-foreground dark:bg-foreground hover:bg-foreground/60 dark:hover:bg-foreground/70"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                    aria-current={index === currentIndex}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={handleNext}
+                className="rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300 px-3 py-1.5"
+                aria-label="Next projects"
+              >
+                <MoveRight strokeWidth={3} className="icon-md" />
+              </button>
             </div>
-
-            <button
-              onClick={handleNext}
-              className="rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300 px-3 py-1.5"
-              aria-label="Next projects"
-            >
-              <MoveRight strokeWidth={3} className="icon-md" />
-            </button>
-          </div>
+          )}
         </div>
 
         <div className="text-center mt-8 ">
