@@ -6,6 +6,8 @@ import { NotFound } from "./pages/NotFound";
 import { Toaster } from "./components/ui/toaster";
 import { CustomCursor } from "./components/CustomCursor";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { initDynamicFavicon } from "./utils/dynamicFavicon";
+import "./styles/svg-styles.css";
 
 function App() {
   useEffect(() => {
@@ -27,8 +29,12 @@ function App() {
 
     requestAnimationFrame(raf);
 
+    // Initialize dynamic favicon
+    const faviconObserver = initDynamicFavicon();
+
     return () => {
       lenis.destroy();
+      faviconObserver.disconnect();
     };
   }, []);
 

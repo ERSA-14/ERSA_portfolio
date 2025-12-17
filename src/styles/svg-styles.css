@@ -1,0 +1,5 @@
+/* src/styles/svg-styles.css */
+.themed-svg-fill path {
+  fill: hsl(var(--primary));
+  transition: fill var(--duration-standard) var(--ease-smooth);
+}
