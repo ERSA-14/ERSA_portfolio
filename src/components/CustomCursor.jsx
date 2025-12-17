@@ -1,18 +1,47 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const CustomCursor = () => {
   const cursorRef = useRef(null);
+  const [hasMovedOnce, setHasMovedOnce] = useState(false);
 
   useEffect(() => {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
-    // Add transition for smooth opacity change
-    cursor.style.transition = "none";
+    // Edge detection threshold (pixels from edge)
+    const edgeThreshold = 20;
+
+    // Check if cursor is near edges
+    const isNearEdge = (x, y) => {
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+
+      return (
+        x <= edgeThreshold ||
+        x >= windowWidth - edgeThreshold ||
+        y <= edgeThreshold ||
+        y >= windowHeight - edgeThreshold
+      );
+    };
 
     // Use transform for hardware acceleration
     const moveCursor = (e) => {
-      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%) rotate(45deg)`;
+      const { clientX, clientY } = e;
+
+      // Show cursor on first movement
+      if (!hasMovedOnce) {
+        setHasMovedOnce(true);
+        cursor.style.opacity = "1";
+      }
+
+      // Hide cursor near edges
+      if (isNearEdge(clientX, clientY)) {
+        cursor.style.opacity = "0";
+      } else if (hasMovedOnce) {
+        cursor.style.opacity = "1";
+      }
+
+      cursor.style.transform = `translate3d(${clientX}px, ${clientY}px, 0) translate(-50%, -50%) rotate(45deg)`;
     };
 
     const handleHover = (e) => {
@@ -27,10 +56,19 @@ export const CustomCursor = () => {
       }
     };
 
+    // Handle click/active state
+    const handleMouseDown = () => {
+      cursor.classList.add("active");
+    };
+
+    const handleMouseUp = () => {
+      cursor.classList.remove("active");
+    };
+
     // Inactivity timer
     let inactivityTimer;
     const resetInactivityTimer = () => {
-      if (cursor.style.opacity === "0") {
+      if (cursor.style.opacity === "0" && hasMovedOnce) {
         cursor.style.opacity = "1";
       }
       clearTimeout(inactivityTimer);
@@ -46,9 +84,13 @@ export const CustomCursor = () => {
 
     window.addEventListener("mousemove", handleMouseMoveWithTimer);
     window.addEventListener("mouseover", handleHover);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
 
-    // Initialize timer
-    resetInactivityTimer();
+    // Initialize timer only after first movement
+    if (hasMovedOnce) {
+      resetInactivityTimer();
+    }
 
     const handleMouseOut = (e) => {
       if (!e.relatedTarget && !e.toElement) {
@@ -58,8 +100,10 @@ export const CustomCursor = () => {
     };
 
     const handleMouseEnter = () => {
-      cursor.style.opacity = "1";
-      resetInactivityTimer();
+      if (hasMovedOnce) {
+        cursor.style.opacity = "1";
+        resetInactivityTimer();
+      }
     };
 
     document.addEventListener("mouseout", handleMouseOut);
@@ -68,11 +112,13 @@ export const CustomCursor = () => {
     return () => {
       window.removeEventListener("mousemove", handleMouseMoveWithTimer);
       window.removeEventListener("mouseover", handleHover);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
       document.removeEventListener("mouseout", handleMouseOut);
       document.removeEventListener("mouseenter", handleMouseEnter);
       clearTimeout(inactivityTimer);
     };
-  }, []);
+  }, [hasMovedOnce]);
 
   return <div ref={cursorRef} className="custom-cursor" />;
 };

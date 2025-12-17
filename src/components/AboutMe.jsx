@@ -21,7 +21,7 @@ export const AboutMe = () => {
               <span className="text-primary">| Software Developer</span>
             </h3>
 
-            <p className="text-muted-foreground text-sm md:text-base">
+            <p className="text-muted-foreground text-sm md:text-base about-para-1">
               I'm a Computer Science and Engineering graduate from{" "}
               <span className="font-bold">Vellore Institute of Technology</span>{" "}
               (8.58 CGPA) with a strong foundation in core CS fundamentals and
@@ -29,7 +29,7 @@ export const AboutMe = () => {
               problems and automating daily tasks through scripting.
             </p>
 
-            <p className="text-muted-foreground text-sm md:text-base">
+            <p className="text-muted-foreground text-sm md:text-base about-para-2">
               I'm a team-oriented professional who prioritizes continuous
               learning and precision. My goal is to drive business growth by
               delivering high-quality results that consistently meet SLAs and
@@ -57,7 +57,7 @@ export const AboutMe = () => {
                   <Code className="icon-md" />
                   What I Build With
                 </h4>
-                <p className="text-muted-foreground text-sm md:text-base">
+                <p className="text-muted-foreground text-sm md:text-base about-para-3">
                   I specialize in building secure and scalable applications
                   using Python, React, Node/Express, MySQL, and AWS Cloud. My
                   expertise extends to AI, REST APIs, Django, and PostgreSQL,

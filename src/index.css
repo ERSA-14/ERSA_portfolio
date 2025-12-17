@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&family=Cause:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&family=Cause:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;600;700&family=Raleway:wght@300;400;500;600&display=swap");
 
 @import "./styles/design-tokens.css";
 @import "tailwindcss";
@@ -562,12 +562,14 @@ img {
   border: 3px solid hsl(var(--primary));
   pointer-events: none;
   z-index: 9999;
-  transform: translate3d(0,0,0) rotate(45deg); /* Init state */
+  transform: translate3d(0,0,0) rotate(45deg) scale(1); /* Init state with scale */
   will-change: transform, opacity;
   backface-visibility: hidden;
+  opacity: 0; /* Initially hidden */
   transition: width var(--duration-fast) var(--ease-out),
               height var(--duration-fast) var(--ease-out),
-              opacity var(--duration-fast) linear;
+              opacity var(--duration-fast) linear,
+              transform var(--duration-fast) var(--ease-out);
 }
 
 @media (min-width: 1024px) {
@@ -579,6 +581,12 @@ img {
 .custom-cursor.hover {
   width: 14px;
   height: 14px;
+  opacity: 1;
+}
+
+.custom-cursor.active {
+  width: 16px;
+  height: 16px;
   opacity: 1;
 }
 
@@ -670,3 +678,30 @@ textarea.responsive-input {
   /* Slightly more vertical padding for textarea to look balanced */
   padding: clamp(0.4rem, 0.35rem + 0.25vw, 0.6rem) clamp(0.85rem, 0.6rem + 0.5vw, 1rem);
 }
+
+/* About Me Paragraph Styles */
+.about-para-1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.about-para-2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+}
+
+.about-para-3 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.015em;
+}
+
+
