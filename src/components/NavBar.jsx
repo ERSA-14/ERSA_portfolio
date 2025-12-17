@@ -85,7 +85,7 @@ export const NavBar = () => {
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => (
             <a
               key={item.name}
@@ -103,7 +103,7 @@ export const NavBar = () => {
           <ThemeToggle />
         </div>
 
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -121,7 +121,7 @@ export const NavBar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full right-4 mt-2 w-max bg-background/95 backdrop-blur-md border border-primary rounded-xl p-2 flex flex-col gap-1 shadow-2xl animate-in slide-in-from-top-2 fade-in duration-0 origin-top-right will-change-transform">
+        <div className="lg:hidden absolute top-full right-4 mt-2 w-max bg-background/95 backdrop-blur-md border border-primary rounded-xl p-2 flex flex-col gap-1 shadow-2xl animate-in slide-in-from-top-2 fade-in duration-0 origin-top-right will-change-transform">
           {navItems.map((item) => (
             <a
               key={item.name}

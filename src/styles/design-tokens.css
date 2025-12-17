@@ -196,7 +196,23 @@
    LARGE DISPLAY SCALING (10% reduction)
    ============================================ */
 
-@media (min-width: 720px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    /* Typography Scale - Reduced by 3% */
+    --text-xs: 0.8245rem;   /* ~13.19px */
+    --text-sm: 0.97rem;     /* ~15.52px */
+    --text-base: 1.1155rem; /* ~17.85px */
+    --text-lg: 1.2125rem;   /* ~19.4px */
+    
+    --text-xl: 1.3095rem;   /* ~20.95px */
+    --text-2xl: 1.6975rem;  /* ~27.16px */
+    --text-3xl: 2.1825rem;  /* ~34.92px */
+    --text-4xl: 2.91rem;    /* ~46.56px */
+    --text-5xl: 3.88rem;    /* ~62.08px */
+  }
+}
+
+@media (min-width: 720px) and (max-width: 767px) {
   :root {
     /* Typography Scale - Reduced by 10% */
     --text-xs: 0.765rem;    /* ~12.24px */
