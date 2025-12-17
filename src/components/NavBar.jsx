@@ -138,7 +138,7 @@ export const NavBar = () => {
             </a>
           ))}
           <div className="py-3 mt-1 flex justify-center">
-            <ThemeToggle className="scale-150 !border" />
+            <ThemeToggle className="scale-[1.3] !border" />
           </div>
         </div>
       )}

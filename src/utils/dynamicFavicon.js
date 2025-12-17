@@ -20,10 +20,14 @@ const createFaviconSVG = (isDark) => {
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 };
 
+// Pre-calculate favicons for instant switching
+const LIGHT_FAVICON_URI = createFaviconSVG(false);
+const DARK_FAVICON_URI = createFaviconSVG(true);
+
 export const updateFavicon = (isDark) => {
   const faviconLink = document.querySelector('link[rel="icon"]');
   if (faviconLink) {
-    faviconLink.href = createFaviconSVG(isDark);
+    faviconLink.href = isDark ? DARK_FAVICON_URI : LIGHT_FAVICON_URI;
   }
 };
 

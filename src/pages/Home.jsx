@@ -43,14 +43,14 @@ export const Home = () => {
       <ScrollProgress isNameLoaded={isNameLoaded} />
 
       <div
-        className={`fixed inset-0 pointer-events-none transition-opacity duration-300 ${
+        className={`fixed inset-0 pointer-events-none transition-opacity duration-150 ${
           isDarkMode ? "opacity-0" : "opacity-100"
         }`}
       >
         <SpaceBackgroundLazy />
       </div>
       <div
-        className={`fixed inset-0 pointer-events-none transition-opacity duration-300 ${
+        className={`fixed inset-0 pointer-events-none transition-opacity duration-150 ${
           isDarkMode ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -59,7 +59,7 @@ export const Home = () => {
 
       <NavBar />
 
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10">
         <HomePage />
         <AboutMe />
         <Skills />

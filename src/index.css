@@ -64,6 +64,7 @@
   }
 
   :root {
+    color-scheme: light;
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
@@ -76,6 +77,7 @@
   }
 
   .dark {
+    color-scheme: dark;
     --background: 224 71% 0%;
     --foreground: 210 40% 95%;
     --card: 224 71% 0%;
@@ -98,15 +100,20 @@
     font-family: "Roboto Mono", monospace;
   }
 
-  /* Smooth Theme Transition for background/color only */
-  body, .bg-card, .bg-background {
-    transition: background-color var(--duration-standard) var(--ease-smooth),
-                color var(--duration-standard) var(--ease-smooth),
-                border-color var(--duration-standard) var(--ease-smooth);
+  /* Disable all transitions when theme is being toggled */
+  .disable-transitions,
+  .disable-transitions *,
+  .disable-transitions *::before,
+  .disable-transitions *::after {
+    transition: none !important;
+    animation: none !important;
   }
 
-  .dark .bg-card:not(.chat-message-box),
-  .dark .gradient-border {
+
+
+  /* Dark mode: Transparent borders by default for all cards */
+  .dark .bg-card:not(.chat-message-box):not(.theme-toggle-custom),
+  .dark .gradient-border:not(.theme-toggle-custom) {
     border-width: 1.5px !important;
     border-color: transparent !important;
     border-style: solid !important;
@@ -115,7 +122,12 @@
                 transform var(--duration-fast) var(--ease-smooth); 
   }
 
-  .bg-card:not(.chat-message-box):hover,
+  .hidden-cursor {
+    opacity: 0 !important;
+  }
+
+  /* Hover borders for all cards */
+  .bg-card:not(.chat-message-box):not(.theme-toggle-custom):hover,
   .gradient-border:hover {
     border-width: 1.5px !important;
     border-style: solid !important;
@@ -123,15 +135,17 @@
   }
 
   /* Light mode specific shadow */
-  html:not(.dark) .bg-card:not(.chat-message-box):hover,
+  html:not(.dark) .bg-card:not(.chat-message-box):not(.theme-toggle-custom):hover,
   html:not(.dark) .gradient-border:hover {
     box-shadow: var(--glow-md) !important;
   }
 
-  /* Dark mode specific shadow */
-  .dark .bg-card:not(.chat-message-box):hover,
+  /* Dark mode specific shadow and hover borders */
+  .dark .bg-card:not(.chat-message-box):not(.theme-toggle-custom):hover,
   .dark .gradient-border:hover {
     box-shadow: var(--glow-lg) !important;
+    border-color: hsl(var(--primary)) !important;
+    border-width: 1.5px !important;
   }
 
   .dark .chat-message-box {
@@ -391,9 +405,15 @@ img {
   transform: none;
 }
 
+/* Dark mode: transparent borders by default, visible on hover */
+.dark .gradient-border {
+  border: 1.5px solid transparent;
+}
+
 .dark .gradient-border:hover {
   background: linear-gradient(to right, hsl(224 71% 2%), hsl(224 71% 2%));
   border-color: hsl(var(--primary));
+  border-width: 1.5px;
 }
 
 .dark #About .gradient-border:hover,
@@ -544,6 +564,11 @@ img {
 .theme-toggle-btn:hover {
   box-shadow: var(--glow-md);
   border-color: hsl(var(--primary));
+}
+
+.theme-toggle-custom {
+  border-width: 2px !important;
+  box-sizing: border-box !important;
 }
 
 .dark .theme-toggle-btn:hover {
@@ -698,10 +723,8 @@ textarea.responsive-input {
 
 .about-para-3 {
   font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.6;
   letter-spacing: 0.015em;
 }
-
-

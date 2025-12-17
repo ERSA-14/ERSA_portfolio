@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MoveUpRight, Github, MoveLeft, MoveRight } from "lucide-react";
+import { debounce } from "../utils/debounce";
 
 const projects = [
   {
@@ -34,7 +35,7 @@ const projects = [
     description:
       "Full-stack authentication system built with Node.js, Express, and PostgreSQL. Implements user registration, login with bcrypt password hashing, session management, and server-side rendering using EJS templates.",
     image: "/ProjectSS/one.jpeg",
-    tags: ["Node", "Express", "Postgres", "Sessions", "Authentication"],
+    tags: ["Node", "Express", "Authentication", "Postgres", "Sessions"],
     docsUrl: "",
     githubUrl: "https://github.com/ERSA-14/Authentication_frontend",
   },
@@ -57,9 +58,16 @@ export const Project = () => {
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    const debouncedResize = debounce(handleResize, 100);
+    window.addEventListener("resize", debouncedResize);
+    return () => window.removeEventListener("resize", debouncedResize);
   }, []);
+
+  // Reset current index when items per slide changes to avoid empty views
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [itemsPerSlide]);
 
   const totalSlides = Math.ceil(projects.length / itemsPerSlide);
 
@@ -107,7 +115,7 @@ export const Project = () => {
             {visibleProjects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-card rounded-lg overflow-hidden shadow-sm card-hover justify-center items-center border-2 border-primary hover:border-primary"
+                className="group bg-card gradient-border rounded-lg overflow-hidden shadow-sm card-hover justify-center items-center"
               >
                 <div className="h-48 overflow-hidden">
                   <img

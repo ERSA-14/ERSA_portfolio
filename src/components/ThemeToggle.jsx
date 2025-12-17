@@ -4,6 +4,7 @@ import { cn } from "../lib/utils";
 
 export const ThemeToggle = ({ className }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isToggling, setIsToggling] = useState(false);
 
   useEffect(() => {
     try {
@@ -28,6 +29,14 @@ export const ThemeToggle = ({ className }) => {
   }, []);
 
   const toggleTheme = () => {
+    // Prevent rapid toggling
+    if (isToggling) return;
+
+    setIsToggling(true);
+
+    // Disable transitions globally to prevent FOIT (Flash of Incorrect Theme) / smooth transition
+    document.documentElement.classList.add("disable-transitions");
+
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
 
@@ -46,27 +55,61 @@ export const ThemeToggle = ({ className }) => {
         // Failed to save theme persistence
       }
     }
+
+    // Force strict reflow to apply the theme change instantly without transitions
+    const _ = window.getComputedStyle(document.documentElement).opacity;
+
+    // Re-enable transitions after a tiny delay to ensure the DOM has updated
+    setTimeout(() => {
+      document.documentElement.classList.remove("disable-transitions");
+      setIsToggling(false);
+    }, 50); // Small buffer to ensure paint completes
   };
 
   return (
-    <button
-      type="button"
+    <div
       onClick={toggleTheme}
       className={cn(
-        "relative p-1 rounded-full theme-toggle-btn cursor-pointer z-50",
-        "bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-md",
-        isDarkMode
-          ? "border-2 border-primary hover:border-[2px]"
-          : "border-2 border-primary hover:border-[2px]",
+        "relative flex h-8 w-16 items-center rounded-full !border-2 border-primary bg-card cursor-pointer transition-colors duration-100 theme-toggle-custom overflow-hidden",
         className
       )}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleTheme();
+        }
+      }}
       aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDarkMode ? (
-        <Sun className="icon-md text-yellow-500" />
-      ) : (
-        <Moon className="icon-md text-primary" />
-      )}
-    </button>
+      {/* Sliding Circle Indicator */}
+      <div
+        className={cn(
+          "absolute left-0 top-0 h-full aspect-square rounded-full bg-primary/20 transition-transform duration-100 ease-smooth",
+          isDarkMode ? "translate-x-0" : "translate-x-8"
+        )}
+      />
+
+      {/* Icons */}
+      <div className="flex w-full items-center justify-between px-1.5 relative z-10">
+        <Moon
+          className={cn(
+            "h-4 w-4 transition-colors duration-100",
+            isDarkMode
+              ? "text-primary stroke-[2.5px]"
+              : "text-muted-foreground/50 stroke-[2px]"
+          )}
+        />
+        <Sun
+          className={cn(
+            "h-4 w-4 transition-colors duration-100",
+            !isDarkMode
+              ? "text-primary stroke-[2.5px]"
+              : "text-muted-foreground/50 stroke-[2px]"
+          )}
+        />
+      </div>
+    </div>
   );
 };

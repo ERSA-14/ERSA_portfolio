@@ -45,11 +45,20 @@ export const CustomCursor = () => {
     };
 
     const handleHover = (e) => {
-      const isInteractive = e.target.closest(
+      const target = e.target;
+
+      const isSystemCursor = target.closest(".use-system-cursor");
+      if (isSystemCursor) {
+        cursor.classList.add("hidden-cursor");
+      } else {
+        cursor.classList.remove("hidden-cursor");
+      }
+
+      const isInteractive = target.closest(
         'a, button, [role="button"], input, textarea, select, .cursor-pointer'
       );
 
-      if (isInteractive) {
+      if (isInteractive && !isSystemCursor) {
         cursor.classList.add("hover");
       } else {
         cursor.classList.remove("hover");

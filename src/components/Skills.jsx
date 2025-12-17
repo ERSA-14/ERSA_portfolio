@@ -142,7 +142,9 @@ export const Skills = () => {
                 className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center group cursor-pointer"
               >
                 {Icon && <Icon className="icon-xl text-primary" />}
-                <h3 className="font-medium text-[clamp(0.95rem,1.70vw,1.15rem)]">{skill.name}</h3>
+                <h3 className="font-medium text-[clamp(0.95rem,1.70vw,1.15rem)]">
+                  {skill.name}
+                </h3>
               </div>
             );
           })}

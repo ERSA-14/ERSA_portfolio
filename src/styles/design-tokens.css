@@ -11,8 +11,8 @@
   
   /* Standardized Duration Scale */
   --duration-instant: 0ms;
-  --duration-micro: 200ms;       /* Micro-interactions: 150-200ms */
-  --duration-fast: 250ms;        /* Small transitions */
+  --duration-micro: 100ms;       /* Micro-interactions: 100ms */
+  --duration-fast: 100ms;        /* Small transitions: 100ms */
   --duration-standard: 300ms;    /* Standard transitions: 250-300ms */
   --duration-moderate: 500ms;    /* Page transitions: 400-500ms */
   --duration-slow: 700ms;        /* Complex animations: 600-800ms */

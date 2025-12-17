@@ -68,8 +68,9 @@ export function SpaceBackground() {
     const circleTexture = new THREE.CanvasTexture(canvas2);
     circleTexture.flipY = false; // Fix WebGL warning about FLIP_Y for textures
 
+    const isDarkInit = document.documentElement.classList.contains("dark");
     const material = new THREE.PointsMaterial({
-      color: 0x0a85c2,
+      color: isDarkInit ? 0xffa31a : 0x0a85c2,
       size: 0.06,
       map: circleTexture,
       transparent: true,
@@ -79,6 +80,26 @@ export function SpaceBackground() {
 
     const points = new THREE.Points(geometry, material);
     scene.add(points);
+
+    // Theme Observer to apply render colors instantly
+    const updateMaterialColor = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      material.color.setHex(isDark ? 0xffa31a : 0x0a85c2);
+      if (prefersReducedMotion) renderer.render(scene, camera);
+    };
+
+    const themeObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          updateMaterialColor();
+        }
+      });
+    });
+
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     const mouse = { x: 0, y: 0 };
 
@@ -165,6 +186,7 @@ export function SpaceBackground() {
     }
 
     return () => {
+      themeObserver.disconnect();
       cancelAnimationFrame(animationId);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", onResize);

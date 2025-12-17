@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
       smooth: true,
@@ -40,6 +40,12 @@ function App() {
 
   return (
     <ErrorBoundary>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-background text-foreground border-2 border-primary rounded-md font-medium transition-colors"
+      >
+        Skip to main content
+      </a>
       <CustomCursor />
       <Toaster />
       <BrowserRouter>

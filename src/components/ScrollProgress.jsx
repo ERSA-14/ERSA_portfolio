@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { debounce } from "../utils/debounce";
 
 export const ScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = useState(10);
@@ -84,12 +85,14 @@ export const ScrollProgress = () => {
       updateScrollProgress();
     }, 100);
 
+    const debouncedResize = debounce(handleResize, 100);
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize, { passive: true });
+    window.addEventListener("resize", debouncedResize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debouncedResize);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
