@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, CircleX } from "lucide-react";
 import { cn } from "../lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -112,22 +112,22 @@ export const NavBar = () => {
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <X className="icon-lg" />
+              <CircleX className="icon-xl" />
             ) : (
-              <Menu className="icon-lg" />
+              <Menu className="icon-xl" />
             )}
           </button>
         </div>
       </div>
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full right-4 mt-2 w-max bg-background/95 backdrop-blur-md border border-primary rounded-xl p-2 flex flex-col gap-1 shadow-2xl animate-in slide-in-from-top-2 fade-in duration-0 origin-top-right will-change-transform">
+        <div className="lg:hidden absolute top-full right-4 mt-2 w-fit bg-background/95 backdrop-blur-md border border-primary rounded-xl p-2 flex flex-col gap-1 items-center shadow-2xl animate-in slide-in-from-top-2 fade-in duration-0 origin-top-right will-change-transform">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
               className={cn(
-                "text-sm px-4 py-2 rounded-lg flex items-center transition-colors duration-200",
+                "text-sm px-4 py-2 rounded-lg flex items-center justify-center w-full transition-colors duration-200",
                 activeSection === item.href.substring(1)
                   ? "text-primary font-semibold bg-secondary/50"
                   : "font-medium text-foreground hover:text-primary hover:bg-secondary/50"
@@ -137,8 +137,8 @@ export const NavBar = () => {
               {item.name}
             </a>
           ))}
-          <div className="py-3 mt-1 flex justify-center">
-            <ThemeToggle className="scale-[1.3] !border" />
+          <div className="py-4 mt-0 flex justify-center">
+            <ThemeToggle className="scale-[1.4] !border" />
           </div>
         </div>
       )}

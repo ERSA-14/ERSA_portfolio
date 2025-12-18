@@ -162,7 +162,7 @@ export const Certifications = () => {
                   </p>
 
                   <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                    <span className="px-2 py-0.5 bg-primary/20 text-primary text-sm md:text-xs font-bold rounded uppercase border border-primary/10">
+                    <span className="px-2 py-0.5 border-1 border-primary bg-primary/20 text-primary text-sm md:text-xs font-bold rounded uppercase border border-primary/10">
                       Active
                     </span>
                     <span className="text-sm md:text-xs font-bold text-muted-foreground/80 tracking-wide uppercase">
