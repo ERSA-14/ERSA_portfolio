@@ -8,13 +8,20 @@ export function SpaceBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
-      antialias: true,
-      alpha: true,
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance",
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    } catch (error) {
+      console.warn("WebGL/Three.js initialization failed:", error);
+      return;
+    }
 
     // Reduced Motion Check
     const prefersReducedMotion = window.matchMedia(
@@ -30,13 +37,13 @@ export function SpaceBackground() {
     );
     camera.position.z = 5;
 
-    const particleCount = 200;
+    const particleCount = 250; // Further reduced number of particles
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const velocities = [];
 
     const minRadius = 5;
-    const maxRadius = 9;
+    const maxRadius = 12;
 
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
@@ -46,12 +53,12 @@ export function SpaceBackground() {
 
       positions[i3] = Math.cos(angle) * radius;
       positions[i3 + 1] = Math.sin(angle) * radius;
-      positions[i3 + 2] = (Math.random() - 0.5) * 10;
+      positions[i3 + 2] = (Math.random() - 0.5) * 15;
 
       velocities.push({
-        x: (Math.random() - 0.5) * 0.02,
-        y: (Math.random() - 0.5) * 0.02,
-        z: (Math.random() - 0.5) * 0.02,
+        x: (Math.random() - 0.5) * 0.015,
+        y: (Math.random() - 0.5) * 0.015,
+        z: (Math.random() - 0.5) * 0.015,
       });
     }
 
@@ -62,44 +69,27 @@ export function SpaceBackground() {
     canvas2.height = 32;
     const ctx = canvas2.getContext("2d");
     ctx.beginPath();
-    ctx.arc(16, 16, 16, 0, Math.PI * 2);
+    // Create an oval shape (ellipse)
+    // ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle)
+    ctx.ellipse(16, 16, 16, 8, Math.PI / 4, 0, Math.PI * 2);
     ctx.fillStyle = "white";
     ctx.fill();
-    const circleTexture = new THREE.CanvasTexture(canvas2);
-    circleTexture.flipY = false; // Fix WebGL warning about FLIP_Y for textures
+    const ovalTexture = new THREE.CanvasTexture(canvas2);
+    ovalTexture.flipY = false;
 
-    const isDarkInit = document.documentElement.classList.contains("dark");
     const material = new THREE.PointsMaterial({
-      color: isDarkInit ? 0xffa31a : 0x0a85c2,
-      size: 0.06,
-      map: circleTexture,
+      color: 0x3b82f6,
+      size: 0.12, // Increased size slightly to make the oval shape visible
+      map: ovalTexture,
       transparent: true,
-      opacity: 1,
+      opacity: 0.7,
       sizeAttenuation: true,
     });
 
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
-    // Theme Observer to apply render colors instantly
-    const updateMaterialColor = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      material.color.setHex(isDark ? 0xffa31a : 0x0a85c2);
-      if (prefersReducedMotion) renderer.render(scene, camera);
-    };
-
-    const themeObserver = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === "class") {
-          updateMaterialColor();
-        }
-      });
-    });
-
-    themeObserver.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
+    // No longer need observer here since backgrounds are now exclusive to themes
 
     const mouse = { x: 0, y: 0 };
 
@@ -168,7 +158,7 @@ export function SpaceBackground() {
         pos.setY(i, y);
         pos.setZ(i, z);
 
-        const newY = pos.getY(i) + Math.sin(t + i * 0.1) * 0.0005;
+        const newY = pos.getY(i) + Math.sin(t + i * 0.1) * 0.00055;
         pos.setY(i, newY);
 
         if (Math.abs(pos.getZ(i)) > 5) velocities[i].z *= -1;
@@ -186,18 +176,17 @@ export function SpaceBackground() {
     }
 
     return () => {
-      themeObserver.disconnect();
       cancelAnimationFrame(animationId);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", onResize);
       geometry.dispose();
       material.dispose();
-      circleTexture.dispose();
+      ovalTexture.dispose();
       renderer.dispose();
     };
   }, []);
 
   return (
-    <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
+    <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none" />
   );
 }

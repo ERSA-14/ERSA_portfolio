@@ -81,7 +81,7 @@
     --background: 224 71% 0%;
     --foreground: 210 40% 95%;
     --card: 224 71% 0%;
-    --primary: 43 100% 47%;
+    --primary: 42 100% 44%;
     --primary-foreground: 224 71% 4%;
     --border: 215 20% 15%;
     --input: 215 20% 15%;
@@ -98,7 +98,11 @@
 
   code, pre, kbd, samp {
     font-family: "Roboto Mono", monospace;
-  }
+}
+
+.cosmic-button * {
+  font-family: inherit !important;
+}
 
   /* Disable all transitions when theme is being toggled */
   .disable-transitions,
@@ -129,7 +133,7 @@
   /* Hover borders for all cards */
   .bg-card:not(.chat-message-box):not(.theme-toggle-custom):hover,
   .gradient-border:hover {
-    border-width: 1.5px !important;
+    border-width: 2px !important;
     border-style: solid !important;
     border-color: hsl(var(--primary)) !important;
   }
@@ -427,6 +431,7 @@ img {
 .cosmic-button {
   @apply rounded-full bg-primary text-primary-foreground font-medium tracking-wide
   border border-white/10; 
+  font-family: "Roboto Mono", monospace;
   /* Enabled transition */
   /* Enabled transition */
   transition: box-shadow var(--duration-fast) var(--ease-smooth),

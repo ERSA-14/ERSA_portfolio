@@ -62,6 +62,41 @@ export const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     if (isSending) return;
+
+    // Check online status
+    if (!navigator.onLine) {
+      toast({
+        variant: "destructive",
+        title: "No Internet",
+        description: "Please check your connection and try again.",
+      });
+      return;
+    }
+
+    const formData = new FormData(form.current);
+    const email = formData.get("user_email");
+    const name = formData.get("user_name");
+    const message = formData.get("message");
+
+    // Simple validation
+    if (!email || !email.includes("@")) {
+      toast({
+        variant: "destructive",
+        title: "Invalid Email",
+        description: "Please provide a valid email address.",
+      });
+      return;
+    }
+
+    if (!name || name.trim().length < 2) {
+      toast({
+        variant: "destructive",
+        title: "Name Required",
+        description: "Please enter your name.",
+      });
+      return;
+    }
+
     setIsSending(true);
 
     if (
@@ -71,20 +106,18 @@ export const Contact = () => {
     ) {
       toast({
         variant: "destructive",
-        title: "Configuration Error",
+        title: "Connection Error",
         description:
-          "EmailJS keys are not configured or has reached 200 limit. Please check your .env file.",
+          "My communication relay is currently down. Please reach me directly at saksham22sg@gmail.com",
       });
+      setIsSending(false);
       return;
     }
 
-    const formData = new FormData(form.current);
     const templateParams = {
-      user_name: formData.get("user_name"),
-      user_email: formData.get("user_email"),
-      message: `Name: ${formData.get("user_name")}\nEmail: ${formData.get(
-        "user_email"
-      )}\n\nMessage:\n${formData.get("message")}`,
+      user_name: name,
+      user_email: email,
+      message: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     };
 
     emailjs
@@ -99,20 +132,19 @@ export const Contact = () => {
       .then(
         () => {
           toast({
-            title: "Message Sent",
-            description:
-              "Thank you for your interest- your Message is now in my orbit, and I will launch a reply to you very soon.",
+            title: "Success!",
+            description: "Your message is in orbit. I'll get back to you soon!",
           });
-          e.target.reset();
           if (form.current) form.current.reset();
           setIsSending(false);
         },
-        () => {
+        (error) => {
+          console.error("EmailJS Error:", error);
           toast({
             variant: "destructive",
-            title: "Error",
+            title: "Send Failed",
             description:
-              "Looks like our digital connection hit a black hole— let's switch to old-fashioned email for now. I will reach out to you soon that way.",
+              "Sorry, I couldn't send your message. Please try again or email me directly at saksham22sg@gmail.com",
           });
           setIsSending(false);
         }

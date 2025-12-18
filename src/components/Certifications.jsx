@@ -128,7 +128,7 @@ export const Certifications = () => {
                 className="bg-card gradient-border p-4 md:p-6 rounded-xl shadow-md card-hover flex flex-col md:flex-row items-center gap-4 md:gap-6 group relative overflow-hidden transition-all duration-300 border border-border/50 w-full animate-in fade-in slide-in-from-bottom-4 duration-500"
               >
                 {/* Icon Container */}
-                <div className="relative border-2 border-primary p-4 md:p-3 bg-primary/10 rounded-xl text-primary shadow-[0_0_10px_rgba(var(--primary),0.1)] group-hover:scale-105 transition-transform duration-500 shrink-0">
+                <div className="relative border-2 border-primary p-4 md:p-3 bg-primary/10 rounded-xl text-primary shadow-[0_0_10px_rgba(var(--primary),0.1)] transition-transform duration-500 shrink-0">
                   {cert.icon}
                 </div>
 
@@ -180,7 +180,7 @@ export const Certifications = () => {
                     className="cosmic-button flex items-center gap-2 px-6 py-2.5 text-xs md:text-sm font-black group/btn shrink-0"
                   >
                     VERIFICATION{" "}
-                    <MoveUpRight className="w-4 h-4 transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    <MoveUpRight className="w-4 h-4 transition-transform" />
                   </a>
                 </div>
               </div>

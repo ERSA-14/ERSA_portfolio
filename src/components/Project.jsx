@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: "Agentic AI Coding Assistant",
     description:
-      "A command-line autonomous AI agent powered by  Gemini that reads, writes, and executes Python files while intelligently debugging code through multi-step reasoning and iterative function calling.",
+      "A command-line autonomous AI agent powered by Gemini that reads, writes, and executes Python files while intelligently debugging code with real-time error analysis and automatic code correction through multiple iterative function calling.",
     image: "/ProjectSS/four.png",
     tags: [
       "Python",
@@ -23,7 +23,7 @@ const projects = [
     id: 2,
     title: "Invoice Processing Automation",
     description:
-      "Serverless bill receipt automation system using AWS Lambda functions written in Python. Automates invoice processing and receipt generation through event-driven cloud architecture.",
+      "This Automated Lambda function extracts receipt data (vendor, date, total, items) from S3-uploaded images using AWS Textract and stores it in DynamoDB. It then sends an email notification with the extracted receipt details via SES.",
     image: "/ProjectSS/two.jpeg",
     tags: ["Python", "AWS Cloud", "Serverless", "Event-driven", "Automation"],
     docsUrl: "",
@@ -33,7 +33,7 @@ const projects = [
     id: 3,
     title: "Secure Authentication System",
     description:
-      "Full-stack authentication system built with Node.js, Express, and PostgreSQL. Implements user registration, login with bcrypt password hashing, session management, and server-side rendering using EJS templates.",
+      "An Express.js authentication system using Passport.js with local strategy (bcrypt + AES encryption) and Google OAuth2, storing user data in PostgreSQL. Authenticated users access protected routes with session-based authentication managed by express-session.",
     image: "/ProjectSS/one.jpeg",
     tags: ["Node", "Express", "Authentication", "Postgres", "Sessions"],
     docsUrl: "",
@@ -119,13 +119,20 @@ export const Project = () => {
                 key={project.id}
                 className="group bg-card gradient-border rounded-lg overflow-hidden shadow-sm card-hover justify-center items-center"
               >
-                <div className="h-48 overflow-hidden">
+                <div className="h-48 overflow-hidden bg-secondary flex items-center justify-center relative">
                   <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-full object-cover object-top transition-none"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800&auto=format&fit=crop"; // Professional code placeholder
+                      e.target.classList.add("opacity-50");
+                    }}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent pointer-events-none" />
                 </div>
                 <div className="p-4">
                   <h3 className="text-lg md:text-xl text-primary font-bold mb-2 items-center justify-center font-['Poppins']">

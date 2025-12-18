@@ -49,7 +49,7 @@ export const HomePage = () => {
               {displayedText}
               <span
                 className="animate-pulse inline-block"
-                style={{ fontSize: "1em", fontWeight: "900" }}
+                style={{ fontSize: "1em", fontWeight: "200" }}
               >
                 |
               </span>
@@ -70,14 +70,14 @@ export const HomePage = () => {
                 <span> </span>{" "}
               </p>
 
-              <div className="mt-8 opacity-0 animate-fade-in-delay-4 hover:scale-103">
+              <div className="mt-8 opacity-0 animate-fade-in-delay-4">
                 <a
                   href="/resume5.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cosmic-button w-fit font-['Roboto_Mono'] text-3xl md:text-4xl px-16 py-8 font-black tracking-widest"
+                  className="cosmic-button scale-110 w-fit text-4xl md:text-5xl px-20 py-10 tracking-widest transition-transform duration-300"
                 >
-                  View Resume <FileDown className="w-12 h-12 md:w-16 md:h-16" />
+                  View Resume <FileDown className="w-16 h-16 md:w-20 md:h-20" />
                 </a>
               </div>
             </>

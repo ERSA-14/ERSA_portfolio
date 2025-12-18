@@ -8,7 +8,9 @@ const LazySpaceBackground = lazy(() =>
 
 export const SpaceBackgroundLazy = () => {
   return (
-    <Suspense fallback={<div className="fixed inset-0 bg-background z-0" />}>
+    <Suspense
+      fallback={<div className="fixed inset-0 pointer-events-none z-0" />}
+    >
       <LazySpaceBackground />
     </Suspense>
   );

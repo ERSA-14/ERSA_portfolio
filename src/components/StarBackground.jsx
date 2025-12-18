@@ -23,7 +23,7 @@ export const StarBackground = () => {
   };
 
   const generateMeteors = () => {
-    const numberOfMeteors = 5;
+    const numberOfMeteors = 7;
     const newMeteors = [];
     for (let i = 0; i < numberOfMeteors; i++) {
       newMeteors.push({
@@ -65,7 +65,7 @@ export const StarBackground = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none">
       {stars.map((star) => (
         <div
           key={star.id}

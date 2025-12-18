@@ -39,23 +39,18 @@ export const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen text-foreground overflow-x-hidden">
       <ScrollProgress isNameLoaded={isNameLoaded} />
 
-      <div
-        className={`fixed inset-0 pointer-events-none transition-opacity duration-150 ${
-          isDarkMode ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <SpaceBackgroundLazy />
-      </div>
-      <div
-        className={`fixed inset-0 pointer-events-none transition-opacity duration-150 ${
-          isDarkMode ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <StarBackground />
-      </div>
+      {!isDarkMode ? (
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <SpaceBackgroundLazy />
+        </div>
+      ) : (
+        <div className="fixed inset-0 pointer-events-none transition-opacity duration-300 z-10 opacity-100 animate-in fade-in">
+          <StarBackground />
+        </div>
+      )}
 
       <NavBar />
 

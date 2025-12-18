@@ -148,7 +148,7 @@ ERSA_portfolio/
 │   └── *.svg                # Icons and images
 ├── src/
 │   ├── components/          # React components
-│   │   ├── AboutMe.jsx      # About section with centered layout
+│   │   ├── Certifications.jsx # Credentials section
 │   │   ├── ChatWithMe.jsx   # Real-time AI chat component
 │   │   ├── Contact.jsx      # Contact form
 │   │   ├── CustomCursor.jsx # Custom cursor component

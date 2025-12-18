@@ -5,31 +5,39 @@ import { useToast } from "../hooks/use-toast";
 export const ChatWithMe = () => {
   const { toast } = useToast();
   const [messages, setMessages] = useState(() => {
-    // sessionStorage persists data for the session (tab) only.
-    // It is cleared when the tab or browser is closed.
-    const saved = sessionStorage.getItem("chat_history");
-    return saved
-      ? JSON.parse(saved)
-      : [
-          {
-            role: "assistant",
-            content: "Hello! I'm Saksham Gupta, in a digital shell",
-          },
-        ];
+    try {
+      const saved = sessionStorage.getItem("chat_history");
+      return saved
+        ? JSON.parse(saved)
+        : [
+            {
+              role: "assistant",
+              content: "Hello! I'm Saksham Gupta, in a digital shell",
+            },
+          ];
+    } catch (error) {
+      console.error("Failed to parse chat history:", error);
+      return [
+        {
+          role: "assistant",
+          content: "Hello! I'm Saksham Gupta, in a digital shell",
+        },
+      ];
+    }
   });
 
   useEffect(() => {
-    sessionStorage.setItem("chat_history", JSON.stringify(messages));
+    try {
+      sessionStorage.setItem("chat_history", JSON.stringify(messages));
+    } catch (error) {
+      console.error("Failed to save chat history:", error);
+    }
   }, [messages]);
+
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const chatContainerRef = useRef(null);
-  // Scroll shadows state removed as it was unused
-  /* const [scrollShadows, setScrollShadows] = useState({
-    top: false,
-    bottom: false,
-  }); */
 
   const handleScroll = () => {
     // Logic removed
@@ -44,21 +52,16 @@ export const ChatWithMe = () => {
 
   useEffect(() => {
     scrollToBottom();
-    // Check shadows after scroll
     setTimeout(handleScroll, 100);
   }, [messages]);
 
   useEffect(() => {
-    // Initial check
     handleScroll();
     window.addEventListener("resize", handleScroll);
     return () => window.removeEventListener("resize", handleScroll);
   }, []);
 
   const renderMessageContent = (content) => {
-    // Simple parser for bold, italic, and bold-italic
-    // Regex matches: ***bolditalic*** OR **bold** OR *italic* OR __bold__ OR _italic_
-    // Note: This simple regex might be tricked by nested symbols but works for standard Gemini output
     const regex = /(\*\*\*.*?\*\*\*|\*\*.*?\*\*|\*.*?\*|__.*?__|_.*?_)/g;
 
     return content.split(regex).map((part, index) => {
@@ -102,6 +105,16 @@ export const ChatWithMe = () => {
 
     if (!input.trim() || isLoading) return;
 
+    // Check online status
+    if (!navigator.onLine) {
+      toast({
+        variant: "destructive",
+        title: "Offline",
+        description: "Please check your internet connection and try again.",
+      });
+      return;
+    }
+
     const userMessage = input.trim();
     setInput("");
 
@@ -109,18 +122,17 @@ export const ChatWithMe = () => {
     setIsLoading(true);
 
     try {
-      if (!import.meta.env.VITE_GEMINI_API_KEY) {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      const systemPrompt = import.meta.env.VITE_GEMINI_SYSTEM_PROMPT;
+
+      if (!apiKey) {
         throw new Error(
-          "API Key is missing. Please verify your env configuration."
+          "API configuration is missing. Please try again later."
         );
       }
 
-      const systemPrompt = import.meta.env.VITE_GEMINI_SYSTEM_PROMPT;
-
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${
-          import.meta.env.VITE_GEMINI_API_KEY
-        }`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
         {
           method: "POST",
           headers: {
@@ -130,7 +142,9 @@ export const ChatWithMe = () => {
             system_instruction: {
               parts: [
                 {
-                  text: systemPrompt,
+                  text:
+                    systemPrompt ||
+                    "You are Saksham Gupta, an AWS Full-Stack Python Developer & AI Engineer.",
                 },
               ],
             },
@@ -153,25 +167,50 @@ export const ChatWithMe = () => {
       );
 
       if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Gemini API error:", errorData);
+
+        if (response.status === 429) {
+          throw new Error(
+            "I'm receiving too many messages right now. Please wait a moment."
+          );
+        }
+
+        if (response.status === 401 || response.status === 403) {
+          throw new Error(
+            "AI Authentication failed. The API key might be invalid or expired."
+          );
+        }
+
         throw new Error(
-          "Server connection failed. Please check your internet connection. Status: " +
-            response.status
+          `Connection issue (Status ${response.status}). Please try again later.`
         );
       }
 
       const data = await response.json();
+
+      // Handle blocked content or empty responses
+      if (data.promptFeedback?.blockReason) {
+        throw new Error(
+          "I cannot respond to this message due to safety filters."
+        );
+      }
+
       const aiResponse =
-        data.candidates[0]?.content?.parts[0]?.text ||
-        "I apologise, but I couldn't generate a response.";
+        data.candidates?.[0]?.content?.parts?.[0]?.text ||
+        (data.candidates?.[0]?.finishReason === "SAFETY"
+          ? "I apologize, but I cannot discuss that topic."
+          : "I apologize, but I'm having trouble formulating a response right now.");
 
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: aiResponse },
       ]);
     } catch (error) {
+      console.error("Chat error:", error);
       toast({
         variant: "destructive",
-        title: "Error",
+        title: "Chat Error",
         description:
           error.message || "Failed to send message. Please try later.",
       });
@@ -181,7 +220,7 @@ export const ChatWithMe = () => {
         {
           role: "assistant",
           content:
-            "I'm experiencing connection issues :(\nPlease try again or contact me via email.",
+            "I'm experiencing connection issues :(\nPlease try again or contact me via email if the issue persists.",
         },
       ]);
     } finally {
