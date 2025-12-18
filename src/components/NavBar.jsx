@@ -78,7 +78,7 @@ export const NavBar = () => {
           aria-label="Home"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground font-semibold">
+            <span className="text-foreground font-semibold">
               Saksham Gupta's
             </span>{" "}
             Portfolio
