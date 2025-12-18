@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: "Agentic AI Coding Assistant",
     description:
-      "A command-line autonomous AI agent powered by Gemini that reads, writes, and executes Python files while intelligently debugging code with real-time error analysis and automatic code correction through multiple iterative function calling.",
+      "This is a command-line autonomous AI coding agent powered by Gemini that reads, writes, and executes Python files while intelligently debugging code with real-time error analysis and automatic iterative code correction through multiple sequential function calling operations.",
     image: "/ProjectSS/four.png",
     tags: [
       "Python",
@@ -23,7 +23,7 @@ const projects = [
     id: 2,
     title: "Invoice Processing Automation",
     description:
-      "This Automated Lambda function extracts receipt data (vendor, date, total, items) from S3-uploaded images using AWS Textract and stores it in DynamoDB. It then sends an email notification with the extracted receipt details via SES.",
+      "This is an Automated Lambda function that extracts receipt data (vendor, date, total, items) from an S3-uploaded image using AWS Textract for OCR processing and stores it in DynamoDB. It then sends an email notification with the extracted receipt details via SES.",
     image: "/ProjectSS/two.jpeg",
     tags: ["Python", "AWS Cloud", "Serverless", "Event-driven", "Automation"],
     docsUrl: "",
@@ -33,7 +33,7 @@ const projects = [
     id: 3,
     title: "Secure Authentication System",
     description:
-      "An Express.js authentication system using Passport.js with local strategy (bcrypt + AES encryption) and Google OAuth2, storing user data in PostgreSQL. Authenticated users access protected routes with session-based authentication managed by express-session.",
+      "This is an Express.js authentication system using Passport.js with local strategy (bcrypt + AES encryption) and Google OAuth2, storing user data in PostgreSQL. Authenticated users access protected routes with session-based authentication managed by express-session.",
     image: "/ProjectSS/one.jpeg",
     tags: ["Node", "Express", "Authentication", "Postgres", "Sessions"],
     docsUrl: "",
