@@ -4,30 +4,6 @@ export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
 
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (!prefersReducedMotion) {
-      generateStars();
-      generateMeteors();
-    }
-
-    const handleResize = () => {
-      if (!prefersReducedMotion) {
-        generateStars();
-        generateMeteors();
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   const generateStars = () => {
     const numberOfStars = Math.floor(
       (window.innerWidth * window.innerHeight) / 13500
@@ -63,6 +39,30 @@ export const StarBackground = () => {
     }
     setMeteors(newMeteors);
   };
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!prefersReducedMotion) {
+      generateStars();
+      generateMeteors();
+    }
+
+    const handleResize = () => {
+      if (!prefersReducedMotion) {
+        generateStars();
+        generateMeteors();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">

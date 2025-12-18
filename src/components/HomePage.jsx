@@ -11,8 +11,10 @@ export const HomePage = () => {
     let timeout;
     if (!isDeleting && displayedText === fullText) {
       if (!firstTypingComplete) {
-        setFirstTypingComplete(true);
-        window.dispatchEvent(new Event("typingComplete"));
+        setTimeout(() => {
+          setFirstTypingComplete(true);
+          window.dispatchEvent(new Event("typingComplete"));
+        }, 0);
       }
       timeout = setTimeout(() => setIsDeleting(true), 1500);
     } else if (isDeleting && displayedText === "") {

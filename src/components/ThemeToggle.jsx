@@ -3,30 +3,30 @@ import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 
 export const ThemeToggle = ({ className }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const [isToggling, setIsToggling] = useState(false);
-
-  useEffect(() => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
     try {
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "light") {
-        setIsDarkMode(false);
-        document.documentElement.classList.remove("dark");
-      } else if (savedTheme === "dark") {
-        setIsDarkMode(true);
-        document.documentElement.classList.add("dark");
-      } else {
-        // No saved preference -> respect system preference if available
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-        setIsDarkMode(!!prefersDark);
-        document.documentElement.classList.toggle("dark", !!prefersDark);
+      if (typeof window !== "undefined") {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light") {
+          document.documentElement.classList.remove("dark");
+          return false;
+        } else if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+          return true;
+        } else {
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.classList.toggle("dark", !!prefersDark);
+          return !!prefersDark;
+        }
       }
-    } catch (e) {
+    } catch (_) {
       // Theme init failed
     }
-  }, []);
+    return true;
+  });
+  const [isToggling, setIsToggling] = useState(false);
 
   const toggleTheme = () => {
     // Prevent rapid toggling
@@ -44,14 +44,14 @@ export const ThemeToggle = ({ className }) => {
       document.documentElement.classList.add("dark");
       try {
         localStorage.setItem("theme", "dark");
-      } catch (e) {
+      } catch (_) {
         // Failed to save theme persistence
       }
     } else {
       document.documentElement.classList.remove("dark");
       try {
         localStorage.setItem("theme", "light");
-      } catch (e) {
+      } catch (_) {
         // Failed to save theme persistence
       }
     }

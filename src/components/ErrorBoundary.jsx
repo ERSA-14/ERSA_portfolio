@@ -6,7 +6,7 @@ class ErrorBoundary extends React.Component {
     this.state = { hasError: false, error: null, errorInfo: null };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(_) {
     return { hasError: true };
   }
 
@@ -34,8 +34,7 @@ class ErrorBoundary extends React.Component {
             </div>
 
             <p className="text-muted-foreground">
-              I encountered an unexpected error. Please try refreshing the
-              page.
+              I encountered an unexpected error. Please try refreshing the page.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

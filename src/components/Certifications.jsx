@@ -80,7 +80,9 @@ export const Certifications = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentIndex(0);
+    if (currentIndex !== 0) {
+      setCurrentIndex(0);
+    }
   }, [itemsPerSlide]);
 
   const totalSlides = Math.ceil(certifications.length / itemsPerSlide);
@@ -126,7 +128,7 @@ export const Certifications = () => {
                 className="bg-card gradient-border p-4 md:p-6 rounded-xl shadow-md card-hover flex flex-col md:flex-row items-center gap-4 md:gap-6 group relative overflow-hidden transition-all duration-300 border border-border/50 w-full animate-in fade-in slide-in-from-bottom-4 duration-500"
               >
                 {/* Icon Container */}
-                <div className="relative z-10 p-4 md:p-3 bg-primary/10 rounded-xl text-primary shadow-[0_0_10px_rgba(var(--primary),0.1)] group-hover:scale-105 transition-transform duration-500 shrink-0">
+                <div className="relative border-2 border-primary p-4 md:p-3 bg-primary/10 rounded-xl text-primary shadow-[0_0_10px_rgba(var(--primary),0.1)] group-hover:scale-105 transition-transform duration-500 shrink-0">
                   {cert.icon}
                 </div>
 

@@ -42,7 +42,9 @@ export const Contact = () => {
 
   // Reset current index when items per slide changes
   useEffect(() => {
-    setCurrentIndex(0);
+    if (currentIndex !== 0) {
+      setCurrentIndex(0);
+    }
   }, [itemsPerSlide]);
 
   const slidesCount = 2; // Message, Chat
@@ -102,7 +104,7 @@ export const Contact = () => {
           e.target.reset();
           form.current.reset();
         },
-        (error) => {
+        () => {
           toast({
             variant: "destructive",
             title: "Error",

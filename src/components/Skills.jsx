@@ -93,7 +93,7 @@ export const Skills = () => {
     if (activeCategory === "All" && containerRef.current) {
       setMinHeight(`${containerRef.current.offsetHeight}px`);
     }
-  }, [activeCategory, skills]);
+  }, [activeCategory]);
 
   return (
     <section

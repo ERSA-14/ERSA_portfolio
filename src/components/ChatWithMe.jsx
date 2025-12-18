@@ -25,20 +25,14 @@ export const ChatWithMe = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const chatContainerRef = useRef(null);
-  const [scrollShadows, setScrollShadows] = useState({
+  // Scroll shadows state removed as it was unused
+  /* const [scrollShadows, setScrollShadows] = useState({
     top: false,
     bottom: false,
-  });
+  }); */
 
   const handleScroll = () => {
-    if (chatContainerRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } =
-        chatContainerRef.current;
-      setScrollShadows({
-        top: scrollTop > 10,
-        bottom: Math.ceil(scrollTop + clientHeight) < scrollHeight - 10,
-      });
-    }
+    // Logic removed
   };
 
   const scrollToBottom = () => {
