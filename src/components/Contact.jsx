@@ -1,3 +1,7 @@
+import { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { ChatWithMe } from "./ChatWithMe";
+import { debounce } from "../utils/debounce";
 import {
   Linkedin,
   Mail,
@@ -6,21 +10,55 @@ import {
   Github,
   GitCommitVertical,
   Send,
+  MoveLeft,
+  MoveRight,
 } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
-import { cn } from "../lib/utils";
 import { useToast } from "../hooks/use-toast";
-
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import { ChatWithMe } from "./ChatWithMe";
 
 export const Contact = () => {
   const { toast } = useToast();
   const form = useRef();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerSlide, setItemsPerSlide] = useState(1);
+
+  // Determine items per slide based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      // Laptop screens and above: show both cards side-by-side
+      if (window.innerWidth >= 1024) {
+        setItemsPerSlide(2);
+      } else {
+        setItemsPerSlide(1);
+      }
+    };
+
+    handleResize();
+
+    const debouncedResize = debounce(handleResize, 100);
+    window.addEventListener("resize", debouncedResize);
+    return () => window.removeEventListener("resize", debouncedResize);
+  }, []);
+
+  // Reset current index when items per slide changes
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [itemsPerSlide]);
+
+  const slidesCount = 2; // Message, Chat
+  const totalSlides = Math.ceil(slidesCount / itemsPerSlide);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
+    // ... rest of the code
 
     if (
       !import.meta.env.VITE_SERVICE_ID ||
@@ -75,6 +113,93 @@ export const Contact = () => {
       );
   };
 
+  // Define the slides
+  const allSlides = [
+    // Slide 1: Send a Message
+    <div
+      key="message"
+      className="group bg-card gradient-border rounded-lg overflow-hidden shadow-sm card-hover flex flex-col relative z-20 h-full p-4"
+    >
+      <h3 className="text-lg font-semibold mb-4 text-center">
+        Send a<span className="text-primary"> Message</span>
+      </h3>
+      <form
+        className="space-y-3 text-left flex-1 flex flex-col"
+        ref={form}
+        onSubmit={sendEmail}
+      >
+        <div>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium mb-1 text-muted-foreground"
+          >
+            Name
+          </label>
+          <input
+            type="text"
+            name="user_name"
+            id="name"
+            required
+            autoComplete="off"
+            className="responsive-input"
+            placeholder="your Name ..."
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium mb-1 text-muted-foreground"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            name="user_email"
+            id="email"
+            required
+            autoComplete="off"
+            className="responsive-input"
+            placeholder="your.Email@example.com ..."
+          />
+        </div>
+        <div className="flex-1 flex flex-col">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium mb-1 text-muted-foreground"
+          >
+            Message
+          </label>
+          <textarea
+            name="message"
+            id="message"
+            required
+            rows="4"
+            autoComplete="off"
+            className="responsive-input resize-none flex-1"
+            placeholder="your Message here ..."
+          />
+        </div>
+        <button
+          type="submit"
+          className="cosmic-button w-fit flex items-center justify-center gap-2 mt-2 mx-auto"
+        >
+          <span>Send Message</span>
+          <Send className="icon-sm" />
+        </button>
+      </form>
+    </div>,
+
+    // Slide 2: Chat with Me
+    <div key="chat" className="h-full">
+      <ChatWithMe />
+    </div>,
+  ];
+
+  const visibleSlides = allSlides.slice(
+    currentIndex * itemsPerSlide,
+    (currentIndex + 1) * itemsPerSlide
+  );
+
   return (
     <section
       id="Contact"
@@ -89,9 +214,11 @@ export const Contact = () => {
           projects and grow with dynamic teams. Whether you have a role in mind
           or simply want to discuss technology, I would love to hear from you.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="space-y-8">
-            <div className="space-y-8">
+
+        <div className="grid grid-cols-1 min-[600px]:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Static Column: Information and Socials */}
+          <div className="min-[600px]:col-span-1 lg:col-span-1 space-y-8">
+            <div className="space-y-6">
               <h3 className="text-2xl font-semibold mb-6 text-left">
                 Contact <span className="text-primary">Information</span>
               </h3>
@@ -173,7 +300,7 @@ export const Contact = () => {
               </div>
             </div>
 
-            <div className="pb-6">
+            <div className="mt-8">
               <h3 className="text-2xl font-semibold mb-6 text-left">
                 <span className="text-primary">Social</span> Channels
               </h3>
@@ -209,78 +336,53 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-card p-4 rounded-lg shadow-sm border-2 border-primary w-full h-full flex flex-col relative z-20">
-            <h4 className="font-semibold text-xl mb-3 text-center justify-center text-foreground">
-              Send a <span className="text-primary">Message</span>
-            </h4>
-            <form
-              className="space-y-2 text-left flex-1 flex flex-col"
-              ref={form}
-              onSubmit={sendEmail}
-            >
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-1 text-muted-foreground"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="user_name"
-                  id="name"
-                  required
-                  autoComplete="off"
-                  className="responsive-input"
-                  placeholder="your Name ..."
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-1 text-muted-foreground"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="user_email"
-                  id="email"
-                  required
-                  autoComplete="off"
-                  className="responsive-input"
-                  placeholder="your.Email@example.com ..."
-                />
-              </div>
-              <div className="flex-1 flex flex-col">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-1 text-muted-foreground"
-                >
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  id="message"
-                  required
-                  rows="3"
-                  autoComplete="off"
-                  className="responsive-input resize-none flex-1"
-                  placeholder="your Message here ..."
-                />
-              </div>
-              <button
-                type="submit"
-                className="cosmic-button w-fit flex items-center justify-center gap-2 mt-2 mx-auto"
+          {/* Carousel Column: Message and Chat */}
+          <div className="min-[600px]:col-span-1 lg:col-span-2">
+            <div className="relative bg-background rounded-lg px-6 py-8 shadow-sm border-b border-border/50 transition-all duration-300 h-full flex flex-col">
+              <div
+                className={`grid gap-6 md:gap-8 transition-all duration-300 flex-1 ${
+                  itemsPerSlide === 2 ? "grid-cols-2" : "grid-cols-1"
+                }`}
               >
-                <span>Send Message</span>
-                <Send className="icon-sm" />
-              </button>
-            </form>
-          </div>
+                {visibleSlides}
+              </div>
 
-          <div className="lg:col-span-1 h-full">
-            <ChatWithMe />
+              {/* Navigation */}
+              {totalSlides > 1 && (
+                <div className="flex justify-center items-center gap-4 mt-8">
+                  <button
+                    onClick={handlePrev}
+                    className="rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300 px-3 py-1.5"
+                    aria-label="Previous section"
+                  >
+                    <MoveLeft strokeWidth={3} className="icon-md" />
+                  </button>
+
+                  <div className="flex gap-3 items-center">
+                    {Array.from({ length: totalSlides }).map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`rounded-full transition-all duration-300 ${
+                          index === currentIndex
+                            ? "w-5 h-2 bg-primary shadow-lg"
+                            : "w-2 h-2 bg-foreground dark:bg-foreground hover:bg-foreground/60 dark:hover:bg-foreground/70"
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={handleNext}
+                    className="rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300 px-3 py-1.5"
+                    aria-label="Next section"
+                  >
+                    <MoveRight strokeWidth={3} className="icon-md" />
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

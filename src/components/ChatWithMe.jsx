@@ -168,7 +168,7 @@ export const ChatWithMe = () => {
       const data = await response.json();
       const aiResponse =
         data.candidates[0]?.content?.parts[0]?.text ||
-        "I apologize, but I couldn't generate a response.";
+        "I apologise, but I couldn't generate a response.";
 
       setMessages((prev) => [
         ...prev,
@@ -196,11 +196,10 @@ export const ChatWithMe = () => {
   };
 
   return (
-    <div className="bg-card px-4 pt-4 pb-4 rounded-lg shadow-sm border-2 border-primary w-full h-full min-h-[400px] flex flex-col relative z-20">
-      <h4 className="font-semibold text-xl mb-3 text-center justify-center text-foreground">
-        <span className="text-foreground font-semibold">Chat with me</span>{" "}
-        <span className="text-primary font-semibold">in Real time</span>
-      </h4>
+    <div className="group bg-card p-4 rounded-lg shadow-sm gradient-border card-hover w-full h-full min-h-[400px] flex flex-col relative z-20 overflow-hidden">
+      <h3 className="text-lg text-primary font-semibold mb-4 text-center">
+        Chat with me <span className="text-foreground">in Real time</span>
+      </h3>
 
       <div className="bg-card chat-message-box rounded-lg px-0 py-1 mb-1.5 flex-1 flex flex-col overflow-hidden min-h-0">
         <div

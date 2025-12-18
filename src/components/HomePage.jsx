@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FileDown } from "lucide-react";
 
 export const HomePage = () => {
   const [displayedText, setDisplayedText] = useState("");
@@ -68,8 +69,13 @@ export const HomePage = () => {
               </p>
 
               <div className="mt-8 opacity-0 animate-fade-in-delay-4 hover:scale-103">
-                <a href="#Projects" className="cosmic-button w-fit">
-                  View my Projects
+                <a
+                  href="/Resume4.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cosmic-button w-fit"
+                >
+                  View Resume <FileDown className="icon-sm" />
                 </a>
               </div>
             </>

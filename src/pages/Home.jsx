@@ -3,7 +3,7 @@ import { SpaceBackgroundLazy } from "../components/SpaceBackgroundLazy";
 import { StarBackground } from "../components/StarBackground";
 import { NavBar } from "../components/NavBar";
 import { HomePage } from "../components/HomePage";
-import { AboutMe } from "../components/AboutMe";
+import { Certifications } from "../components/Certifications";
 import { Skills } from "../components/Skills";
 import { Project } from "../components/Project";
 import { Contact } from "../components/Contact";
@@ -61,7 +61,7 @@ export const Home = () => {
 
       <main id="main-content" className="relative z-10">
         <HomePage />
-        <AboutMe />
+        <Certifications />
         <Skills />
         <Project />
         <Contact />
