@@ -191,7 +191,7 @@ export const ChatWithMe = () => {
 
   return (
     <div className="group bg-card p-4 rounded-lg shadow-sm gradient-border card-hover w-full h-full min-h-[400px] flex flex-col relative z-20 overflow-hidden">
-      <h3 className="text-lg text-primary font-semibold mb-4 text-center">
+      <h3 className="text-2xl text-primary font-bold mb-4 text-center font-['Poppins']">
         Chat with me <span className="text-foreground">in Real time</span>
       </h3>
 

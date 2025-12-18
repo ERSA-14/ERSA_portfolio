@@ -134,12 +134,12 @@ export const Certifications = () => {
 
                 <div className="relative z-10 flex-1 text-center md:text-left flex flex-col justify-center gap-1">
                   <div>
-                    <span className="text-md md:text-sm font-black tracking-[.3em] uppercase opacity-90 leading-none">
+                    <span className="text-sm md:text-xs font-bold tracking-[.2em] uppercase opacity-80 leading-none font-['Roboto_Mono']">
                       {cert.issuer}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl md:text-xl font-semibold leading-tight">
+                  <h3 className="text-2xl md:text-xl font-bold leading-tight font-['Poppins'] tracking-wide">
                     {cert.title
                       .split(
                         /(Certified Cloud|Generative AI|Data Science|AI Vector Search|Migration Architect)/
@@ -157,11 +157,11 @@ export const Certifications = () => {
                       )}
                   </h3>
 
-                  <p className="text-muted-foreground text-base md:text-sm leading-relaxed mb-1 font-medium italic max-w-3xl">
+                  <p className="text-muted-foreground text-base md:text-sm leading-relaxed mb-1 font-medium font-['Space_Grotesk'] italic max-w-3xl">
                     {cert.description}
                   </p>
 
-                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 font-['Inter']">
                     <span className="px-2 py-0.5 border-1 border-primary bg-primary/20 text-primary text-sm md:text-xs font-bold rounded uppercase border border-primary/10">
                       Active
                     </span>

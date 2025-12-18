@@ -128,20 +128,20 @@ export const Project = () => {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="text-lg text-primary font-semibold mb-2 items-center justify-center">
+                  <h3 className="text-lg text-primary font-bold mb-2 items-center justify-center font-['Poppins']">
                     {project.title}
                   </h3>
                   <div className="flex flex-wrap gap-2 mb-4 items-center justify-center">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 items-center justify-center text-xs font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white"
+                        className="px-2 py-1 items-center justify-center text-xs font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white font-['Roboto_Mono']"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4 items-center">
+                  <p className="text-muted-foreground text-sm mb-4 items-center font-['Inter']">
                     {project.description}
                   </p>
                   <div className="flex justify-between items-center">
