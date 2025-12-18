@@ -23,7 +23,7 @@ const projects = [
     id: 2,
     title: "Invoice Processing Automation",
     description:
-      "This is an Automated Lambda function that extracts receipt data (vendor, date, total, items) from an S3-uploaded image using AWS Textract for OCR processing and stores it in DynamoDB. It then sends an email notification with the extracted receipt details via SES.",
+      "This is a Automated Lambda function that extracts receipt data (vendor, date, total, items) from an S3-uploaded image using AWS Textract for OCR processing and stores it in DynamoDB. It then sends an email notification with the extracted receipt details via SES.",
     image: "/ProjectSS/two.jpeg",
     tags: ["Python", "AWS Cloud", "Serverless", "Event-driven", "Automation"],
     docsUrl: "",
@@ -33,7 +33,7 @@ const projects = [
     id: 3,
     title: "Secure Authentication System",
     description:
-      "This is an Express.js authentication system using Passport.js with local strategy (bcrypt + AES encryption) and Google OAuth2, storing user data in PostgreSQL. Authenticated users access protected routes with session-based authentication managed by express-session.",
+      "This is a Express.js authentication system using Passport.js with local strategy (bcrypt + AES crypto) and Google OAuth2, storing user data in PostgreSQL. Authenticated users access protected routes with session-based authentication managed by express-session.",
     image: "/ProjectSS/one.jpeg",
     tags: ["Node", "Express", "Authentication", "Postgres", "Sessions"],
     docsUrl: "",
