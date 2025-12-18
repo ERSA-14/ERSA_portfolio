@@ -12,9 +12,9 @@ const projects = [
     tags: [
       "Python",
       "File-handling",
+      "Function-calling",
       "Prompt",
       "Autonomous",
-      "Function-calling",
     ],
     docsUrl: "",
     githubUrl: "https://github.com/ERSA-14/Python-AI",
@@ -128,7 +128,7 @@ export const Project = () => {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="text-lg text-primary font-bold mb-2 items-center justify-center font-['Poppins']">
+                  <h3 className="text-lg md:text-xl text-primary font-bold mb-2 items-center justify-center font-['Poppins']">
                     {project.title}
                   </h3>
                   <div className="flex flex-wrap gap-2 mb-4 items-center justify-center">

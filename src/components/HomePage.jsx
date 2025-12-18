@@ -65,14 +65,14 @@ export const HomePage = () => {
                 </span>
                 , I engineer stellar digital solutions with the precision of
                 orbital mechanics. I'm committed to launching efficient,
-                high-quality applications that explore the frontiers of
+                cloud-native applications that explore the frontiers of the
                 Internet.
                 <span> </span>{" "}
               </p>
 
               <div className="mt-8 opacity-0 animate-fade-in-delay-4 hover:scale-103">
                 <a
-                  href="/Resume4.pdf"
+                  href="/resume5.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cosmic-button w-fit font-['Roboto_Mono'] text-3xl md:text-4xl px-16 py-8 font-black tracking-widest"

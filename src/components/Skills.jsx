@@ -48,26 +48,26 @@ const skillIcons = {
 };
 
 const skills = [
-  { name: "Python", category: "Programming Language" },
-  { name: "JavaScript", category: "Programming Language" },
-  { name: "React", category: "Frontend" },
-  { name: "Next", category: "Frontend" },
-  { name: "Node", category: "Backend" },
   { name: "AWS", category: "Cloud" },
-  { name: "SQL", category: "Programming Language" },
-  { name: "Java", category: "Programming Language" },
-  { name: "Postgres", category: "Database" },
-  { name: "MySQL", category: "Database" },
-  { name: "Oracle DBMS", category: "Database" },
+  { name: "Bootstrap", category: "Frontend" },
+  { name: "Django", category: "Backend" },
+  { name: "Express", category: "Backend" },
   { name: "Git", category: "Dev Tools" },
   { name: "GitHub", category: "Dev Tools" },
-  { name: "Tailwind CSS", category: "Frontend" },
-  { name: "Bootstrap", category: "Frontend" },
-  { name: "Express", category: "Backend" },
-  { name: "Django", category: "Backend" },
+  { name: "Java", category: "Programming Language" },
+  { name: "JavaScript", category: "Programming Language" },
   { name: "Linux", category: "Dev Tools" },
-  { name: "Postman", category: "Dev Tools" },
+  { name: "MySQL", category: "Database" },
+  { name: "Next", category: "Frontend" },
+  { name: "Node", category: "Backend" },
   { name: "Oracle Cloud", category: "Cloud" },
+  { name: "Oracle DBMS", category: "Database" },
+  { name: "Postgres", category: "Database" },
+  { name: "Postman", category: "Dev Tools" },
+  { name: "Python", category: "Programming Language" },
+  { name: "React", category: "Frontend" },
+  { name: "SQL", category: "Programming Language" },
+  { name: "Tailwind CSS", category: "Frontend" },
 ];
 
 const categories = [
@@ -142,7 +142,7 @@ export const Skills = () => {
                 className="gradient-border p-4 card-hover flex flex-col items-center justify-center gap-2 text-center group cursor-pointer"
               >
                 {Icon && <Icon className="icon-xl text-primary" />}
-                <h3 className="font-medium text-[clamp(0.95rem,1.70vw,1.15rem)]">
+                <h3 className="font-['Roboto_Mono'] font-medium text-[clamp(0.95rem,1.70vw,1.15rem)]">
                   {skill.name}
                 </h3>
               </div>
