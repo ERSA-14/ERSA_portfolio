@@ -58,15 +58,15 @@ export const HomePage = () => {
           {firstTypingComplete && (
             <>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                An
+                A
                 <span className="text-primary text-xl md:text-2xl font-bold">
                   {" "}
                   Software Developer
                 </span>
                 , I engineer stellar digital solutions with the precision of
                 orbital mechanics. I'm committed to launching efficient,
-                cloud-native AI applications that explore the frontiers of the
-                Internet.
+                cloud-native and high-performing applications that explore the
+                frontiers of the Internet.
                 <span> </span>{" "}
               </p>
 
