@@ -75,9 +75,9 @@ export const HomePage = () => {
                   href="/Resume4.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cosmic-button w-fit font-['Roboto_Mono'] text-xl px-10 py-4 font-bold tracking-wider"
+                  className="cosmic-button w-fit font-['Roboto_Mono'] text-3xl md:text-4xl px-16 py-8 font-black tracking-widest"
                 >
-                  View Resume <FileDown className="icon-sm" />
+                  View Resume <FileDown className="w-12 h-12 md:w-16 md:h-16" />
                 </a>
               </div>
             </>

@@ -206,8 +206,8 @@ export const Certifications = () => {
                     onClick={() => setCurrentIndex(index)}
                     className={`rounded-full transition-all duration-300 ${
                       index === currentIndex
-                        ? "h-6 w-2 bg-primary shadow-[0_0_10px_rgba(var(--primary),0.5)]"
-                        : "h-2 w-2 bg-foreground/30 dark:bg-foreground/40 hover:bg-foreground/60 dark:hover:bg-foreground/70"
+                        ? "h-5 w-2 bg-primary shadow-lg"
+                        : "h-2 w-2 bg-foreground dark:bg-foreground hover:bg-foreground/60 dark:hover:bg-foreground/70"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                     aria-current={index === currentIndex}
