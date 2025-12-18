@@ -34,10 +34,11 @@ class ErrorBoundary extends React.Component {
             </div>
 
             <p className="text-muted-foreground">
-              I encountered an unexpected error. Please try refreshing the page.
+              I encountered an unexpected error. Please try refreshing this
+              page.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-1 justify-center">
               <button
                 onClick={() => window.location.reload()}
                 className="cosmic-button w-fit mx-auto"
@@ -46,7 +47,7 @@ class ErrorBoundary extends React.Component {
               </button>
               <a
                 href="/"
-                className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 font-medium w-fit mx-auto"
+                className="px-2 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 font-medium w-fit mx-auto"
               >
                 Go Home
               </a>

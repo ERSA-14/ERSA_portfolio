@@ -58,14 +58,14 @@ export const HomePage = () => {
           {firstTypingComplete && (
             <>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                A
-                <span className="text-primary text-xl md:text-2xl">
+                An
+                <span className="text-primary text-xl md:text-2xl font-bold">
                   {" "}
-                  Software Developer
+                  AWS Full-Stack Python Developer & AI Engineer
                 </span>
                 , I engineer stellar digital solutions with the precision of
                 orbital mechanics. I'm committed to launching efficient,
-                cloud-native applications that explore the frontiers of the
+                cloud-native AI applications that explore the frontiers of the
                 Internet.
                 <span> </span>{" "}
               </p>
