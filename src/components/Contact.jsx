@@ -21,6 +21,7 @@ export const Contact = () => {
   const form = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(1);
+  const [isSending, setIsSending] = useState(false);
 
   // Determine items per slide based on screen size
   useEffect(() => {
@@ -60,7 +61,8 @@ export const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    // ... rest of the code
+    if (isSending) return;
+    setIsSending(true);
 
     if (
       !import.meta.env.VITE_SERVICE_ID ||
@@ -102,7 +104,8 @@ export const Contact = () => {
               "Thank you for your interest- your Message is now in my orbit, and I will launch a reply to you very soon.",
           });
           e.target.reset();
-          form.current.reset();
+          if (form.current) form.current.reset();
+          setIsSending(false);
         },
         () => {
           toast({
@@ -111,6 +114,7 @@ export const Contact = () => {
             description:
               "Looks like our digital connection hit a black hole— let's switch to old-fashioned email for now. I will reach out to you soon that way.",
           });
+          setIsSending(false);
         }
       );
   };
@@ -183,9 +187,10 @@ export const Contact = () => {
         </div>
         <button
           type="submit"
-          className="cosmic-button w-fit flex items-center justify-center gap-2 mt-2 mx-auto"
+          disabled={isSending}
+          className="cosmic-button w-fit flex items-center justify-center gap-2 mt-2 mx-auto disabled:opacity-70 disabled:cursor-not-allowed"
         >
-          <span>Send Message</span>
+          <span>{isSending ? "Sending ..." : "Send Message"}</span>
           <Send className="icon-sm" />
         </button>
       </form>

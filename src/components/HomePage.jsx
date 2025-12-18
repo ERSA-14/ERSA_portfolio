@@ -45,11 +45,11 @@ export const HomePage = () => {
             <span className="opacity-0 animate-fade-in whitespace-nowrap">
               Hello, I'm
             </span>
-            <span className="text-primary whitespace-nowrap">
+            <span className="text-primary whitespace-nowrap font-bold">
               {displayedText}
               <span
                 className="animate-pulse inline-block"
-                style={{ fontSize: "1em", fontWeight: "100" }}
+                style={{ fontSize: "1em", fontWeight: "900" }}
               >
                 |
               </span>
@@ -59,7 +59,7 @@ export const HomePage = () => {
             <>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
                 A
-                <span className="text-primary text-xl md:text-2xl font-bold">
+                <span className="text-primary text-xl md:text-2xl font-semibold">
                   {" "}
                   Software Developer
                 </span>
