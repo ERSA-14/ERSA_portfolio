@@ -12,8 +12,8 @@ const projects = [
     tags: [
       "Python",
       "File-handling",
-      "Function-calling",
       "Prompt",
+      "Function-calling",
       "Autonomous",
     ],
     docsUrl: "",
