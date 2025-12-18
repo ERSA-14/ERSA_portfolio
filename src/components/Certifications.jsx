@@ -112,9 +112,14 @@ export const Certifications = () => {
             My <span className="text-primary tracking-normal">Credentials</span>
           </h2>
           <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
-            These industry-validated certifications map my journey across the
-            technology stack, each one a waypoint in the infinite expanse of
-            software development.
+            <span className="text-primary font-semibold">
+              Industry recognised
+            </span>{" "}
+            certifications that demonstrate my commitment to mastering the
+            evolving landscape of software engineering. Each credential
+            represents rigorous training and validated expertise—serving as
+            tangible proof of my technical capabilities and dedication to
+            continuous learning.
           </p>
         </div>
 

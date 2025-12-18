@@ -106,9 +106,11 @@ export const Skills = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-6 max-w-3xl mx-auto">
-          This foundational framework and modern tools I leverage to architect
-          scalable, efficient, and innovative Solutions—from the launchpad of
-          the development stack to the cloud-native frontier
+          A <span className="text-primary font-semibold">comprehensive </span>{" "}
+          toolkit spanning frontend frameworks, backend technologies, and cloud
+          infrastructure. These are the technologies I work with regularly to
+          build scalable applications, each one selected for its ability to
+          solve real-world problems efficiently.
         </p>
 
         <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 w-full pb-2 px-2">

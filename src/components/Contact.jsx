@@ -248,10 +248,16 @@ export const Contact = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           <span className="text-primary">Connect</span> with Me
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          I am actively seeking opportunities to contribute to innovative
-          projects and grow with dynamic teams. Whether you have a role in mind
-          or simply want to discuss technology, I would love to hear from you.
+        <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+          Actively{" "}
+          <span className="text-primary font-semibold">
+            seeking opportunities
+          </span>
+          , roles and projects where I can contribute my expertise and make a
+          real impact. If you have an opportunity to discuss, an idea to
+          explore, or simply wish to connect over shared interests in
+          technology, I'm just a message away. Let's connect and see what we can
+          build together.
         </p>
 
         <div className="grid grid-cols-1 min-[600px]:grid-cols-2 lg:grid-cols-3 gap-8">

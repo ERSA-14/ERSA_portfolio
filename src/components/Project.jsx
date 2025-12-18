@@ -97,9 +97,11 @@ export const Project = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
-          Navigating the infinite expanse of technology, these projects serve as
-          my waypoints. A collection of ideas turned into reality, demonstrating
-          the power of exploration and engineering.
+          These projects reflect my journey as a{" "}
+          <span className="text-primary font-semibold">developer</span> from
+          conceptualisation to deployment. Each application showcases practical
+          implementation of modern technologies, solving real-world challenges
+          through thoughtful engineering and innovative solutions.
         </p>
 
         {/* Carousel Container */}
@@ -127,7 +129,7 @@ export const Project = () => {
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src =
-                        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800&auto=format&fit=crop"; // Professional code placeholder
+                        "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1000&auto=format&fit=crop"; // Unique Cosmic Space Placeholder
                       e.target.classList.add("opacity-50");
                     }}
                     className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-110"

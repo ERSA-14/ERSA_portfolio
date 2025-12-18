@@ -57,16 +57,18 @@ export const HomePage = () => {
           </h1>
           {firstTypingComplete && (
             <>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto opacity-0 animate-fade-in-delay-3">
                 A
                 <span className="text-primary text-xl md:text-2xl font-semibold">
-                  {" "}
-                  Software Developer
+                  {"  "}
+                  Software Developer{"  "}
                 </span>
-                , I engineer stellar digital solutions with the precision of
-                orbital mechanics. I'm committed to launching efficient,
-                cloud-native and high-performing applications that explore the
-                frontiers of the Internet.
+                specialising in efficient, scalable applications built with
+                modern technologies and framework. From intuitive user
+                interfaces to powerful backend architectures, I create
+                cloud-native solutions that prioritise performance, security,
+                and user experience consistently delivering quality software
+                that solves real problems.
                 <span> </span>{" "}
               </p>
 

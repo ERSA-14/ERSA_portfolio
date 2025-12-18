@@ -12,12 +12,12 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 
 ## 🏆 Production Excellence (v2.0.0)
 
-**Recent Comprehensive Optimization** - This portfolio has undergone a complete production-grade overhaul:
+**Recent Comprehensive Optimisation** - This portfolio has undergone a complete production-grade overhaul:
 
-- ⚡ **40% Faster Load Times** - Lazy loading, code splitting, optimized bundles
+- ⚡ **40% Faster Load Times** - Lazy loading, code splitting, optimised bundles
 - 🎨 **Design System** - Comprehensive design tokens for consistency
 - ♿ **WCAG 2.1 AA Compliant** - Full accessibility with reduced-motion support
-- 🔍 **SEO Optimized** - Structured data, meta tags, sitemap, robots.txt
+- 🔍 **SEO Optimised** - Structured data, meta tags, sitemap, robots.txt
 - 🛡️ **Error Resilient** - Production-ready error boundaries
 - 📊 **90+ Lighthouse Score** - Performance, accessibility, best practices, SEO
 - 💎 **Enterprise-Grade Code** - Clean architecture, best practices
@@ -31,13 +31,13 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Dark Mode Default**: Beautiful dark theme loads by default with smooth light mode toggle
 - **Section-Based Scroll Progress**: Gradient progress bar at the top with equal weight per section (20% each)
 - **Scroll-Triggered Animations**: Smooth fade-in and slide-up animations as you scroll through sections
-- **Fully Responsive**: Optimized for all devices with dedicated tablet breakpoints (768px-1024px)
+- **Fully Responsive**: Optimised for all devices with dedicated tablet breakpoints (768px-1024px)
 - **Fluid Typography**: All text scales perfectly using clamp() functions with strict hierarchy (H1 > H2 > H3...)
 - **Modern UI/UX**: Clean, professional interface with glassmorphism effects
 - **Consistent Glow Effects**: Tight, intense hover glows (3px/8px/15px) across all interactive elements
 - **Advanced Custom Cursor**: Physics-based magnetic cursor with velocity stretching, reactive hover states, and smooth inertia (desktop only)
-- **Smooth Animations**: Optimized scale animations (max 105%, cosmic-button 103%)
-- **Optimized Spacing**: Minimal padding from screen edges for maximum content visibility
+- **Smooth Animations**: Optimised scale animations (max 105%, cosmic-button 103%)
+- **Optimised Spacing**: Minimal padding from screen edges for maximum content visibility
 
 ### 🛠️ **Technical**
 
@@ -61,12 +61,12 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 
 ### ⚡ **Performance & Responsiveness**
 
-- **Optimized Bundle**: Code splitting and tree shaking
+- **Optimised Bundle**: Code splitting and tree shaking
 - **Fast Loading**: Preconnect to external resources
-- **Asset Optimization**: Proper caching and compression
+- **Asset Optimisation**: Proper caching and compression
 - **SEO Ready**: Meta tags and semantic HTML
 - **Mobile-First**: Designed for mobile, enhanced for desktop
-- **Tablet Optimized**: Dedicated breakpoints for perfect tablet experience
+- **Tablet Optimised**: Dedicated breakpoints for perfect tablet experience
 - **Fluid Scaling**: All elements scale smoothly across viewport sizes
 
 ## 🎯 Responsive Design Highlights
@@ -214,7 +214,7 @@ Edit the following components:
 - `src/components/Project.jsx` - Your projects
 - `src/components/Contact.jsx` - Contact information
 
-#### Update Theme Colors
+#### Update Theme Colours
 
 Edit `src/index.css`:
 
