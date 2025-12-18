@@ -63,16 +63,16 @@ export const HomePage = () => {
                   {"  "}
                   Software Developer{"  "}
                 </span>
-                specialising in efficient, scalable applications built with
-                modern technologies and framework. From intuitive user
-                interfaces to powerful backend architectures, I create
-                cloud-native solutions that prioritise performance, security,
-                and user experience consistently delivering quality software
-                that solves real problems.
+                and Automation Enthusiast specialising in efficient, scalable
+                applications built with modern technologies and frameworks. From
+                intuitive user interfaces to powerful backend architectures, I
+                create cloud-native solutions that prioritise performance,
+                security, and user experience—consistently delivering quality
+                software that solves real problems.
                 <span> </span>{" "}
               </p>
 
-              <div className="mt-8 opacity-0 animate-fade-in-delay-4">
+              <div className="mt-12 opacity-0 animate-fade-in-delay-4">
                 <a
                   href="/resume5.pdf"
                   target="_blank"
