@@ -61,7 +61,7 @@ export const HomePage = () => {
                 An
                 <span className="text-primary text-xl md:text-2xl font-bold">
                   {" "}
-                  AWS Full-Stack Python Developer & AI Engineer
+                  Software Developer
                 </span>
                 , I engineer stellar digital solutions with the precision of
                 orbital mechanics. I'm committed to launching efficient,
