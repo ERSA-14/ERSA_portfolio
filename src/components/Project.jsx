@@ -96,9 +96,9 @@ export const Project = () => {
           Highlighted <span className="text-primary">Projects</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
+        <p className="text-center text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
           These projects reflect my journey as a{" "}
-          <span className="text-primary font-semibold">developer</span> from
+          <span className="text-primary font-semibold">Developer</span> from
           conceptualisation to deployment. Each application showcases practical
           implementation of modern technologies, solving real-world challenges
           through thoughtful engineering and innovative solutions.

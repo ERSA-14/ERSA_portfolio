@@ -67,7 +67,7 @@ export const HomePage = () => {
                 applications built with modern technologies and frameworks. From
                 intuitive user interfaces to powerful backend architectures, I
                 create cloud-native solutions that prioritise performance,
-                security, and user experience—consistently delivering quality
+                security, and user experience consistently delivering quality
                 software that solves real problems.
                 <span> </span>{" "}
               </p>

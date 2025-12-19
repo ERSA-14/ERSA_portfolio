@@ -105,7 +105,7 @@ export const Skills = () => {
           My <span className="text-primary">Skillset</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-6 max-w-3xl mx-auto">
+        <p className="text-center text-lg md:text-xl text-muted-foreground mb-6 max-w-3xl mx-auto">
           A <span className="text-primary font-semibold">comprehensive </span>{" "}
           toolkit spanning frontend frameworks, backend technologies, and cloud
           infrastructure. These are the technologies I work with regularly to

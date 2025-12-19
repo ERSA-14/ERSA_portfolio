@@ -111,13 +111,13 @@ export const Certifications = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
             My <span className="text-primary tracking-normal">Credentials</span>
           </h2>
-          <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-center text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             <span className="text-primary font-semibold">
               Industry recognised
             </span>{" "}
             certifications that demonstrate my commitment to mastering the
             evolving landscape of software engineering. Each credential
-            represents rigorous training and validated expertise—serving as
+            represents rigorous training and validated expertise serving as
             tangible proof of my technical capabilities and dedication to
             continuous learning.
           </p>
