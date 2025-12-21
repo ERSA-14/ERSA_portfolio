@@ -158,7 +158,7 @@ export const Contact = () => {
       key="message"
       className="group bg-card gradient-border rounded-lg overflow-hidden shadow-sm card-hover flex flex-col relative z-20 h-full p-4"
     >
-      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center font-['Poppins']">
+      <h3 className="text-xl md:text-2xl font-bold mb-4 text-center font-['Poppins']">
         Send a<span className="text-primary"> Message</span>
       </h3>
       <form

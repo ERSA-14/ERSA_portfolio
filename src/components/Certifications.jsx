@@ -127,21 +127,21 @@ export const Certifications = () => {
             {visibleCerts.map((cert, index) => (
               <div
                 key={index}
-                className="bg-card gradient-border p-4 md:p-6 rounded-xl shadow-md card-hover flex flex-col md:flex-row items-center gap-4 md:gap-6 group relative overflow-hidden transition-all duration-300 border border-border/50 w-full animate-in fade-in slide-in-from-bottom-4 duration-500"
+                className="bg-card gradient-border py-4 px-4 md:py-5 md:px-6 rounded-xl shadow-md card-hover flex flex-col md:flex-row items-center gap-4 md:gap-6 group relative overflow-hidden transition-all duration-300 border border-border/50 w-full animate-in fade-in slide-in-from-bottom-4 duration-500"
               >
                 {/* Icon Container */}
                 <div className="relative border-2 border-primary p-4 md:p-3 bg-primary/10 rounded-xl text-primary shadow-[0_0_10px_rgba(var(--primary),0.1)] transition-transform duration-500 shrink-0">
                   {cert.icon}
                 </div>
 
-                <div className="relative z-10 flex-1 text-center md:text-left flex flex-col justify-center gap-1">
+                <div className="relative z-10 flex-1 text-center md:text-left flex flex-col justify-center gap-0">
                   <div>
                     <span className="text-xs md:text-sm font-bold tracking-[.2em] uppercase opacity-80 leading-none font-['Roboto_Mono']">
                       {cert.issuer}
                     </span>
                   </div>
 
-                  <h3 className="text-xl md:text-2xl font-bold leading-tight font-['Poppins'] tracking-wide">
+                  <h3 className="text-xl md:text-2xl font-bold leading-tight font-['Poppins'] tracking-wide mb-0">
                     {cert.title
                       .split(
                         /(Certified Cloud|Generative AI|Data Science|AI Vector Search|Migration Architect)/
