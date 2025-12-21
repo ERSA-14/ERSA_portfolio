@@ -242,7 +242,7 @@ export const Contact = () => {
   return (
     <section
       id="Contact"
-      className="relative min-h-screen flex flex-col justify-center items-center py-20 px-4 bg-secondary/30"
+      className="relative min-h-screen flex flex-col justify-center items-center py-20 px-4 md:px-8 lg:px-12 xl:px-24 bg-secondary/30"
     >
       <div className="container mx-auto max-w-7xl pb-4 mt-2">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">

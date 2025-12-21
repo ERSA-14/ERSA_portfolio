@@ -3,27 +3,16 @@ import { FileDown } from "lucide-react";
 
 export const HomePage = () => {
   const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
   const [firstTypingComplete, setFirstTypingComplete] = useState(false);
   const fullText = "Saksham Gupta";
 
   useEffect(() => {
     let timeout;
-    if (!isDeleting && displayedText === fullText) {
+    if (displayedText === fullText) {
       if (!firstTypingComplete) {
-        setTimeout(() => {
-          setFirstTypingComplete(true);
-          window.dispatchEvent(new Event("typingComplete"));
-        }, 0);
+        setFirstTypingComplete(true);
+        window.dispatchEvent(new Event("typingComplete"));
       }
-      timeout = setTimeout(() => setIsDeleting(true), 1500);
-    } else if (isDeleting && displayedText === "") {
-      timeout = setTimeout(() => setIsDeleting(false), 500);
-    } else if (isDeleting) {
-      const deleteSpeed = Math.random() * 80 + 50;
-      timeout = setTimeout(() => {
-        setDisplayedText(fullText.substring(0, displayedText.length - 1));
-      }, deleteSpeed);
     } else {
       const typingSpeed = Math.random() * 130 + 80;
       timeout = setTimeout(() => {
@@ -32,12 +21,12 @@ export const HomePage = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, firstTypingComplete, fullText]);
+  }, [displayedText, firstTypingComplete, fullText]);
 
   return (
     <section
       id="Home"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 opacity-100 pt-24"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 xl:px-24 opacity-100 pt-24"
     >
       <div className="container max-w-6xl mx-auto text-center z-10">
         <div className="space-y-6 ">
