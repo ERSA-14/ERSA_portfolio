@@ -37,9 +37,9 @@ export const HomePage = () => {
   return (
     <section
       id="Home"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 opacity-100"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 opacity-100 pt-24"
     >
-      <div className="container max-w-6xl mx-auto text-center z-10 mt-20">
+      <div className="container max-w-6xl mx-auto text-center z-10">
         <div className="space-y-6 ">
           <h1 className="text-4xl md:text-6xl font-bold flex flex-wrap md:flex-nowrap justify-center gap-x-3 gap-y-2">
             <span className="opacity-0 animate-fade-in whitespace-nowrap">

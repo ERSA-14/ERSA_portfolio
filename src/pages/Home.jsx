@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { SpaceBackgroundLazy } from "../components/SpaceBackgroundLazy";
 import { StarBackground } from "../components/StarBackground";
-import { NavBar } from "../components/NavBar";
+import { NavBarWithProgress } from "../components/NavBarWithProgress";
 import { HomePage } from "../components/HomePage";
 import { Certifications } from "../components/Certifications";
 import { Skills } from "../components/Skills";
 import { Project } from "../components/Project";
 import { Contact } from "../components/Contact";
-import { ScrollProgress } from "../components/ScrollProgress";
 
 export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -40,8 +39,6 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
-      <ScrollProgress isNameLoaded={isNameLoaded} />
-
       {!isDarkMode ? (
         <div className="fixed inset-0 pointer-events-none z-0">
           <SpaceBackgroundLazy />
@@ -52,7 +49,7 @@ export const Home = () => {
         </div>
       )}
 
-      <NavBar />
+      <NavBarWithProgress />
 
       <main id="main-content" className="relative z-10">
         <HomePage />

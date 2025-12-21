@@ -5,7 +5,7 @@
  */
 
 const createFaviconSVG = (isDark) => {
-  const bgColor = isDark ? "#ffa31a" : "#0a85c2"; // Neon-golden-flame-orange for dark mode
+  const bgColor = isDark ? "#e6a800" : "#0a85c2"; // Updated to match new golden primary (hsl 43 100% 45%)
   const letterColor = isDark ? "#000000" : "#ffffff"; // Contrasting letter color
 
   const svg = `

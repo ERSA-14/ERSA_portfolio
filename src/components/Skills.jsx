@@ -120,7 +120,7 @@ export const Skills = () => {
               onClick={() => setActiveCategory(category)}
               className={cn(
                 "rounded-full capitalize w-fit transition-colors duration-300",
-                "text-[clamp(0.85rem,1.5vw,1rem)]",
+                "text-[clamp(0.90rem,1.5vw,1rem)]",
                 activeCategory === category
                   ? "cosmic-button"
                   : "font-['Poppins'] px-3 py-1 md:px-6 md:py-2 border-2 border-border/50 bg-background/50 text-muted-foreground hover:border-primary/50 hover:text-foreground hover:bg-secondary/50"

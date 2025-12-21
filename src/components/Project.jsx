@@ -150,7 +150,7 @@ export const Project = () => {
                       </span>
                     ))}
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4 items-center font-['Inter']">
+                  <p className="text-muted-foreground text-sm md:text-base mb-4 items-center font-['Inter']">
                     {project.description}
                   </p>
                   <div className="flex justify-between items-center">

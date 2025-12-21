@@ -158,7 +158,7 @@ export const Contact = () => {
       key="message"
       className="group bg-card gradient-border rounded-lg overflow-hidden shadow-sm card-hover flex flex-col relative z-20 h-full p-4"
     >
-      <h3 className="text-2xl font-bold mb-4 text-center font-['Poppins']">
+      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center font-['Poppins']">
         Send a<span className="text-primary"> Message</span>
       </h3>
       <form
@@ -264,7 +264,7 @@ export const Contact = () => {
           {/* Static Column: Information and Socials */}
           <div className="min-[600px]:col-span-1 lg:col-span-1 space-y-8">
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold mb-6 text-left">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-left">
                 Contact <span className="text-primary">Information</span>
               </h3>
               <div className="space-y-6">
@@ -346,7 +346,7 @@ export const Contact = () => {
             </div>
 
             <div className="mt-8">
-              <h3 className="text-2xl font-semibold mb-6 text-left">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-left">
                 <span className="text-primary">Social</span> Channels
               </h3>
               <div className="flex space-x-4 justify-start gap-4">
