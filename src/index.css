@@ -183,7 +183,7 @@
   }
 
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth snap-y snap-mandatory;
     font-size: clamp(var(--text-sm), 0.875rem + 0.25vw, var(--text-base));
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -194,8 +194,14 @@
 
   /* Performance optimization for sections */
   section {
+    @apply snap-start;
     contain: content;
     will-change: transform; /* Hint for compositing */
+    min-height: 100vh;
+    padding: clamp(2rem, 4vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   /* Mobile phones - smallest screens */

@@ -24,10 +24,7 @@ export const HomePage = () => {
   }, [displayedText, firstTypingComplete, fullText]);
 
   return (
-    <section
-      id="Home"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 xl:px-24 opacity-100 pt-24"
-    >
+    <section id="Home" className="relative opacity-100 pt-24">
       <div className="container max-w-6xl mx-auto text-center z-10">
         <div className="space-y-6 ">
           <h1 className="text-4xl md:text-6xl font-bold flex flex-wrap md:flex-nowrap justify-center gap-x-3 gap-y-2">

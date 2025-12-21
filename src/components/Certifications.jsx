@@ -101,10 +101,7 @@ export const Certifications = () => {
   );
 
   return (
-    <section
-      id="Certifications"
-      className="relative min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-12 xl:px-24 py-20 bg-secondary/10"
-    >
+    <section id="Certifications" className="relative bg-secondary/10">
       <div className="container mx-auto max-w-6xl px-4">
         {/* Section Header */}
         <div className="text-center mb-8">

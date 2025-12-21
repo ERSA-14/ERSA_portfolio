@@ -23,7 +23,7 @@ const projects = [
     id: 2,
     title: "Invoice Processing Automation",
     description:
-      "This is a Automated Lambda function that extracts receipt data (vendor, date, total, items) from an S3-uploaded image using AWS Textract for OCR processing and stores it in DynamoDB. It then sends an email notification with the extracted receipt details via SES.",
+      "This is a Automated Lambda function that extracts receipt data (vendor, date, total, items) from an S3 bucket uploaded image using Textract for OCR processing and stores it in DynamoDB database. It then sends an email notification with the extracted receipt details via SES.",
     image: "/ProjectSS/two.jpeg",
     tags: ["Python", "AWS Cloud", "Serverless", "Event-driven", "Automation"],
     docsUrl: "",
@@ -87,21 +87,19 @@ export const Project = () => {
   );
 
   return (
-    <section
-      id="Projects"
-      className="relative min-h-screen flex flex-col justify-center items-center py-20 px-4 md:px-8 lg:px-12 xl:px-24"
-    >
+    <section id="Projects" className="relative">
       <div className="container mx-auto max-w-7xl pb-4 mt-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Highlighted <span className="text-primary">Projects</span>
         </h2>
 
         <p className="text-center text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-          These projects reflect my journey as a{" "}
-          <span className="text-primary font-semibold">Developer</span> from
-          conceptualisation to deployment. Each application showcases practical
-          implementation of modern technologies, solving real-world challenges
-          through thoughtful engineering and innovative solutions.
+          These projects{" "}
+          <span className="text-primary font-semibold">reflect my journey</span>{" "}
+          as a developer from conceptualisation to deployment. Each application
+          showcases practical implementation of modern technologies, solving
+          real-world challenges through thoughtful engineering and innovative
+          solutions.
         </p>
 
         {/* Carousel Container */}
