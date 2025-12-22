@@ -48,7 +48,7 @@ export const ChatWithMe = () => {
   const scrollToBottom = () => {
     if (lenisRef.current && chatContainerRef.current) {
       lenisRef.current.scrollTo(chatContainerRef.current.scrollHeight, {
-        duration: 0.2,
+        duration: 0.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       });
     } else if (chatContainerRef.current) {
@@ -68,13 +68,13 @@ export const ChatWithMe = () => {
       lenisRef.current = new Lenis({
         wrapper: chatContainerRef.current,
         content: chatContainerRef.current,
-        duration: 0.6,
+        duration: 0.8, // Snappy but smooth
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: "vertical",
         gestureOrientation: "vertical",
         smoothWheel: true,
-        wheelMultiplier: 1.5,
-        touchMultiplier: 2,
+        wheelMultiplier: 2.5, // Very responsive
+        touchMultiplier: 3,
         infinite: false,
       });
 
@@ -201,7 +201,7 @@ export const ChatWithMe = () => {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        console.error("Gemini API error:", errorData);
+        // console.error("Gemini API error handled");
 
         if (response.status === 429) {
           throw new Error(
@@ -276,7 +276,7 @@ export const ChatWithMe = () => {
             lenisRef.current?.resize();
           }}
           onMouseLeave={() => lenisRef.current?.stop()}
-          className="flex-1 overflow-y-auto space-y-3 pr-0 scrollbar-hide overscroll-none"
+          className="flex-1 overflow-y-auto space-y-3 pr-0 pb-6 scrollbar-hide overscroll-none"
         >
           {messages.map((message, index) => (
             <div

@@ -139,7 +139,7 @@ export const Contact = () => {
           setIsSending(false);
         },
         (error) => {
-          console.error("EmailJS Error:", error);
+          // console.error("EmailJS Error handled");
           toast({
             variant: "destructive",
             title: "Send Failed",
