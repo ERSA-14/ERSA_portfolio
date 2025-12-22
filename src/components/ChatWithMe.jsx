@@ -48,7 +48,7 @@ export const ChatWithMe = () => {
   const scrollToBottom = () => {
     if (lenisRef.current && chatContainerRef.current) {
       lenisRef.current.scrollTo(chatContainerRef.current.scrollHeight, {
-        duration: 0.8,
+        duration: 0.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       });
     } else if (chatContainerRef.current) {
@@ -68,12 +68,12 @@ export const ChatWithMe = () => {
       lenisRef.current = new Lenis({
         wrapper: chatContainerRef.current,
         content: chatContainerRef.current,
-        duration: 1.2,
+        duration: 0.6,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: "vertical",
         gestureOrientation: "vertical",
         smoothWheel: true,
-        wheelMultiplier: 1,
+        wheelMultiplier: 1.5,
         touchMultiplier: 2,
         infinite: false,
       });
@@ -271,7 +271,12 @@ export const ChatWithMe = () => {
         <div
           ref={chatContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto space-y-3 pr-0 scrollbar-hide"
+          onMouseEnter={() => {
+            lenisRef.current?.start();
+            lenisRef.current?.resize();
+          }}
+          onMouseLeave={() => lenisRef.current?.stop()}
+          className="flex-1 overflow-y-auto space-y-3 pr-0 scrollbar-hide overscroll-none"
         >
           {messages.map((message, index) => (
             <div
