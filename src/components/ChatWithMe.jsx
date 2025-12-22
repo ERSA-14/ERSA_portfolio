@@ -47,9 +47,15 @@ export const ChatWithMe = () => {
 
   const scrollToBottom = () => {
     if (lenisRef.current && chatContainerRef.current) {
+      // Ensure Lenis is running for the auto-scroll
+      lenisRef.current.start();
+      lenisRef.current.resize();
+
       lenisRef.current.scrollTo(chatContainerRef.current.scrollHeight, {
         duration: 0.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        immediate: false,
+        force: true,
       });
     } else if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop =
@@ -58,8 +64,15 @@ export const ChatWithMe = () => {
   };
 
   useEffect(() => {
+    // Scroll immediately
     scrollToBottom();
-    setTimeout(handleScroll, 100);
+
+    // And scroll again after a short delay to ensure layout is fully updated
+    const timeoutId = setTimeout(() => {
+      scrollToBottom();
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
   }, [messages]);
 
   // Initialize Lenis for chat container
