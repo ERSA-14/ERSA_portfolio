@@ -62,6 +62,44 @@ export const NavBar = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const sectionId = href.substring(1);
+
+    // Special handling for Home - scroll to absolute top
+    if (sectionId === "Home") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      setActiveSection("Home");
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      // Find the first heading in the section to align with
+      const heading = section.querySelector("h1, h2, h3");
+      const targetElement = heading || section;
+
+      // Calculate position with a small offset for breathing room/navbar
+      const offset = 100; // Adjust this value based on your actual navbar height + padding
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      // Update active section immediately
+      setActiveSection(sectionId);
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav
       className={cn(
@@ -74,6 +112,7 @@ export const NavBar = () => {
           className="text-xl font-bold text-primary flex items-center gap-2 group !no-underline"
           href="#Home"
           aria-label="Home"
+          onClick={(e) => handleNavClick(e, "#Home")}
         >
           <span className="relative z-10">
             <span className="text-foreground font-semibold">
@@ -88,6 +127,7 @@ export const NavBar = () => {
             <a
               key={item.name}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className={cn(
                 "text-sm transition-colors duration-200",
                 activeSection === item.href.substring(1)
@@ -130,7 +170,7 @@ export const NavBar = () => {
                   ? "text-primary font-semibold bg-secondary/50"
                   : "font-medium text-foreground hover:text-primary hover:bg-secondary/50"
               )}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, item.href)}
             >
               {item.name}
             </a>

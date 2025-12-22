@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MoveUpRight } from "lucide-react";
 import { useToast } from "../hooks/use-toast";
+import Lenis from "lenis";
 
 export const ChatWithMe = () => {
   const { toast } = useToast();
@@ -38,13 +39,19 @@ export const ChatWithMe = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const chatContainerRef = useRef(null);
+  const lenisRef = useRef(null);
 
   const handleScroll = () => {
     // Logic removed
   };
 
   const scrollToBottom = () => {
-    if (chatContainerRef.current) {
+    if (lenisRef.current && chatContainerRef.current) {
+      lenisRef.current.scrollTo(chatContainerRef.current.scrollHeight, {
+        duration: 0.8,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop =
         chatContainerRef.current.scrollHeight;
     }
@@ -55,10 +62,36 @@ export const ChatWithMe = () => {
     setTimeout(handleScroll, 100);
   }, [messages]);
 
+  // Initialize Lenis for chat container
   useEffect(() => {
+    if (chatContainerRef.current) {
+      lenisRef.current = new Lenis({
+        wrapper: chatContainerRef.current,
+        content: chatContainerRef.current,
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+
+      function raf(time) {
+        lenisRef.current?.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    }
+
     handleScroll();
     window.addEventListener("resize", handleScroll);
-    return () => window.removeEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("resize", handleScroll);
+      lenisRef.current?.destroy();
+    };
   }, []);
 
   const renderMessageContent = (content) => {
@@ -132,7 +165,7 @@ export const ChatWithMe = () => {
       }
 
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`,
         {
           method: "POST",
           headers: {
@@ -229,7 +262,7 @@ export const ChatWithMe = () => {
   };
 
   return (
-    <div className="group bg-card p-4 rounded-lg shadow-sm gradient-border card-hover w-full h-full min-h-[400px] flex flex-col relative z-20 overflow-hidden">
+    <div className="group bg-card p-4 rounded-lg shadow-sm gradient-border card-hover w-full h-[450px] flex flex-col relative z-20 overflow-hidden">
       <h3 className="text-2xl text-primary font-bold mb-4 text-center font-['Poppins']">
         Chat with me <span className="text-foreground">in Real time</span>
       </h3>
@@ -238,7 +271,7 @@ export const ChatWithMe = () => {
         <div
           ref={chatContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto space-y-3 pr-0 custom-scrollbar"
+          className="flex-1 overflow-y-auto space-y-3 pr-0 scrollbar-hide"
         >
           {messages.map((message, index) => (
             <div

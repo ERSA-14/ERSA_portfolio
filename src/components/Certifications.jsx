@@ -68,7 +68,7 @@ export const Certifications = () => {
       } else if (window.innerWidth >= 768) {
         setItemsPerSlide(2); // Medium screens
       } else {
-        setItemsPerSlide(1); // Small screens
+        setItemsPerSlide(2); // Small screens (mobile) - now showing 2 instead of 1
       }
     };
 
