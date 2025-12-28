@@ -60,7 +60,7 @@ export const HomePage = () => {
 
               <div className="mt-12 opacity-0 animate-fade-in-delay-4">
                 <a
-                  href="/Final Resume24_l.pdf"
+                  href="/FinalResume30.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cosmic-button scale-110 w-fit text-4xl md:text-5xl px-20 py-10 tracking-widest transition-transform duration-300"
