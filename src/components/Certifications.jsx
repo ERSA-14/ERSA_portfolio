@@ -16,6 +16,16 @@ const certifications = [
       "I built a solid foundation in cloud computing with AWS, learning how global infrastructure and core services work together to power modern applications.",
   },
   {
+    title: "DevOps Certified Professional",
+    issuer: "Oracle Cloud Infrastructure",
+    startDate: "Oct 2025",
+    expiryDate: "Oct 2027",
+    link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=258B6CE1A92366087A5F2666F8974BF9B03AAB13EFF423C06290C6CB8916CB13",
+    icon: <SiOracle className="w-10 h-10 md:w-8 md:h-8" />,
+    description:
+      "I delved into the fundamentals of DevOps practices and CI/CD pipelines, learning how to build, automate, and deploy applications on Oracle Cloud.",
+  },
+  {
     title: "Generative AI Certified Professional",
     issuer: "Oracle Cloud Infrastructure",
     startDate: "Oct 2025",
@@ -25,6 +35,7 @@ const certifications = [
     description:
       "I explored the basics of Large Language Models and prompt engineering, learning how to build and experiment with generative AI tools on the Oracle Cloud.",
   },
+
   {
     title: "Data Science Certified Professional",
     issuer: "Oracle Cloud Infrastructure",
@@ -144,10 +155,10 @@ export const Certifications = () => {
                   <h3 className="text-xl md:text-2xl font-bold leading-tight font-['Poppins'] tracking-wide mb-0">
                     {cert.title
                       .split(
-                        /(Certified Cloud|Generative AI|Data Science|AI Vector Search|Migration Architect)/
+                        /(Certified Cloud|DevOps|Generative AI|Data Science|AI Vector Search|Migration Architect)/
                       )
                       .map((part, i) =>
-                        /(Certified Cloud|Generative AI|Data Science|AI Vector Search|Migration Architect)/.test(
+                        /(Certified Cloud|DevOps|Generative AI|Data Science|AI Vector Search|Migration Architect)/.test(
                           part
                         ) ? (
                           <span key={i} className="font-black text-primary">
