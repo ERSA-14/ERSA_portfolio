@@ -279,49 +279,7 @@ The project can be deployed to:
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## Design Credits
-
-- **Fonts**: [Google Fonts](https://fonts.google.com) (Space Grotesk, Lato, Montserrat)
-- **Icons**: [Lucide Icons](https://lucide.dev), [React Icons](https://react-icons.github.io/react-icons/)
-- **3D Graphics**: [Three.js](https://threejs.org)
-
-## Documentation
-
-- **[RESPONSIVE_TYPOGRAPHY.md](RESPONSIVE_TYPOGRAPHY.md)** - Complete responsive typography guide
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Comprehensive deployment guide
-- **[EDGE_CASES.md](EDGE_CASES.md)** - All handled edge cases
-- **[PRE_DEPLOYMENT_CHECKLIST.md](PRE_DEPLOYMENT_CHECKLIST.md)** - Pre-deployment verification
-- **[DEPLOYMENT_FIX_SUMMARY.md](DEPLOYMENT_FIX_SUMMARY.md)** - Quick fix summary
-
-## Troubleshooting
-
-### Common Issues
-
-**CSS not loading in production**
-
-- Fixed: Proper headers configured in `vercel.json`
-
-**Theme flashing on load**
-
-- Fixed: Theme initialized in `public/init.js`
-
-**Images not found**
-
-- Fixed: Proper paths with `/` prefix
-
-**Build fails**
-
-- Check Node.js version (>=18)
-- Clear cache: `npm run clean`
-- Reinstall: `rm -rf node_modules && npm install`
-
-**Responsive issues on tablet**
-
-- Fixed: Comprehensive tablet breakpoints (768px-1024px)
-- Fixed: Fluid typography with clamp() functions
-
 ## Author
-
 **Saksham Gupta**
 
 - [LinkedIn](https://www.linkedin.com/in/saksham-gupta-ersa/)
