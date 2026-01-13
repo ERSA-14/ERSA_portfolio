@@ -236,8 +236,7 @@ Edit `src/index.css`:
    - Add your EmailJS credentials in Vercel dashboard
 
 4. **Deploy!**
-
-For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
+   
 
 ### Deploy to Other Platforms
 
@@ -280,7 +279,7 @@ The project can be deployed to:
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## Author
-**Saksham Gupta**
+**saksham gupta**
 
 - [LinkedIn](https://www.linkedin.com/in/saksham-gupta-ersa/)
 - [GitHub](https://github.com/ERSA-14)
