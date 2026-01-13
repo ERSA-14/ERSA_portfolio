@@ -1,4 +1,4 @@
-# 🚀 Saksham Gupta's Portfolio
+# Saksham Gupta's Portfolio
 
 A modern, responsive portfolio website showcasing my projects, skills, and experience as a Full Stack Developer. Built with React, Vite, and Tailwind CSS v4, featuring stunning animations, comprehensive responsive design, and a beautiful dark/light theme.
 
@@ -10,23 +10,23 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 ![Lighthouse](https://img.shields.io/badge/Lighthouse-90+-success)
 ![Accessibility](https://img.shields.io/badge/WCAG-2.1%20AA-blue)
 
-## 🏆 Production Excellence (v2.0.0)
+## Production Excellence (v2.0.0)
 
 **Recent Comprehensive Optimisation** - This portfolio has undergone a complete production-grade overhaul:
 
-- ⚡ **40% Faster Load Times** - Lazy loading, code splitting, optimised bundles
-- 🎨 **Design System** - Comprehensive design tokens for consistency
-- ♿ **WCAG 2.1 AA Compliant** - Full accessibility with reduced-motion support
-- 🔍 **SEO Optimised** - Structured data, meta tags, sitemap, robots.txt
-- 🛡️ **Error Resilient** - Production-ready error boundaries
-- 📊 **90+ Lighthouse Score** - Performance, accessibility, best practices, SEO
-- 💎 **Enterprise-Grade Code** - Clean architecture, best practices
+- **40% Faster Load Times** - Lazy loading, code splitting, optimised bundles
+- **Design System** - Comprehensive design tokens for consistency
+- **WCAG 2.1 AA Compliant** - Full accessibility with reduced-motion support
+- **SEO Optimised** - Structured data, meta tags, sitemap, robots.txt
+- **Error Resilient** - Production-ready error boundaries
+- **90+ Lighthouse Score** - Performance, accessibility, best practices, SEO
+- **Enterprise-Grade Code** - Clean architecture, best practices
 
 **See [CHANGELOG.md](.agent/CHANGELOG.md) for complete details** | **[Quick Summary](.agent/SUMMARY.md)**
 
-## ✨ Features
+## Features
 
-### 🎨 **Design**
+### Design
 
 - **Dark Mode Default**: Beautiful dark theme loads by default with smooth light mode toggle
 - **Section-Based Scroll Progress**: Gradient progress bar at the top with equal weight per section (20% each)
@@ -39,7 +39,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Smooth Animations**: Optimised scale animations (max 105%, cosmic-button 103%)
 - **Optimised Spacing**: Minimal padding from screen edges for maximum content visibility
 
-### 🛠️ **Technical**
+### Technical
 
 - **React 19**: Latest React with hooks and modern patterns
 - **Vite**: Lightning-fast build tool and dev server
@@ -51,7 +51,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Responsive Design System**: Comprehensive breakpoint system for mobile, tablet, and desktop
 - **Intersection Observer**: Efficient scroll-triggered animations
 
-### 📱 **Sections**
+### Sections
 
 1. **Home**: Hero section with animated typing effect and responsive spacing
 2. **About Me**: Professional summary, certifications, resume with centered content layout
@@ -59,7 +59,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 4. **Projects**: Highlighted projects including Agentic AI Assistants and Full-Stack Apps
 5. **Contact**: Working contact form, real-time AI chat assistant, and social media links
 
-### ⚡ **Performance & Responsiveness**
+### Performance & Responsiveness
 
 - **Optimised Bundle**: Code splitting and tree shaking
 - **Fast Loading**: Preconnect to external resources
@@ -69,7 +69,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Tablet Optimised**: Dedicated breakpoints for perfect tablet experience
 - **Fluid Scaling**: All elements scale smoothly across viewport sizes
 
-## 🎯 Responsive Design Highlights
+## Responsive Design Highlights
 
 ### Typography System
 
@@ -94,7 +94,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Cards**: Consistent glow effects (0.4/0.3/0.2 opacity, 3/8/15px blur)
 - **All Hover Effects**: Maximum 105% scale for smooth interactions
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -132,19 +132,19 @@ npm run preview
 npm run build:check
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ERSA_portfolio/
-├── .agent/                  # 📚 Documentation & Reports
+├── .agent/                  # Documentation & Reports
 │   ├── PRODUCTION_AUDIT_REPORT.md  # Comprehensive audit
 │   ├── CHANGELOG.md         # Complete change history
 │   └── SUMMARY.md           # Quick reference guide
 ├── public/
 │   ├── ProjectSS/           # Project screenshots
 │   ├── Resume4.pdf          # Resume file
-│   ├── robots.txt           # 🔍 SEO crawler instructions
-│   ├── sitemap.xml          # 🔍 Site structure for search engines
+│   ├── robots.txt           # SEO crawler instructions
+│   ├── sitemap.xml          # Site structure for search engines
 │   └── *.svg                # Icons and images
 ├── src/
 │   ├── components/          # React components
@@ -152,7 +152,7 @@ ERSA_portfolio/
 │   │   ├── ChatWithMe.jsx   # Real-time AI chat component
 │   │   ├── Contact.jsx      # Contact form
 │   │   ├── CustomCursor.jsx # Custom cursor component
-│   │   ├── ErrorBoundary.jsx # 🛡️ Error handling component
+│   │   ├── ErrorBoundary.jsx # Error handling component
 │   │   ├── HomePage.jsx     # Hero section
 │   │   ├── NavBar.jsx       # Navigation
 │   │   ├── Project.jsx      # Projects showcase
@@ -160,13 +160,13 @@ ERSA_portfolio/
 │   │   ├── Skills.jsx       # Skills grid
 │   │   ├── StarBackground.jsx # Dark mode background
 │   │   ├── SpaceBackground.jsx # Light mode background (Three.js)
-│   │   ├── SpaceBackgroundLazy.jsx # ⚡ Lazy-loaded 3D background
+│   │   ├── SpaceBackgroundLazy.jsx # Lazy-loaded 3D background
 │   │   ├── ThemeToggle.jsx  # Theme switcher
 │   │   └── ui/              # Reusable UI components
 │   ├── pages/               # Page components
 │   │   ├── Home.jsx
 │   │   └── NotFound.jsx
-│   ├── styles/              # 🎨 Design System
+│   ├── styles/              # Design System
 │   │   └── design-tokens.css # Comprehensive design tokens
 │   ├── hooks/               # Custom React hooks
 │   ├── lib/                 # Utility functions
@@ -180,7 +180,7 @@ ERSA_portfolio/
 └── package.json             # Dependencies and scripts
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -232,7 +232,7 @@ Edit `src/index.css`:
 }
 ```
 
-## 📦 Available Scripts
+## Available Scripts
 
 | Script                | Description              |
 | --------------------- | ------------------------ |
@@ -243,7 +243,7 @@ Edit `src/index.css`:
 | `npm run lint`        | Run ESLint               |
 | `npm run clean`       | Clean build cache        |
 
-## 🌐 Deployment
+## Deployment
 
 ### Deploy to Vercel (Recommended)
 
@@ -282,7 +282,7 @@ The project can be deployed to:
 - **Railway**: Connect GitHub repo
 - **Any static hosting**: Upload `dist` folder
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Frontend
 
@@ -305,21 +305,21 @@ The project can be deployed to:
 - **Google Gemini AI** - Real-time chat assistant (Gemini 2.0 Flash)
 - **Vercel** - Hosting and deployment
 
-## 📱 Browser Support
+## Browser Support
 
-- ✅ Chrome (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 🎨 Design Credits
+## Design Credits
 
 - **Fonts**: [Google Fonts](https://fonts.google.com) (Space Grotesk, Lato, Montserrat)
 - **Icons**: [Lucide Icons](https://lucide.dev), [React Icons](https://react-icons.github.io/react-icons/)
 - **3D Graphics**: [Three.js](https://threejs.org)
 
-## 📝 Documentation
+## Documentation
 
 - **[RESPONSIVE_TYPOGRAPHY.md](RESPONSIVE_TYPOGRAPHY.md)** - Complete responsive typography guide
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Comprehensive deployment guide
@@ -327,21 +327,21 @@ The project can be deployed to:
 - **[PRE_DEPLOYMENT_CHECKLIST.md](PRE_DEPLOYMENT_CHECKLIST.md)** - Pre-deployment verification
 - **[DEPLOYMENT_FIX_SUMMARY.md](DEPLOYMENT_FIX_SUMMARY.md)** - Quick fix summary
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
 **CSS not loading in production**
 
-- ✅ Fixed: Proper headers configured in `vercel.json`
+- Fixed: Proper headers configured in `vercel.json`
 
 **Theme flashing on load**
 
-- ✅ Fixed: Theme initialized in `public/init.js`
+- Fixed: Theme initialized in `public/init.js`
 
 **Images not found**
 
-- ✅ Fixed: Proper paths with `/` prefix
+- Fixed: Proper paths with `/` prefix
 
 **Build fails**
 
@@ -351,35 +351,19 @@ The project can be deployed to:
 
 **Responsive issues on tablet**
 
-- ✅ Fixed: Comprehensive tablet breakpoints (768px-1024px)
-- ✅ Fixed: Fluid typography with clamp() functions
+- Fixed: Comprehensive tablet breakpoints (768px-1024px)
+- Fixed: Fluid typography with clamp() functions
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👤 Author
+## Author
 
 **Saksham Gupta**
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/saksham-gupta-ersa/)
-- 🐱 [GitHub](https://github.com/ERSA-14)
-- 💻 [LeetCode](https://leetcode.com/u/ERSA-14/)
-- 📧 Email: Saksham22sg@gmail.com
-- 📱 Phone: +91 635 879 8314
-
-## 🙏 Acknowledgments
-
-- Thanks to the React team for an amazing framework
-- Vite team for the blazing-fast build tool
-- Tailwind CSS for the utility-first approach and v4 innovations
-- EmailJS for the contact form service
-- Three.js community for 3D graphics capabilities
-
-## ⭐ Show Your Support
-
-If you like this project, please give it a ⭐ on [GitHub](https://github.com/ERSA-14/ERSA_portfolio)!
+- [LinkedIn](https://www.linkedin.com/in/saksham-gupta-ersa/)
+- [GitHub](https://github.com/ERSA-14)
+- [LeetCode](https://leetcode.com/u/ERSA-14/)
+- Email: Saksham22sg@gmail.com
+- Phone: +91 635 879 8314
 
 ---
 
-**Built with ❤️ by Saksham Gupta** • **© 2025**
+**Built by Saksham Gupta** • **© 2025**
