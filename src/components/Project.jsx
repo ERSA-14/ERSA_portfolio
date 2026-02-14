@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MoveUpRight, Github, MoveLeft, MoveRight } from "lucide-react";
 import { debounce } from "../utils/debounce";
 
@@ -44,16 +44,24 @@ const projects = [
 export const Project = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(1);
+  const prevItemsPerSlideRef = useRef(itemsPerSlide);
 
   // Determine items per slide based on screen size
   useEffect(() => {
     const handleResize = () => {
+      let newItemsPerSlide;
       if (window.innerWidth >= 1024) {
-        setItemsPerSlide(3); // Large screens
+        newItemsPerSlide = 3; // Large screens
       } else if (window.innerWidth >= 768) {
-        setItemsPerSlide(2); // Medium screens
+        newItemsPerSlide = 2; // Medium screens
       } else {
-        setItemsPerSlide(1); // Small screens
+        newItemsPerSlide = 1; // Small screens
+      }
+
+      if (newItemsPerSlide !== prevItemsPerSlideRef.current) {
+        prevItemsPerSlideRef.current = newItemsPerSlide;
+        setItemsPerSlide(newItemsPerSlide);
+        setCurrentIndex(0);
       }
     };
 
@@ -63,13 +71,6 @@ export const Project = () => {
     window.addEventListener("resize", debouncedResize);
     return () => window.removeEventListener("resize", debouncedResize);
   }, []);
-
-  // Reset current index when items per slide changes to avoid empty views
-  useEffect(() => {
-    if (currentIndex !== 0) {
-      setCurrentIndex(0);
-    }
-  }, [itemsPerSlide]);
 
   const totalSlides = Math.ceil(projects.length / itemsPerSlide);
 
@@ -83,7 +84,7 @@ export const Project = () => {
 
   const visibleProjects = projects.slice(
     currentIndex * itemsPerSlide,
-    (currentIndex + 1) * itemsPerSlide
+    (currentIndex + 1) * itemsPerSlide,
   );
 
   return (
@@ -110,8 +111,8 @@ export const Project = () => {
               itemsPerSlide === 3
                 ? "grid-cols-3"
                 : itemsPerSlide === 2
-                ? "grid-cols-2"
-                : "grid-cols-1"
+                  ? "grid-cols-2"
+                  : "grid-cols-1"
             }`}
           >
             {visibleProjects.map((project) => (

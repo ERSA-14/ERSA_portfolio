@@ -12,54 +12,56 @@ const navItems = [
 ];
 
 export const NavBar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
 
   useEffect(() => {
-    let animationFrameId;
+    const detectActiveSection = () => {
+      // Offset to account for fixed navbar height
+      const navbarOffset = 80;
 
-    const handleScroll = () => {
-      if (!animationFrameId) {
-        animationFrameId = requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 10);
-          animationFrameId = null;
-        });
+      // If at the very top of the page, always show Home
+      if (window.scrollY < 100) {
+        setActiveSection("Home");
+        return;
       }
+
+      let closestSection = "Home";
+      let closestDistance = Infinity;
+
+      navItems.forEach((item) => {
+        const sectionId = item.href.substring(1);
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Distance from section top to just below the navbar
+          const distance = Math.abs(rect.top - navbarOffset);
+
+          // Pick the section whose top is closest to the navbar bottom
+          // but also consider sections that are currently covering the viewport
+          if (rect.top <= navbarOffset + 100 && rect.bottom > navbarOffset) {
+            // This section is currently under/past the navbar
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestSection = sectionId;
+            }
+          }
+        }
+      });
+
+      setActiveSection(closestSection);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", detectActiveSection, { passive: true });
+    window.addEventListener("resize", detectActiveSection, { passive: true });
+
+    // Initial check
+    detectActiveSection();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("scroll", detectActiveSection);
+      window.removeEventListener("resize", detectActiveSection);
     };
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-45% 0px -45% 0px",
-        threshold: 0,
-      }
-    );
-
-    navItems.forEach((item) => {
-      const sectionId = item.href.substring(1);
-      const element = document.getElementById(sectionId);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => observer.disconnect();
   }, []);
 
   const handleNavClick = (e, href) => {
@@ -104,20 +106,18 @@ export const NavBar = () => {
     <nav
       className={cn(
         "relative w-full z-40 transition-all duration-300 ease-smooth",
-        "py-4 bg-background shadow-sm"
+        "py-4 bg-background shadow-sm",
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
         <a
-          className="text-xl font-bold text-primary flex items-center gap-2 group !no-underline"
+          className="text-2xl font-extrabold text-primary flex items-center gap-2 group !no-underline"
           href="#Home"
           aria-label="Home"
           onClick={(e) => handleNavClick(e, "#Home")}
         >
           <span className="relative z-10">
-            <span className="text-foreground font-semibold">
-              Saksham Gupta's
-            </span>{" "}
+            <span className="text-foreground font-bold">Saksham Gupta's</span>{" "}
             Portfolio
           </span>
         </a>
@@ -129,10 +129,10 @@ export const NavBar = () => {
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
               className={cn(
-                "text-sm transition-colors duration-200",
+                "text-base transition-colors duration-200",
                 activeSection === item.href.substring(1)
-                  ? "text-primary font-bold"
-                  : "font-medium text-muted-foreground hover:text-primary"
+                  ? "text-primary font-extrabold"
+                  : "font-semibold text-muted-foreground hover:text-primary",
               )}
             >
               {item.name}
@@ -165,10 +165,10 @@ export const NavBar = () => {
               key={item.name}
               href={item.href}
               className={cn(
-                "text-sm px-4 py-2 rounded-lg flex items-center justify-center w-full transition-colors duration-200",
+                "text-base px-4 py-2 rounded-lg flex items-center justify-center w-full transition-colors duration-200",
                 activeSection === item.href.substring(1)
-                  ? "text-primary font-semibold bg-secondary/50"
-                  : "font-medium text-foreground hover:text-primary hover:bg-secondary/50"
+                  ? "text-primary font-bold bg-secondary/50"
+                  : "font-semibold text-foreground hover:text-primary hover:bg-secondary/50",
               )}
               onClick={(e) => handleNavClick(e, item.href)}
             >

@@ -112,18 +112,18 @@
      TYPOGRAPHY SCALE
      ============================================ */
   
-  /* Font Sizes - Boosted Body, Standard Headings */
-  --text-xs: 0.85rem;    /* Large tiny text */
-  --text-sm: 1rem;       /* ~16px (was 14px) */
-  --text-base: 1.15rem;  /* ~18.4px (was 16px) */
-  --text-lg: 1.25rem;    /* ~20px (was 18px) */
+  /* Font Sizes - Base values (used on mobile / smallest screens = BIGGEST) */
+  --text-xs: 0.925rem;   /* ~14.8px */
+  --text-sm: 1.1rem;     /* ~17.6px */
+  --text-base: 1.25rem;  /* ~20px */
+  --text-lg: 1.375rem;   /* ~22px */
   
-  /* Headings reverted/stabilized */
-  --text-xl: 1.35rem;    /* ~21.6px */
-  --text-2xl: 1.75rem;   /* ~28px */
-  --text-3xl: 2.25rem;   /* ~36px */
-  --text-4xl: 3rem;      /* ~48px */
-  --text-5xl: 4rem;      /* ~64px */
+  /* Headings */
+  --text-xl: 1.5rem;     /* ~24px */
+  --text-2xl: 1.9rem;    /* ~30.4px */
+  --text-3xl: 2.45rem;   /* ~39.2px */
+  --text-4xl: 3.25rem;   /* ~52px */
+  --text-5xl: 4.35rem;   /* ~69.6px */
 
   /* Font Weights */
   --font-light: 300;
@@ -193,69 +193,39 @@
 }
 
 /* ============================================
-   LARGE DISPLAY SCALING (10% reduction)
+   RESPONSIVE TYPOGRAPHY SCALING
+   Smaller display → bigger text (base :root is biggest)
+   Larger display → smaller text (progressive reduction)
    ============================================ */
 
-@media (min-width: 768px) and (max-width: 1023px) {
+/* Tablets (641px - 1023px): ~5% reduction from base */
+@media (min-width: 641px) and (max-width: 1023px) {
   :root {
-    /* Typography Scale - Reduced by 3% */
-    --text-xs: 0.8245rem;   /* ~13.19px */
-    --text-sm: 0.97rem;     /* ~15.52px */
-    --text-base: 1.1155rem; /* ~17.85px */
-    --text-lg: 1.2125rem;   /* ~19.4px */
+    --text-xs: 0.88rem;    /* ~14.1px */
+    --text-sm: 1.045rem;   /* ~16.7px */
+    --text-base: 1.19rem;  /* ~19px */
+    --text-lg: 1.305rem;   /* ~20.9px */
     
-    --text-xl: 1.3095rem;   /* ~20.95px */
-    --text-2xl: 1.6975rem;  /* ~27.16px */
-    --text-3xl: 2.1825rem;  /* ~34.92px */
-    --text-4xl: 2.91rem;    /* ~46.56px */
-    --text-5xl: 3.88rem;    /* ~62.08px */
+    --text-xl: 1.425rem;   /* ~22.8px */
+    --text-2xl: 1.805rem;  /* ~28.9px */
+    --text-3xl: 2.33rem;   /* ~37.3px */
+    --text-4xl: 3.09rem;   /* ~49.4px */
+    --text-5xl: 4.13rem;   /* ~66.1px */
   }
 }
 
-@media (min-width: 720px) and (max-width: 767px) {
+/* Desktop (1024px+): ~10% reduction from base */
+@media (min-width: 1024px) {
   :root {
-    /* Typography Scale - Reduced by 10% */
-    --text-xs: 0.765rem;    /* ~12.24px */
-    --text-sm: 0.9rem;      /* ~14.4px */
-    --text-base: 1.035rem;  /* ~16.56px */
-    --text-lg: 1.125rem;    /* ~18px */
+    --text-xs: 0.835rem;   /* ~13.4px */
+    --text-sm: 0.99rem;    /* ~15.8px */
+    --text-base: 1.125rem; /* ~18px */
+    --text-lg: 1.24rem;    /* ~19.8px */
     
-    --text-xl: 1.215rem;    /* ~19.44px */
-    --text-2xl: 1.575rem;   /* ~25.2px */
-    --text-3xl: 2.025rem;   /* ~32.4px */
-    --text-4xl: 2.7rem;     /* ~43.2px */
-    --text-5xl: 3.6rem;     /* ~57.6px */
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1279px) {
-  :root {
-    /* Typography Scale - Reduced by 10% */
-    --text-xs: 0.765rem;    /* ~12.24px */
-    --text-sm: 0.9rem;      /* ~14.4px */
-    --text-base: 1.035rem;  /* ~16.56px */
-    --text-lg: 1.125rem;    /* ~18px */
-    
-    --text-xl: 1.215rem;    /* ~19.44px */
-    --text-2xl: 1.575rem;   /* ~25.2px */
-    --text-3xl: 2.025rem;   /* ~32.4px */
-    --text-4xl: 2.7rem;     /* ~43.2px */
-    --text-5xl: 3.6rem;     /* ~57.6px */
-  }
-}
-
-@media (min-width: 1280px) {
-  :root {
-    /* Typography Scale - Reduced by 10% */
-    --text-xs: 0.765rem;    /* ~12.24px */
-    --text-sm: 0.9rem;      /* ~14.4px */
-    --text-base: 1.035rem;  /* ~16.56px */
-    --text-lg: 1.125rem;    /* ~18px */
-    
-    --text-xl: 1.215rem;    /* ~19.44px */
-    --text-2xl: 1.575rem;   /* ~25.2px */
-    --text-3xl: 2.025rem;   /* ~32.4px */
-    --text-4xl: 2.7rem;     /* ~43.2px */
-    --text-5xl: 3.6rem;     /* ~57.6px */
+    --text-xl: 1.35rem;    /* ~21.6px */
+    --text-2xl: 1.71rem;   /* ~27.4px */
+    --text-3xl: 2.2rem;    /* ~35.2px */
+    --text-4xl: 2.925rem;  /* ~46.8px */
+    --text-5xl: 3.9rem;    /* ~62.4px */
   }
 }

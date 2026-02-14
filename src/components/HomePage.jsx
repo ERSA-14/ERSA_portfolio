@@ -1,27 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FileDown } from "lucide-react";
 
 export const HomePage = () => {
   const [displayedText, setDisplayedText] = useState("");
-  const [firstTypingComplete, setFirstTypingComplete] = useState(false);
   const fullText = "Saksham Gupta";
+  const typingCompleteDispatched = useRef(false);
 
+  // Derive typing completion from displayedText
+  const firstTypingComplete = displayedText === fullText;
+
+  // Handle typing animation
   useEffect(() => {
-    let timeout;
     if (displayedText === fullText) {
-      if (!firstTypingComplete) {
-        setFirstTypingComplete(true);
+      // Dispatch completion event once
+      if (!typingCompleteDispatched.current) {
+        typingCompleteDispatched.current = true;
         window.dispatchEvent(new Event("typingComplete"));
       }
-    } else {
-      const typingSpeed = Math.random() * 130 + 80;
-      timeout = setTimeout(() => {
-        setDisplayedText(fullText.substring(0, displayedText.length + 1));
-      }, typingSpeed);
+      return;
     }
 
+    const typingSpeed = Math.random() * 130 + 80;
+    const timeout = setTimeout(() => {
+      setDisplayedText(fullText.substring(0, displayedText.length + 1));
+    }, typingSpeed);
+
     return () => clearTimeout(timeout);
-  }, [displayedText, firstTypingComplete, fullText]);
+  }, [displayedText, fullText]);
 
   return (
     <section id="Home" className="relative opacity-100 pt-24">
@@ -47,7 +52,7 @@ export const HomePage = () => {
                 A
                 <span className="text-primary text-xl md:text-2xl font-semibold">
                   {"  "}
-                  Software Developer{"  "}
+                  Software Engineer{"  "}
                 </span>
                 and Automation Enthusiast specialising in efficient, scalable
                 applications built with modern technologies and frameworks. From

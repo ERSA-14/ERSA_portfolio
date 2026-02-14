@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+
+const prefersReducedMotion =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 export const StarBackground = () => {
-  const [stars, setStars] = useState([]);
-  const [meteors, setMeteors] = useState([]);
-
-  const generateStars = () => {
+  const generateStars = useCallback(() => {
     const numberOfStars = Math.floor(
-      (window.innerWidth * window.innerHeight) / 13500
+      (window.innerWidth * window.innerHeight) / 13500,
     );
     const newStars = [];
     for (let i = 0; i < numberOfStars; i++) {
@@ -19,10 +20,10 @@ export const StarBackground = () => {
         animationDelay: Math.random() * 4,
       });
     }
-    setStars(newStars);
-  };
+    return newStars;
+  }, []);
 
-  const generateMeteors = () => {
+  const generateMeteors = useCallback(() => {
     const numberOfMeteors = 7;
     const newMeteors = [];
     for (let i = 0; i < numberOfMeteors; i++) {
@@ -37,23 +38,23 @@ export const StarBackground = () => {
         animationDuration: 3 + Math.random() * 1.5,
       });
     }
-    setMeteors(newMeteors);
-  };
+    return newMeteors;
+  }, []);
 
+  // Use lazy state initializer - generates on first render, no effect needed
+  const [stars, setStars] = useState(() =>
+    prefersReducedMotion ? [] : generateStars(),
+  );
+  const [meteors, setMeteors] = useState(() =>
+    prefersReducedMotion ? [] : generateMeteors(),
+  );
+
+  // Only handle resize in the effect
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (!prefersReducedMotion) {
-      generateStars();
-      generateMeteors();
-    }
-
     const handleResize = () => {
       if (!prefersReducedMotion) {
-        generateStars();
-        generateMeteors();
+        setStars(generateStars());
+        setMeteors(generateMeteors());
       }
     };
 
@@ -62,7 +63,7 @@ export const StarBackground = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [generateStars, generateMeteors]);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">

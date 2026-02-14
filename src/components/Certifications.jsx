@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import { MoveUpRight, Globe, MoveUp, MoveDown } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { MoveUpRight, MoveUp, MoveDown } from "lucide-react";
 import { SiAmazonwebservices, SiOracle } from "react-icons/si";
-import { cn } from "../lib/utils";
 import { debounce } from "../utils/debounce";
 
 const certifications = [
@@ -70,16 +69,24 @@ const certifications = [
 export const Certifications = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(1);
+  const prevItemsPerSlideRef = useRef(itemsPerSlide);
 
   // Determine items per slide based on screen size
   useEffect(() => {
     const handleResize = () => {
+      let newItemsPerSlide;
       if (window.innerWidth >= 1280) {
-        setItemsPerSlide(3); // Large screens
+        newItemsPerSlide = 3; // Large screens
       } else if (window.innerWidth >= 768) {
-        setItemsPerSlide(2); // Medium screens
+        newItemsPerSlide = 2; // Medium screens
       } else {
-        setItemsPerSlide(2); // Small screens (mobile) - now showing 2 instead of 1
+        newItemsPerSlide = 2; // Small screens (mobile) - now showing 2 instead of 1
+      }
+
+      if (newItemsPerSlide !== prevItemsPerSlideRef.current) {
+        prevItemsPerSlideRef.current = newItemsPerSlide;
+        setItemsPerSlide(newItemsPerSlide);
+        setCurrentIndex(0);
       }
     };
 
@@ -89,12 +96,6 @@ export const Certifications = () => {
     window.addEventListener("resize", debouncedResize);
     return () => window.removeEventListener("resize", debouncedResize);
   }, []);
-
-  useEffect(() => {
-    if (currentIndex !== 0) {
-      setCurrentIndex(0);
-    }
-  }, [itemsPerSlide]);
 
   const totalSlides = Math.ceil(certifications.length / itemsPerSlide);
 
@@ -108,7 +109,7 @@ export const Certifications = () => {
 
   const visibleCerts = certifications.slice(
     currentIndex * itemsPerSlide,
-    (currentIndex + 1) * itemsPerSlide
+    (currentIndex + 1) * itemsPerSlide,
   );
 
   return (
@@ -155,18 +156,18 @@ export const Certifications = () => {
                   <h3 className="text-xl md:text-2xl font-bold leading-tight font-['Poppins'] tracking-wide mb-0">
                     {cert.title
                       .split(
-                        /(Certified Cloud|DevOps|Generative AI|Data Science|AI Vector Search|Migration Architect)/
+                        /(Certified Cloud|DevOps|Generative AI|Data Science|AI Vector Search|Migration Architect)/,
                       )
                       .map((part, i) =>
                         /(Certified Cloud|DevOps|Generative AI|Data Science|AI Vector Search|Migration Architect)/.test(
-                          part
+                          part,
                         ) ? (
                           <span key={i} className="font-black text-primary">
                             {part}
                           </span>
                         ) : (
                           part
-                        )
+                        ),
                       )}
                   </h3>
 

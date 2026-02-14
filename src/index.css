@@ -94,6 +94,7 @@
     @apply border-border;
     box-sizing: border-box;
     font-family: "Open Sans", "Roboto Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-weight: 500;
   }
 
   code, pre, kbd, samp {
@@ -118,7 +119,7 @@
   /* Dark mode: Transparent borders by default for all cards */
   .dark .bg-card:not(.chat-message-box):not(.theme-toggle-custom),
   .dark .gradient-border:not(.theme-toggle-custom) {
-    border-width: 1.5px !important;
+    border-width: 2px !important;
     border-color: transparent !important;
     border-style: solid !important;
     transition: border-color var(--duration-fast) var(--ease-smooth), 
@@ -149,7 +150,7 @@
   .dark .gradient-border:hover {
     box-shadow: var(--glow-lg) !important;
     border-color: hsl(var(--primary)) !important;
-    border-width: 1.5px !important;
+    border-width: 2px !important;
   }
 
   .dark .chat-message-box {
@@ -177,14 +178,14 @@
   textarea:focus,
   input:not(:placeholder-shown),
   textarea:not(:placeholder-shown) {
-    border-width: 1.5px !important;
+    border-width: 2px !important;
     border-style: solid !important;
     transition: all var(--duration-fast) var(--ease-smooth) !important;
   }
 
   html {
     @apply scroll-smooth snap-y snap-mandatory;
-    font-size: clamp(var(--text-sm), 0.875rem + 0.25vw, var(--text-base));
+    font-size: 1rem;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -204,38 +205,38 @@
     justify-content: center;
   }
 
-  /* Mobile phones - smallest screens */
+  /* Mobile phones - smallest screens → BIGGEST text */
   @media (max-width: 640px) {
     html {
-      font-size: 0.8rem; /* ~12.8px - 15% smaller for mobile */
+      font-size: 1.15rem; /* ~18.4px - biggest for mobile */
     }
   }
 
   /* Tablets portrait and small tablets */
   @media (min-width: 641px) and (max-width: 768px) {
     html {
-      font-size: 0.85rem; /* ~13.6px - 15% smaller for small tablets */
+      font-size: 1.1rem; /* ~17.6px */
     }
   }
 
   /* Tablets landscape and medium tablets */
   @media (min-width: 769px) and (max-width: 1024px) {
     html {
-      font-size: 0.95rem; /* ~15.2px - 5% smaller */
+      font-size: 1.05rem; /* ~16.8px */
     }
   }
 
   /* Large tablets and small desktops */
   @media (min-width: 1025px) and (max-width: 1280px) {
     html {
-      font-size: 1rem; /* ~16px - 5% smaller */
+      font-size: 1rem; /* ~16px */
     }
   }
 
-  /* Desktop and larger */
+  /* Desktop and larger → SMALLEST text */
   @media (min-width: 1281px) {
     html {
-      font-size: 1rem; /* ~16px - 5% smaller for desktop */
+      font-size: 0.95rem; /* ~15.2px - smallest for large desktop */
     }
   }
 
@@ -245,7 +246,7 @@
     overflow-x: hidden;
     width: 100%;
     min-height: 100vh;
-    font-size: clamp(0.875rem, 0.8125rem + 0.3vw, 1rem); /* Fallback */
+    font-size: inherit; /* Inherits from html responsive sizing */
   }
 
   @media (min-width: 1024px) {
@@ -265,8 +266,8 @@
   /* Paragraph text - scales responsively */
   p {
     font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    font-weight: var(--font-normal);
-    line-height: 1.4; /* Tighter line spacing */
+    font-weight: var(--font-medium);
+    line-height: 1.45;
     font-size: clamp(var(--text-sm), 0.8125rem + 0.3vw, var(--text-lg));
     word-spacing: 0.1em; /* Increased word spacing for readability */
     letter-spacing: 0.02em; /* Add letter spacing */
@@ -275,15 +276,15 @@
   /* Mobile-specific paragraph sizing */
   @media (max-width: 640px) {
     p {
-      font-size: var(--text-sm);
-      line-height: 1.35; /* Tighter for mobile */
+      font-size: var(--text-base); /* Bigger on smaller screens */
+      line-height: 1.45;
     }
   }
 
   /* All headings - shared properties */
   h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    font-weight: var(--font-bold);
+    font-weight: 800;
     letter-spacing: 0.01em; /* Positive letter spacing for headings */
     margin-bottom: 0.5em;
     word-spacing: 0.08em; /* Increased word spacing */
@@ -298,8 +299,8 @@
 
   @media (max-width: 640px) {
     h1 {
-      font-size: var(--text-3xl);
-      line-height: 1.2;
+      font-size: var(--text-4xl); /* Bigger on mobile */
+      line-height: 1.15;
     }
   }
 
@@ -312,7 +313,7 @@
 
   @media (max-width: 640px) {
     h2 {
-      font-size: var(--text-2xl);
+      font-size: var(--text-3xl); /* Bigger on mobile */
     }
   }
 
@@ -325,7 +326,7 @@
 
   @media (max-width: 640px) {
     h3 {
-      font-size: var(--text-xl);
+      font-size: var(--text-2xl); /* Bigger on mobile */
     }
   }
 
@@ -376,7 +377,7 @@ img {
 
 @media (max-width: 640px) {
   * { -webkit-tap-highlight-color: transparent; }
-  body { font-size: 14px; }
+  body { font-size: inherit; /* Inherits from html responsive sizing */ }
 }
 
 .text-glow {
@@ -417,13 +418,13 @@ img {
 
 /* Dark mode: transparent borders by default, visible on hover */
 .dark .gradient-border {
-  border: 1.5px solid transparent;
+  border: 2px solid transparent;
 }
 
 .dark .gradient-border:hover {
   background: linear-gradient(to right, hsl(224 71% 2%), hsl(224 71% 2%));
   border-color: hsl(var(--primary));
-  border-width: 1.5px;
+  border-width: 2px;
 }
 
 .dark #About .gradient-border:hover,
@@ -435,19 +436,20 @@ img {
 }
 
 .cosmic-button {
-  @apply rounded-full bg-primary text-primary-foreground font-medium tracking-wide
-  border border-white/10; 
+  @apply rounded-full bg-primary text-primary-foreground font-medium tracking-wide;
   font-family: "Roboto Mono", monospace;
-  /* Enabled transition */
+  
+  /* Always 2px border */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  
   /* Enabled transition */
   transition: box-shadow var(--duration-fast) var(--ease-smooth),
               background-color var(--duration-fast) var(--ease-smooth),
-              transform var(--duration-fast) var(--ease-smooth);
+              transform var(--duration-fast) var(--ease-smooth),
+              border-color var(--duration-fast) var(--ease-smooth);
   
-  /* Reverted padding to standard, but increased font size on mobile */
+  /* Padding & font size: Larger on mobile, standard on desktop */
   padding: 0.45rem 1.35rem;
-  
-  /* Font size: Larger on mobile (shorter display), standard on desktop */
   font-size: 1.15rem; 
   
   white-space: nowrap;
@@ -480,7 +482,8 @@ img {
 }
 
 .dark .cosmic-button:hover {
-  border-width: 1.5px !important;
+  border-width: 2px !important;
+  border-color: hsl(var(--primary)) !important;
 }
 
 .view-resume-button {
@@ -697,7 +700,7 @@ img {
 
 /* Responsive Input */
 .responsive-input {
-  @apply w-full rounded-full border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden;
+  @apply w-full rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden;
   font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
   /* Reduced vertical padding, ensuring horizontal padding accommodates rounded corners */
   padding: clamp(0.2rem, 0.15rem + 0.2vw, 0.35rem) clamp(0.85rem, 0.6rem + 0.5vw, 1rem);
@@ -710,7 +713,7 @@ img {
 }
 
 textarea.responsive-input {
-  @apply rounded-2xl;
+  @apply rounded-xl;
   /* Slightly more vertical padding for textarea to look balanced */
   padding: clamp(0.4rem, 0.35rem + 0.25vw, 0.6rem) clamp(0.85rem, 0.6rem + 0.5vw, 1rem);
 }
@@ -719,7 +722,7 @@ textarea.responsive-input {
 .about-para-1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.7;
   letter-spacing: 0.01em;
 }
@@ -727,7 +730,7 @@ textarea.responsive-input {
 .about-para-2 {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.65;
   letter-spacing: 0.005em;
 }
@@ -735,7 +738,7 @@ textarea.responsive-input {
 .about-para-3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   letter-spacing: 0.015em;
 }

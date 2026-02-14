@@ -1,5 +1,5 @@
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "../lib/utils";
 
 export const ThemeToggle = ({ className }) => {
@@ -21,7 +21,7 @@ export const ThemeToggle = ({ className }) => {
           return !!prefersDark;
         }
       }
-    } catch (_) {
+    } catch {
       // Theme init failed
     }
     return true;
@@ -44,20 +44,22 @@ export const ThemeToggle = ({ className }) => {
       document.documentElement.classList.add("dark");
       try {
         localStorage.setItem("theme", "dark");
-      } catch (_) {
+      } catch {
         // Failed to save theme persistence
       }
     } else {
       document.documentElement.classList.remove("dark");
       try {
         localStorage.setItem("theme", "light");
-      } catch (_) {
+      } catch {
         // Failed to save theme persistence
       }
     }
 
     // Force strict reflow to apply the theme change instantly without transitions
-    const _ = window.getComputedStyle(document.documentElement).opacity;
+    const _forceReflow = window.getComputedStyle(
+      document.documentElement,
+    ).opacity;
 
     // Re-enable transitions after a tiny delay to ensure the DOM has updated
     setTimeout(() => {
@@ -71,7 +73,7 @@ export const ThemeToggle = ({ className }) => {
       onClick={toggleTheme}
       className={cn(
         "relative flex h-8 w-16 items-center rounded-full !border-2 border-primary bg-card cursor-pointer transition-colors duration-100 theme-toggle-custom overflow-hidden",
-        className
+        className,
       )}
       role="button"
       tabIndex={0}
@@ -87,7 +89,7 @@ export const ThemeToggle = ({ className }) => {
       <div
         className={cn(
           "absolute left-0 top-0 h-full aspect-square rounded-full bg-primary/20 transition-transform duration-100 ease-smooth",
-          isDarkMode ? "translate-x-0" : "translate-x-8"
+          isDarkMode ? "translate-x-0" : "translate-x-8",
         )}
       />
 
@@ -98,7 +100,7 @@ export const ThemeToggle = ({ className }) => {
             "h-4 w-4 transition-colors duration-100",
             isDarkMode
               ? "text-primary stroke-[2.5px]"
-              : "text-muted-foreground/50 stroke-[2px]"
+              : "text-muted-foreground/50 stroke-[2px]",
           )}
         />
         <Sun
@@ -106,7 +108,7 @@ export const ThemeToggle = ({ className }) => {
             "h-4 w-4 transition-colors duration-100",
             !isDarkMode
               ? "text-primary stroke-[2.5px]"
-              : "text-muted-foreground/50 stroke-[2px]"
+              : "text-muted-foreground/50 stroke-[2px]",
           )}
         />
       </div>

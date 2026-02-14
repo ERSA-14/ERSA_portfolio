@@ -22,15 +22,23 @@ export const Contact = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(1);
   const [isSending, setIsSending] = useState(false);
+  const prevItemsPerSlideRef = useRef(itemsPerSlide);
 
   // Determine items per slide based on screen size
   useEffect(() => {
     const handleResize = () => {
+      let newItemsPerSlide;
       // Laptop screens and above: show both cards side-by-side
       if (window.innerWidth >= 1024) {
-        setItemsPerSlide(2);
+        newItemsPerSlide = 2;
       } else {
-        setItemsPerSlide(1);
+        newItemsPerSlide = 1;
+      }
+
+      if (newItemsPerSlide !== prevItemsPerSlideRef.current) {
+        prevItemsPerSlideRef.current = newItemsPerSlide;
+        setItemsPerSlide(newItemsPerSlide);
+        setCurrentIndex(0);
       }
     };
 
@@ -40,13 +48,6 @@ export const Contact = () => {
     window.addEventListener("resize", debouncedResize);
     return () => window.removeEventListener("resize", debouncedResize);
   }, []);
-
-  // Reset current index when items per slide changes
-  useEffect(() => {
-    if (currentIndex !== 0) {
-      setCurrentIndex(0);
-    }
-  }, [itemsPerSlide]);
 
   const slidesCount = 2; // Message, Chat
   const totalSlides = Math.ceil(slidesCount / itemsPerSlide);
@@ -127,7 +128,7 @@ export const Contact = () => {
         templateParams,
         {
           publicKey: import.meta.env.VITE_PUBLIC_KEY,
-        }
+        },
       )
       .then(
         () => {
@@ -138,7 +139,7 @@ export const Contact = () => {
           if (form.current) form.current.reset();
           setIsSending(false);
         },
-        (error) => {
+        () => {
           // console.error("EmailJS Error handled");
           toast({
             variant: "destructive",
@@ -147,7 +148,7 @@ export const Contact = () => {
               "Sorry, I couldn't send your message. Please try again or email me directly at saksham22sg@gmail.com",
           });
           setIsSending(false);
-        }
+        },
       );
   };
 
@@ -236,7 +237,7 @@ export const Contact = () => {
 
   const visibleSlides = allSlides.slice(
     currentIndex * itemsPerSlide,
-    (currentIndex + 1) * itemsPerSlide
+    (currentIndex + 1) * itemsPerSlide,
   );
 
   return (

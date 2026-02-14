@@ -10,7 +10,6 @@ import { Contact } from "../components/Contact";
 
 export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [isNameLoaded, setIsNameLoaded] = useState(false);
 
   useEffect(() => {
     const checkTheme = () => {
@@ -25,16 +24,6 @@ export const Home = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const handleTypingComplete = () => {
-      setIsNameLoaded(true);
-    };
-
-    window.addEventListener("typingComplete", handleTypingComplete);
-    return () =>
-      window.removeEventListener("typingComplete", handleTypingComplete);
   }, []);
 
   return (

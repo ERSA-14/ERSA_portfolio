@@ -22,7 +22,6 @@ import {
   SiExpress,
 } from "react-icons/si";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
-import { Database } from "lucide-react";
 
 const skillIcons = {
   Python: FaPython,

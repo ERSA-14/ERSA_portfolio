@@ -173,7 +173,7 @@ export const ChatWithMe = () => {
 
       if (!apiKey) {
         throw new Error(
-          "API configuration is missing. Please try again later."
+          "API configuration is missing. Please try again later.",
         );
       }
 
@@ -209,27 +209,27 @@ export const ChatWithMe = () => {
               maxOutputTokens: 1200,
             },
           }),
-        }
+        },
       );
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
+        const _errorData = await response.json().catch(() => ({}));
         // console.error("Gemini API error handled");
 
         if (response.status === 429) {
           throw new Error(
-            "I'm receiving too many messages right now. Please wait a moment."
+            "I'm receiving too many messages right now. Please wait a moment.",
           );
         }
 
         if (response.status === 401 || response.status === 403) {
           throw new Error(
-            "AI Authentication failed. The API key might be invalid or expired."
+            "AI Authentication failed. The API key might be invalid or expired.",
           );
         }
 
         throw new Error(
-          `Connection issue (Status ${response.status}). Please try again later.`
+          `Connection issue (Status ${response.status}). Please try again later.`,
         );
       }
 
@@ -238,7 +238,7 @@ export const ChatWithMe = () => {
       // Handle blocked content or empty responses
       if (data.promptFeedback?.blockReason) {
         throw new Error(
-          "I cannot respond to this message due to safety filters."
+          "I cannot respond to this message due to safety filters.",
         );
       }
 
@@ -335,7 +335,7 @@ export const ChatWithMe = () => {
           autoComplete="off"
           disabled={isLoading}
           aria-label="Chat Input"
-          className="flex-1 responsive-input rounded-full disabled:opacity-100"
+          className="flex-1 responsive-input rounded-lg disabled:opacity-100 "
         />
         <button
           type="submit"
