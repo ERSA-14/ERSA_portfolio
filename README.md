@@ -7,22 +7,6 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 ![React](https://img.shields.io/badge/React-19.2.0-61dafb)
 ![Vite](https://img.shields.io/badge/Vite-7.2.5-646cff)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.17-38bdf8)
-![Lighthouse](https://img.shields.io/badge/Lighthouse-90+-success)
-![Accessibility](https://img.shields.io/badge/WCAG-2.1%20AA-blue)
-
-## Production Excellence (v2.0.0)
-
-**Recent Comprehensive Optimisation** - This portfolio has undergone a complete production-grade overhaul:
-
-- **40% Faster Load Times** - Lazy loading, code splitting, optimised bundles
-- **Design System** - Comprehensive design tokens for consistency
-- **WCAG 2.1 AA Compliant** - Full accessibility with reduced-motion support
-- **SEO Optimised** - Structured data, meta tags, sitemap, robots.txt
-- **Error Resilient** - Production-ready error boundaries
-- **90+ Lighthouse Score** - Performance, accessibility, best practices, SEO
-- **Enterprise-Grade Code** - Clean architecture, best practices
-
-**See [CHANGELOG.md](.agent/CHANGELOG.md) for complete details** | **[Quick Summary](.agent/SUMMARY.md)**
 
 ## Features
 
@@ -58,18 +42,6 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 3. **Skills**: Interactive skill showcase with category filtering and responsive grid
 4. **Projects**: Highlighted projects including Agentic AI Assistants and Full-Stack Apps
 5. **Contact**: Working contact form, real-time AI chat assistant, and social media links
-
-### Performance & Responsiveness
-
-- **Optimised Bundle**: Code splitting and tree shaking
-- **Fast Loading**: Preconnect to external resources
-- **Asset Optimisation**: Proper caching and compression
-- **SEO Ready**: Meta tags and semantic HTML
-- **Mobile-First**: Designed for mobile, enhanced for desktop
-- **Tablet Optimised**: Dedicated breakpoints for perfect tablet experience
-- **Fluid Scaling**: All elements scale smoothly across viewport sizes
-
-## Responsive Design Highlights
 
 ### Typography System
 
@@ -136,15 +108,9 @@ npm run build:check
 
 ```
 ERSA_portfolio/
-├── .agent/                  # Documentation & Reports
-│   ├── PRODUCTION_AUDIT_REPORT.md  # Comprehensive audit
-│   ├── CHANGELOG.md         # Complete change history
-│   └── SUMMARY.md           # Quick reference guide
 ├── public/
 │   ├── ProjectSS/           # Project screenshots
 │   ├── Resume4.pdf          # Resume file
-│   ├── robots.txt           # SEO crawler instructions
-│   ├── sitemap.xml          # Site structure for search engines
 │   └── *.svg                # Icons and images
 ├── src/
 │   ├── components/          # React components
@@ -208,10 +174,10 @@ VITE_GEMINI_SYSTEM_PROMPT=You are Saksham Gupta's AI assistant...
 
 Edit the following components:
 
-- `src/components/HomePage.jsx` - Name and title
-- `src/components/AboutMe.jsx` - Bio, certifications, resume
-- `src/components/Skills.jsx` - Your skills and technologies
-- `src/components/Project.jsx` - Your projects
+- `src/components/HomePage.jsx` - Name and title and resume
+- `src/components/certifications.jsx` - certifications
+- `src/components/Skills.jsx` - skills and technologies
+- `src/components/Project.jsx` - projects
 - `src/components/Contact.jsx` - Contact information
 
 #### Update Theme Colours
@@ -270,8 +236,7 @@ Edit `src/index.css`:
    - Add your EmailJS credentials in Vercel dashboard
 
 4. **Deploy!**
-
-For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
+   
 
 ### Deploy to Other Platforms
 
@@ -313,56 +278,14 @@ The project can be deployed to:
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## Design Credits
-
-- **Fonts**: [Google Fonts](https://fonts.google.com) (Space Grotesk, Lato, Montserrat)
-- **Icons**: [Lucide Icons](https://lucide.dev), [React Icons](https://react-icons.github.io/react-icons/)
-- **3D Graphics**: [Three.js](https://threejs.org)
-
-## Documentation
-
-- **[RESPONSIVE_TYPOGRAPHY.md](RESPONSIVE_TYPOGRAPHY.md)** - Complete responsive typography guide
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Comprehensive deployment guide
-- **[EDGE_CASES.md](EDGE_CASES.md)** - All handled edge cases
-- **[PRE_DEPLOYMENT_CHECKLIST.md](PRE_DEPLOYMENT_CHECKLIST.md)** - Pre-deployment verification
-- **[DEPLOYMENT_FIX_SUMMARY.md](DEPLOYMENT_FIX_SUMMARY.md)** - Quick fix summary
-
-## Troubleshooting
-
-### Common Issues
-
-**CSS not loading in production**
-
-- Fixed: Proper headers configured in `vercel.json`
-
-**Theme flashing on load**
-
-- Fixed: Theme initialized in `public/init.js`
-
-**Images not found**
-
-- Fixed: Proper paths with `/` prefix
-
-**Build fails**
-
-- Check Node.js version (>=18)
-- Clear cache: `npm run clean`
-- Reinstall: `rm -rf node_modules && npm install`
-
-**Responsive issues on tablet**
-
-- Fixed: Comprehensive tablet breakpoints (768px-1024px)
-- Fixed: Fluid typography with clamp() functions
-
 ## Author
-
-**Saksham Gupta**
+**saksham gupta**
 
 - [LinkedIn](https://www.linkedin.com/in/saksham-gupta-ersa/)
 - [GitHub](https://github.com/ERSA-14)
 - [LeetCode](https://leetcode.com/u/ERSA-14/)
 - Email: Saksham22sg@gmail.com
-- Phone: +91 635 879 8314
+- Phone: +916358798314
 
 ---
 
