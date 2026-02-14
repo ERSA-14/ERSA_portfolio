@@ -283,8 +283,10 @@ export const Contact = () => {
                       rel="noopener noreferrer"
                       className="text-muted-foreground"
                     >
-                      <h4 className="font-semibold text-left text-sm">Email</h4>
-                      <span className="hover:text-primary text-sm block">
+                      <h4 className="font-semibold text-left text-base">
+                        Email
+                      </h4>
+                      <span className="hover:text-primary text-base block">
                         Saksham22sg@gmail.com
                       </span>
                     </a>
@@ -304,10 +306,10 @@ export const Contact = () => {
                       href="tel:+916358798314"
                       className="text-muted-foreground"
                     >
-                      <h4 className="font-semibold text-left text-sm">
+                      <h4 className="font-semibold text-left text-base">
                         Contact Number
                       </h4>
-                      <span className="hover:text-primary text-sm block">
+                      <span className="hover:text-primary text-base block">
                         +91 635 879 8314
                       </span>
                     </a>
@@ -331,10 +333,10 @@ export const Contact = () => {
                       rel="noopener noreferrer"
                       className="text-muted-foreground"
                     >
-                      <h4 className="font-semibold text-left text-sm">
+                      <h4 className="font-semibold text-left text-base">
                         Location
                       </h4>
-                      <span className="text-sm block hover:text-primary">
+                      <span className="text-base block hover:text-primary">
                         Bhopal, Madhya Pradesh, India
                       </span>
                     </a>

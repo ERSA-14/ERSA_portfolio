@@ -185,7 +185,7 @@
 
   html {
     @apply scroll-smooth snap-y snap-mandatory;
-    font-size: 1rem;
+    font-size: 95%; /* 16px base — industry standard for readability */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -203,41 +203,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  /* Mobile phones - smallest screens → BIGGEST text */
-  @media (max-width: 640px) {
-    html {
-      font-size: 1.15rem; /* ~18.4px - biggest for mobile */
-    }
-  }
-
-  /* Tablets portrait and small tablets */
-  @media (min-width: 641px) and (max-width: 768px) {
-    html {
-      font-size: 1.1rem; /* ~17.6px */
-    }
-  }
-
-  /* Tablets landscape and medium tablets */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    html {
-      font-size: 1.05rem; /* ~16.8px */
-    }
-  }
-
-  /* Large tablets and small desktops */
-  @media (min-width: 1025px) and (max-width: 1280px) {
-    html {
-      font-size: 1rem; /* ~16px */
-    }
-  }
-
-  /* Desktop and larger → SMALLEST text */
-  @media (min-width: 1281px) {
-    html {
-      font-size: 0.95rem; /* ~15.2px - smallest for large desktop */
-    }
+    align-items: center;
   }
 
   body {
@@ -246,7 +212,7 @@
     overflow-x: hidden;
     width: 100%;
     min-height: 100vh;
-    font-size: inherit; /* Inherits from html responsive sizing */
+    font-size: var(--text-base);
   }
 
   @media (min-width: 1024px) {
@@ -263,90 +229,63 @@
     }
   }
 
-  /* Paragraph text - scales responsively */
+  /* Paragraph text — uses token for consistent sizing */
   p {
     font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-weight: var(--font-medium);
-    line-height: 1.45;
-    font-size: clamp(var(--text-sm), 0.8125rem + 0.3vw, var(--text-lg));
-    word-spacing: 0.1em; /* Increased word spacing for readability */
-    letter-spacing: 0.02em; /* Add letter spacing */
+    font-size: var(--text-base);
+    line-height: 1.6;
+    word-spacing: 0.05em;
+    letter-spacing: 0.01em;
   }
 
-  /* Mobile-specific paragraph sizing */
-  @media (max-width: 640px) {
-    p {
-      font-size: var(--text-base); /* Bigger on smaller screens */
-      line-height: 1.45;
-    }
-  }
-
-  /* All headings - shared properties */
+  /* All headings – shared properties */
   h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-weight: 800;
-    letter-spacing: 0.01em; /* Positive letter spacing for headings */
+    letter-spacing: -0.01em;
     margin-bottom: 0.5em;
-    word-spacing: 0.08em; /* Increased word spacing */
+    word-spacing: 0.05em;
   }
 
-  /* H1 - Largest heading, hero text */
+  /* H1 – Hero text */
   h1 {
-    font-size: clamp(var(--text-3xl), 1.25rem + 3vw, var(--text-5xl));
-    line-height: 1.1; /* Tighter for impact */
+    font-size: var(--text-5xl);
+    line-height: 1.1;
     font-weight: 800;
   }
 
-  @media (max-width: 640px) {
-    h1 {
-      font-size: var(--text-4xl); /* Bigger on mobile */
-      line-height: 1.15;
-    }
-  }
-
-  /* H2 - Section headings */
+  /* H2 – Section headings */
   h2 {
-    font-size: clamp(var(--text-2xl), 1rem + 2.5vw, var(--text-4xl));
-    line-height: 1.15; /* Tighter */
+    font-size: var(--text-4xl);
+    line-height: 1.15;
     font-weight: var(--font-bold);
   }
 
-  @media (max-width: 640px) {
-    h2 {
-      font-size: var(--text-3xl); /* Bigger on mobile */
-    }
-  }
-
-  /* H3 - Subsection headings */
+  /* H3 – Subsection headings */
   h3 {
-    font-size: clamp(var(--text-xl), 0.875rem + 2vw, var(--text-3xl));
-    line-height: 1.25; /* Tighter */
+    font-size: var(--text-3xl);
+    line-height: 1.25;
     font-weight: var(--font-bold);
   }
 
-  @media (max-width: 640px) {
-    h3 {
-      font-size: var(--text-2xl); /* Bigger on mobile */
-    }
-  }
-
-  /* H4 - Card titles, smaller sections */
+  /* H4 – Card titles, smaller sections */
   h4 {
-    font-size: clamp(var(--text-lg), 0.875rem + 1.25vw, var(--text-xl));
-    line-height: 1.3; /* Tighter */
+    font-size: var(--text-2xl);
+    line-height: 1.3;
     font-weight: var(--font-semibold);
   }
 
-  /* H5 - Small headings */
+  /* H5 – Small headings */
   h5 {
-    font-size: clamp(var(--text-base), 0.875rem + 0.875vw, var(--text-lg));
-    line-height: 1.45;
+    font-size: var(--text-xl);
+    line-height: 1.4;
     font-weight: var(--font-semibold);
   }
 
-  /* H6 - Smallest headings */
+  /* H6 – Smallest headings */
   h6 {
-    font-size: clamp(var(--text-sm), 0.875rem + 0.5vw, var(--text-base));
+    font-size: var(--text-lg);
     line-height: 1.5;
     font-weight: var(--font-semibold);
   }
@@ -377,7 +316,6 @@ img {
 
 @media (max-width: 640px) {
   * { -webkit-tap-highlight-color: transparent; }
-  body { font-size: inherit; /* Inherits from html responsive sizing */ }
 }
 
 .text-glow {
@@ -448,9 +386,8 @@ img {
               transform var(--duration-fast) var(--ease-smooth),
               border-color var(--duration-fast) var(--ease-smooth);
   
-  /* Padding & font size: Larger on mobile, standard on desktop */
-  padding: 0.45rem 1.35rem;
-  font-size: 1.15rem; 
+  padding: 0.5rem 1.5rem;
+  font-size: var(--text-sm); /* 14px mobile, consistent */
   
   white-space: nowrap;
   
@@ -463,8 +400,8 @@ img {
 
 @media (min-width: 768px) {
   .cosmic-button {
-    padding: 0.55rem 1.75rem;
-    font-size: 1rem; /* Smaller on larger screens as requested */
+    padding: 0.625rem 1.75rem;
+    font-size: var(--text-base); /* 16px on tablet+ */
   }
 }
 
@@ -489,8 +426,8 @@ img {
 .view-resume-button {
   transition: background-color var(--duration-fast) var(--ease-smooth);
   /* Matching cosmic-button metrics */
-  padding: 0.45rem 1.35rem;
-  font-size: 1.15rem; /* Larger on mobile */
+  padding: 0.5rem 1.5rem;
+  font-size: var(--text-sm);
   
   white-space: nowrap;
   
@@ -502,8 +439,8 @@ img {
 
 @media (min-width: 768px) {
   .view-resume-button {
-    padding: 0.55rem 1.75rem;
-    font-size: 1rem; /* Smaller on larger screens */
+    padding: 0.625rem 1.75rem;
+    font-size: var(--text-base);
   }
 }
 
@@ -671,8 +608,8 @@ img {
 }
 
 .chat-message-text {
-  font-size: 0.875rem;
-  line-height: 1.4;
+  font-size: var(--text-base);
+  line-height: 1.5;
   font-family: 'Cause', sans-serif;
   font-weight: 600;
 }
@@ -701,21 +638,32 @@ img {
 /* Responsive Input */
 .responsive-input {
   @apply w-full rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden;
-  font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
-  /* Reduced vertical padding, ensuring horizontal padding accommodates rounded corners */
-  padding: clamp(0.2rem, 0.15rem + 0.2vw, 0.35rem) clamp(0.85rem, 0.6rem + 0.5vw, 1rem);
+  font-size: var(--text-sm);
+  padding: 0.375rem 0.875rem;
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+@media (min-width: 768px) {
+  .responsive-input {
+    font-size: var(--text-base);
+    padding: 0.5rem 1rem;
+  }
+}
+
 .responsive-input::placeholder {
-  font-size: 0.85em; /* Smaller placeholder text */
-  opacity: 0.8;
+  font-size: 0.9em;
+  opacity: 0.7;
 }
 
 textarea.responsive-input {
   @apply rounded-xl;
-  /* Slightly more vertical padding for textarea to look balanced */
-  padding: clamp(0.4rem, 0.35rem + 0.25vw, 0.6rem) clamp(0.85rem, 0.6rem + 0.5vw, 1rem);
+  padding: 0.5rem 0.875rem;
+}
+
+@media (min-width: 768px) {
+  textarea.responsive-input {
+    padding: 0.625rem 1rem;
+  }
 }
 
 /* About Me Paragraph Styles */
@@ -741,4 +689,10 @@ textarea.responsive-input {
   font-size: var(--text-base);
   line-height: 1.6;
   letter-spacing: 0.015em;
+}
+
+/* Typing cursor in HomePage hero */
+.typing-cursor {
+  font-size: 1em;
+  font-weight: 200;
 }

@@ -29,7 +29,7 @@ export const HomePage = () => {
   }, [displayedText, fullText]);
 
   return (
-    <section id="Home" className="relative opacity-100 pt-24">
+    <section id="Home" className="relative opacity-100">
       <div className="container max-w-6xl mx-auto text-center z-10">
         <div className="space-y-6 ">
           <h1 className="text-4xl md:text-6xl font-bold flex flex-wrap md:flex-nowrap justify-center gap-x-3 gap-y-2">
@@ -38,10 +38,7 @@ export const HomePage = () => {
             </span>
             <span className="text-primary whitespace-nowrap font-bold">
               {displayedText}
-              <span
-                className="animate-pulse inline-block"
-                style={{ fontSize: "1em", fontWeight: "200" }}
-              >
+              <span className="animate-pulse inline-block typing-cursor">
                 |
               </span>
             </span>

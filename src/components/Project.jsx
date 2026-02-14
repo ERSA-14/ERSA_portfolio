@@ -143,7 +143,7 @@ export const Project = () => {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 items-center justify-center text-xs font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white font-['Roboto_Mono']"
+                        className="px-2 py-1 items-center justify-center text-sm font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white font-['Roboto_Mono']"
                       >
                         {tag}
                       </span>

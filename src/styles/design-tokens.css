@@ -110,20 +110,22 @@
 
   /* ============================================
      TYPOGRAPHY SCALE
+     Industry-standard modular scale (~1.25 ratio)
+     Base: 1rem = 16px (browser default)
      ============================================ */
   
-  /* Font Sizes - Base values (used on mobile / smallest screens = BIGGEST) */
-  --text-xs: 0.925rem;   /* ~14.8px */
-  --text-sm: 1.1rem;     /* ~17.6px */
-  --text-base: 1.25rem;  /* ~20px */
-  --text-lg: 1.375rem;   /* ~22px */
+  /* Body Text Sizes */
+  --text-xs: 0.8125rem;  /* 13px – fine print, captions */
+  --text-sm: 0.9375rem;  /* 15px – secondary text, labels */
+  --text-base: 1rem;     /* 16px – body text */
+  --text-lg: 1.125rem;   /* 18px – lead paragraphs */
   
-  /* Headings */
-  --text-xl: 1.5rem;     /* ~24px */
-  --text-2xl: 1.9rem;    /* ~30.4px */
-  --text-3xl: 2.45rem;   /* ~39.2px */
-  --text-4xl: 3.25rem;   /* ~52px */
-  --text-5xl: 4.35rem;   /* ~69.6px */
+  /* Heading Sizes (mobile-first, scales up with breakpoints) */
+  --text-xl: 1.25rem;    /* 20px – h5, card titles */
+  --text-2xl: 1.5rem;    /* 24px – h4, subsections */
+  --text-3xl: 1.875rem;  /* 30px – h3, section subheads */
+  --text-4xl: 2.25rem;   /* 36px – h2, section titles */
+  --text-5xl: 3rem;      /* 48px – h1, hero text */
 
   /* Font Weights */
   --font-light: 300;
@@ -135,8 +137,9 @@
   /* Line Heights */
   --leading-none: 1;
   --leading-tight: 1.2;      /* Headings */
+  --leading-snug: 1.375;     /* Subheadings */
   --leading-normal: 1.5;     /* Body */
-  --leading-relaxed: 1.6;    /* Large text */
+  --leading-relaxed: 1.625;  /* Large text blocks */
 
   /* Letter Spacing */
   --tracking-tighter: -0.05em;
@@ -194,38 +197,41 @@
 
 /* ============================================
    RESPONSIVE TYPOGRAPHY SCALING
-   Smaller display → bigger text (base :root is biggest)
-   Larger display → smaller text (progressive reduction)
+   Mobile-first → scale headings UP on larger screens
+   Body text stays consistent; headings grow for impact
    ============================================ */
 
-/* Tablets (641px - 1023px): ~5% reduction from base */
-@media (min-width: 641px) and (max-width: 1023px) {
+/* Tablets (768px+): Headings scale up */
+@media (min-width: 768px) {
   :root {
-    --text-xs: 0.88rem;    /* ~14.1px */
-    --text-sm: 1.045rem;   /* ~16.7px */
-    --text-base: 1.19rem;  /* ~19px */
-    --text-lg: 1.305rem;   /* ~20.9px */
-    
-    --text-xl: 1.425rem;   /* ~22.8px */
-    --text-2xl: 1.805rem;  /* ~28.9px */
-    --text-3xl: 2.33rem;   /* ~37.3px */
-    --text-4xl: 3.09rem;   /* ~49.4px */
-    --text-5xl: 4.13rem;   /* ~66.1px */
+    --text-xl: 1.375rem;   /* 22px */
+    --text-2xl: 1.75rem;   /* 28px */
+    --text-3xl: 2.25rem;   /* 36px */
+    --text-4xl: 2.75rem;   /* 44px */
+    --text-5xl: 3.5rem;    /* 56px */
   }
 }
 
-/* Desktop (1024px+): ~10% reduction from base */
+/* Desktop (1024px+): Headings reach full scale */
 @media (min-width: 1024px) {
   :root {
-    --text-xs: 0.835rem;   /* ~13.4px */
-    --text-sm: 0.99rem;    /* ~15.8px */
-    --text-base: 1.125rem; /* ~18px */
-    --text-lg: 1.24rem;    /* ~19.8px */
-    
-    --text-xl: 1.35rem;    /* ~21.6px */
-    --text-2xl: 1.71rem;   /* ~27.4px */
-    --text-3xl: 2.2rem;    /* ~35.2px */
-    --text-4xl: 2.925rem;  /* ~46.8px */
-    --text-5xl: 3.9rem;    /* ~62.4px */
+    --text-xl: 1.5rem;     /* 24px */
+    --text-2xl: 2rem;      /* 32px */
+    --text-3xl: 2.5rem;    /* 40px */
+    --text-4xl: 3.25rem;   /* 52px */
+    --text-5xl: 4rem;      /* 64px */
+  }
+}
+
+/* Large Desktop (1440px+): Slight body bump for distance readability */
+@media (min-width: 1440px) {
+  :root {
+    --text-base: 1.0625rem;  /* 17px */
+    --text-lg: 1.1875rem;    /* 19px */
+    --text-xl: 1.5625rem;    /* 25px */
+    --text-2xl: 2.125rem;    /* 34px */
+    --text-3xl: 2.75rem;     /* 44px */
+    --text-4xl: 3.5rem;      /* 56px */
+    --text-5xl: 4.5rem;      /* 72px */
   }
 }
