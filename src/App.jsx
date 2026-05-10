@@ -7,6 +7,8 @@ import { ProjectDetail } from "./pages/ProjectDetail";
 import { Toaster } from "./components/ui/toaster";
 import { CustomCursor } from "./components/CustomCursor";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { NavBarWithProgress } from "./components/NavBarWithProgress";
+import { PageBackground } from "./components/PageBackground";
 import { initDynamicFavicon } from "./utils/dynamicFavicon";
 import "./styles/svg-styles.css";
 
@@ -50,6 +52,8 @@ function App() {
 			<CustomCursor />
 			<Toaster />
 			<BrowserRouter>
+				<PageBackground />
+				<NavBarWithProgress />
 				<Routes>
 					<Route index element={<Home />} />
 					<Route path="projects/:projectId" element={<ProjectDetail />} />

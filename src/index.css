@@ -206,14 +206,14 @@
 	textarea:focus,
 	input:not(:placeholder-shown),
 	textarea:not(:placeholder-shown) {
-		border-width: 2px !important;
-		border-style: solid !important;
-		transition: all var(--duration-fast) var(--ease-smooth) !important;
+		border-color: hsl(var(--primary)) !important;
+		transition: box-shadow var(--duration-fast) var(--ease-smooth),
+			border-color var(--duration-fast) var(--ease-smooth) !important;
 	}
 
 	html {
 		@apply scroll-smooth snap-y snap-mandatory;
-		font-size: 95%;
+		font-size: 80%;
 		/* 16px base — industry standard for readability */
 		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: antialiased;
@@ -228,11 +228,10 @@
 		contain: content;
 		will-change: transform;
 		/* Hint for compositing */
-		min-height: 100vh;
 		padding: clamp(2rem, 4vw, 4rem);
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
 	}
 
@@ -243,6 +242,17 @@
 		width: 100%;
 		min-height: 100vh;
 		font-size: var(--text-base);
+	}
+
+	/* Hide scrollbars globally */
+	* {
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	*::-webkit-scrollbar {
+		width: 0;
+		height: 0;
 	}
 
 	@media (min-width: 1024px) {
@@ -403,7 +413,7 @@ img {
 }
 
 .portfolio-scale {
-	transform: scale(0.9);
+	transform: scale(1);
 	transform-origin: top center;
 	width: 100%;
 }
@@ -724,7 +734,7 @@ img {
 
 /* Responsive Input */
 .responsive-input {
-	@apply w-full rounded-lg border border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden;
+	@apply w-full rounded-2xl border-2 border-input bg-background focus:ring-1 focus:ring-primary focus:border-primary focus:outline-hidden;
 	font-size: var(--text-sm);
 	padding: 0.375rem 0.875rem;
 	transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -743,7 +753,7 @@ img {
 }
 
 textarea.responsive-input {
-	@apply rounded-xl;
+	@apply rounded-2xl;
 	padding: 0.5rem 0.875rem;
 }
 
@@ -860,6 +870,17 @@ textarea.responsive-input {
 
 .readme-inline {
 	padding-top: 0;
+}
+
+.readme-hr {
+	border: none;
+	border-top: 2px solid hsl(var(--border));
+	margin: 1rem 0;
+}
+
+hr {
+	border: none;
+	border-top: 2px solid hsl(var(--border));
 }
 
 .readme-article .readme-img {

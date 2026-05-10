@@ -62,7 +62,7 @@ export const Project = () => {
 					Highlighted <span className="text-primary">Projects</span>
 				</h2>
 
-				<p className="text-center text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+				<p className="text-center text-lg md:text-xl text-muted-foreground mb-8 max-w-4xl lg:max-w-5xl mx-auto">
 					These projects{" "}
 					<span className="text-primary font-semibold">reflect my journey</span>{" "}
 					as a developer from conceptualisation to deployment. Each application
@@ -72,7 +72,7 @@ export const Project = () => {
 				</p>
 
 				{/* Carousel Container */}
-				<div className="relative bg-background rounded-lg px-6 py-8 shadow-sm border-b border-border/50 transition-all duration-300">
+				<div className="relative bg-card/80 rounded-2xl px-6 py-8 shadow-sm transition-all duration-300">
 					{/* Project Cards */}
 					<div
 						className={`grid gap-6 md:gap-8 transition-all duration-300 ${itemsPerSlide === 3
@@ -122,7 +122,7 @@ export const Project = () => {
 										{project.tags.map((tag) => (
 											<span
 												key={tag}
-												className="px-2 py-1 items-center justify-center text-sm font-medium bg-secondary text-secondary-foreground rounded-full dark:border-2 dark:border-white font-['Roboto_Mono']"
+												className="px-2 py-1 text-sm md:text-base font-bold font-['Roboto_Mono'] bg-transparent text-foreground border-none"
 											>
 												{tag}
 											</span>

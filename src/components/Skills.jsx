@@ -16,10 +16,12 @@ import {
 	SiMysql,
 	SiPostman,
 	SiJavascript,
-	SiDjango,
+	SiTypescript,
 	SiPostgresql,
 	SiBootstrap,
 	SiExpress,
+	SiDocker,
+	SiGooglecloud,
 } from "react-icons/si";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 
@@ -36,16 +38,18 @@ const skillIcons = {
 	Next: TbBrandNextjs,
 	"Tailwind CSS": TbBrandTailwind,
 	Bootstrap: SiBootstrap,
-	Django: SiDjango,
+	TypeScript: SiTypescript,
 	Node: FaNodeJs,
 	Express: SiExpress,
 	MySQL: SiMysql,
 	Postgres: SiPostgresql,
-	"Oracle DBMS": FaDatabase,
+	"Oracle DB": FaDatabase,
 	AWS: FaAws,
+	GCP: SiGooglecloud,
 	"Oracle Cloud": OracleSkillIcon,
 	Git: FaGitAlt,
 	GitHub: FaGithub,
+	Docker: SiDocker,
 	Postman: SiPostman,
 	Linux: FaLinux,
 };
@@ -53,8 +57,9 @@ const skillIcons = {
 const skills = [
 	{ name: "AWS", category: "Cloud" },
 	{ name: "Bootstrap", category: "Frontend" },
-	{ name: "Django", category: "Backend" },
+	{ name: "Docker", category: "Dev Tools" },
 	{ name: "Express", category: "Backend" },
+	{ name: "GCP", category: "Cloud" },
 	{ name: "Git", category: "Dev Tools" },
 	{ name: "GitHub", category: "Dev Tools" },
 	{ name: "Java", category: "Programming Language" },
@@ -64,12 +69,13 @@ const skills = [
 	{ name: "Next", category: "Frontend" },
 	{ name: "Node", category: "Backend" },
 	{ name: "Oracle Cloud", category: "Cloud" },
-	{ name: "Oracle DBMS", category: "Database" },
+	{ name: "Oracle DB", category: "Database" },
 	{ name: "Postgres", category: "Database" },
 	{ name: "Postman", category: "Dev Tools" },
 	{ name: "Python", category: "Programming Language" },
 	{ name: "React", category: "Frontend" },
 	{ name: "Tailwind CSS", category: "Frontend" },
+	{ name: "TypeScript", category: "Programming Language" },
 ];
 
 const categories = [
@@ -104,7 +110,7 @@ export const Skills = () => {
 					My <span className="text-primary">Skillset</span>
 				</h2>
 
-				<p className="text-center text-lg md:text-xl text-muted-foreground mb-6 max-w-3xl mx-auto">
+				<p className="text-center text-lg md:text-xl text-muted-foreground mb-6 max-w-4xl lg:max-w-5xl mx-auto">
 					A <span className="text-primary font-semibold">comprehensive </span>{" "}
 					toolkit spanning frontend frameworks, backend technologies, and cloud
 					infrastructure. These are the technologies I work with regularly to

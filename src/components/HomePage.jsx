@@ -2,78 +2,81 @@ import { useState, useEffect, useRef } from "react";
 import { FileDown } from "lucide-react";
 
 export const HomePage = () => {
-  const [displayedText, setDisplayedText] = useState("");
-  const fullText = "Saksham Gupta";
-  const typingCompleteDispatched = useRef(false);
+	const [displayedText, setDisplayedText] = useState("");
+	const fullText = "Saksham Gupta";
+	const typingCompleteDispatched = useRef(false);
 
-  // Derive typing completion from displayedText
-  const firstTypingComplete = displayedText === fullText;
+	// Derive typing completion from displayedText
+	const firstTypingComplete = displayedText === fullText;
 
-  // Handle typing animation
-  useEffect(() => {
-    if (displayedText === fullText) {
-      // Dispatch completion event once
-      if (!typingCompleteDispatched.current) {
-        typingCompleteDispatched.current = true;
-        window.dispatchEvent(new Event("typingComplete"));
-      }
-      return;
-    }
+	// Handle typing animation
+	useEffect(() => {
+		if (displayedText === fullText) {
+			// Dispatch completion event once
+			if (!typingCompleteDispatched.current) {
+				typingCompleteDispatched.current = true;
+				window.dispatchEvent(new Event("typingComplete"));
+			}
+			return;
+		}
 
-    const typingSpeed = Math.random() * 130 + 80;
-    const timeout = setTimeout(() => {
-      setDisplayedText(fullText.substring(0, displayedText.length + 1));
-    }, typingSpeed);
+		const typingSpeed = Math.random() * 130 + 80;
+		const timeout = setTimeout(() => {
+			setDisplayedText(fullText.substring(0, displayedText.length + 1));
+		}, typingSpeed);
 
-    return () => clearTimeout(timeout);
-  }, [displayedText, fullText]);
+		return () => clearTimeout(timeout);
+	}, [displayedText, fullText]);
 
-  return (
-    <section id="Home" className="relative opacity-100">
-      <div className="container max-w-6xl mx-auto text-center z-10">
-        <div className="space-y-6 ">
-          <h1 className="text-4xl md:text-6xl font-bold flex flex-wrap md:flex-nowrap justify-center gap-x-3 gap-y-2">
-            <span className="opacity-0 animate-fade-in whitespace-nowrap">
-              Hello, I'm
-            </span>
-            <span className="text-primary whitespace-nowrap font-bold">
-              {displayedText}
-              <span className="animate-pulse inline-block typing-cursor">
-                |
-              </span>
-            </span>
-          </h1>
-          {firstTypingComplete && (
-            <>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto opacity-0 animate-fade-in-delay-3">
-                A
-                <span className="text-primary text-xl md:text-2xl font-semibold">
-                  {"  "}
-                  Software Engineer{"  "}
-                </span>
-                and Automation Enthusiast specialising in efficient, scalable
-                applications built with modern technologies and frameworks. From
-                intuitive user interfaces to powerful backend architectures, I
-                create cloud-native solutions that prioritise performance,
-                security, and user experience consistently delivering quality
-                software that solves real problems.
-                <span> </span>{" "}
-              </p>
+	return (
+		<section
+			id="Home"
+			className="relative opacity-100 flex items-center justify-center min-h-[calc(100vh-6rem)] py-16 md:py-24"
+		>
+			<div className="container max-w-7xl w-full mx-auto text-center z-10">
+				<div className="space-y-6 ">
+					<h1 className="text-4xl md:text-6xl font-bold flex flex-wrap md:flex-nowrap justify-center gap-x-3 gap-y-2">
+						<span className="opacity-0 animate-fade-in whitespace-nowrap">
+							Hello, I'm
+						</span>
+						<span className="text-primary whitespace-nowrap font-bold">
+							{displayedText}
+							<span className="animate-pulse inline-block typing-cursor">
+								|
+							</span>
+						</span>
+					</h1>
+					{firstTypingComplete && (
+						<>
+							<p className="text-lg md:text-xl text-muted-foreground max-w-4xl lg:max-w-5xl mx-auto opacity-0 animate-fade-in-delay-3">
+								A
+								<span className="text-primary text-xl md:text-2xl font-semibold">
+									{"  "}
+									Software Engineer{"  "}
+								</span>
+								and Automation Enthusiast specialising in efficient, scalable
+								applications built with modern technologies and frameworks. From
+								intuitive user interfaces to powerful backend architectures, I
+								create cloud-native solutions that prioritise performance,
+								security, and user experience consistently delivering quality
+								software that solves real problems.
+								<span> </span>{" "}
+							</p>
 
-              <div className="mt-12 opacity-0 animate-fade-in-delay-4">
-                <a
-                  href="/FinalResume30.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cosmic-button scale-110 w-fit text-4xl md:text-5xl px-20 py-10 tracking-widest transition-transform duration-300"
-                >
-                  View Resume <FileDown className="w-16 h-16 md:w-20 md:h-20" />
-                </a>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-    </section>
-  );
+							<div className="mt-12 opacity-0 animate-fade-in-delay-4">
+								<a
+									href="/FinalResume30.pdf"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="cosmic-button scale-110 w-fit text-4xl md:text-5xl px-20 py-10 tracking-widest transition-transform duration-300"
+								>
+									View Resume <FileDown className="w-16 h-16 md:w-20 md:h-20" />
+								</a>
+							</div>
+						</>
+					)}
+				</div>
+			</div>
+		</section>
+	);
 };
