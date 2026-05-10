@@ -4,182 +4,189 @@ import { cn } from "../lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
-  { name: "Home", href: "#Home" },
-  { name: "Certifications", href: "#Certifications" },
-  { name: "Skills", href: "#Skills" },
-  { name: "Projects", href: "#Projects" },
-  { name: "Contact", href: "#Contact" },
+	{ name: "Home", href: "#Home" },
+	{ name: "Certifications", href: "#Certifications" },
+	{ name: "Skills", href: "#Skills" },
+	{ name: "Projects", href: "#Projects" },
+	{ name: "Contact", href: "#Contact" },
 ];
 
 export const NavBar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("Home");
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [activeSection, setActiveSection] = useState("Home");
 
-  useEffect(() => {
-    const detectActiveSection = () => {
-      // Offset to account for fixed navbar height
-      const navbarOffset = 80;
+	useEffect(() => {
+		const detectActiveSection = () => {
+			// Offset to account for fixed navbar height
+			const navbarOffset = 80;
 
-      // If at the very top of the page, always show Home
-      if (window.scrollY < 100) {
-        setActiveSection("Home");
-        return;
-      }
+			// If at the very top of the page, always show Home
+			if (window.scrollY < 100) {
+				setActiveSection("Home");
+				return;
+			}
 
-      let closestSection = "Home";
-      let closestDistance = Infinity;
+			let closestSection = "Home";
+			let closestDistance = Infinity;
 
-      navItems.forEach((item) => {
-        const sectionId = item.href.substring(1);
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // Distance from section top to just below the navbar
-          const distance = Math.abs(rect.top - navbarOffset);
+			navItems.forEach((item) => {
+				const sectionId = item.href.substring(1);
+				const element = document.getElementById(sectionId);
+				if (element) {
+					const rect = element.getBoundingClientRect();
+					// Distance from section top to just below the navbar
+					const distance = Math.abs(rect.top - navbarOffset);
 
-          // Pick the section whose top is closest to the navbar bottom
-          // but also consider sections that are currently covering the viewport
-          if (rect.top <= navbarOffset + 100 && rect.bottom > navbarOffset) {
-            // This section is currently under/past the navbar
-            if (distance < closestDistance) {
-              closestDistance = distance;
-              closestSection = sectionId;
-            }
-          }
-        }
-      });
+					// Pick the section whose top is closest to the navbar bottom
+					// but also consider sections that are currently covering the viewport
+					if (rect.top <= navbarOffset + 100 && rect.bottom > navbarOffset) {
+						// This section is currently under/past the navbar
+						if (distance < closestDistance) {
+							closestDistance = distance;
+							closestSection = sectionId;
+						}
+					}
+				}
+			});
 
-      setActiveSection(closestSection);
-    };
+			setActiveSection(closestSection);
+		};
 
-    window.addEventListener("scroll", detectActiveSection, { passive: true });
-    window.addEventListener("resize", detectActiveSection, { passive: true });
+		window.addEventListener("scroll", detectActiveSection, { passive: true });
+		window.addEventListener("resize", detectActiveSection, { passive: true });
 
-    // Initial check
-    detectActiveSection();
+		// Initial check
+		detectActiveSection();
 
-    return () => {
-      window.removeEventListener("scroll", detectActiveSection);
-      window.removeEventListener("resize", detectActiveSection);
-    };
-  }, []);
+		return () => {
+			window.removeEventListener("scroll", detectActiveSection);
+			window.removeEventListener("resize", detectActiveSection);
+		};
+	}, []);
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    const sectionId = href.substring(1);
+	const handleNavClick = (e, href) => {
+		e.preventDefault();
+		const sectionId = href.substring(1);
+		const isHomeRoute = window.location.pathname === "/";
 
-    // Special handling for Home - scroll to absolute top
-    if (sectionId === "Home") {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-      setActiveSection("Home");
-      setIsMobileMenuOpen(false);
-      return;
-    }
+		if (!isHomeRoute) {
+			window.location.href = `/${href}`;
+			setIsMobileMenuOpen(false);
+			return;
+		}
 
-    const section = document.getElementById(sectionId);
+		// Special handling for Home - scroll to absolute top
+		if (sectionId === "Home") {
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth",
+			});
+			setActiveSection("Home");
+			setIsMobileMenuOpen(false);
+			return;
+		}
 
-    if (section) {
-      // Find the first heading in the section to align with
-      const heading = section.querySelector("h1, h2, h3");
-      const targetElement = heading || section;
+		const section = document.getElementById(sectionId);
 
-      // Calculate position with a small offset for breathing room/navbar
-      const offset = 100; // Adjust this value based on your actual navbar height + padding
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - offset;
+		if (section) {
+			// Find the first heading in the section to align with
+			const heading = section.querySelector("h1, h2, h3");
+			const targetElement = heading || section;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+			// Calculate position with a small offset for breathing room/navbar
+			const offset = 100; // Adjust this value based on your actual navbar height + padding
+			const elementPosition = targetElement.getBoundingClientRect().top;
+			const offsetPosition = elementPosition + window.scrollY - offset;
 
-      // Update active section immediately
-      setActiveSection(sectionId);
-    }
-    setIsMobileMenuOpen(false);
-  };
+			window.scrollTo({
+				top: offsetPosition,
+				behavior: "smooth",
+			});
 
-  return (
-    <nav
-      className={cn(
-        "relative w-full z-40 transition-all duration-300 ease-smooth",
-        "py-4 bg-background shadow-sm",
-      )}
-    >
-      <div className="container mx-auto flex items-center justify-between px-6">
-        <a
-          className="text-2xl font-extrabold text-primary flex items-center gap-2 group !no-underline"
-          href="#Home"
-          aria-label="Home"
-          onClick={(e) => handleNavClick(e, "#Home")}
-        >
-          <span className="relative z-10">
-            <span className="text-foreground font-bold">Saksham Gupta's</span>{" "}
-            Portfolio
-          </span>
-        </a>
+			// Update active section immediately
+			setActiveSection(sectionId);
+		}
+		setIsMobileMenuOpen(false);
+	};
 
-        <div className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className={cn(
-                "text-base transition-colors duration-200",
-                activeSection === item.href.substring(1)
-                  ? "text-primary font-extrabold"
-                  : "font-semibold text-muted-foreground hover:text-primary",
-              )}
-            >
-              {item.name}
-            </a>
-          ))}
-          <ThemeToggle />
-        </div>
+	return (
+		<nav
+			className={cn(
+				"relative w-full z-40 transition-all duration-300 ease-smooth",
+				"py-4 bg-background shadow-sm",
+			)}
+		>
+			<div className="container mx-auto flex items-center justify-between px-6">
+				<a
+					className="text-2xl font-extrabold text-primary flex items-center gap-2 group !no-underline"
+					href="#Home"
+					aria-label="Home"
+					onClick={(e) => handleNavClick(e, "#Home")}
+				>
+					<span className="relative z-10">
+						<span className="text-foreground font-bold">Saksham Gupta's</span>{" "}
+						Portfolio
+					</span>
+				</a>
 
-        <div className="lg:hidden flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-foreground p-3 rounded-full hover:bg-secondary/50 transition-colors duration-200 cursor-pointer touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
-            aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? (
-              <CircleX className="icon-xl" />
-            ) : (
-              <Menu className="icon-xl" />
-            )}
-          </button>
-        </div>
-      </div>
+				<div className="hidden lg:flex items-center gap-6">
+					{navItems.map((item) => (
+						<a
+							key={item.name}
+							href={item.href}
+							onClick={(e) => handleNavClick(e, item.href)}
+							className={cn(
+								"text-base transition-colors duration-200",
+								activeSection === item.href.substring(1)
+									? "text-primary font-extrabold"
+									: "font-semibold text-muted-foreground hover:text-primary",
+							)}
+						>
+							{item.name}
+						</a>
+					))}
+					<ThemeToggle />
+				</div>
 
-      {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full right-4 mt-2 w-fit bg-background/95 backdrop-blur-md border border-primary rounded-xl p-2 flex flex-col gap-1 items-center shadow-2xl animate-in slide-in-from-top-2 fade-in duration-0 origin-top-right will-change-transform">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className={cn(
-                "text-base px-4 py-2 rounded-lg flex items-center justify-center w-full transition-colors duration-200",
-                activeSection === item.href.substring(1)
-                  ? "text-primary font-bold bg-secondary/50"
-                  : "font-semibold text-foreground hover:text-primary hover:bg-secondary/50",
-              )}
-              onClick={(e) => handleNavClick(e, item.href)}
-            >
-              {item.name}
-            </a>
-          ))}
-          <div className="py-4 mt-0 flex justify-center">
-            <ThemeToggle className="scale-[1.4] !border" />
-          </div>
-        </div>
-      )}
-    </nav>
-  );
+				<div className="lg:hidden flex items-center gap-2">
+					<button
+						type="button"
+						onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+						className="text-foreground p-3 rounded-full hover:bg-secondary/50 transition-colors duration-200 cursor-pointer touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+						aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
+						aria-expanded={isMobileMenuOpen}
+					>
+						{isMobileMenuOpen ? (
+							<CircleX className="icon-xl" />
+						) : (
+							<Menu className="icon-xl" />
+						)}
+					</button>
+				</div>
+			</div>
+
+			{isMobileMenuOpen && (
+				<div className="lg:hidden absolute top-full right-4 mt-2 w-fit bg-background/95 backdrop-blur-md border border-primary rounded-xl p-2 flex flex-col gap-1 items-center shadow-2xl animate-in slide-in-from-top-2 fade-in duration-0 origin-top-right will-change-transform">
+					{navItems.map((item) => (
+						<a
+							key={item.name}
+							href={item.href}
+							className={cn(
+								"text-base px-4 py-2 rounded-lg flex items-center justify-center w-full transition-colors duration-200",
+								activeSection === item.href.substring(1)
+									? "text-primary font-bold bg-secondary/50"
+									: "font-semibold text-foreground hover:text-primary hover:bg-secondary/50",
+							)}
+							onClick={(e) => handleNavClick(e, item.href)}
+						>
+							{item.name}
+						</a>
+					))}
+					<div className="py-4 mt-0 flex justify-center">
+						<ThemeToggle className="scale-[1.4] !border" />
+					</div>
+				</div>
+			)}
+		</nav>
+	);
 };

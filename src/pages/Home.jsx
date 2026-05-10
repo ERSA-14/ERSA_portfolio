@@ -9,44 +9,44 @@ import { Project } from "../components/Project";
 import { Contact } from "../components/Contact";
 
 export const Home = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+	const [isDarkMode, setIsDarkMode] = useState(true);
 
-  useEffect(() => {
-    const checkTheme = () => {
-      setIsDarkMode(document.documentElement.classList.contains("dark"));
-    };
-    checkTheme();
+	useEffect(() => {
+		const checkTheme = () => {
+			setIsDarkMode(document.documentElement.classList.contains("dark"));
+		};
+		checkTheme();
 
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
+		const observer = new MutationObserver(checkTheme);
+		observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ["class"],
+		});
 
-    return () => observer.disconnect();
-  }, []);
+		return () => observer.disconnect();
+	}, []);
 
-  return (
-    <div className="min-h-screen text-foreground overflow-x-hidden">
-      {!isDarkMode ? (
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <SpaceBackgroundLazy />
-        </div>
-      ) : (
-        <div className="fixed inset-0 pointer-events-none transition-opacity duration-300 z-10 opacity-100 animate-in fade-in">
-          <StarBackground />
-        </div>
-      )}
+	return (
+		<div className="min-h-screen text-foreground overflow-x-hidden portfolio-scale">
+			{!isDarkMode ? (
+				<div className="fixed inset-0 pointer-events-none z-0">
+					<SpaceBackgroundLazy />
+				</div>
+			) : (
+				<div className="fixed inset-0 pointer-events-none transition-opacity duration-300 z-10 opacity-100 animate-in fade-in">
+					<StarBackground />
+				</div>
+			)}
 
-      <NavBarWithProgress />
+			<NavBarWithProgress />
 
-      <main id="main-content" className="relative z-10">
-        <HomePage />
-        <Certifications />
-        <Skills />
-        <Project />
-        <Contact />
-      </main>
-    </div>
-  );
+			<main id="main-content" className="relative z-10">
+				<HomePage />
+				<Certifications />
+				<Skills />
+				<Project />
+				<Contact />
+			</main>
+		</div>
+	);
 };

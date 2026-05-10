@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
+import { ProjectDetail } from "./pages/ProjectDetail";
 import { Toaster } from "./components/ui/toaster";
 import { CustomCursor } from "./components/CustomCursor";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -10,52 +11,53 @@ import { initDynamicFavicon } from "./utils/dynamicFavicon";
 import "./styles/svg-styles.css";
 
 function App() {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-    });
+	useEffect(() => {
+		const lenis = new Lenis({
+			duration: 1.2,
+			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+			direction: "vertical",
+			gestureDirection: "vertical",
+			smooth: true,
+			mouseMultiplier: 1,
+			smoothTouch: false,
+			touchMultiplier: 2,
+		});
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
 
-    requestAnimationFrame(raf);
+		requestAnimationFrame(raf);
 
-    // Initialize dynamic favicon
-    const faviconObserver = initDynamicFavicon();
+		// Initialize dynamic favicon
+		const faviconObserver = initDynamicFavicon();
 
-    return () => {
-      lenis.destroy();
-      faviconObserver.disconnect();
-    };
-  }, []);
+		return () => {
+			lenis.destroy();
+			faviconObserver.disconnect();
+		};
+	}, []);
 
-  return (
-    <ErrorBoundary>
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-background text-foreground border-2 border-primary rounded-md font-medium transition-colors"
-      >
-        Skip to main content
-      </a>
-      <CustomCursor />
-      <Toaster />
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </ErrorBoundary>
-  );
+	return (
+		<ErrorBoundary>
+			<a
+				href="#main-content"
+				className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-background text-foreground border-2 border-primary rounded-md font-medium transition-colors"
+			>
+				Skip to main content
+			</a>
+			<CustomCursor />
+			<Toaster />
+			<BrowserRouter>
+				<Routes>
+					<Route index element={<Home />} />
+					<Route path="projects/:projectId" element={<ProjectDetail />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</BrowserRouter>
+		</ErrorBoundary>
+	);
 }
 
 export default App;
