@@ -114,18 +114,18 @@
      Base: 1rem = 16px (browser default)
      ============================================ */
   
-  /* Body Text Sizes */
-  --text-xs: 0.8125rem;  /* 13px – fine print, captions */
-  --text-sm: 0.9375rem;  /* 15px – secondary text, labels */
-  --text-base: 1rem;     /* 16px – body text */
-  --text-lg: 1.125rem;   /* 18px – lead paragraphs */
+  /* Body Text Sizes (Increased by 10% for mobile) */
+  --text-xs: 0.89375rem; /* was 0.8125rem */
+  --text-sm: 1.03125rem; /* was 0.9375rem */
+  --text-base: 1.1rem;   /* was 1rem */
+  --text-lg: 1.2375rem;  /* was 1.125rem */
   
-  /* Heading Sizes (mobile-first, scales up with breakpoints) */
-  --text-xl: 1.25rem;    /* 20px – h5, card titles */
-  --text-2xl: 1.5rem;    /* 24px – h4, subsections */
-  --text-3xl: 1.875rem;  /* 30px – h3, section subheads */
-  --text-4xl: 2.25rem;   /* 36px – h2, section titles */
-  --text-5xl: 3rem;      /* 48px – h1, hero text */
+  /* Heading Sizes (mobile-first, scales up with breakpoints, increased by 10% for mobile) */
+  --text-xl: 1.375rem;   /* was 1.25rem */
+  --text-2xl: 1.65rem;   /* was 1.5rem */
+  --text-3xl: 2.0625rem; /* was 1.875rem */
+  --text-4xl: 2.475rem;  /* was 2.25rem */
+  --text-5xl: 3.3rem;    /* was 3rem */
 
   /* Font Weights */
   --font-light: 300;
@@ -204,6 +204,12 @@
 /* Tablets (768px+): Headings scale up */
 @media (min-width: 768px) {
   :root {
+    /* Restore original body text sizes */
+    --text-xs: 0.8125rem;
+    --text-sm: 0.9375rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+
     --text-xl: 1.375rem;   /* 22px */
     --text-2xl: 1.75rem;   /* 28px */
     --text-3xl: 2.25rem;   /* 36px */

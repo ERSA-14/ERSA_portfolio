@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MoveUpRight, MoveUp, MoveDown } from "lucide-react";
+import { MoveUpRight, MoveUp, MoveDown, ScanSearch } from "lucide-react";
 import { FaAws } from "react-icons/fa";
 import { OracleIcon } from "./icons/OracleIcon";
 import { debounce } from "../utils/debounce";
@@ -80,6 +80,7 @@ const certifications = [
 export const Certifications = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [itemsPerSlide, setItemsPerSlide] = useState(1);
+	const [searchQuery, setSearchQuery] = useState("");
 	const prevItemsPerSlideRef = useRef(itemsPerSlide);
 
 	// Determine items per slide based on screen size
@@ -87,7 +88,7 @@ export const Certifications = () => {
 		const handleResize = () => {
 			let newItemsPerSlide;
 			if (window.innerWidth >= 1280) {
-				newItemsPerSlide = 3; // Large screens
+				newItemsPerSlide = 2; // Large screens
 			} else if (window.innerWidth >= 768) {
 				newItemsPerSlide = 2; // Medium screens
 			} else {
@@ -108,7 +109,20 @@ export const Certifications = () => {
 		return () => window.removeEventListener("resize", debouncedResize);
 	}, []);
 
-	const totalSlides = Math.ceil(certifications.length / itemsPerSlide);
+	useEffect(() => {
+		setCurrentIndex(0);
+	}, [searchQuery]);
+
+	const filteredCerts = certifications.filter((cert) => {
+		const query = searchQuery.toLowerCase();
+		return (
+			cert.title.toLowerCase().includes(query) ||
+			cert.issuer.toLowerCase().includes(query) ||
+			cert.description.toLowerCase().includes(query)
+		);
+	});
+
+	const totalSlides = Math.ceil(filteredCerts.length / itemsPerSlide) || 1;
 
 	const handlePrev = () => {
 		setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
@@ -118,7 +132,7 @@ export const Certifications = () => {
 		setCurrentIndex((prev) => (prev + 1) % totalSlides);
 	};
 
-	const visibleCerts = certifications.slice(
+	const visibleCerts = filteredCerts.slice(
 		currentIndex * itemsPerSlide,
 		(currentIndex + 1) * itemsPerSlide,
 	);
@@ -141,15 +155,32 @@ export const Certifications = () => {
 						tangible proof of my technical capabilities and dedication to
 						continuous learning.
 					</p>
+
+					{/* Search Bar */}
+					<div className="relative max-w-md mx-auto mb-8">
+						<input
+							type="text"
+							placeholder="search Credentials ..."
+							value={searchQuery}
+							onChange={(e) => setSearchQuery(e.target.value)}
+							className="responsive-input !pr-12"
+						/>
+						<ScanSearch className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-primary pointer-events-none" />
+					</div>
 				</div>
 
 				{/* Carousel Container */}
 				<div className="relative max-w-5xl mx-auto flex items-center gap-6 md:gap-10">
 					{/* Main Content Area */}
-					<div className="flex-1 flex flex-col justify-center gap-4 transition-all duration-500 w-full">
-						{visibleCerts.map((cert, index) => (
-							<div
-								key={index}
+					<div className="flex-1 flex flex-col justify-center gap-4 transition-all duration-500 w-full min-h-[300px]">
+						{filteredCerts.length === 0 ? (
+							<div className="flex flex-col items-center justify-center p-8 text-center bg-card gradient-border rounded-xl">
+								<p className="text-xl font-semibold text-muted-foreground">No certifications found matching "{searchQuery}"</p>
+							</div>
+						) : (
+							visibleCerts.map((cert, index) => (
+								<div
+									key={index}
 								className="bg-card gradient-border py-4 px-4 md:py-5 md:px-6 rounded-xl shadow-md card-hover flex flex-col md:flex-row items-center gap-4 md:gap-6 group relative overflow-hidden transition-all duration-300 border border-border/50 w-full animate-in fade-in slide-in-from-bottom-4 duration-500"
 							>
 								{/* Icon Container */}
@@ -209,7 +240,8 @@ export const Certifications = () => {
 									</a>
 								</div>
 							</div>
-						))}
+						))
+					)}
 					</div>
 
 					{/* Vertical Navigation Controls - Fixed to the side without overlap */}

@@ -89,17 +89,15 @@ export const NavBar = () => {
 		const section = document.getElementById(sectionId);
 
 		if (section) {
-			// Find the first heading in the section to align with
-			const heading = section.querySelector("h1, h2, h3");
-			const targetElement = heading || section;
-
-			// Calculate position with a small offset for breathing room/navbar
-			const offset = 100; // Adjust this value based on your actual navbar height + padding
-			const elementPosition = targetElement.getBoundingClientRect().top;
-			const offsetPosition = elementPosition + window.scrollY - offset;
+			const sectionRect = section.getBoundingClientRect();
+			const viewportHeight = window.innerHeight;
+			
+			// Calculate position to center the section vertically in the viewport
+			// We subtract half of the remaining viewport space from the section's top position
+			const offsetPosition = window.scrollY + sectionRect.top - (viewportHeight - sectionRect.height) / 2;
 
 			window.scrollTo({
-				top: offsetPosition,
+				top: Math.max(0, offsetPosition),
 				behavior: "smooth",
 			});
 
